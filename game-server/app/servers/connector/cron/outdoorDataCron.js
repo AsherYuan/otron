@@ -1,6 +1,5 @@
 var UserModel = require('../../../mongodb/models/UserModel');
 var WeatherModel = require('../../../mongodb/grabmodel/WeatherModel');
-var graber = require('../../../graber/graber');
 var cheerio = require('cheerio');
 var http = require("http");
 
@@ -50,6 +49,7 @@ Cron.prototype.currentData = function () {
 				humidity: hum,
 				pm: pm
 			});
+
 			WeatherEntity.save(function (err) {
 				if (err) console.log(err);
 				else {
@@ -63,7 +63,7 @@ Cron.prototype.currentData = function () {
 									temperature: tem,
 									humidity: hum,
 									pm25: pm,
-									addTime: addTime
+									addTime: new Date()
 								};
 								self.app.get('channelService').pushMessageByUids('onMsg', param, [{
 									uid: mobile,
@@ -105,7 +105,7 @@ Cron.prototype.currentData = function () {
 									temperature: tem,
 									humidity: hum,
 									pm25: pm,
-									addTime: addTime
+									addTime: new Date()
 								};
 								self.app.get('channelService').pushMessageByUids('onMsg', param, [{
 									uid: mobile,

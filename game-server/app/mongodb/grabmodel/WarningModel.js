@@ -6,7 +6,8 @@ var WarningScheme = new mongoose.Schema({
 	stat: {type: String, default: '无'},
 	title: {type: String, default: '无'},
 	txt: {type: String, default: '无'},
-	type: {type: String, default: '无'}
+	type: {type: String, default: '无'},
+	addTime : {type:Date, default: Date.now}
 });
 
 var WarningModel = mongoose.model('warning', WarningScheme);

@@ -1,4 +1,3 @@
-var Moment = require('moment');
 var NoticeModel = require('../../../mongodb/models/NoticeModel');
 var UserModel = require('../../../mongodb/models/UserModel');
 

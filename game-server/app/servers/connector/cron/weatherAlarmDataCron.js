@@ -27,6 +27,7 @@ Cron.prototype.currentData = function () {
 	};
 
 	var requestCallback = function (response) {
+
 		response.setEncoding('utf-8');
 		var receiveData = "";
 		response.on('data', function (chunk) {
