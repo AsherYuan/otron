@@ -154,6 +154,32 @@ Handler.prototype.login = function (msg, session, next) {
     }
 };
 
+
+Handler.prototype.manageLogin = function (msg, session, next) {
+    var self = this;
+    var username = msg.username;
+    var password = msg.password;
+    var sessionService = self.app.get('sessionService');
+    var channelService = self.app.get('channelService');
+    if(username == "admin" && password == "orz123") {
+        var sessionService = self.app.get('sessionService');
+        // 登录验证成功，处理session
+        sessionManager.addSession("admin", {status: 1, frontendId: session.frontendId});
+        session.on('closed', onUserLeave.bind(null, self.app));
+        session.bind(username);
+        // 将uid存入session中
+        session.set('adminUsername', username);
+
+        // 获取token返回
+        var token = tokenManager.create(username, authConfig.authSecret);
+        var ret = Code.OK;
+        ret.token = token;
+        next(null, ret);
+    } else {
+        next(null, Code.ACCOUNT.PASSWORD_NOT_CORRECT);
+    }
+};
+
 /**
  * 注册用户信息
  *

@@ -911,6 +911,47 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
     }
 };
 
+/**
+ * 向用户推送
+ * type可选 ['txt', 'pic', 'link', 'arch']
+ * 对应 文本，图片，链接，APP内部锚点
+ * @param msg
+ * @param session
+ * @param next
+ */
+Handler.prototype.pushMsg = function(msg, session, next) {
+    var targetMobile = msg.targetMobile;
+    var type = msg.type;
+    var content = msg.content;
+
+    var param = {
+        type:type,
+        data:content
+    };
+
+    /**
+     * 不填写，向全部用户推送
+     */
+    if(targetMobile == "" || targetMobile == undefined || targetMobile == "undefined") {
+        UserModel.find({}, function(err, docs) {
+            if(!!docs) {
+                for(var i=0;i<docs.length;i++) {
+                    var tm = docs[i].mobile;
+                    self.app.get('channelService').pushMessageByUids('onVoice', param, [{
+                        uid: tm,
+                        sid: 'connector-server-1'
+                    }]);
+                }
+            }
+        });
+    } else {
+        self.app.get('channelService').pushMessageByUids('onVoice', param, [{
+            uid: targetMobile,
+            sid: 'connector-server-1'
+        }]);
+    }
+};
+
 
 /**
  * 用户学习
@@ -1299,11 +1340,23 @@ Handler.prototype.getNoticeDetail = function (msg, session, next) {
 };
 
 /**
+ * 删除消息
+ */
+Handler.prototype.deleteNotice = function(msg, session, next) {
+    var ids = JSON.parse("[" + msg.noticeId + "]");
+    NoticeModel.remove({_id: {$in:ids}}, function(err, docs) {
+        if (err) console.log(err);
+        else
+            next(null, Code.OK);
+    });
+};
+
+/**
  设置消息为已读
  **/
 Handler.prototype.setNoticeRead = function (msg, session, next) {
-    var noticeId = msg.noticeId;
-    NoticeModel.update({_id: noticeId}, {$set: {hasRead: 1}}, function (err, docs) {
+    var ids = JSON.parse("[" + msg.noticeId + "]");
+    NoticeModel.update({_id: {$in:ids}}, {$set: {hasRead: 1}}, function (err, docs) {
         if (err) console.log(err);
         else
             next(null, Code.OK);
