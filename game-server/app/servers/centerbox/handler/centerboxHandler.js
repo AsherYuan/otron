@@ -38,7 +38,7 @@ console.log(channel);
 	//the target is specific user
 	else {
 		var tuid = msg.target + '*' + rid;
-		var tsid = channel.getMember(tuid)['sid'];
+		var tsid = channel.getMember(tuid).sid;
 		channelService.pushMessageByUids('onChat', param, [{
 			uid: tuid,
 			sid: tsid

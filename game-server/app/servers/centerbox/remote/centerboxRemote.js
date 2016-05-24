@@ -18,18 +18,23 @@ var CenterboxRemote = function(app) {
  */
 CenterboxRemote.prototype.add = function(uid, sid, name, flag, cb) {
 	var channel = this.channelService.getChannel(name, flag);
-	var username = uid.split('*')[0];
-	var param = {
-		route: 'onAdd',
-		user: username
-	};
-	channel.pushMessage(param);
-
 	if( !! channel) {
 		channel.add(uid, sid);
 	}
+	cb();
+};
 
-	cb(this.get(name, flag));
+CenterboxRemote.prototype.msg = function(sid) {
+	var param = {
+		msg: 'nihao xxx',
+		from: 'system',
+		target: 'web*otron'
+	};
+
+	this.channelService.pushMessageByUids('onMsg', param, [{
+		uid: 'web*otron',
+		sid: sid
+	}]);
 };
 
 /**
