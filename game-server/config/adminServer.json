@@ -7,5 +7,11 @@
 },{
     "type": "gate",
     "token": "agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn3"
+},{
+    "type": "user",
+    "token": "agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn4"
+},{
+    "type": "admin",
+    "token": "agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn5"
 }
 ]
