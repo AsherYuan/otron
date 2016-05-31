@@ -1,5 +1,4 @@
 var pomelo = require('pomelo');
-
 /**
  * Init app for client.
  */
@@ -7,7 +6,7 @@ var app = pomelo.createApp();
 app.set('name', 'otron');
 
 // app configuration
-app.configure('production|development', 'connector', function(){
+app.configure('production|development', 'connector|user', function(){
   app.set('connectorConfig',
     {
       connector : pomelo.connectors.hybridconnector,
@@ -21,5 +20,5 @@ app.configure('production|development', 'connector', function(){
 app.start();
 
 process.on('uncaughtException', function (err) {
-  console.error(' Caught exception: ' + err.stack);
+    console.error(' Caught exception: ' + err.stack);
 });

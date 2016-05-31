@@ -1,0 +1,53 @@
+var mongoose = require('../mongoose.js');
+var CenterBoxSchema = new mongoose.Schema({
+    serialno : { type:String },//设备序列号
+    code : {type:String}, // 编码
+    regTime : { type:Date, default:Date.now }, //首次注册时间
+    lastLoginTime : { type:Date, default:Date.now }, // 最后登录时间
+});
+var CenterBoxModel = mongoose.model("centerBox", CenterBoxSchema);
+
+exports.save = function(serialno, code) {
+    CenterBoxModel.find({"serialno":serialno, 'code':code}, function(error, docs) {
+        if(error) {
+            console.log("CenterBoxModel.prototype.find: error : " + error);
+        } else {
+            if(docs.length === 0) {
+                // 数据库中不存在数据，插入数据
+                var CenterBoxEntity = new CenterBoxModel({
+                    serialno:serialno,
+                    code:code
+                });
+
+                CenterBoxEntity.save(function(error,doc){
+                    if(error) {
+                        console.log("CenterBoxEntity.prototype.save: error : " + error);
+                    } else {
+                        var saveMsg = "新增centerBox保存成功";
+                        console.log(saveMsg);
+                        // sock.write(saveMsg);
+                    }
+                });
+            } else {
+                // 数据库中已经有记录了，修改该上下线状态，修改最后登录时间
+                var conditions = {"serialno" : serialno, 'code' : code};
+                var update = {$set : { lastLoginTime : new Date() }};
+                CenterBoxModel.update(conditions, update, function(error) {
+                    if(error) {
+                        console.log("CenterBoxModel.prototype.update: error : " + error);
+                    } else {
+                        var saveMsg = "更新最后登录时间成功";
+                        console.log(saveMsg);
+                        // sock.write(saveMsg);
+                    }
+                });
+            }
+        }
+    });
+};
+
+exports.getMaxCode = function() {
+    CenterBoxModel.find();
+    var code = '0002';
+    return code;
+};

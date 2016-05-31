@@ -1,9 +1,9 @@
 {
-    "name":"otron",
-    "version":"0.0.1",
-    "private":false,
-    "dependencies":{
-        "pomelo":"1.2.2"
-    }
+  "name": "otron",
+  "version": "0.0.1",
+  "private": false,
+  "dependencies": {
+    "ejs": "^2.4.2",
+    "pomelo": "1.2.2"
+  }
 }
-
