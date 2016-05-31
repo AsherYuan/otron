@@ -1,3 +1,5 @@
+var dispatcher = require('../../../util/dispatcher');
+
 module.exports = function(app) {
 	return new Handler(app);
 };
@@ -32,7 +34,9 @@ handler.queryEntry = function(msg, session, next) {
 		});
 		return;
 	}
-	// here we just start `ONE` connector server, so we return the connectors[0]
+	// var res = dispatcher.dispatch(uid, connectors);
+	// 目前使用单个服务器
+	// TODO 后续考虑分布式
 	var res = connectors[0];
 	next(null, {
 		code: 200,
