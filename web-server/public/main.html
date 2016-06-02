@@ -26,26 +26,10 @@
         var port = "3015";
         var uid = '';
 
-        function login() {
-            var mobile = $("#mobile").val();
-            var password = $("#password").val();
-
-            pomelo.init({host:host, port:port, log:true}, function() {
-                var route = 'user.entryHandler.login';
-                pomelo.request(route, {mobile:mobile, password:password}, function(data) {
-                    if(data.errcode) {
-                        layer.msg(data.errmsg);
-                    } else {
-                        layer.msg('验证成功');
-                        $.cookie('token', data,{expires:7});
-                        goToIndex();
-                    }
-                });
-            });
-        }
-
-        function goToIndex() {
-            window.location.href = '/main.html';
+        function toPage(target) {
+            if(target === 'setting') {
+                window.location.href = '/setting.html';
+            }
         }
 
         $(document).ready(function() {
@@ -72,13 +56,11 @@
 
             pomelo.init({host:host, port:port, log:true}, function() {
                 var route = 'user.entryHandler.auth';
-                layer.msg(cookieToken);
                 pomelo.request(route, {token:cookieToken}, function(data) {
                     if(data === 1001) {
                         layer.msg('验证失败');
                     } else {
                         layer.msg('验证成功');
-                        goToIndex();
                     }
                 });
             });
@@ -86,14 +68,7 @@
     </script>
 </head>
 <body>
-<div id="loginDiv" class="itemPage">
-    用户登录:
-    <hr/>
-    手机号:<input type='text' id='mobile'/>
-    <hr/>
-    密码:<input type='password' id='password' />
-    <hr/>
-    <input type='button' value='登录' onclick='login();' />
-</div>
+<h1>主页</h1>
+<input type="button" value="设置" onclick="toPage('setting');"/>
 </body>
 </html>
