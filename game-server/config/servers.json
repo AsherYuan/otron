@@ -1,38 +1,32 @@
 {
     "development":{
         "connector":[
-            {"id":"connector-server-1", "host":"127.0.0.1", "port":4050, "clientPort": 3010, "frontend": true}
+            {"id":"connector-server-1", "host":"121.40.53.201", "port":4050, "clientPort": 3010, "frontend": true}
         ],
         "centerbox":[
-            {"id":"centerbox-server-1", "host":"127.0.0.1", "port":6050}
+            {"id":"centerbox-server-1", "host":"121.40.53.201", "port":6050}
         ],
         "gate":[
-	        {"id": "gate-server-1", "host": "127.0.0.1",  "port":5060, "clientPort": 3014, "frontend": true}
+	        {"id": "gate-server-1", "host": "121.40.53.201",  "port":5060, "clientPort": 3014, "frontend": true}
 	    ],
         "user":[
-	        {"id": "user-server-1", "host": "127.0.0.1",  "port":7050, "clientPort": 3015, "frontend": true, "args":" --debug=53015 "},
-            {"id": "user-server-remote-1", "host": "127.0.0.1",  "port":7051}
-	    ],
-        "admin":[
-            {"id": "admin-server-1", "serverid": 1, "host":"127.0.0.1", "port":5077}
-        ]
+	        {"id": "user-server-1", "host": "121.40.53.201",  "port":7050, "clientPort": 3015, "frontend": true, "args":" --debug=53015 "},
+            {"id": "user-server-remote-1", "host": "121.40.53.201",  "port":7051}
+	    ]
     },
     "production":{
         "connector":[
-            {"id":"connector-server-1", "host":"127.0.0.1", "port":4050, "clientPort": 3010, "frontend": true}
+            {"id":"connector-server-1", "host":"121.40.53.201", "port":4050, "clientPort": 3010, "frontend": true}
         ],
         "centerbox":[
-            {"id":"centerbox-server-1", "host":"127.0.0.1", "port":6050}
+            {"id":"centerbox-server-1", "host":"121.40.53.201", "port":6050}
         ],
         "gate":[
-            {"id": "gate-server-1", "host": "127.0.0.1", "clientPort": 3014, "frontend": true}
+            {"id": "gate-server-1", "host": "121.40.53.201", "clientPort": 3014, "frontend": true}
         ],
         "user":[
-	        {"id": "user-server-1", "host": "127.0.0.1",  "port":7050, "clientPort": 3015, "frontend": true},
-            {"id": "user-server-1", "host": "127.0.0.1",  "port":7051}
-	    ],
-        "admin":[
-            {"id": "admin-server-1", "serverid": 1, "host":"127.0.0.1", "port":5077}
-        ]
+	        {"id": "user-server-1", "host": "121.40.53.201",  "port":7050, "clientPort": 3015, "frontend": true},
+            {"id": "user-server-1", "host": "121.40.53.201",  "port":7051}
+	    ]
     }
 }

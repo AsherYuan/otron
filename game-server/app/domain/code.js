@@ -17,13 +17,14 @@ module.exports = {
   COMMON : {'errcode' : 100},         //通用错误
 
   ENTRY: {
-    FA_TOKEN_INVALID: 	1001,
-    FA_USER_NOT_EXIST: 	1003
+    FA_TOKEN_INVALID: 	{'errcode':1001, 'errmsg':Lang.error.FA_TOKEN_INVALID},
+    FA_USER_NOT_EXIST: 	{'errcode':1002, 'errmsg':Lang.error.FA_USER_NOT_EXIST},
   },
 
   ACCOUNT : {
-    USER_NOT_EXIST : {'errcode' : 2001, 'errmsg' : Lang.error.ACCOUNT.USER_NOT_EXIST},
-    NO_MONEY : {'errcode' : 2002, 'errmsg' : Lang.error.ACCOUNT.NO_MONEY},
-    NO_ENERGY : {'errcode' : 2003, 'errmsg' : Lang.error.ACCOUNT.NO_ENERGY}
+    MOBILE_IS_BLANK: {'errcode' : 2001, 'errmsg' : Lang.error.ACCOUNT.MOBILE_IS_BLANK},
+    PASSWORD_IS_BLANK: {'errcode' : 2002, 'errmsg' : Lang.error.ACCOUNT.PASSWORD_IS_BLANK},
+    USER_NOT_EXIST : {'errcode' : 2003, 'errmsg' : Lang.error.ACCOUNT.USER_NOT_EXIST},
+    PASSWORD_NOT_CORRECT : {'errcode' : 2004, 'errmsg' : Lang.error.ACCOUNT.PASSWORD_NOT_CORRECT}
   }
 };

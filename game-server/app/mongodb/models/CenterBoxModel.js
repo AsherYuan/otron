@@ -51,3 +51,20 @@ exports.getMaxCode = function() {
     var code = '0002';
     return code;
 };
+
+exports.getList = function(cb) {
+    CenterBoxModel.find({}, function(err, docs) {
+       cb(err, docs);
+    });
+};
+
+exports.delteCtrl = function(serialno, cb) {
+    CenterBoxModel.remove({serialno:serialno}, function(err) {
+        if(err) {
+            console.log(err);
+            cb(-1);
+        } else {
+            cb(0);
+        }
+    });
+};

@@ -6,10 +6,13 @@
  */
 
 var Error_cn = {
+  FA_TOKEN_INVALID: 'token验证失败',
+  FA_USER_NOT_EXIST: '用户不存在',
   ACCOUNT : {
+    MOBILE_IS_BLANK : '手机号码不能为空',
+    PASSWORD_IS_BLANK : '密码不能为空',
     USER_NOT_EXIST : '用户不存在',
-    NO_MONEY : '余额不足',
-    NO_ENERGY : '体力不足'
+    PASSWORD_NOT_CORRECT : '密码不正确'
   },
   SUCC : "操作成功"
 };
