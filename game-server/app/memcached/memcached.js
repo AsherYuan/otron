@@ -10,7 +10,6 @@ var utils = require('../util/utils');
 var pomelo = require('pomelo');
 var _mem;
 var _keyPre = pomelo.app.get("Otron_Serverid") + "_";
-console.log(_keyPre);
 const DEFAULT_CACHETIME = 600;     //默认缓存时间10分钟
 
 cachedclient.init = function(app){

@@ -12,7 +12,7 @@ graber.grab = function(link, cb) {
       bufferhelper.concat(chunk);
     });
     resp.on("end", function() {
-      let val = iconv.decode(bufferhelper.toBuffer(), 'GBK');
+      var val = iconv.decode(bufferhelper.toBuffer(), 'UTF-8');
       cb(val);
     });
   }).on("error", function() {

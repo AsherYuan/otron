@@ -22,7 +22,7 @@
     </script>
     <script type="text/javascript">
         var pomelo = window.pomelo;
-        var host = "192.168.1.73";
+        var host = "127.0.0.1";
         var port = "3015";
         var uid = '';
 
@@ -72,8 +72,8 @@
 
             pomelo.init({host:host, port:port, log:true}, function() {
                 var route = 'user.entryHandler.auth';
-                layer.msg(cookieToken);
                 pomelo.request(route, {token:cookieToken}, function(data) {
+                    alert(data);
                     if(data === 1001) {
                         layer.msg('验证失败');
                     } else {

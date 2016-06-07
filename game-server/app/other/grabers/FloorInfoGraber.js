@@ -14,6 +14,7 @@ var grabFloors = function(prefix, suffix) {
         $('.xqfy_list ul li').each(function() {
             var info = $(this).children('.info0').eq(0);
             var title = $(info).children('.t').eq(0).children('a').eq(0).html();
+            var subUrl = $(info).children('.t').eq(0).children('a').eq(0).attr('href');
             var lp = $(info).children('.lp').eq(0).children('label').eq(0).text();
             var array = lp.split(" ");
             var first = array[0];
@@ -21,7 +22,7 @@ var grabFloors = function(prefix, suffix) {
             var area = first.split("-")[0];
             var busiCircle = first.split("-")[1];
             var address = array[1];
-            var floorEntity = new FloorModel({name:title, area:area, busiCircle:busiCircle, address: address});
+            var floorEntity = new FloorModel({url:subUrl, name:title, area:area, busiCircle:busiCircle, address: address});
             floorEntity.save(function(err, docs) {
                 if(err) console.log("FloorGraber.grab.save:err" + err);
             });

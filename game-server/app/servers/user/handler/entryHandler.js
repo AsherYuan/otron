@@ -53,6 +53,7 @@ Handler.prototype.auth = function(msg, session, next) {
         session.bind(uid);
         // 将uid存入session中
         session.set('uid', uid);
+        session.uid = uid;
         next(null, Code.OK);
         return;
       }
@@ -67,6 +68,7 @@ Handler.prototype.login = function(msg, session, next) {
   var sessionService = self.app.get('sessionService');
   var channelService = self.app.get('channelService');
   var uid = mobile;
+  console.log('******************************************************');
   if(StringUtil.isBlank(mobile)) {
     next(null, Code.ACCOUNT.MOBILE_IS_BLANK);
     return;
@@ -104,7 +106,6 @@ Handler.prototype.login = function(msg, session, next) {
     });
   }
 };
-
 
 /**
  * User log out handler

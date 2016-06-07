@@ -26,38 +26,69 @@
         var port = "3015";
         var uid = '';
 
+        function addNewDevice() {
+            window.open('/addNewDevice.html?gridId=' + gridId);
+        }
+
+        function getDeviceInputs() {
+            pomelo.request('user.userHandler.getDeviceTypes', function(data) {
+                var html = "<option value=''>请选择</option>";
+                for(var i=0;i<data.length;i++) {
+                    var x = data[i].name;
+                    html += "<option value='" + x + "'>" + x + "</option>";
+                }
+                $("#type").html(html);
+            });
+        }
+
+        function typeChange() {
+            var type = $("#type").val();
+            pomelo.request('user.userHandler.getDeviceBrands', {type:type}, function(data) {
+                alert(JSON.stringify(data));
+            });
+        }
+
         $(document).ready(function() {
             var cookieToken = $.cookie('token');
 
+            pomelo.on('onMsg', function (data) {
+            });
+
             pomelo.init({host:host, port:port, log:true}, function() {
                 var route = 'user.entryHandler.auth';
-                pomelo.request(route, {token:cookieToken}, function(data) {
+                pomelo.request(route, {token:cookieToken}, function(err, data) {
                     if(data === 1001) {
                         layer.msg('验证失败');
-                        window.location.href = "/login.html";
                     } else {
+                        getDeviceInputs();
                     }
                 });
             });
-        });
 
-        function updateUserInfo() {
-            var name = $("#name").val();
-            var route = 'user.userHandler.updateUserInfo';
-            pomelo.request(route, {name:name}, function(data) {
-                layer.msg(data.msg);
-            });
-        }
+            $("#gridId").val(((window.location.href.indexOf("?")>0)?window.location.href.substring(window.location.href.indexOf("?")+1):null));
+        });
     </script>
+    <style>
+    </style>
 </head>
 <body>
-    <h1>设置</h1>
+<input type="hidden" value="" id="gridId"/>
+<select id="type" onchange="typeChange();">
+</select><br/>
+<select id="brand">
 
-    <div id="editUserInfoDiv">
-        真实姓名:<input type='text' id='name'/>
-        <hr/>
-        <input type='button' value='保存' onclick='updateUserInfo();' />
-    </div>
+</select><br/>
+<input type="text" id="" />
 
+
+
+
+type:String,
+brand:String,
+series:String,
+addTime:{type:Date, default:Date.now},
+name:String,
+status:DeviceStatusSchema
+<hr/>
 </body>
 </html>

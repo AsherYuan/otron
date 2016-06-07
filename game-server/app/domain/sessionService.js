@@ -5,14 +5,9 @@
  * Time: 下午3:35
  * To change this template use File | Settings | File Templates.
  */
-var pomelo = require("pomelo");
+var pomelo = require("../../node_modules/pomelo/lib/pomelo.js");
 var utils = require("../util/utils.js");
 var sessionService = module.exports;
-
-console.log("*******************************************************");
-console.log(pomelo);
-
-
 var memCache = pomelo.app.get("memclient");
 var messageService = require('./messageService.js');
 var memcached = require("../memcached/memcached");

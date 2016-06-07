@@ -69,7 +69,7 @@ UserRemote.prototype.login = function (mobile, password, cb) {
 
 UserRemote.prototype.userInfoCheck = function (mobile, cb) {
   UserModel.find({'mobile': mobile}, function (err, docs) {
-    if (err) console.log('RegAndLogRemote.prototype.userInfoCheck:err' + err);
+    if (err) console.log('UserRemote.prototype.userInfoCheck:err' + err);
     else {
       if (docs.length === 0) {
         cb(-1);
@@ -88,6 +88,7 @@ UserRemote.prototype.userInfoCheck = function (mobile, cb) {
 UserRemote.prototype.updateUserInfo = function (mobile, name, cb) {
   var conditions = {mobile : mobile};
   var update     = {$set : {name : name}};
+  console.log(mobile + ":" + name);
   UserModel.update(conditions, update, null, function(error){
     if(error) {
       console.log(error);

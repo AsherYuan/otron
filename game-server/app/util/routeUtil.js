@@ -4,7 +4,6 @@ var dispatcher = require('./dispatcher');
 
 exp.user = function(session, msg, app, cb){
     var servers = app.getServersByType('user');
-
     if(!servers || servers.length === 0) {
         cb(new Error('can not find main servers.'));
         return;

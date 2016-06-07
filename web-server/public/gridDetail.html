@@ -26,38 +26,58 @@
         var port = "3015";
         var uid = '';
 
+        function showGridDetail() {
+            var location = window.location.href;
+            var index = location.indexOf("?");
+            var gridId = ((index>0)?location.substring(index+1):null);
+
+            pomelo.request('user.userHandler.getGridDetail', {gridId:gridId}, function(data) {
+                $("#gridName").text(data.name);
+            });
+        }
+
+        function setGridName() {
+            var location = window.location.href;
+            var index = location.indexOf("?");
+            var gridId = ((index>0)?location.substring(index+1):null);
+            var name = $("#name").val();
+            pomelo.request('user.userHandler.setGridName', {gridId:gridId, name:name}, function(data) {
+               window.location.reload();
+            });
+        }
+
+        function addNewDevice() {
+            var location = window.location.href;
+            var index = location.indexOf("?");
+            var gridId = ((index>0)?location.substring(index+1):null);
+        }
+
         $(document).ready(function() {
             var cookieToken = $.cookie('token');
 
+            pomelo.on('onMsg', function (data) {
+            });
+
             pomelo.init({host:host, port:port, log:true}, function() {
                 var route = 'user.entryHandler.auth';
-                pomelo.request(route, {token:cookieToken}, function(data) {
+                pomelo.request(route, {token:cookieToken}, function(err, data) {
                     if(data === 1001) {
                         layer.msg('验证失败');
-                        window.location.href = "/login.html";
                     } else {
+                        showGridDetail();
                     }
                 });
             });
         });
-
-        function updateUserInfo() {
-            var name = $("#name").val();
-            var route = 'user.userHandler.updateUserInfo';
-            pomelo.request(route, {name:name}, function(data) {
-                layer.msg(data.msg);
-            });
-        }
     </script>
+    <style>
+    </style>
 </head>
 <body>
-    <h1>设置</h1>
-
-    <div id="editUserInfoDiv">
-        真实姓名:<input type='text' id='name'/>
-        <hr/>
-        <input type='button' value='保存' onclick='updateUserInfo();' />
-    </div>
-
+<h1 id="gridName"></h1>
+<input type="text" id="name"/><input type="button" onclick="setGridName()" value="设定"/>
+<hr/>
+<input type="button" onclick="addNewDevice()" value="添加设备"/>
+<hr/>
 </body>
 </html>

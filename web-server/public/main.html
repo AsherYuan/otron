@@ -29,7 +29,78 @@
         function toPage(target) {
             if(target === 'setting') {
                 window.location.href = '/setting.html';
+            } else if(target === 'setHome') {
+                window.location.href = '/setHome.html';
             }
+        }
+
+        function getUserInfo() {
+            var route = 'user.userHandler.getUserInfo';
+            pomelo.request(route, function(data) {
+                if(data.err) {
+                    layer.msg(err);
+                } else {
+                    var ui = data.userInfo;
+                    var mobile = ui.mobile;
+                    var name = ui.name;
+                    var html = name + ',您好!';
+                    $("#htwo").text(html);
+                }
+            });
+        }
+
+        function getHomeInfo() {
+            var route = 'user.userHandler.getHomeInfo';
+            pomelo.request(route, function(data) {
+               if(data.err) {
+                   layer.msg(err);
+               } else {
+                   for(var i=0;i<data.length;i++) {
+                       var html = "<div class='homeDiv'>";
+                       html += "楼盘:" + data[i].floorName + "<hr/>";
+                       for(var j=0;j<data[i].layers.length;j++) {
+                           html += "<div id='layerDiv" + j + "' class='layerDiv'>";
+                           html += "楼层:" + data[i].layers[j].name + "<hr/>";
+                           html += "</div>";
+                       }
+                       html += "</div>";
+                   }
+                   $("#homeInfoDiv").html(html);
+
+                   for(var i=0;i<data.length;i++) {
+                       for(var j=0;j<data[i].layers.length;j++) {
+                           var homeId = data[i]._id;
+                           var layerName = data[i].layers[j].name;
+                           getLayerGrid('#layerDiv' + j, homeId, layerName);
+                       }
+                   }
+               }
+            });
+        }
+
+        function getLayerGrid(selector, homeId, layerName) {
+            var route = 'user.userHandler.getHomeGridList';
+            pomelo.request(route, {homeId:homeId, layerName:layerName}, function(data) {
+                for(var i=0;i<data.length;i++) {
+                    var grid = data[i];
+                    var html = "<div class='gridDiv' onclick='showGridDetail(\"" + data[i]._id + "\");'>";
+                    if(data[i].gridType === 'room') {
+                        html += "房间：" + data[i].name;
+                    } else if(data[i].gridType === 'hall') {
+                        html += "客厅：" + data[i].name;
+                    } else if(data[i].gridType === 'toilet') {
+                        html += "卫生间：" + data[i].name;
+                    } else if(data[i].gridType === 'kitchen') {
+                        html += "厨房：" + data[i].name;
+                    }
+                    html += "</div>";
+                    $(selector).append(html);
+                }
+            });
+        }
+
+        function showGridDetail(gridId) {
+            window.location.href = '/gridDetail.html?' + gridId;
         }
 
         $(document).ready(function() {
@@ -56,19 +127,28 @@
 
             pomelo.init({host:host, port:port, log:true}, function() {
                 var route = 'user.entryHandler.auth';
-                pomelo.request(route, {token:cookieToken}, function(data) {
+                pomelo.request(route, {token:cookieToken}, function(err, data) {
                     if(data === 1001) {
                         layer.msg('验证失败');
                     } else {
-                        layer.msg('验证成功');
+                        getUserInfo();
+                        getHomeInfo();
                     }
                 });
             });
         });
     </script>
+    <style>
+        .homeDiv {border:1px solid black;padding:5px;width:1000px;float:left;}
+        .layerDiv {border:1px solid blue;padding:5px;width:1000px;float:left;}
+        .gridDiv {border:1px solid yellow;padding:5px;width:300px;float:left;margin:5px;cursor:pointer;}
+    </style>
 </head>
 <body>
 <h1>主页</h1>
 <input type="button" value="设置" onclick="toPage('setting');"/>
+<input type="button" value="家庭设置" onclick="toPage('setHome');"/>
+<h2 id="htwo"></h2>
+<div id="homeInfoDiv"></div>
 </body>
 </html>

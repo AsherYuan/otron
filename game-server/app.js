@@ -1,7 +1,6 @@
 var pomelo = require('pomelo');
 var routeUtil = require('./app/util/routeUtil');
-var authFilter = require('./app/domain/filter/authFilter');
-var errorHandler = require('./app/util/errorHandler');
+
 
 /**
  * Init app for client.
@@ -9,7 +8,7 @@ var errorHandler = require('./app/util/errorHandler');
 var app = pomelo.createApp();
 app.set('name', 'otron');
 
-// app configuration
+// 基础
 app.configure('production|development', 'connector|user', function(){
   app.set('connectorConfig',
     {
@@ -20,31 +19,20 @@ app.configure('production|development', 'connector|user', function(){
     });
 });
 
-app.configure('production|development', 'connector|user', function(){
-  app.set('serverConfig',
-      {
-        reloadHandlers: true
-      });
-});
-
-app.configure('production|development', function() {
+// 缓存连接池
+app.configure('production|development', 'user', function() {
   app.loadConfig('memcached', app.getBase() + '/config/memcached.json');
   var memclient = require('./app/memcached/memcached').init(app);
   app.set('memclient', memclient);
 
   app.route('user', routeUtil.user);
-});
 
-
-// app configure
-app.configure('production|development', 'user', function() {
   app.enable('systemMonitor');
   var curServer = app.getCurServer();
   var serverid = curServer.serverid;
   app.set('otron_Serverid', serverid);
-
-  app.filter(authFilter());
-  app.set('errorHandler', errorHandler);
+  // TODO 过滤器拦截session是否合理，需要再考虑，然后过滤器写法有问题，再研究
+  // app.filter(require("./app/domain/filter/authFilter"));
 });
 
 // start app
