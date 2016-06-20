@@ -29,7 +29,6 @@ Handler.prototype.auth = function(msg, session, next) {
   var version = msg.version;
   var sessionService = self.app.get('sessionService');
   var channelService = self.app.get('channelService');
-  var uid;
 
   //根据token获取uid
   var res = tokenManager.parse(token, authConfig.authSecret);
@@ -39,7 +38,6 @@ Handler.prototype.auth = function(msg, session, next) {
   }
   // Token解析成功 开始验证数据
   var uid = res.uid;
-
   UserModel.find({"mobile":uid}, function(err, docs){
     if(err) console.log(err);
     else {
@@ -54,6 +52,7 @@ Handler.prototype.auth = function(msg, session, next) {
         // 将uid存入session中
         session.set('uid', uid);
         session.uid = uid;
+
         next(null, Code.OK);
         return;
       }
@@ -68,7 +67,6 @@ Handler.prototype.login = function(msg, session, next) {
   var sessionService = self.app.get('sessionService');
   var channelService = self.app.get('channelService');
   var uid = mobile;
-  console.log('******************************************************');
   if(StringUtil.isBlank(mobile)) {
     next(null, Code.ACCOUNT.MOBILE_IS_BLANK);
     return;
@@ -86,6 +84,13 @@ Handler.prototype.login = function(msg, session, next) {
           return;
         } else {
           if(password === docs[0].password) {
+            // 重复登录问题
+            var sessionService = self.app.get('sessionService');
+            //duplicate log in
+            if( !! sessionService.getByUid(uid)) {
+              next(null, Code.ENTRY.DUPLICATED_LOGIN);
+              return;
+            }
             // 登录验证成功，处理session
             sessionManager.addSession(uid, {status:1, frontendId:session.frontendId});
             session.on('closed', onUserLeave.bind(null, self.app));

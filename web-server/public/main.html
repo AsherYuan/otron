@@ -38,7 +38,7 @@
             var route = 'user.userHandler.getUserInfo';
             pomelo.request(route, function(data) {
                 if(data.err) {
-                    layer.msg(err);
+                    layer.msg(JSON.stringify(data));
                 } else {
                     var ui = data.userInfo;
                     var mobile = ui.mobile;
@@ -104,8 +104,6 @@
         }
 
         $(document).ready(function() {
-            var cookieToken = $.cookie('token');
-
             pomelo.on('onMsg', function (data) {
                 if(data.flag == -1) {
                     layer.msg(data.msg);
@@ -125,17 +123,23 @@
                 }
             });
 
-            pomelo.init({host:host, port:port, log:true}, function() {
-                var route = 'user.entryHandler.auth';
-                pomelo.request(route, {token:cookieToken}, function(err, data) {
-                    if(data === 1001) {
-                        layer.msg('验证失败');
-                    } else {
-                        getUserInfo();
-                        getHomeInfo();
-                    }
+
+            var cookieToken = $.cookie('token');
+            if(cookieToken == null || cookieToken == undefined) {
+                window.location.href = "/login.html";
+            } else {
+                pomelo.init({host:host, port:port, log:true}, function() {
+                    var route = 'user.entryHandler.auth';
+                    pomelo.request(route, {token:cookieToken}, function(err, data) {
+                        if(data === 1001) {
+                            layer.msg('验证失败');
+                        } else {
+                            getUserInfo();
+                            getHomeInfo();
+                        }
+                    });
                 });
-            });
+            }
         });
     </script>
     <style>

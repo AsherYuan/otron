@@ -1,4 +1,6 @@
 var CenterBoxModel = require('../../../mongodb/models/CenterBoxModel');
+var TerminalModel = require('../../../mongodb/models/TerminalModel');
+var sessionManager = require('../../../domain/sessionService.js');
 
 module.exports = function(app) {
   return new Handler(app);
@@ -18,12 +20,6 @@ var Handler = function(app) {
  */
 Handler.prototype.entry = function(msg, session, next) {
 	var self = this;
-	// var command = msg.command;
-	// var serialno = msg.serialno;
-	// var receiver = msg.receiver;
-	// var ipAddress = msg.ipAddress;
-	// var port = msg.port;
-
 	var rid = 'otron'; // 暂时全部统一
 	var uid = msg.uid + "*" + rid;
 	var sessionService = self.app.get('sessionService');
@@ -47,86 +43,200 @@ Handler.prototype.entry = function(msg, session, next) {
 		console.log('session closed');
 	});
 
-	//put user into channel
+	// 如果不是TcpServer来的，放入allPushChannel频道里
+	if(uid !== 'socketServer*otron') {
+		var channelName = 'allPushChannel';
+		var channel = self.app.get('channelService').getChannel(channelName, true);
+		//把用户添加到channel 里面
+		if (!!channel) {
+			channel.add(uid, self.app.get('serverId'));
+		}
+	}
+
 	self.app.rpc.centerbox.centerboxRemote.add(session, uid, self.app.get('serverId'), rid, true, function(){
-		console.log(JSON.stringify(next));
 		next(null, {
 			msg:'连接成功'
 		});
 	});
 };
 
+/**
+ * 原始根据当前连接发送消息 before 06-12
+ * @param msg
+ * @param session
+ * @param next
+ */
+// Handler.prototype.socketMsg = function(msg, session, next) {
+// 	var self = this;
+// 	var command = msg.command;
+// 	var param = {
+// 		msg: ''
+// 	};
+// 	if(command == '1000') {
+// 		param = {
+// 			command: '1000',
+// 			msg: '控制器上线, IP地址： ' + msg.ipAddress + ", 端口:" + msg.port,
+// 			ipAddress: msg.ipAddress,
+// 			port : msg.port,
+// 			serialno : msg.serialno
+// 		};
+// 	} else if (command == '999') {
+// 		param = {
+// 			command:'999',
+// 			ipAddress:msg.ipAddress,
+// 			msg: '控制器断开连接, IP地址： ' + msg.ipAddress + ", 端口:" + msg.port
+// 		};
+// 	} else if(command == '1001') {
+// 		param = {
+// 			command:'1001',
+// 			ipAddress:msg.ipAddress,
+// 			terminalCode:msg.terminalCode,
+// 			msg: '终端上线, 终端编码： ' + msg.terminalCode
+// 		};
+// 	} else if(command == '2000') {
+// 		param = {
+// 			command:'2000',
+// 			ipAddress: msg.ipAddress,
+// 			data:msg.data
+// 		};
+// 	} else if(command == '2001') {
+// 		param = {
+// 			command:'2000',
+// 			ipAddress: msg.ipAddress,
+// 			data:msg.data
+// 		};
+// 	} else if(command == '2002') {
+// 		param = {
+// 			command:'2000',
+// 			ipAddress: msg.ipAddress,
+// 			data:msg.data
+// 		};
+// 	} else if(command == '3000') {
+// 		param = {
+// 			command:'3000',
+// 			ipAddress: msg.ipAddress,
+// 			data:msg.data
+// 		};
+// 	} else if(command == '3007') {
+// 		param = {
+// 			command:'3007',
+// 			ipAddress: msg.ipAddress,
+// 			data:msg.data
+// 		};
+// 	} else if(command == '4000') {
+// 		param = {
+// 			command:'4000',
+// 			ipAddress: msg.ipAddress,
+// 			data:msg.data
+// 		};
+// 	}
+//
+// 	var channelName = 'allPushChannel';
+// 	var pushChannel = self.app.get('channelService').getChannel(channelName, false);
+// 	pushChannel.pushMessage('onMsg', param, function(err) {
+// 		if (err) {
+// 			console.log(err);
+// 		} else {
+// 			console.log('push ok');
+// 		}
+// 	});
+// };
+
 Handler.prototype.socketMsg = function(msg, session, next) {
 	var self = this;
 
-	var command = msg.command;
-	var param = {
-		msg: ''
-	};
-	if(command == '1000') {
-		param = {
-			command: '1000',
-			msg: '控制器上线, IP地址： ' + msg.ipAddress + ", 端口:" + msg.port,
-			ipAddress: msg.ipAddress,
-			port : msg.port,
-			serialno : msg.serialno
-		};
-	} else if (command == '999') {
-		param = {
-			command:'999',
-			ipAddress:msg.ipAddress,
-			msg: '控制器断开连接, IP地址： ' + msg.ipAddress + ", 端口:" + msg.port
-		};
-	} else if(command == '1001') {
-		param = {
-			command:'1001',
-			ipAddress:msg.ipAddress,
-			terminalCode:msg.terminalCode,
-			msg: '终端上线, 终端编码： ' + msg.terminalCode
-		};
-	} else if(command == '2000') {
-		param = {
-			command:'2000',
-			ipAddress: msg.ipAddress,
-			data:msg.data
-		};
-	} else if(command == '2001') {
-		param = {
-			command:'2000',
-			ipAddress: msg.ipAddress,
-			data:msg.data
-		};
-	} else if(command == '2002') {
-		param = {
-			command:'2000',
-			ipAddress: msg.ipAddress,
-			data:msg.data
-		};
-	} else if(command == '3000') {
-		param = {
-			command:'3000',
-			ipAddress: msg.ipAddress,
-			data:msg.data
-		};
-	} else if(command == '3007') {
-		param = {
-			command:'3007',
-			ipAddress: msg.ipAddress,
-			data:msg.data
-		};
-	} else if(command == '4000') {
-		param = {
-			command:'4000',
-			ipAddress: msg.ipAddress,
-			data:msg.data
-		};
-	}
-
-	self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-		uid: 'web*otron',
-		sid: self.app.get('serverId')
-	}]);
+	CenterBoxModel.findOne({serialno:msg.serialno}, function(err, doc) {
+		if(err) console.log(err);
+		else {
+			var userMobile = doc.userMobile;
+			var command = msg.command;
+			var param = {
+				msg: ''
+			};
+			if(command == '1000') {
+				param = {
+					command: '1000',
+					msg: '控制器上线, IP地址： ' + msg.ipAddress + ", 端口:" + msg.port,
+					ipAddress: msg.ipAddress,
+					port : msg.port,
+					serialno : msg.serialno
+				};
+			} else if (command == '999') {
+				param = {
+					command:'999',
+					ipAddress:msg.ipAddress,
+					msg: '控制器断开连接, IP地址： ' + msg.ipAddress + ", 端口:" + msg.port,
+					serialno : msg.serialno
+				};
+			} else if(command == '1001') {
+				param = {
+					command:'1001',
+					ipAddress:msg.ipAddress,
+					terminalCode:msg.terminalCode,
+					centerBoxSerialno:msg.serialno,
+					terminalType:msg.terminalType,
+					msg: '终端上线, 终端编码： ' + msg.terminalCode
+				};
+				// 如果没有，新建
+				TerminalModel.find({centerBoxSerialno:msg.serialno, code:msg.terminalCode, type:msg.terminalType}, function(err,docs) {
+					if(err) console.log(err);
+					else {
+						if(docs.length === 0) {
+							// 新增终端数据
+							var entity = new TerminalModel({code:msg.terminalCode, type:msg.terminalType, centerBoxSerialno:msg.serialno});
+							entity.save(function(err, docs) {
+								if (err) {
+									console.log(err);
+								}
+							});
+						}
+					}
+				});
+			} else if(command == '2000') {
+				param = {
+					command:'2000',
+					ipAddress: msg.ipAddress,
+					data:msg.data
+				};
+			} else if(command == '2001') {
+				param = {
+					command:'2000',
+					ipAddress: msg.ipAddress,
+					data:msg.data
+				};
+			} else if(command == '2002') {
+				param = {
+					command:'2000',
+					ipAddress: msg.ipAddress,
+					data:msg.data
+				};
+			} else if(command == '3000') {
+				param = {
+					command:'3000',
+					ipAddress: msg.ipAddress,
+					data:msg.data
+				};
+			} else if(command == '3007') {
+				param = {
+					command:'3007',
+					ipAddress: msg.ipAddress,
+					data:msg.data
+				};
+			} else if(command == '4000') {
+				param = {
+					command:'4000',
+					ipAddress: msg.ipAddress,
+					data:msg.data
+				};
+			}
+			self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+				uid: userMobile,
+				sid: 'user-server-1'
+			}]);
+		}
+	});
 };
+
 
 Handler.prototype.webMsg = function(msg, session, next) {
 	var self = this;

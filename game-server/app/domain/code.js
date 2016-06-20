@@ -19,6 +19,7 @@ module.exports = {
   ENTRY: {
     FA_TOKEN_INVALID: 	{'errcode':1001, 'errmsg':Lang.error.FA_TOKEN_INVALID},
     FA_USER_NOT_EXIST: 	{'errcode':1002, 'errmsg':Lang.error.FA_USER_NOT_EXIST},
+    DUPLICATED_LOGIN: 	{'errcode':1003, 'errmsg':Lang.error.DUPLICATED_LOGIN},
   },
 
   ACCOUNT : {

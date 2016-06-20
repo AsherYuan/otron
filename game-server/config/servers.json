@@ -12,7 +12,11 @@
         "user":[
 	        {"id": "user-server-1", "host": "127.0.0.1",  "port":7050, "clientPort": 3015, "frontend": true},
             {"id": "user-server-remote-1", "host": "127.0.0.1",  "port":7051}
-	    ]
+	    ],
+        "device":[
+          {"id": "device-server-1", "host": "127.0.0.1",  "port":8050, "clientPort": 8015, "frontend": true},
+          {"id": "device-server-remote-1", "host": "127.0.0.1",  "port":8051}
+        ]
     },
     "production":{
         "connector":[
@@ -27,6 +31,10 @@
         "user":[
 	        {"id": "user-server-1", "host": "127.0.0.1",  "port":7050, "clientPort": 3015, "frontend": true},
             {"id": "user-server-remote-1", "host": "127.0.0.1",  "port":7051}
-	    ]
+	    ],
+        "device":[
+          {"id": "device-server-1", "host": "127.0.0.1",  "port":8050, "clientPort": 8015, "frontend": true},
+          {"id": "device-server-remote-1", "host": "127.0.0.1",  "port":8051}
+        ]
     }
 }

@@ -7,6 +7,11 @@ var HomeGridModel = require('../../../mongodb/models/HomeGridModel');
 var FloorModel = require('../../../mongodb/models/FloorModel');
 var FloorModelModel = require('../../../mongodb/models/FloorModelModel');
 var DeviceBrandModel = require('../../../mongodb/models/DeviceBrandModel');
+var DeviceModel = require('../../../mongodb/models/DeviceModel');
+var HomeWifiModel = require('../../../mongodb/models/HomeWifiModel');
+var CenterBoxModel = require('../../../mongodb/models/CenterBoxModel');
+var TerminalModel = require('../../../mongodb/models/TerminalModel');
+var async = require("async");
 
 module.exports = function(app) {
   return new Handler(app);
@@ -77,17 +82,148 @@ Handler.prototype.updateUserInfo = function(msg, session, next) {
 Handler.prototype.getUserInfo = function(msg, session, next) {
   var self = this;
   var uid = session.uid;
-  UserModel.find({mobile:uid}, function(err, docs) {
+  UserModel.findOne({mobile:uid}, function(err, userDoc) {
     if(err) console.log(err);
     else {
-      if(docs.length == 1) {
-        next(null, {userInfo:docs[0]});
+      if( !! userDoc) {
+        HomeModel.find({userMobile:uid}, function(err, homeDocs) {
+          if(err) console.log(err);
+          else {
+            HomeWifiModel.find({usermobile:uid}, function(err, homeWifiDocs) {
+              if(err) console.log(err);
+              else {
+                CenterBoxModel.find({userMobile:uid}, function(err, centerBoxDocs) {
+                  if(err) console.log(err);
+                  else {
+                    next(null, {userInfo:userDoc, homeWifi:homeWifiDocs, centerBox:centerBoxDocs, homeInfo:homeDocs});
+                  }
+                });
+              }
+            });
+          }
+        });
       } else {
         next(null, {err:Code.ACCOUNT.USER_NOT_EXIST});
       }
     }
   });
 };
+
+
+
+/**
+ * 根据用户手机号码获取终端列表
+ * @param msg
+ * @param session
+ * @param next
+ */
+Handler.prototype.queryTerminal = function(msg, session, next) {
+  var self = this;
+  var centerBoxSerialno = msg.centerBoxSerialno;
+  var params = {centerBoxSerialno:centerBoxSerialno};
+  var code = msg.code;
+  if( !! code) {
+    params = {
+      centerBoxSerialno:centerBoxSerialno,
+      code:code
+    }
+  }
+  TerminalModel.find(params, function(err, docs) {
+    next(null, docs);
+  });
+};
+
+Handler.prototype.queryDevices = function(msg, session, next) {
+  var self = this;
+
+  var userMobile = session.uid;
+
+  HomeModel.find({userMobile:userMobile}, function(err, docs) {
+    if(!! docs) {
+      var ids = [];
+      for(var i=0;i<docs.length;i++) {
+        ids.push(docs[i]._id);
+      }
+      DeviceModel.find({homeId:{$in:ids}}, function(err, devices) {
+        next(null, devices);
+      });
+    }
+  });
+};
+
+
+Handler.prototype.bindCenterBoxToLayer = function(msg, session, next) {
+  var self = this;
+  var homeId = msg.homeId;
+  var centerBoxSerialno = msg.centerBoxSerialno;
+  var layerName = msg.layerName;
+
+  HomeModel.update({_id:homeId, "layers.name":layerName}, {$set:{"layers.$.centerBoxSerialno":centerBoxSerialno}}, function(err, docs) {
+    if(err) console.log(err);
+    else {
+      next(null, Code.OK);
+    }
+  });
+}
+
+Handler.prototype.bindTerminalToHomeGrid = function(msg, session, next) {
+  var self = this;
+  var homeGridId = msg.homeGridId;
+  var terminalId = msg.terminalId;
+
+  HomeGridModel.update({_id:homeGridId}, {$set:{"terminalId":terminalId}}, function(err, docs) {
+    if(err) console.log(err);
+    else {
+      next(null, Code.OK);
+    }
+  });
+
+  TerminalModel.update({_id:terminalId}, {$set:{"homeGridId":homeGridId}}, function(err, docs) {
+    if(err) console.log(err);
+    else {
+      next(null, Code.OK);
+    }
+  });
+}
+
+
+/**
+ * 初始化链接中控
+ */
+Handler.prototype.simulateConnCenterBox = function(msg, session, next) {
+  var self = this;
+  var uid = session.uid;
+  var ssid = msg.ssid;
+  var passwd = msg.passwd;
+  var serialno = msg.serialno;
+
+  var CenterBoxEntity = new CenterBoxModel({userMobile:uid, ssid:ssid, passwd:passwd, serialno:serialno});
+  CenterBoxEntity.save(function(err) {
+    if(err) console.log(err);
+    else {
+      next(null);
+    }
+  })
+}
+
+/**
+ * 初始化链接终端
+ */
+Handler.prototype.simulateConnTerminal = function(msg, session, next) {
+  var self = this;
+  var uid = session.uid;
+  var ssid = msg.ssid;
+  var passwd = msg.passwd;
+  var serialno = msg.serialno;
+  var centerBoxSerialno = msg.centerBoxSerialno;
+  // var entity = new TerminalModel({userMobile:uid, ssid:ssid, passwd:passwd, serialno:serialno, centerBoxSerialno:centerBoxSerialno});
+  // entity.save(function(err) {
+  //   if(err) console.log(err);
+  //   else {
+  //     next(null);
+  //   }
+  // })
+}
 
 /**
  获取用户的家庭信息
@@ -114,13 +250,15 @@ Handler.prototype.getHomeGridList = function(msg, session, next) {
   var uid = session.uid;
   var homeId = msg.homeId;
   var layerName = msg.layerName;
-  HomeGridModel.find({homeId:homeId, layerName:layerName}, function(err, docs) {
+  var centerBoxSerialno = msg.centerBoxSerialno;
+
+  HomeGridModel.find({homeId:homeId, layerName:layerName}, function(err, grids) {
     if(err) console.log(err);
     else {
-      next(null, docs);
+      next(null, {docs:grids, centerBoxSerialno:centerBoxSerialno, layerName:layerName, homeId:homeId});
     }
   });
-}
+};
 
 /**
  * 根据区域获取小区列表
@@ -261,17 +399,52 @@ Handler.prototype.getDeviceBrands = function(msg, session, next) {
       next(null, docs);
     }
   });
-}
+};
+
+Handler.prototype.saveNewDevice = function(msg, session, next) {
+  var terminalId = msg.terminalId;
+  var homeId = msg.homeId;
+  var layerName = msg.layerName;
+  var homeGridId = msg.gridId;
+  var type = msg.type;
+  var brand = msg.brand;
+  var name = msg.name;
+
+  // 设备初始化状态添加,各种状态的调整和解读
+  var status = {};
+  if(type === '空调') {
+    status = {power:1};
+  }asdfasdfasdfasdfasdfasdf
+
+
+  var deviceEntity = new DeviceModel({name:name, terminalId:terminalId, homeId:homeId, layerName:layerName, homeGridId:homeGridId, type:type, brand:brand, status:status});
+  deviceEntity.save(function(err) {
+    if(err) console.log(err);
+    else {
+      next(null, Code.OK);
+    }
+  });
+};
+
 
 /**
- * 添加新设备
+ * 绑定用户家庭的路由器信息
  * @param msg
  * @param session
  * @param next
  */
-Handler.prototype.addNewDevice = function(msg, session, next) {
+Handler.prototype.bindUserHomeWifi = function(msg, session, next) {
+  var type = msg.type;
+  var ssid = msg.ssid;
+  var passwd = msg.passwd;
+  var uid = session.uid;
 
+  var homeWifiEntity = new HomeWifiModel({ssid:ssid, passwd:passwd, usermobile:uid});
+  homeWifiEntity.save(function(err) {
+    next(null, Code.OK);
+  });
 };
+
 
 var resolveHomeGrids = function(homeId, layerName, room, hall, toilet, kitchen) {
   for(var i=1;i<=room;i++) {

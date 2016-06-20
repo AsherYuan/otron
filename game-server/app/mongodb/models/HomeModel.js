@@ -5,7 +5,8 @@ var HomeLayerSchema = new mongoose.Schema({
   room : Number,
   hall : Number,
   toilet : Number,
-  kitchen : Number
+  kitchen : Number,
+  centerBoxSerialno : String
 });
 
 var HomeSchema = new mongoose.Schema({

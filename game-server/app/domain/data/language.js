@@ -8,6 +8,7 @@
 var Error_cn = {
   FA_TOKEN_INVALID: 'token验证失败',
   FA_USER_NOT_EXIST: '用户不存在',
+  DUPLICATED_LOGIN: '重复登录',
   ACCOUNT : {
     MOBILE_IS_BLANK : '手机号码不能为空',
     PASSWORD_IS_BLANK : '密码不能为空',

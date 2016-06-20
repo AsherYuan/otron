@@ -11,12 +11,12 @@
     <meta name="author" content="netease" />
     <meta name="version" content="1.0" />
     <meta name="keywords" content="pomelo" />
-    <link type="text/css" rel="stylesheet" href="css/base.css" />
-    <link type="text/css" rel="stylesheet" href="layer/skin/layer.css" />
-    <script src="js/lib/build/build.js" type="text/javascript"></script>
-    <script src="jquery.js" type="text/javascript"></script>
-    <script src="jquery.cookie.js" type="text/javascript"></script>
-    <script src="layer/layer.js" type="text/javascript"></script>
+    <link type="text/css" rel="stylesheet" href="../css/base.css" />
+    <link type="text/css" rel="stylesheet" href="../layer/skin/layer.css" />
+    <script src="../js/lib/build/build.js" type="text/javascript"></script>
+    <script src="../jquery.js" type="text/javascript"></script>
+    <script src="../jquery.cookie.js" type="text/javascript"></script>
+    <script src="../layer/layer.js" type="text/javascript"></script>
     <script type="text/javascript">
         require('boot');
     </script>
@@ -32,12 +32,12 @@
 
             pomelo.init({host:host, port:port, log:true}, function() {
                 var route = 'user.entryHandler.login';
-                pomelo.request(route, {mobile:mobile, password:password}, function(data) {
-                    if(data.errcode) {
+                pomelo.request(route, {mobile: mobile, password: password}, function (data) {
+                    if (data.errcode) {
                         layer.msg(data.errmsg);
                     } else {
                         layer.msg('验证成功');
-                        $.cookie('token', data,{expires:7});
+                        $.cookie('token', data, {expires: 7});
                         goToIndex();
                     }
                 });
@@ -45,7 +45,11 @@
         }
 
         function goToIndex() {
-            window.location.href = '/main.html';
+            window.location.href = '/test/main.html';
+        }
+
+        function register() {
+            window.location.href = '/test/register.html';
         }
 
         $(document).ready(function() {
@@ -69,23 +73,22 @@
             });
 
 
-            var cookieToken = $.cookie('token');
-            if(cookieToken == null || cookieToken == undefined) {
-
-            } else {
-                pomelo.init({host:host, port:port, log:true}, function() {
-                    var route = 'user.entryHandler.auth';
-                    pomelo.request(route, {token:cookieToken}, function(data) {
-                        alert(data);
-                        if(data === 1001) {
-                            layer.msg('验证失败');
-                        } else {
-                            layer.msg('验证成功');
-                            goToIndex();
-                        }
-                    });
-                });
-            }
+//            var cookieToken = $.cookie('token');
+//            if(cookieToken == null || cookieToken == undefined) {
+//
+//            } else {
+//                pomelo.init({host:host, port:port, log:true}, function() {
+//                    var route = 'user.entryHandler.auth';
+//                    pomelo.request(route, {token:cookieToken}, function(data) {
+//                        if(data === 1001) {
+//                            layer.msg('验证失败');
+//                        } else {
+//                            layer.msg('验证成功');
+//                            goToIndex();
+//                        }
+//                    });
+//                });
+//            }
         });
     </script>
 </head>
@@ -97,7 +100,8 @@
     <hr/>
     密码:<input type='password' id='password' />
     <hr/>
-    <input type='button' value='登录' onclick='login();' />
+    <input type='button' value='登录' onclick='login();' /><br/>
+    <input type='button' value='注册' onclick='register();' />
 </div>
 </body>
 </html>
