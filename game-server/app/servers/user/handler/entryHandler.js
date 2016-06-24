@@ -113,6 +113,36 @@ Handler.prototype.login = function(msg, session, next) {
 };
 
 /**
+ * 注册用户信息
+ *
+ * @param  {Object}   msg     request message-
+ * @param  {Object}   session current session object
+ * @param  {Function} next    next step callback
+ * @return {Void}
+ */
+Handler.prototype.register = function(msg, session, next) {
+  var self = this;
+  var mobile = msg.mobile;
+  var username = msg.username;
+  var password = msg.password;
+
+  if(StringUtil.isBlank(mobile)) {
+    next(null, {msg:'手机号码不能为空'});
+  } else if(StringUtil.isBlank(username)) {
+    next(null, {msg:'用户名不能为空'});
+  } else if(StringUtil.isBlank(password)) {
+    next(null, {msg:'密码不能为空'});
+  } else if(!RegexUtil.checkPhone(mobile)) {
+    next(null, {msg:'手机号码格式不正确'});
+  } else {
+    // 用户注册
+    self.app.rpc.user.userRemote.register(session, mobile, username, password, function(msg) {
+      next(null, {msg:msg});
+    });
+  }
+};
+
+/**
  * User log out handler
  *
  * @param {Object} app current application

@@ -1,4 +1,5 @@
 var CenterBoxModel = require('../../../mongodb/models/CenterBoxModel');
+var SensorDataModel = require('../../../mongodb/models/SensorDataModel');
 var TerminalModel = require('../../../mongodb/models/TerminalModel');
 var sessionManager = require('../../../domain/sessionService.js');
 
@@ -20,7 +21,7 @@ var Handler = function(app) {
  */
 Handler.prototype.entry = function(msg, session, next) {
 	var self = this;
-	var rid = 'otron'; // 暂时全部统一
+	var rid = 'otron'; // 暂时全部统一m
 	var uid = msg.uid + "*" + rid;
 	var sessionService = self.app.get('sessionService');
 	//duplicate log in
@@ -228,6 +229,28 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					ipAddress: msg.ipAddress,
 					data:msg.data
 				};
+
+				CenterBoxModel.find({serialno:msg.serialno}, function(err, docs) {
+					if(err) console.log(err);
+					else {
+						var cBox = docs[0];
+						var sensorData = msg.data;
+						var temp = sensorData.substring(0, 4);
+						temp = parseInt(temp, 16) / 10;
+						var wet = sensorData.substring(4, 8);
+						wet = parseInt(wet, 16) / 10;
+						var co2 = sensorData.substring(8, 12);
+						co2 = parseInt(co2, 16);
+						var pm25 = sensorData.substring(12, 16);
+						pm25 = parseInt(pm25, 16);
+						var quality = sensorData.substring(16, 20);
+						quality = parseInt(quality, 16);
+						var entity = new SensorDataModel({centerBoxId:cBox._id, temperature:temp, humidity:wet, co2:co2, quality:quality, pm25:pm25});
+						entity.save(function(err, docs) {
+							if(err) console.log(err);
+						});
+					}
+				});
 			}
 			self.app.get('channelService').pushMessageByUids('onMsg', param, [{
 				uid: userMobile,

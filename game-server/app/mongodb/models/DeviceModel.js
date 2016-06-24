@@ -1,7 +1,12 @@
 var mongoose = require('../mongoose.js');
 
 var DeviceStatusSchema = new mongoose.Schema({
-  power:Number
+  power:Number,
+  temperature:Number,
+  wind:Number,
+  mode:Number,
+  channel:Number,
+  volume:Number
 });
 
 var DeviceSchema = new mongoose.Schema({

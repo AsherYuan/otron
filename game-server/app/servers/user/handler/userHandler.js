@@ -12,6 +12,9 @@ var HomeWifiModel = require('../../../mongodb/models/HomeWifiModel');
 var CenterBoxModel = require('../../../mongodb/models/CenterBoxModel');
 var TerminalModel = require('../../../mongodb/models/TerminalModel');
 var async = require("async");
+var http = require('http');
+var DeviceStatusUtil = require('../../../util/DeviceStatusUtil');
+var SensorDataModel = require('../../../mongodb/models/SensorDataModel');
 
 module.exports = function(app) {
   return new Handler(app);
@@ -20,36 +23,6 @@ module.exports = function(app) {
 var Handler = function(app) {
   this.app = app;
   this.channelService = app.get('channelService');
-};
-
-/**
- * 注册用户信息
- *
- * @param  {Object}   msg     request message-
- * @param  {Object}   session current session object
- * @param  {Function} next    next step callback
- * @return {Void}
- */
-Handler.prototype.register = function(msg, session, next) {
-  var self = this;
-  var mobile = msg.mobile;
-  var username = msg.username;
-  var password = msg.password;
-
-  if(StringUtil.isBlank(mobile)) {
-    next(null, {msg:'手机号码不能为空'});
-  } else if(StringUtil.isBlank(username)) {
-    next(null, {msg:'用户名不能为空'});
-  } else if(StringUtil.isBlank(password)) {
-    next(null, {msg:'密码不能为空'});
-  } else if(!RegexUtil.checkPhone(mobile)) {
-    next(null, {msg:'手机号码格式不正确'});
-  } else {
-    // 用户注册
-    self.app.rpc.user.userRemote.register(session, mobile, username, password, function(msg) {
-      next(null, {msg:msg});
-    });
-  }
 };
 
 /**
@@ -411,11 +384,7 @@ Handler.prototype.saveNewDevice = function(msg, session, next) {
   var name = msg.name;
 
   // 设备初始化状态添加,各种状态的调整和解读
-  var status = {};
-  if(type === '空调') {
-    status = {power:1};
-  }asdfasdfasdfasdfasdfasdf
-
+  var status = DeviceStatusUtil.getInitStatus(type);
 
   var deviceEntity = new DeviceModel({name:name, terminalId:terminalId, homeId:homeId, layerName:layerName, homeGridId:homeGridId, type:type, brand:brand, status:status});
   deviceEntity.save(function(err) {
@@ -462,4 +431,105 @@ var resolveHomeGrids = function(homeId, layerName, room, hall, toilet, kitchen) 
   for(var l=1;l<=kitchen;l++) {
     new HomeGridModel({homeId:homeId, layerName:layerName, gridType:'kitchen', dorder: l}).save(function(err, doc) {});
   }
-}
+};
+
+/**
+ * 前台用户发出语音指令
+ * @param msg
+ * @param session
+ * @param next
+ */
+Handler.prototype.userSaySomething = function(msg, session, next) {
+  var uid = session.uid;
+  var words = msg.words;
+
+  // var data = {
+  //   str: words,
+  //   user_id:'0001'
+  // };
+
+  var data = {
+    word: words,
+    userId:1,
+    uuid:'asdfasdfasdfasdfasdfasdf'
+  }
+
+  data = require('querystring').stringify(data);
+  console.log(data);
+  var opt = {
+    method: "POST",
+    // host: "192.168.1.178",
+    // port: 8080,
+    // path: "/SpringMongod/main/ao",
+    host: "127.0.0.1",
+    port: 8090,
+    path: "/app/say.do",
+    headers: {
+      "Content-Type": 'application/x-www-form-urlencoded',
+      "Content-Length": data.length
+    }
+  };
+
+  var req = http.request(opt, function (res) {
+    console.log('STATUS: ' + res.statusCode);
+    console.log('HEADERS: ' + JSON.stringify(res.headers));
+    res.setEncoding('utf8');
+    res.on('data', function (chunk) {
+      next(null, chunk);
+    });
+  });
+
+  req.on('error', function (e) {
+    console.log('problem with request: ' + e.message);
+  });
+
+  req.write(data + "\n");
+  req.end();
+
+};
+
+Handler.prototype.getSensorDatas = function(msg, session, next) {
+  var uid = session.uid;
+  var centerBoxId = msg.centerBoxId;
+  // TODO 排序
+  SensorDataModel.find({centerBoxId:centerBoxId}, "-_id -centerBoxId", function(err, docs) {
+    next(null, docs);
+  });
+};
+
+
+Handler.prototype.getUserList = function(msg, session, next) {
+  var self = this;
+  var sessionService = this.app.get('sessionService');
+  var uidMap = sessionService.service.uidMap;
+
+  UserModel.find({}, function(err, docs) {
+    if(err) console.log(err);
+    else {
+      var users = [];
+      for(var i=0;i<docs.length;i++) {
+        var flag = false;
+        for(var data in uidMap){
+          if(docs[i].mobile === data) {
+            flag = true;
+          }
+        }
+        users.push({"online":flag, "user":docs[i]});
+      }
+      next(null, users);
+    }
+  });
+};
+
+Handler.prototype.sendNotice = function(msg, session, next) {
+  var self = this;
+  var userMobile = msg.userMobile;
+  var userMsg = msg.userMsg;
+
+  var param = {"command":"notice", "userMsg":userMsg};
+
+  self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+    uid: userMobile,
+    sid: 'user-server-1'
+  }]);
+};

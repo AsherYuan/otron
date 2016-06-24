@@ -22,13 +22,13 @@
         var host = "127.0.0.1";
         var port = "3015";
 
-        function register() {
+        function registerx() {
             var mobile = $("#mobile").val();
             var username = $("#username").val();
             var password = $("#password").val();
 
             pomelo.init({host:host, port:port, log:true}, function() {
-                var route = 'user.userHandler.register';
+                var route = 'user.entryHandler.register';
                 pomelo.request(route, {mobile:mobile, username:username, password:password}, function(data) {
                     alert(data.msg);
                 });
@@ -45,6 +45,6 @@
 <hr/>
 密码:<input type='password' id='password' />
 <hr/>
-<input type='button' value='注册' onclick='register();' />
+<input type='button' value='注册' onclick='registerx();' />
 </body>
 </html>

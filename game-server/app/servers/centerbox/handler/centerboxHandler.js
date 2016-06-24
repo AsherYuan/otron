@@ -29,8 +29,6 @@ handler.send = function(msg, session, next) {
 		target: msg.target
 	};
 	channel = channelService.getChannel(rid, false);
-console.log('--------------------------------------------------------');
-console.log(channel);
 	//the target is all users
 	if(msg.target == '*') {
 		channel.pushMessage('onChat', param);

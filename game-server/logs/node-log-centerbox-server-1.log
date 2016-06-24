@@ -1708,3 +1708,313 @@
 [2016-06-20 17:22:39.874] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
 [2016-06-20 17:22:39.885] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
 [2016-06-20 17:22:39.893] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 1065 ms
+[2016-06-21 10:49:01.820] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-21 10:49:02.766] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-21 10:49:02.903] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-21 10:49:02.904] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-21 10:49:02.905] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 1061 ms
+[2016-06-21 13:05:31.084] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-21 13:05:31.888] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-21 13:05:32.089] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-21 13:05:32.091] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-21 13:05:32.091] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 984 ms
+[2016-06-21 13:06:56.500] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-21 13:06:57.148] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-21 13:06:57.336] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-21 13:06:57.344] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-21 13:06:57.345] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 825 ms
+[2016-06-21 13:34:01.619] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-21 13:34:02.311] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-21 13:34:02.541] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-21 13:34:02.551] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-21 13:34:02.556] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 915 ms
+[2016-06-21 14:08:42.225] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-21 14:08:42.890] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-21 14:08:43.090] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-21 14:08:43.091] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-21 14:08:43.100] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 854 ms
+[2016-06-21 14:35:28.253] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-21 14:35:28.897] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-21 14:35:29.122] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-21 14:35:29.123] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-21 14:35:29.123] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 843 ms
+[2016-06-21 14:36:21.141] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-21 14:36:21.840] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-21 14:36:22.039] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-21 14:36:22.041] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-21 14:36:22.043] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 871 ms
+[2016-06-21 14:37:40.772] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-21 14:37:41.436] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-21 14:37:41.634] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-21 14:37:41.635] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-21 14:37:41.653] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 858 ms
+[2016-06-21 14:39:00.027] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-21 14:39:00.728] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-21 14:39:01.033] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-21 14:39:01.041] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-21 14:39:01.042] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 998 ms
+[2016-06-21 14:39:31.697] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-21 14:39:32.407] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-21 14:39:32.625] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-21 14:39:32.628] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-21 14:39:32.633] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 904 ms
+[2016-06-21 14:40:14.483] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-21 14:40:15.138] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-21 14:40:15.346] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-21 14:40:15.350] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-21 14:40:15.351] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 855 ms
+[2016-06-21 14:43:05.029] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-21 14:43:05.770] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-21 14:43:05.955] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-21 14:43:05.962] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-21 14:43:05.962] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 916 ms
+[2016-06-21 14:43:35.666] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-21 14:43:36.261] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-21 14:43:36.463] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-21 14:43:36.465] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-21 14:43:36.469] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 775 ms
+[2016-06-22 10:23:55.388] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 10:23:59.068] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 10:23:59.205] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 10:23:59.207] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 10:23:59.207] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 3791 ms
+[2016-06-22 11:09:18.904] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 11:09:19.566] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 11:09:19.818] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 11:09:19.821] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 11:09:19.821] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 889 ms
+[2016-06-22 13:53:48.032] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 13:53:48.760] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 13:53:48.945] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 13:53:48.951] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 13:53:48.951] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 890 ms
+[2016-06-22 14:19:47.231] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 14:19:49.163] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 14:19:49.643] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 14:19:49.644] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 14:19:49.646] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 2409 ms
+[2016-06-22 14:20:28.044] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 14:20:29.555] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 14:20:29.816] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 14:20:29.829] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 14:20:29.831] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 1721 ms
+[2016-06-22 14:21:13.050] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 14:21:14.495] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 14:21:14.891] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 14:21:14.892] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 14:21:14.892] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 1805 ms
+[2016-06-22 14:58:09.742] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 14:58:10.495] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 14:58:10.709] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 14:58:10.710] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 14:58:10.711] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 934 ms
+[2016-06-22 16:13:49.759] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 16:13:50.362] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 16:13:50.578] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 16:13:50.588] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 16:13:50.588] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 804 ms
+[2016-06-22 16:14:52.070] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 16:14:52.761] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 16:14:52.982] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 16:14:52.994] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 16:14:52.995] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 898 ms
+[2016-06-22 16:20:46.898] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 16:20:47.479] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 16:20:47.669] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 16:20:47.677] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 16:20:47.680] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 758 ms
+[2016-06-22 16:21:24.585] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 16:21:25.388] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 16:21:25.591] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 16:21:25.592] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 16:21:25.592] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 984 ms
+[2016-06-22 16:21:32.134] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 16:21:32.723] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 16:21:32.904] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 16:21:32.916] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 16:21:32.917] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 763 ms
+[2016-06-22 16:24:17.666] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 16:24:18.411] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 16:24:18.649] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 16:24:18.652] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 16:24:18.652] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 972 ms
+[2016-06-22 16:30:21.701] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 16:30:25.213] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 16:30:25.331] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 16:30:25.337] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 16:30:25.337] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 3632 ms
+[2016-06-22 16:33:29.845] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 16:33:30.721] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 16:33:30.838] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 16:33:30.839] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 16:33:30.841] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 971 ms
+[2016-06-22 16:33:45.611] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 16:33:46.688] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 16:33:47.014] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 16:33:47.038] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 16:33:47.044] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 1402 ms
+[2016-06-22 16:37:25.420] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 16:37:25.990] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 16:37:26.167] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 16:37:26.171] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 16:37:26.171] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 722 ms
+[2016-06-22 16:37:44.107] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 16:37:44.761] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 16:37:44.956] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 16:37:44.957] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 16:37:44.962] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 834 ms
+[2016-06-22 16:43:50.125] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 16:43:50.762] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 16:43:50.990] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 16:43:50.994] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 16:43:50.996] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 849 ms
+[2016-06-22 19:42:35.823] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-22 19:42:36.481] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-22 19:42:36.698] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-22 19:42:36.704] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-22 19:42:36.705] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 877 ms
+[2016-06-23 13:28:34.543] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-23 13:28:35.349] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-23 13:28:35.562] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-23 13:28:35.564] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-23 13:28:35.564] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 1003 ms
+[2016-06-23 16:58:53.452] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-23 16:58:54.183] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-23 16:58:54.405] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-23 16:58:54.407] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-23 16:58:54.410] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 941 ms
+[2016-06-23 17:15:11.826] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-23 17:15:12.390] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-23 17:15:12.576] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-23 17:15:12.582] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-23 17:15:12.582] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 732 ms
+[2016-06-23 17:16:52.686] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-23 17:16:53.351] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-23 17:16:53.623] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-23 17:16:53.630] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-23 17:16:53.631] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 923 ms
+[2016-06-23 17:18:25.928] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-23 17:18:26.687] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-23 17:18:26.855] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-23 17:18:26.856] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-23 17:18:26.859] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 881 ms
+[2016-06-23 17:24:17.001] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-23 17:24:17.814] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-23 17:24:17.975] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-23 17:24:17.984] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-23 17:24:17.984] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 958 ms
+[2016-06-23 17:24:33.532] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-23 17:24:34.324] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-23 17:24:34.565] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-23 17:24:34.572] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-23 17:24:34.572] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 1007 ms
+[2016-06-24 08:41:25.890] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 08:41:27.718] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 08:41:27.799] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 08:41:27.801] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 08:41:27.801] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 1901 ms
+[2016-06-24 11:31:42.778] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 11:31:43.606] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 11:31:43.832] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 11:31:43.834] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 11:31:43.834] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 1008 ms
+[2016-06-24 12:58:48.394] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 12:58:49.013] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 12:58:49.220] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 12:58:49.221] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 12:58:49.221] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 800 ms
+[2016-06-24 13:08:06.549] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:08:07.346] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:08:07.482] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:08:07.512] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:08:07.514] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 945 ms
+[2016-06-24 13:09:00.488] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:09:01.228] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:09:01.355] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:09:01.376] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:09:01.379] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 859 ms
+[2016-06-24 13:09:36.586] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:09:37.321] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:09:37.528] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:09:37.530] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:09:37.540] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 938 ms
+[2016-06-24 13:31:25.393] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:31:26.193] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:31:26.362] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:31:26.367] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:31:26.367] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 953 ms
+[2016-06-24 13:31:53.067] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:31:53.779] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:31:54.013] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:31:54.020] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:31:54.020] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 930 ms
+[2016-06-24 13:34:09.704] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:34:10.473] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:34:10.599] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:34:10.604] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:34:10.605] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 876 ms
+[2016-06-24 13:35:02.315] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:35:03.077] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:35:03.273] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:35:03.278] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:35:03.278] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 929 ms
+[2016-06-24 13:39:07.540] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:39:08.278] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:39:08.513] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:39:08.520] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:39:08.527] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 960 ms
+[2016-06-24 13:40:01.124] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:40:01.789] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:40:01.991] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:40:01.993] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:40:01.993] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 844 ms
+[2016-06-24 13:42:54.680] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:42:55.451] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:42:55.698] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:42:55.716] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:42:55.716] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 1013 ms
+[2016-06-24 13:44:17.383] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:44:18.137] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:44:18.329] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:44:18.346] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:44:18.353] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 936 ms
+[2016-06-24 13:45:10.819] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:45:11.599] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:45:11.755] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:45:11.756] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:45:11.757] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 910 ms
+[2016-06-24 13:46:36.923] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:46:37.715] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:46:37.853] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:46:37.864] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:46:37.864] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 925 ms
+[2016-06-24 13:48:46.284] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:48:46.964] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:48:47.229] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:48:47.243] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:48:47.251] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 945 ms
+[2016-06-24 13:59:26.689] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:59:27.397] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:59:27.609] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:59:27.610] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:59:27.610] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 905 ms
+[2016-06-24 13:59:47.677] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 13:59:48.357] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 13:59:48.552] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 13:59:48.557] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 13:59:48.557] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 853 ms
+[2016-06-24 14:07:42.189] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 14:07:42.863] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 14:07:43.132] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 14:07:43.133] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 14:07:43.135] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 931 ms
+[2016-06-24 14:08:42.146] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 14:08:42.932] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 14:08:43.282] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 14:08:43.284] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 14:08:43.284] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 1103 ms
+[2016-06-24 14:25:50.287] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "centerbox-server-1"
+[2016-06-24 14:25:51.440] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "centerbox", "127.0.0.1", 3005
+[2016-06-24 14:25:51.662] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" enter after start...
+[2016-06-24 14:25:51.670] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" finish start
+[2016-06-24 14:25:51.670] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"centerbox-server-1" startup in 1358 ms

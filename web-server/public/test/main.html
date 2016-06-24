@@ -30,6 +30,7 @@
         .homeGridDiv {border:1px solid greenyellow; width:300px;height:300px;float:left;margin:20px;}
         .deviceBrand {border:1px solid orange; width:200px;height:30px;float:left;margin:10px;cursor:pointer;}
         .deviceItem {border:1px solid purple; cursor:pointer; float:left;margin:5px;}
+        #sensors {border:1px solid darkgreen;margin:10px;}
     </style>
     <script type="text/javascript">
         var pomelo = window.pomelo;
@@ -69,20 +70,34 @@
                 } else if(data.command === '3007') {
                     $('#xwind').append("<p>ip地址为:" + data.ipAddress + "的继电器命令执行结果:" + data.data + "</p>");
                 } else if(data.command === '4000') {
-                    $('#xwind').append("<p>ip地址为:" + data.ipAddress + "传感器20秒间隔数据:" + data.data + "</p>");
+                    var sensorData = data.data;
+                    var temp = sensorData.substring(0, 4);
+                    temp = parseInt(temp, 16) / 10;
+                    var wet = sensorData.substring(4, 8);
+                    wet = parseInt(wet, 16) / 10;
+                    var co2 = sensorData.substring(8, 12);
+                    co2 = parseInt(co2, 16);
+                    var pm25 = sensorData.substring(12, 16);
+                    pm25 = parseInt(pm25, 16);
+                    var quaity = sensorData.substring(16, 20);
+                    quaity = parseInt(quaity, 16);
+                    $("#sensors").text("温度：" + temp + " 摄氏度, 湿度：" + wet + " %, 二氧化碳：" + co2 + " , ＰＭ２．５:" + pm25 + " , 空气质量指数:" + quaity);
                 } else if(data.command === '4001') {
                     $('#xwind').append("<p>ip地址为:" + data.ipAddress + "获取图像数据，自动提交:" + data.data + "</p>");
+                } else if(data.command === 'notice') {
+                    layer.alert("系统推送：" + data.userMsg);
                 }
             });
 
             var cookieToken = $.cookie('token');
-            if(cookieToken == null || cookieToken == undefined) {
+            if(cookieToken == null || cookieToken == undefined || cookieToken === '') {
                 window.location.href = '/test/login.html';
             } else {
                 pomelo.init({host:host, port:port, log:true}, function() {
                     var route = 'user.entryHandler.auth';
                     var uid = 'web' + new Date().getTime();
                     pomelo.request(route, {token:cookieToken}, function(data) {
+
                         if(data === 1001) {
                             layer.msg('验证失败');
                         } else {
@@ -93,6 +108,11 @@
                 });
             }
         });
+
+        function logout() {
+            $.cookie('token', '');
+            window.location.reload();
+        }
 
         function initUserInfo() {
             var route = 'user.userHandler.getUserInfo';
@@ -111,8 +131,11 @@
                                     for(var k=0;k<data.centerBox.length;k++) {
                                         layerHtml += '<input type="button" value="模拟扫描终端二维码" onclick="openTwin(\'' + data.centerBox[k].serialno + '\');" /><br/>';
                                         layerHtml += '中控设备串号:' + data.centerBox[k].serialno + "<br/>是否在线:<span id='isOnlineSpan" + data.centerBox[k].serialno + "' style='color:red;'>离线</span></br>";
+                                        layerHtml += "<input type='button' value='查看传感器历史数据' onclick='showSensorDatas(\"" + data.centerBox[k]._id + "\");' /><div id='sensors'></div>";
                                     }
                                 }
+
+
                                 layerHtml += "</div><div id='gridListDiv'></div></div>";
                                 $("#homeInfoDiv").append(layerHtml);
                                 pomelo.request('user.userHandler.getHomeGridList', {homeId:hi._id, layerName:hi.layers[j].name, centerBoxSerialno:hi.layers[j].centerBoxSerialno}, function(gridListData) {
@@ -185,6 +208,11 @@
                         }
                     }
 
+                    if(!! data.userInfo) {
+                        var userHtml = "欢迎您，" + data.userInfo.name + "(" + data.userInfo.mobile + ")! <input type='button' value='退出' onclick='logout();'/><br/>";
+                        $("#userInfoDiv").append(userHtml);
+                    }
+
                     if(data.homeWifi == '') {
                         var html = '请先设置您的wifi:<br/>';
                         html += "ssid:<input type='text' class='modelInput' id='ssid'><br/>";
@@ -234,6 +262,10 @@
                     layer.msg('用户不存在');
                 }
             });
+        }
+
+        function showSensorDatas(centerBoxId) {
+            window.open("/test/sensorData.html?centerBoxId=" + centerBoxId);
         }
 
         function addNewDeviceWin(terminalId, homeId, layerName, gridId) {
@@ -355,9 +387,56 @@
                 content: html
             });
         }
+
+        function say() {
+            var words = $("#userSaying").val();
+            pomelo.request('user.userHandler.userSaySomething', {words:words}, function(data) {
+                layer.msg(data);
+            });
+        }
+
+        function sendNoticeWin() {
+
+            pomelo.request('user.userHandler.getUserList', function(users) {
+                var html = '';
+                for(var i=0;i<users.length;i++) {
+                    if(users[i].online == true) {
+                        html += "<div style='border:solid 1px green; cursor:pointer;margin:5px;' onclick='sendNotice(\"" + users[i].user.mobile + "\");'>";
+                        html += users[i].user.name + ":";
+                        html += "在线</div>";
+                    } else {
+                        html += "<div style='border:solid 1px red; cursor:pointer;margin:5px;' onclick='sendNotice(\"" + users[i].user.mobile + "\");'>";
+                        html += users[i].user.name + ":";
+                        html += "离线</div>";
+                    }
+                }
+                layer.open({
+                    type: 1,
+                    skin: 'layui-layer-rim', //加上边框
+                    area: ['620px', '640px'], //宽高
+                    content: html
+                });
+
+            });
+        }
+
+        function sendNotice(userMobile) {
+            var text = $("#contentToNotice").val();
+            if(text === "") {
+                layer.alert("请填写内容");
+                return false;
+            } else {
+                pomelo.request('user.userHandler.sendNotice', {userMobile:userMobile, userMsg:text}, function(data) {
+                    layer.msg("发送成功");
+                });
+            }
+        }
     </script>
 </head>
 <body>
+<div><input type="text" id="userSaying"/><input type="button" value="语音提交" onclick="say()" /></div>
+<div><input type="text" id="contentToNotice"/><input type="button" value="发送推送" onclick="sendNoticeWin()" /></div>
+<hr/>
 <div id="menus">
     <input type='button' value="模拟扫描中控二维码" onclick="openCwin()" />
 </div>

@@ -1484,16 +1484,11 @@ require.register("pomelonode-pomelo-jsclient-websocket/lib/pomelo-client.js", fu
   var sendMessage = function(reqId, route, msg) {
 console.log("reqId:" + reqId + "___route:" + route + "___msg:" + msg);
     var type = reqId ? Message.TYPE_REQUEST : Message.TYPE_NOTIFY;
-console.log("reqId::" + reqId);
-console.log("type::" + type);
     //compress message by protobuf
     var protos = !!pomelo.data.protos?pomelo.data.protos.client:{};
-console.log(protos);
     if(!!protos[route]){
-		console.log('111111111');
       msg = protobuf.encode(route, msg);
     }else{
-		console.log('2222222222');
       msg = Protocol.strencode(JSON.stringify(msg));
 	  console.log(msg);
     }
@@ -1504,11 +1499,6 @@ console.log(protos);
       route = pomelo.dict[route];
       compressRoute = 1;
     }
-console.log("~:" + reqId);
-console.log("~:" + type);
-console.log("~:" + compressRoute);
-console.log("~:" + route);
-console.log("~:" + msg);
     msg = Message.encode(reqId, type, compressRoute, route, msg);
     var packet = Package.encode(Package.TYPE_DATA, msg);
     send(packet);
