@@ -224,11 +224,27 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					data:msg.data
 				};
 			} else if(command == '4000') {
+				var sensorData = msg.data;
+				var temp = sensorData.substring(0, 4);
+				temp = parseInt(temp, 16) / 10;
+				var wet = sensorData.substring(4, 8);
+				wet = parseInt(wet, 16) / 10;
+				var co2 = sensorData.substring(8, 12);
+				co2 = parseInt(co2, 16);
+				var pm25 = sensorData.substring(12, 16);
+				pm25 = parseInt(pm25, 16);
+				var quality = sensorData.substring(16, 20);
+				quality = parseInt(quality, 16);
 				param = {
 					command:'4000',
 					ipAddress: msg.ipAddress,
-					data:msg.data
-				};
+					data:msg.data,
+					temp:temp,
+					wet:wet,
+					co2:co2,
+					pm25:pm25,
+					quality:quality
+				}
 
 				CenterBoxModel.find({serialno:msg.serialno}, function(err, docs) {
 					if(err) console.log(err);

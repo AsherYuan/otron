@@ -55,6 +55,7 @@
 
         function getFloorModelList(floorId, floorName, url) {
             pomelo.request('user.userHandler.getFloorModelList', {floorId:floorId, floorName:floorName, floorUrl: url}, function(docs) {
+                layer.alert(JSON.stringify(docs));
                 var html = '户型设置:<br/>';
                 html += "<input type='hidden' id='floorId' name='floorId' value='" + floorId + "' />";
                 html += "<input type='hidden' id='floorName' name='floorName' value='" + floorName + "' />";

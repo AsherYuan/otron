@@ -1,4 +1,40 @@
 var mongoose = require('../mongoose.js');
+
+var HomeLayerSchema = new mongoose.Schema({
+    name : String,
+    room : Number,
+    hall : Number,
+    toilet : Number,
+    kitchen : Number,
+    centerBoxSerialno : String
+});
+
+var HomeSchema = new mongoose.Schema({
+    floorId : mongoose.Schema.Types.ObjectId,
+    floorName : String,
+    addTime : {type:Date, default:Date.now },
+    userMobile : String,
+    layers:[HomeLayerSchema]
+});
+
+var HomeWifiSchema = new mongoose.Schema({
+    ssid:String,
+    passwd:String,
+    usermobile:String,
+    addTime:{ type:Date, default:Date.now }
+});
+
+var CenterBoxSchema = new mongoose.Schema({
+    userMobile : String,
+    serialno : String,
+    ssid : String,
+    passwd : String,
+    code : String,
+    hasConnected:{type:Boolean, default:false},
+    regTime : { type:Date, default:Date.now },
+    lastLoginTime : { type:Date, default:Date.now },
+});
+
 var UserScheme = new mongoose.Schema({
     mobile : {type:String},//手机号
     username : {type:String}, // 用户名
@@ -6,7 +42,9 @@ var UserScheme = new mongoose.Schema({
     regTime : { type:Date, default:Date.now }, //首次注册时间
     lastLoginTime : { type:Date, default:Date.now }, // 最后登录时间
     name:{type:String}, //真实姓名
-    homeIds : [mongoose.Schema.Types.ObjectId]
+    homeInfo : [HomeSchema],
+    homeWifi: [HomeWifiSchema],
+    centerBox : [CenterBoxSchema]
 });
 var UserModel = mongoose.model("user", UserScheme);
 module.exports = UserModel;

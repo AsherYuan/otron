@@ -68,7 +68,11 @@ Handler.prototype.getUserInfo = function(msg, session, next) {
                 CenterBoxModel.find({userMobile:uid}, function(err, centerBoxDocs) {
                   if(err) console.log(err);
                   else {
-                    next(null, {userInfo:userDoc, homeWifi:homeWifiDocs, centerBox:centerBoxDocs, homeInfo:homeDocs});
+                    userDoc.homeInfo = homeDocs;
+                    userDoc.centerBox = centerBoxDocs;
+                    userDoc.homeWifi = homeWifiDocs;
+
+                    next(null, {userInfo:userDoc});
                   }
                 });
               }
@@ -123,6 +127,29 @@ Handler.prototype.queryDevices = function(msg, session, next) {
     }
   });
 };
+
+Handler.prototype.getDeviceList = function(msg, session, next) {
+  var self = this;
+
+  var userMobile = session.uid;
+  var homeId = msg.homeId;
+  var layerName = msg.layerName;
+
+  DeviceModel.find({homeId:homeId, layerName:layerName}, function(err, devices) {
+    next(null, devices);
+  });
+};
+
+Handler.prototype.getDeviceListByGridId = function(msg, session, next) {
+  var self = this;
+
+  var homeGridId = msg.homeGridId;
+
+  DeviceModel.find({homeGridId:homeGridId}, function(err, devices) {
+    next(null, devices);
+  });
+}
+
 
 
 Handler.prototype.bindCenterBoxToLayer = function(msg, session, next) {
@@ -228,7 +255,17 @@ Handler.prototype.getHomeGridList = function(msg, session, next) {
   HomeGridModel.find({homeId:homeId, layerName:layerName}, function(err, grids) {
     if(err) console.log(err);
     else {
-      next(null, {docs:grids, centerBoxSerialno:centerBoxSerialno, layerName:layerName, homeId:homeId});
+      var gridCount = (!!grids) ? grids.length : 0;
+      var gridIndex = 0;
+      for(var i=0;i<grids.length;i++) {
+        TerminalModel.findOne({homeGridId:grids[i]._id}, function(err, terminal) {
+          grids[gridIndex].terminal = terminal;
+          gridIndex ++;
+          if(gridIndex === gridCount) {
+            next(null, {docs:grids, centerBoxSerialno:centerBoxSerialno, layerName:layerName, homeId:homeId});
+          }
+        });
+      }
     }
   });
 };
@@ -395,6 +432,16 @@ Handler.prototype.saveNewDevice = function(msg, session, next) {
   });
 };
 
+Handler.prototype.deleteDevice = function(msg, session, next) {
+  var deviceId = msg.deviceId;
+
+  DeviceModel.remove({_id:deviceId}, function(err, docs) {
+    if(err) console.log(err);
+    else {
+      next(null, Code.OK);
+    }
+  })
+}
 
 /**
  * 绑定用户家庭的路由器信息

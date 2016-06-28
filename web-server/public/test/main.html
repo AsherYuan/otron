@@ -34,7 +34,8 @@
     </style>
     <script type="text/javascript">
         var pomelo = window.pomelo;
-        var host = "127.0.0.1";
+//        var host = "127.0.0.1";
+        var host = "192.168.1.73";
         var port = "3015";
         var uid = '';
 
@@ -86,6 +87,8 @@
                     $('#xwind').append("<p>ip地址为:" + data.ipAddress + "获取图像数据，自动提交:" + data.data + "</p>");
                 } else if(data.command === 'notice') {
                     layer.alert("系统推送：" + data.userMsg);
+                } else if(data.command === '5000') {
+//                    layer.alert(JSON.stringify(data));
                 }
             });
 
@@ -114,27 +117,37 @@
             window.location.reload();
         }
 
+        function deleteDevice(deviceId) {
+            layer.confirm('您确认要删除该设备吗?', {
+                btn:['确认','取消']
+            }, function() {
+                pomelo.request('user.userHandler.deleteDevice', {deviceId:deviceId}, function(data) {
+                    window.location.reload();
+                });
+            }, function() {
+            });
+        }
+
         function initUserInfo() {
             var route = 'user.userHandler.getUserInfo';
             pomelo.request(route, function(data) {
                 if(data.userInfo.mobile !== undefined) {
-                    if( !! data.homeInfo) {
-                        for(var i=0;i<data.homeInfo.length;i++) {
-                            var hi = data.homeInfo[i];
+                    if( !! data.userInfo.homeInfo) {
+                        for(var i=0;i<data.userInfo.homeInfo.length;i++) {
+                            var hi = data.userInfo.homeInfo[i];
                             var layerHtml = "您的家庭信息:[" + hi.floorName + "]<hr/>";
                             for(var j=0;j<hi.layers.length;j++) {
                                 layerHtml += '<div class="layerDiv">' + hi.layers[j].name + ':' + hi.layers[j].room + '室';
                                 layerHtml += hi.layers[j].hall + '厅' + hi.layers[j].toilet + '卫' + hi.layers[j].kitchen;
                                 layerHtml += '厨房<br/>';
                                 layerHtml += "<div id='layerCenterBoxDiv" + hi.layers[j].centerBoxSerialno + "' class='layerCenterBoxDiv'>";
-                                if( !! data.centerBox) {
-                                    for(var k=0;k<data.centerBox.length;k++) {
-                                        layerHtml += '<input type="button" value="模拟扫描终端二维码" onclick="openTwin(\'' + data.centerBox[k].serialno + '\');" /><br/>';
-                                        layerHtml += '中控设备串号:' + data.centerBox[k].serialno + "<br/>是否在线:<span id='isOnlineSpan" + data.centerBox[k].serialno + "' style='color:red;'>离线</span></br>";
-                                        layerHtml += "<input type='button' value='查看传感器历史数据' onclick='showSensorDatas(\"" + data.centerBox[k]._id + "\");' /><div id='sensors'></div>";
+                                if( !! data.userInfo.centerBox) {
+                                    for(var k=0;k<data.userInfo.centerBox.length;k++) {
+                                        layerHtml += '<input type="button" value="模拟扫描终端二维码" onclick="openTwin(\'' + data.userInfo.centerBox[k].serialno + '\');" /><br/>';
+                                        layerHtml += '中控设备串号:' + data.userInfo.centerBox[k].serialno + "<br/>是否在线:<span id='isOnlineSpan" + data.userInfo.centerBox[k].serialno + "' style='color:red;'>离线</span></br>";
+                                        layerHtml += "<input type='button' value='查看传感器历史数据' onclick='showSensorDatas(\"" + data.userInfo.centerBox[k]._id + "\");' /><div id='sensors'></div>";
                                     }
                                 }
-
 
                                 layerHtml += "</div><div id='gridListDiv'></div></div>";
                                 $("#homeInfoDiv").append(layerHtml);
@@ -154,7 +167,6 @@
                                         $("#gridListDiv").append(gridHtml);
                                     }
 
-
                                     pomelo.request("user.userHandler.queryDevices", function(deviceList) {
                                         if( !! deviceList) {
                                             for(var de=0;de<deviceList.length;de++) {
@@ -166,7 +178,7 @@
                                                 } else {
                                                     label = deviceList[de].type + "[" + deviceList[de].brand + "]";
                                                 }
-                                                var deviceItem = "<div class='deviceItem'>" + label + "</div>";
+                                                var deviceItem = "<div class='deviceItem' onclick='deleteDevice(\"" + deviceList[de]._id + "\");'>" + label + "</div>";
 
                                                 if( !! deviceList[de].status) {
 //                                                    asdfasdfasdfasdfasdfas// 对状态的解读和调整
@@ -213,7 +225,7 @@
                         $("#userInfoDiv").append(userHtml);
                     }
 
-                    if(data.homeWifi == '') {
+                    if(data.userInfo.homeWifi == '') {
                         var html = '请先设置您的wifi:<br/>';
                         html += "ssid:<input type='text' class='modelInput' id='ssid'><br/>";
                         html += "密码:<input type='text' class='modelInput' id='passwd'>";
@@ -226,24 +238,24 @@
                         });
                     } else {
                         var userInfoDivHtml = "";
-                        for(var i=0;i<data.homeWifi.length;i++) {
-                            var wifi = data.homeWifi[i];
+                        for(var i=0;i<data.userInfo.homeWifi.length;i++) {
+                            var wifi = data.userInfo.homeWifi[i];
                             userInfoDivHtml += "您的家用路由器ssid：" + wifi.ssid + "<br/>密码为：" + wifi.passwd;
                         }
                         $("#userInfoDiv").append(userInfoDivHtml);
                     }
 
-                    if( !! data.centerBox) {
-                        for(var i=0;i<data.centerBox.length;i++) {
-                            var cBox = data.centerBox[i];
+                    if( !! data.userInfo.centerBox) {
+                        for(var i=0;i<data.userInfo.centerBox.length;i++) {
+                            var cBox = data.userInfo.centerBox[i];
                             if($("#layerCenterBoxDiv" + cBox.serialno).length == 0) {
                                 var cBoxHtml = '<p>您有新的中控设备，请绑定所在家庭楼层</p>';
                                 cBoxHtml += '<p>中控信息:设备串号:' + cBox.serialno + '</p>';
 
-                                for(var x=0; x<data.homeInfo.length;x++) {
-                                    cBoxHtml += '<div class="homeToChoose">' + data.homeInfo[x].floorName + '<br/>';
-                                    for(var y=0;y<data.homeInfo[x].layers.length;y++) {
-                                        cBoxHtml += '<div class="layerToChoose" onclick="bindCenterBoxToLayer(\'' +  data.homeInfo[x]._id + '\', \'' + data.homeInfo[x].layers[y].name + '\', \'' + cBox.serialno + '\');">' + data.homeInfo[x].layers[y].name + '</div>';
+                                for(var x=0; x<data.userInfo.homeInfo.length;x++) {
+                                    cBoxHtml += '<div class="homeToChoose">' + data.userInfo.homeInfo[x].floorName + '<br/>';
+                                    for(var y=0;y<data.userInfo.homeInfo[x].layers.length;y++) {
+                                        cBoxHtml += '<div class="layerToChoose" onclick="bindCenterBoxToLayer(\'' +  data.userInfo.homeInfo[x]._id + '\', \'' + data.userInfo.homeInfo[x].layers[y].name + '\', \'' + cBox.serialno + '\');">' + data.userInfo.homeInfo[x].layers[y].name + '</div>';
                                     }
                                     cBoxHtml += '</div>';
                                 }
@@ -391,7 +403,7 @@
         function say() {
             var words = $("#userSaying").val();
             pomelo.request('user.userHandler.userSaySomething', {words:words}, function(data) {
-                layer.msg(data);
+                layer.alert(data);
             });
         }
 
