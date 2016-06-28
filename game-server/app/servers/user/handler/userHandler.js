@@ -512,7 +512,7 @@ Handler.prototype.userSaySomething = function(msg, session, next) {
         console.log(data);
         var opt = {
           method: "POST",
-          host: "192.168.1.100",
+          host: "122.225.88.66",
           port: 8180,
           // host: "192.168.1.178",
           // port: 8080,
@@ -579,10 +579,10 @@ Handler.prototype.remoteControll = function(msg, session, next) {
   console.log(data);
   var opt = {
     method: "POST",
-    // host: "192.168.1.100",
-    // port: 8180,
-    host: "192.168.1.178",
-    port: 8080,
+    host: "122.225.88.66",
+    port: 8180,
+    // host: "192.168.1.178",
+    // port: 8080,
     path: "/SpringMongod/main/getorder",
     headers: {
       "Content-Type": 'application/x-www-form-urlencoded',
