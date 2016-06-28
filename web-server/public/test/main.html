@@ -443,9 +443,14 @@
                 });
             }
         }
+
+        function toRemoteControllWin() {
+            window.open('/test/toRemoteControll.html');
+        }
     </script>
 </head>
 <body>
+<div><input type="button" value="遥控界面" onclick="toRemoteControllWin()" /></div>
 <div><input type="text" id="userSaying"/><input type="button" value="语音提交" onclick="say()" /></div>
 <div><input type="text" id="contentToNotice"/><input type="button" value="发送推送" onclick="sendNoticeWin()" /></div>
 <hr/>

@@ -239,8 +239,8 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					command:'4000',
 					ipAddress: msg.ipAddress,
 					data:msg.data,
-					temp:temp,
-					wet:wet,
+					temperature:temp,
+					humidity:wet,
 					co2:co2,
 					pm25:pm25,
 					quality:quality

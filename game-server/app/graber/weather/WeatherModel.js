@@ -1,4 +1,4 @@
-var mongoose=require('./mongoose.js');
+var mongoose=require('../../mongodb/mongoose');
 
 var WeaSchema=new mongoose.Schema({
 	area:{type:String,default:'嘉兴'},

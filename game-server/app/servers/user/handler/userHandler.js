@@ -490,27 +490,100 @@ Handler.prototype.userSaySomething = function(msg, session, next) {
   var uid = session.uid;
   var words = msg.words;
 
-  // var data = {
-  //   str: words,
-  //   user_id:'0001'
-  // };
+  HomeModel.find({userMobile:uid}, function(err, docs) {
+    if(err) console.log(docs);
+    else {
+      // TODO 选择homeId, 语言模式上调整
+      if(!! docs) {
+        var homeId = docs[0]._id;
+        // var data = {
+        //   str: words,
+        //   user_id:uid,
+        //   home_id:homeId
+        // };
+
+        var data = {
+          str: words,
+          user_id:'0001',
+          home_id:'h0001'
+        };
+        // var data = 'str=' + words + '&user_id=' + uid + '&home_id=' + homeId;
+        data = require('querystring').stringify(data);
+        console.log(data);
+        var opt = {
+          method: "POST",
+          host: "192.168.1.100",
+          port: 8180,
+          // host: "192.168.1.178",
+          // port: 8080,
+          path: "/SpringMongod/main/ao",
+          headers: {
+            "Content-Type": 'application/x-www-form-urlencoded',
+            "Content-Length": data.length
+          }
+        };
+
+        var req = http.request(opt, function (res) {
+          res.setEncoding('utf8');
+          res.on('data', function (chunk) {
+            next(null, chunk);
+          });
+        });
+
+        req.on('error', function (e) {
+          console.log('problem with request: ' + e.message);
+        });
+
+        req.write(data);
+        req.end();
+
+      }
+    }
+  });
+};
+
+/**
+ * 用户发出遥控指令
+ * @param msg
+ * @param session
+ * @param next
+ */
+Handler.prototype.remoteControll = function(msg, session, next) {
+
+  // 目前写死一个设备
+  var user_id = '0001';
+  var deviceId = '57674899739656f253648363';
+  // var deviceType = msg.type == '空调' ? '空调' : msg.type == '电视' ? '电视' : '其他';
+  var deviceType = '空调';
+  var status = msg.status;
+  var model = msg.model;
+  var ac_windspeed = msg.ac_windspeed;
+  var ac_temperature = msg.ac_temperature;
+  var num = msg.num;
+  var chg_voice = msg.chg_voice;
+  var chg_chn = msg.chg_chn;
 
   var data = {
-    word: words,
-    userId:1,
-    uuid:'asdfasdfasdfasdfasdfasdf'
-  }
-
+    user_id: user_id,
+    deviceId:deviceId,
+    deviceType:deviceType,
+    status:status,
+    model:model,
+    ac_windspeed:ac_windspeed,
+    ac_temperature:ac_temperature,
+    num:num,
+    chg_voice:chg_voice,
+    chg_chn:chg_chn
+  };
   data = require('querystring').stringify(data);
   console.log(data);
   var opt = {
     method: "POST",
-    // host: "192.168.1.178",
-    // port: 8080,
-    // path: "/SpringMongod/main/ao",
-    host: "127.0.0.1",
-    port: 8090,
-    path: "/app/say.do",
+    // host: "192.168.1.100",
+    // port: 8180,
+    host: "192.168.1.178",
+    port: 8080,
+    path: "/SpringMongod/main/getorder",
     headers: {
       "Content-Type": 'application/x-www-form-urlencoded',
       "Content-Length": data.length
@@ -518,8 +591,6 @@ Handler.prototype.userSaySomething = function(msg, session, next) {
   };
 
   var req = http.request(opt, function (res) {
-    console.log('STATUS: ' + res.statusCode);
-    console.log('HEADERS: ' + JSON.stringify(res.headers));
     res.setEncoding('utf8');
     res.on('data', function (chunk) {
       next(null, chunk);
@@ -530,9 +601,8 @@ Handler.prototype.userSaySomething = function(msg, session, next) {
     console.log('problem with request: ' + e.message);
   });
 
-  req.write(data + "\n");
+  req.write(data);
   req.end();
-
 };
 
 Handler.prototype.getSensorDatas = function(msg, session, next) {
