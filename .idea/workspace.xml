@@ -2,33 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f8debbe-a5cb-41fb-959b-59375268b848" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game-server/app/servers/connector/handler/entryHandler.js" afterPath="$PROJECT_DIR$/game-server/app/servers/connector/handler/entryHandler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game-server/app/servers/user/handler/userHandler.js" afterPath="$PROJECT_DIR$/game-server/app/servers/user/handler/userHandler.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game-server/config/master.json" afterPath="$PROJECT_DIR$/game-server/config/master.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game-server/config/servers.json" afterPath="$PROJECT_DIR$/game-server/config/servers.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game-server/logs/node-log-centerbox-server-1.log" afterPath="$PROJECT_DIR$/game-server/logs/node-log-centerbox-server-1.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game-server/logs/node-log-connector-server-1.log" afterPath="$PROJECT_DIR$/game-server/logs/node-log-connector-server-1.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game-server/logs/node-log-device-server-1.log" afterPath="$PROJECT_DIR$/game-server/logs/node-log-device-server-1.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game-server/logs/node-log-device-server-remote-1.log" afterPath="$PROJECT_DIR$/game-server/logs/node-log-device-server-remote-1.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game-server/logs/node-log-gate-server-1.log" afterPath="$PROJECT_DIR$/game-server/logs/node-log-gate-server-1.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game-server/logs/node-log-master-server-1.log" afterPath="$PROJECT_DIR$/game-server/logs/node-log-master-server-1.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game-server/logs/node-log-user-server-1.log" afterPath="$PROJECT_DIR$/game-server/logs/node-log-user-server-1.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game-server/logs/node-log-user-server-remote-1.log" afterPath="$PROJECT_DIR$/game-server/logs/node-log-user-server-remote-1.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/addNewDevice.html" afterPath="$PROJECT_DIR$/web-server/public/addNewDevice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/controllerList.html" afterPath="$PROJECT_DIR$/web-server/public/controllerList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/gridDetail.html" afterPath="$PROJECT_DIR$/web-server/public/gridDetail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/index.html" afterPath="$PROJECT_DIR$/web-server/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/login.html" afterPath="$PROJECT_DIR$/web-server/public/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/main.html" afterPath="$PROJECT_DIR$/web-server/public/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/register.html" afterPath="$PROJECT_DIR$/web-server/public/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/setHome.html" afterPath="$PROJECT_DIR$/web-server/public/setHome.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/setting.html" afterPath="$PROJECT_DIR$/web-server/public/setting.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/test/login.html" afterPath="$PROJECT_DIR$/web-server/public/test/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/test/main.html" afterPath="$PROJECT_DIR$/web-server/public/test/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/test/register.html" afterPath="$PROJECT_DIR$/web-server/public/test/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/test/sensorData.html" afterPath="$PROJECT_DIR$/web-server/public/test/sensorData.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-server/public/test/toRemoteControll.html" afterPath="$PROJECT_DIR$/web-server/public/test/toRemoteControll.html" />
     </list>
     <ignored path="otron.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="userHandler.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/game-server/app/servers/user/handler/userHandler.js">
+      <file leaf-file-name="master.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/game-server/config/master.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="649" column="24" selection-start-line="649" selection-start-column="24" selection-end-line="649" selection-end-column="24" />
+            <state relative-caret-position="136">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -62,25 +38,25 @@
       <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-server/public/test/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="92" column="66" selection-start-line="92" selection-start-column="66" selection-end-line="92" selection-end-column="66" />
+            <state relative-caret-position="225">
+              <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
               <folding>
                 <element signature="n#style#0;n#hr#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1467201195997" expanded="true" signature="8266:8276" placeholder="..." />
-                <marker date="1467201195997" expanded="true" signature="12386:12397" placeholder="..." />
-                <marker date="1467201195997" expanded="true" signature="12790:12800" placeholder="..." />
-                <marker date="1467201195997" expanded="true" signature="23854:23904" placeholder="..." />
-                <marker date="1467201195997" expanded="true" signature="24141:24189" placeholder="..." />
+                <marker date="1467276626387" expanded="true" signature="8267:8277" placeholder="..." />
+                <marker date="1467276626387" expanded="true" signature="12387:12398" placeholder="..." />
+                <marker date="1467276626387" expanded="true" signature="12791:12801" placeholder="..." />
+                <marker date="1467276626387" expanded="true" signature="23855:23905" placeholder="..." />
+                <marker date="1467276626387" expanded="true" signature="24142:24190" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="entryHandler.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/game-server/app/servers/connector/handler/entryHandler.js">
+      <file leaf-file-name="servers.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/game-server/config/servers.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1465">
-              <caret line="165" column="43" selection-start-line="165" selection-start-column="43" selection-end-line="165" selection-end-column="43" />
+            <state relative-caret-position="221">
+              <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -127,8 +103,6 @@
         <option value="$PROJECT_DIR$/game-server/app/graber/weather/WeatherModel.js" />
         <option value="$PROJECT_DIR$/game-server/app/servers/connector/cron/outdoorDataCron.js" />
         <option value="$PROJECT_DIR$/web-server/public/index.html" />
-        <option value="$PROJECT_DIR$/game-server/config/master.json" />
-        <option value="$PROJECT_DIR$/game-server/config/servers.json" />
         <option value="$PROJECT_DIR$/web-server/public/addNewDevice.html" />
         <option value="$PROJECT_DIR$/web-server/public/controllerList.html" />
         <option value="$PROJECT_DIR$/web-server/public/gridDetail.html" />
@@ -142,9 +116,11 @@
         <option value="$PROJECT_DIR$/web-server/public/test/sensorData.html" />
         <option value="$PROJECT_DIR$/web-server/public/test/toRemoteControll.html" />
         <option value="$PROJECT_DIR$/game-server/node_modules/pomelo/lib/server/server.js" />
-        <option value="$PROJECT_DIR$/web-server/public/test/main.html" />
         <option value="$PROJECT_DIR$/game-server/app/servers/connector/handler/entryHandler.js" />
         <option value="$PROJECT_DIR$/game-server/app/servers/user/handler/userHandler.js" />
+        <option value="$PROJECT_DIR$/game-server/config/master.json" />
+        <option value="$PROJECT_DIR$/game-server/config/servers.json" />
+        <option value="$PROJECT_DIR$/web-server/public/test/main.html" />
       </list>
     </option>
   </component>
@@ -267,6 +243,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="game-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="otron" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="otron" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game-server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -548,7 +542,7 @@
       <workItem from="1466988864038" duration="15564000" />
       <workItem from="1467074722856" duration="18528000" />
       <workItem from="1467163660671" duration="6002000" />
-      <workItem from="1467267421974" duration="1655000" />
+      <workItem from="1467267421974" duration="1972000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/AsherYuan/otron&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;">
       <created>1464678158279</created>
@@ -575,7 +569,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251245000" />
+    <option name="totallyTimeSpent" value="251562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1920" height="1005" extended-state="6" />
@@ -584,6 +578,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15611814" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5274262" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27863437" sideWeight="0.47257385" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284091" sideWeight="0.49367088" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -595,7 +590,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27863437" sideWeight="0.47257385" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -819,13 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game-server/config/master.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-server/public/addNewDevice.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -869,6 +856,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -884,6 +872,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -891,6 +880,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -898,6 +888,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -913,6 +904,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -929,13 +921,6 @@
         <state relative-caret-position="208">
           <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game-server/config/servers.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="36" column="52" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -977,17 +962,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/game-server/config/master.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game-server/config/servers.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web-server/public/test/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="92" column="66" selection-start-line="92" selection-start-column="66" selection-end-line="92" selection-end-column="66" />
+        <state relative-caret-position="225">
+          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#hr#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1467201195997" expanded="true" signature="8266:8276" placeholder="..." />
-            <marker date="1467201195997" expanded="true" signature="12386:12397" placeholder="..." />
-            <marker date="1467201195997" expanded="true" signature="12790:12800" placeholder="..." />
-            <marker date="1467201195997" expanded="true" signature="23854:23904" placeholder="..." />
-            <marker date="1467201195997" expanded="true" signature="24141:24189" placeholder="..." />
+            <marker date="1467276626387" expanded="true" signature="8267:8277" placeholder="..." />
+            <marker date="1467276626387" expanded="true" signature="12387:12398" placeholder="..." />
+            <marker date="1467276626387" expanded="true" signature="12791:12801" placeholder="..." />
+            <marker date="1467276626387" expanded="true" signature="23855:23905" placeholder="..." />
+            <marker date="1467276626387" expanded="true" signature="24142:24190" placeholder="..." />
           </folding>
         </state>
       </provider>
