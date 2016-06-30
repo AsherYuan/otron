@@ -650,3 +650,20 @@ Handler.prototype.sendNotice = function(msg, session, next) {
     sid: 'user-server-1'
   }]);
 };
+
+Handler.prototype.delayNotify = function(msg, session, next) {
+  var self = this;
+  var uid = msg.uid;
+  var content = msg.content;
+  var param = {
+    command:'6000',
+    content:content
+  };
+  console.log(JSON.stringify(msg));
+  self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+    uid: uid,
+    sid: 'user-server-1'
+  }]);
+
+  next(null, Code.OK);
+}

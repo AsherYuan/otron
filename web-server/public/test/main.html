@@ -35,7 +35,7 @@
     <script type="text/javascript">
         var pomelo = window.pomelo;
 //        var host = "127.0.0.1";
-        var host = "121.40.53.201";
+        var host = "192.168.1.73";
         var port = "3015";
         var uid = '';
 
@@ -88,7 +88,9 @@
                 } else if(data.command === 'notice') {
                     layer.alert("系统推送：" + data.userMsg);
                 } else if(data.command === '5000') {
-                    layer.alert(JSON.stringify(data));
+//                    layer.alert(JSON.stringify(data));
+                } else if(data.command === '6000') {
+                    layer.alert("延时操作相应：" + JSON.stringify(data));
                 }
             });
 
