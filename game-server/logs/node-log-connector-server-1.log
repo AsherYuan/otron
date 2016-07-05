@@ -2898,3 +2898,8 @@
 [2016-06-30 16:06:33.642] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
 [2016-06-30 16:06:33.657] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 1506 ms
 [2016-06-30 16:26:25.935] [WARN] pomelo - [33m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/components/connector.js] [39mtry to response to a notify: "connector.entryHandler.entry"
+[2016-07-04 13:24:20.596] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-07-04 13:24:22.021] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.1.73", 3005
+[2016-07-04 13:24:22.094] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-07-04 13:24:22.111] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-07-04 13:24:22.111] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 1238 ms

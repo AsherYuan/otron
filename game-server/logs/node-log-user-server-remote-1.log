@@ -2524,3 +2524,8 @@
 [2016-06-30 16:06:33.238] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"user-server-remote-1" enter after start...
 [2016-06-30 16:06:33.244] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"user-server-remote-1" finish start
 [2016-06-30 16:06:33.245] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"user-server-remote-1" startup in 1103 ms
+[2016-07-04 13:24:20.753] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "user-server-remote-1"
+[2016-07-04 13:24:22.041] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "user", "192.168.1.73", 3005
+[2016-07-04 13:24:22.158] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"user-server-remote-1" enter after start...
+[2016-07-04 13:24:22.167] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"user-server-remote-1" finish start
+[2016-07-04 13:24:22.167] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"user-server-remote-1" startup in 1168 ms
