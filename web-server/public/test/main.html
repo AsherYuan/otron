@@ -449,6 +449,10 @@
         function toRemoteControllWin() {
             window.open('/test/toRemoteControll.html');
         }
+
+        function toSetHome() {
+            window.open('/test/setHome.html');
+        }
     </script>
 </head>
 <body>
@@ -458,6 +462,7 @@
 <hr/>
 <div id="menus">
     <input type='button' value="模拟扫描中控二维码" onclick="openCwin()" />
+    <input type='button' value="家庭初始化" onclick="toSetHome()" />
 </div>
 <div id="userInfoDiv"></div>
 <hr/>
