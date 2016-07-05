@@ -27,7 +27,7 @@
         var uid = '';
 
         $(document).ready(function() {
-            ar cookieToken = $.cookie('token');
+            var cookieToken = $.cookie('token');
             if(cookieToken == null || cookieToken == undefined || cookieToken === '') {
                 window.location.href = '/test/login.html';
             } else {

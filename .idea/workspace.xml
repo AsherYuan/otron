@@ -26,8 +26,8 @@
       <file leaf-file-name="setHome.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-server/public/test/setHome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
+            <state relative-caret-position="493">
+              <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -532,7 +532,7 @@
       <workItem from="1467163660671" duration="6002000" />
       <workItem from="1467267421974" duration="2582000" />
       <workItem from="1467609830529" duration="1872000" />
-      <workItem from="1467680407383" duration="1998000" />
+      <workItem from="1467680407383" duration="2049000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/AsherYuan/otron&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;">
       <created>1464678158279</created>
@@ -559,7 +559,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256042000" />
+    <option name="totallyTimeSpent" value="256093000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1920" height="1005" extended-state="0" />
@@ -969,8 +969,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-server/public/test/setHome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
+        <state relative-caret-position="493">
+          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
           <folding />
         </state>
       </provider>
