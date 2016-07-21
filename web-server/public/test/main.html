@@ -34,8 +34,8 @@
     </style>
     <script type="text/javascript">
         var pomelo = window.pomelo;
-//        var host = "127.0.0.1";
-        var host = "121.40.53.201";
+        var host = "127.0.0.1";
+//        var host = "121.40.53.201";
         var port = "3015";
         var uid = '';
 
@@ -172,18 +172,18 @@
                                     pomelo.request("user.userHandler.queryDevices", function(deviceList) {
                                         if( !! deviceList) {
                                             for(var de=0;de<deviceList.length;de++) {
-                                                var deHomeId = deviceList[de].homeId;
+                                                var deHomeId = deviceList[de].home_id;
                                                 var deHomeGridId = deviceList[de].homeGridId;
                                                 var label = '';
-                                                if(deviceList[de].name != undefined) {
-                                                    label = deviceList[de].name + "[" + deviceList[de].brand + "]";
+                                                if(deviceList[de].e_name != undefined) {
+                                                    label = deviceList[de].e_name + "[" + deviceList[de].pingpai + "]";
                                                 } else {
-                                                    label = deviceList[de].type + "[" + deviceList[de].brand + "]";
+                                                    label = deviceList[de].e_type + "[" + deviceList[de].pingpai + "]";
                                                 }
                                                 var deviceItem = "<div class='deviceItem' onclick='deleteDevice(\"" + deviceList[de]._id + "\");'>" + label + "</div>";
 
                                                 if( !! deviceList[de].status) {
-//                                                    asdfasdfasdfasdfasdfas// 对状态的解读和调整
+//                                                    asdfasdfasdfasdfasdfas// TODO 对状态的解读和调整
                                                 }
                                                 $("#deviceList" + deHomeGridId).append(deviceItem);
                                             }

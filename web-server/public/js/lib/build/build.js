@@ -1482,7 +1482,6 @@ require.register("pomelonode-pomelo-jsclient-websocket/lib/pomelo-client.js", fu
   };
 
   var sendMessage = function(reqId, route, msg) {
-console.log("reqId:" + reqId + "___route:" + route + "___msg:" + msg);
     var type = reqId ? Message.TYPE_REQUEST : Message.TYPE_NOTIFY;
     //compress message by protobuf
     var protos = !!pomelo.data.protos?pomelo.data.protos.client:{};

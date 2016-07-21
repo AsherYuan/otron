@@ -8,6 +8,7 @@ var FloorModel = require('../../../mongodb/models/FloorModel');
 var FloorModelModel = require('../../../mongodb/models/FloorModelModel');
 var DeviceBrandModel = require('../../../mongodb/models/DeviceBrandModel');
 var DeviceModel = require('../../../mongodb/models/DeviceModel');
+var UserEquipmentModel = require('../../../mongodb/models/UserEquipment');
 var HomeWifiModel = require('../../../mongodb/models/HomeWifiModel');
 var CenterBoxModel = require('../../../mongodb/models/CenterBoxModel');
 var TerminalModel = require('../../../mongodb/models/TerminalModel');
@@ -114,14 +115,14 @@ Handler.prototype.queryDevices = function(msg, session, next) {
   var self = this;
 
   var userMobile = session.uid;
-
   HomeModel.find({userMobile:userMobile}, function(err, docs) {
     if(!! docs) {
       var ids = [];
       for(var i=0;i<docs.length;i++) {
         ids.push(docs[i]._id);
       }
-      DeviceModel.find({homeId:{$in:ids}}, function(err, devices) {
+      UserEquipmentModel.find({home_id:{$in:ids}}, function(err, devices) {
+        console.log(JSON.stringify(devices));
         next(null, devices);
       });
     }
@@ -135,7 +136,7 @@ Handler.prototype.getDeviceList = function(msg, session, next) {
   var homeId = msg.homeId;
   var layerName = msg.layerName;
 
-  DeviceModel.find({homeId:homeId, layerName:layerName}, function(err, devices) {
+  UserEquipmentModel.find({homeId:homeId, layerName:layerName}, function(err, devices) {
     next(null, devices);
   });
 };
@@ -423,8 +424,21 @@ Handler.prototype.saveNewDevice = function(msg, session, next) {
   // 设备初始化状态添加,各种状态的调整和解读
   var status = DeviceStatusUtil.getInitStatus(type);
 
-  var deviceEntity = new DeviceModel({name:name, terminalId:terminalId, homeId:homeId, layerName:layerName, homeGridId:homeGridId, type:type, brand:brand, status:status});
-  deviceEntity.save(function(err) {
+  var userEquipmentEntity = new UserEquipmentModel({
+    e_name:name,
+    terminalId:terminalId,
+    home_id:homeId,
+    layerName:layerName,
+    homeGridId:homeGridId,
+    e_type:type,
+    pingpai:brand,
+    status:status.power,
+    ac_model:status.mode,
+    ac_windspeed:status.wind,
+    ac_temperature:status.temerature
+  });
+
+  userEquipmentEntity.save(function(err) {
     if(err) console.log(err);
     else {
       next(null, Code.OK);
@@ -435,7 +449,7 @@ Handler.prototype.saveNewDevice = function(msg, session, next) {
 Handler.prototype.deleteDevice = function(msg, session, next) {
   var deviceId = msg.deviceId;
 
-  DeviceModel.remove({_id:deviceId}, function(err, docs) {
+  UserEquipmentModel.remove({_id:deviceId}, function(err, docs) {
     if(err) console.log(err);
     else {
       next(null, Code.OK);

@@ -22,7 +22,8 @@
     </script>
     <script type="text/javascript">
         var pomelo = window.pomelo;
-        var host = "121.40.53.201";
+//        var host = "121.40.53.201";
+        var host = '127.0.0.1';
         var port = "3015";
         var uid = '';
 
@@ -40,7 +41,6 @@
                             layer.msg('验证失败');
                         } else {
                             layer.msg('验证成功');
-                            initUserInfo();
                         }
                     });
                 });
@@ -62,7 +62,6 @@
 
         function getFloorModelList(floorId, floorName, url) {
             pomelo.request('user.userHandler.getFloorModelList', {floorId:floorId, floorName:floorName, floorUrl: url}, function(docs) {
-                layer.alert(JSON.stringify(docs));
                 var html = '户型设置:<br/>';
                 html += "<input type='hidden' id='floorId' name='floorId' value='" + floorId + "' />";
                 html += "<input type='hidden' id='floorName' name='floorName' value='" + floorName + "' />";
