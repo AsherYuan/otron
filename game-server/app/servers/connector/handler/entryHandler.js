@@ -44,6 +44,8 @@ Handler.prototype.entry = function(msg, session, next) {
 		console.log('session closed');
 	});
 
+	console.log("self.app.get('serverId'):" + self.app.get('serverId'));
+
 	// 如果不是TcpServer来的，放入allPushChannel频道里
 	if(uid !== 'socketServer*otron') {
 		var channelName = 'allPushChannel';

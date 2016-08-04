@@ -34,8 +34,8 @@
     </style>
     <script type="text/javascript">
         var pomelo = window.pomelo;
-        var host = "127.0.0.1";
-//        var host = "121.40.53.201";
+//        var host = "127.0.0.1";
+        var host = "121.40.53.201";
         var port = "3015";
         var uid = '';
 
@@ -133,28 +133,28 @@
         function initUserInfo() {
             var route = 'user.userHandler.getUserInfo';
             pomelo.request(route, function(data) {
-                if(data.userInfo.mobile !== undefined) {
-                    if( !! data.userInfo.homeInfo) {
-                        for(var i=0;i<data.userInfo.homeInfo.length;i++) {
-                            var hi = data.userInfo.homeInfo[i];
+                if(data.data.mobile !== undefined) {
+                    if( !! data.data.homeInfo) {
+                        for(var i=0;i<data.data.homeInfo.length;i++) {
+                            var hi = data.data.homeInfo[i];
                             var layerHtml = "您的家庭信息:[" + hi.floorName + "]<hr/>";
                             for(var j=0;j<hi.layers.length;j++) {
                                 layerHtml += '<div class="layerDiv">' + hi.layers[j].name + ':' + hi.layers[j].room + '室';
                                 layerHtml += hi.layers[j].hall + '厅' + hi.layers[j].toilet + '卫' + hi.layers[j].kitchen;
                                 layerHtml += '厨房<br/>';
                                 layerHtml += "<div id='layerCenterBoxDiv" + hi.layers[j].centerBoxSerialno + "' class='layerCenterBoxDiv'>";
-                                if( !! data.userInfo.centerBox) {
-                                    for(var k=0;k<data.userInfo.centerBox.length;k++) {
-                                        layerHtml += '<input type="button" value="模拟扫描终端二维码" onclick="openTwin(\'' + data.userInfo.centerBox[k].serialno + '\');" /><br/>';
-                                        layerHtml += '中控设备串号:' + data.userInfo.centerBox[k].serialno + "<br/>是否在线:<span id='isOnlineSpan" + data.userInfo.centerBox[k].serialno + "' style='color:red;'>离线</span></br>";
-                                        layerHtml += "<input type='button' value='查看传感器历史数据' onclick='showSensorDatas(\"" + data.userInfo.centerBox[k]._id + "\");' /><div id='sensors'></div>";
+                                if( !! data.data.centerBox) {
+                                    for(var k=0;k<data.data.centerBox.length;k++) {
+                                        layerHtml += '<input type="button" value="模拟扫描终端二维码" onclick="openTwin(\'' + data.data.centerBox[k].serialno + '\');" /><br/>';
+                                        layerHtml += '中控设备串号:' + data.data.centerBox[k].serialno + "<br/>是否在线:<span id='isOnlineSpan" + data.data.centerBox[k].serialno + "' style='color:red;'>离线</span></br>";
+                                        layerHtml += "<input type='button' value='查看传感器历史数据' onclick='showSensorDatas(\"" + data.data.centerBox[k]._id + "\");' /><div id='sensors'></div>";
                                     }
                                 }
 
                                 layerHtml += "</div><div id='gridListDiv'></div></div>";
                                 $("#homeInfoDiv").append(layerHtml);
                                 pomelo.request('user.userHandler.getHomeGridList', {homeId:hi._id, layerName:hi.layers[j].name, centerBoxSerialno:hi.layers[j].centerBoxSerialno}, function(gridListData) {
-                                    var gridList = gridListData.docs;
+                                    var gridList = gridListData.data.docs;
                                     var centerBoxSerialno = gridListData.centerBoxSerialno;
                                     for(var l=0;l<gridList.length;l++) {
                                         var gridHtml = "<div class='homeGridDiv'";
@@ -222,12 +222,12 @@
                         }
                     }
 
-                    if(!! data.userInfo) {
-                        var userHtml = "欢迎您，" + data.userInfo.name + "(" + data.userInfo.mobile + ")! <input type='button' value='退出' onclick='logout();'/><br/>";
+                    if(!! data.data) {
+                        var userHtml = "欢迎您，" + data.data.name + "(" + data.data.mobile + ")! <input type='button' value='退出' onclick='logout();'/><br/>";
                         $("#userInfoDiv").append(userHtml);
                     }
 
-                    if(data.userInfo.homeWifi == '') {
+                    if(data.data.homeWifi == '') {
                         var html = '请先设置您的wifi:<br/>';
                         html += "ssid:<input type='text' class='modelInput' id='ssid'><br/>";
                         html += "密码:<input type='text' class='modelInput' id='passwd'>";
@@ -240,24 +240,24 @@
                         });
                     } else {
                         var userInfoDivHtml = "";
-                        for(var i=0;i<data.userInfo.homeWifi.length;i++) {
-                            var wifi = data.userInfo.homeWifi[i];
+                        for(var i=0;i<data.data.homeWifi.length;i++) {
+                            var wifi = data.data.homeWifi[i];
                             userInfoDivHtml += "您的家用路由器ssid：" + wifi.ssid + "<br/>密码为：" + wifi.passwd;
                         }
                         $("#userInfoDiv").append(userInfoDivHtml);
                     }
 
-                    if( !! data.userInfo.centerBox) {
-                        for(var i=0;i<data.userInfo.centerBox.length;i++) {
-                            var cBox = data.userInfo.centerBox[i];
+                    if( !! data.data.centerBox) {
+                        for(var i=0;i<data.data.centerBox.length;i++) {
+                            var cBox = data.data.centerBox[i];
                             if($("#layerCenterBoxDiv" + cBox.serialno).length == 0) {
                                 var cBoxHtml = '<p>您有新的中控设备，请绑定所在家庭楼层</p>';
                                 cBoxHtml += '<p>中控信息:设备串号:' + cBox.serialno + '</p>';
 
-                                for(var x=0; x<data.userInfo.homeInfo.length;x++) {
-                                    cBoxHtml += '<div class="homeToChoose">' + data.userInfo.homeInfo[x].floorName + '<br/>';
-                                    for(var y=0;y<data.userInfo.homeInfo[x].layers.length;y++) {
-                                        cBoxHtml += '<div class="layerToChoose" onclick="bindCenterBoxToLayer(\'' +  data.userInfo.homeInfo[x]._id + '\', \'' + data.userInfo.homeInfo[x].layers[y].name + '\', \'' + cBox.serialno + '\');">' + data.userInfo.homeInfo[x].layers[y].name + '</div>';
+                                for(var x=0; x<data.data.homeInfo.length;x++) {
+                                    cBoxHtml += '<div class="homeToChoose">' + data.data.homeInfo[x].floorName + '<br/>';
+                                    for(var y=0;y<data.data.homeInfo[x].layers.length;y++) {
+                                        cBoxHtml += '<div class="layerToChoose" onclick="bindCenterBoxToLayer(\'' +  data.data.homeInfo[x]._id + '\', \'' + data.userInfo.homeInfo[x].layers[y].name + '\', \'' + cBox.serialno + '\');">' + data.userInfo.homeInfo[x].layers[y].name + '</div>';
                                     }
                                     cBoxHtml += '</div>';
                                 }
@@ -404,8 +404,18 @@
 
         function say() {
             var words = $("#userSaying").val();
-            pomelo.request('user.userHandler.userSaySomething', {words:words}, function(data) {
-                layer.alert(data);
+//            pomelo.request('user.userHandler.userSaySomething', {words:words}, function(data) {
+//                layer.alert(data);
+//            });
+
+            pomelo.init({host:'121.40.53.201', port:3010, log:true}, function() {
+                var route = 'connector.entryHandler.webMsg';
+                var ipAddress = '122.225.88.66';
+                var command = '3000';
+                var terminalCode = '01';
+                pomelo.request(route, {"ipAddress":ipAddress, "command":command, 'terminalCode':terminalCode}, function(data) {
+                    alert(data);
+                });
             });
         }
 
@@ -453,9 +463,29 @@
         function toSetHome() {
             window.open('/test/setHome.html');
         }
+
+        function getTempList() {
+            pomelo.request('user.userHandler.tempMsgList', function(data) {
+                layer.alert(JSON.stringify(data));
+            });
+        }
+
+        function testOn() {
+            pomelo.request('user.userHandler.testOn', function(data) {
+                layer.alert(JSON.stringify(data));
+            });
+        }
+        function testOff() {
+            pomelo.request('user.userHandler.testOff', function(data) {
+                layer.alert(JSON.stringify(data));
+            });
+        }
     </script>
 </head>
 <body>
+<div><input type="button" value="测试数据" onclick="getTempList()" /></div>
+<div><input type="button" value="测试开关--开" onclick="testOn()" /></div>
+<div><input type="button" value="测试开关--关" onclick="testOff()" /></div>
 <div><input type="button" value="遥控界面" onclick="toRemoteControllWin()" /></div>
 <div><input type="text" id="userSaying"/><input type="button" value="语音提交" onclick="say()" /></div>
 <div><input type="text" id="contentToNotice"/><input type="button" value="发送推送" onclick="sendNoticeWin()" /></div>

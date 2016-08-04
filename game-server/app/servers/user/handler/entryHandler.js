@@ -33,7 +33,7 @@ Handler.prototype.auth = function(msg, session, next) {
   //根据token获取uid
   var res = tokenManager.parse(token, authConfig.authSecret);
   if(!res) {
-    next(null, {code:Code.ENTRY.FA_TOKEN_INVALID});
+    next(null, Code.ENTRY.FA_TOKEN_INVALID);
     return;
   }
   // Token解析成功 开始验证数据
@@ -43,7 +43,7 @@ Handler.prototype.auth = function(msg, session, next) {
     else {
       // 用户没找到
       if(docs.length === 0) {
-        next(null, {code:Code.ACCOUNT.USER_NOT_EXIST});
+        next(null, Code.ACCOUNT.USER_NOT_EXIST);
         return;
       } else {
         sessionManager.addSession(uid,{status:1, frontendId:session.frontendId});
@@ -53,7 +53,7 @@ Handler.prototype.auth = function(msg, session, next) {
         session.set('uid', uid);
         session.uid = uid;
 
-        next(null, {code:Code.OK});
+        next(null, Code.OK);
         return;
       }
     }
@@ -68,10 +68,10 @@ Handler.prototype.login = function(msg, session, next) {
   var channelService = self.app.get('channelService');
   var uid = mobile;
   if(StringUtil.isBlank(mobile)) {
-    next(null, {code:Code.ACCOUNT.MOBILE_IS_BLANK});
+    next(null, Code.ACCOUNT.MOBILE_IS_BLANK);
     return;
   } else if(StringUtil.isBlank(password)) {
-    next(null, {code:Code.ACCOUNT.PASSWORD_IS_BLANK});
+    next(null, Code.ACCOUNT.PASSWORD_IS_BLANK);
     return;
   } else {
     UserModel.find({"mobile":mobile}, function(err, docs) {
@@ -80,7 +80,7 @@ Handler.prototype.login = function(msg, session, next) {
       } else {
         // 用户不存在
         if(docs.length === 0) {
-          next(null, {code:Code.ACCOUNT.USER_NOT_EXIST});
+          next(null, Code.ACCOUNT.USER_NOT_EXIST);
           return;
         } else {
           if(password === docs[0].password) {
@@ -88,7 +88,7 @@ Handler.prototype.login = function(msg, session, next) {
             var sessionService = self.app.get('sessionService');
             //duplicate log in
             if( !! sessionService.getByUid(uid)) {
-              next(null, {code:Code.ENTRY.DUPLICATED_LOGIN});
+              next(null, Code.ENTRY.DUPLICATED_LOGIN);
               return;
             }
             // 登录验证成功，处理session
@@ -100,10 +100,12 @@ Handler.prototype.login = function(msg, session, next) {
 
             // 获取token返回
             var token = tokenManager.create(uid, authConfig.authSecret);
-            next(null, {code:Code.OK, token:token});
+            var ret = Code.OK;
+            ret.token = token;
+            next(null, ret);
             return;
           } else {
-            next(null, {code:Code.ACCOUNT.PASSWORD_NOT_CORRECT});
+            next(null, Code.ACCOUNT.PASSWORD_NOT_CORRECT);
             return;
           }
         }
@@ -127,17 +129,19 @@ Handler.prototype.register = function(msg, session, next) {
   var password = msg.password;
 
   if(StringUtil.isBlank(mobile)) {
-    next(null, {msg:'手机号码不能为空'});
+    next(null, Code.ACCOUNT.MOBILE_IS_BLANK);
   } else if(StringUtil.isBlank(username)) {
-    next(null, {msg:'用户名不能为空'});
+    next(null, Code.ACCOUNT.USERNAME_IS_BLANK);
   } else if(StringUtil.isBlank(password)) {
-    next(null, {msg:'密码不能为空'});
+    next(null, Code.ACCOUNT.PASSWORD_IS_BLANK);
   } else if(!RegexUtil.checkPhone(mobile)) {
-    next(null, {msg:'手机号码格式不正确'});
+    next(null, Code.ACCOUNT.MOBILE_IS_BLANK);
   } else {
     // 用户注册
     self.app.rpc.user.userRemote.register(session, mobile, username, password, function(msg) {
-      next(null, {msg:msg});
+      var ret = Code.OK;
+      ret.msg = msg;
+      next(null, ret);
     });
   }
 };

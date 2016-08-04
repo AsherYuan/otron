@@ -13,9 +13,9 @@ app.configure('production|development', 'connector|user', function(){
   app.set('connectorConfig',
     {
       connector : pomelo.connectors.hybridconnector,
-      heartbeat : 3,
+      heartbeat : 30,
       useDict : false,
-      useProtobuf : true
+      useProtobuf : false
     });
 });
 

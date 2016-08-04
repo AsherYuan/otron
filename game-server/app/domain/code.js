@@ -1,31 +1,31 @@
-/**
- * Created with JetBrains WebStorm.
- * User: zhangjun
- * Date: 6/26/13
- * Time: 12:10 下午
- * To change this template use File | Settings | File Templates.
- */
 var Lang = require('./data/language.js');
 
 module.exports = {
-  OK: 200,
-  FAIL: 500,
-  TOO_BUSY:555,
+  OK: {'code' : 200, 'codetxt' : Lang.error.SUCC},
+  FAIL: {'code' : 500, 'codetxt' : Lang.error.FAIL},
+  TOO_BUSY:{'code' : 555, 'codetxt' : Lang.error.BUSY},
 
-  SERVER_CLOSE : {'errcode' : 561, 'errmsg' : Lang.error.SERVER_CLOSE},
+  SERVER_CLOSE : {'code' : 561, 'codetxt' : Lang.error.SERVER_CLOSE},
 
-  COMMON : {'errcode' : 100},         //通用错误
+  COMMON : {'code' : 100, 'codetxt' : Lang.error.COMMON},
+
+  DATABASE: {'code' : 101, 'codetxt' : Lang.error.DATABASE},
+
+  PARAMERROR : {'code' : 102, 'codetxt' : Lang.error.PARAMERROR},
 
   ENTRY: {
-    FA_TOKEN_INVALID: 	{'errcode':1001, 'errmsg':Lang.error.FA_TOKEN_INVALID},
-    FA_USER_NOT_EXIST: 	{'errcode':1002, 'errmsg':Lang.error.FA_USER_NOT_EXIST},
-    DUPLICATED_LOGIN: 	{'errcode':1003, 'errmsg':Lang.error.DUPLICATED_LOGIN},
+    FA_TOKEN_INVALID: 	{'code':1001, 'codetxt':Lang.error.FA_TOKEN_INVALID},
+    FA_USER_NOT_EXIST: 	{'code':1002, 'codetxt':Lang.error.FA_USER_NOT_EXIST},
+    DUPLICATED_LOGIN: 	{'code':1003, 'codetxt':Lang.error.DUPLICATED_LOGIN},
   },
 
   ACCOUNT : {
-    MOBILE_IS_BLANK: {'errcode' : 2001, 'errmsg' : Lang.error.ACCOUNT.MOBILE_IS_BLANK},
-    PASSWORD_IS_BLANK: {'errcode' : 2002, 'errmsg' : Lang.error.ACCOUNT.PASSWORD_IS_BLANK},
-    USER_NOT_EXIST : {'errcode' : 2003, 'errmsg' : Lang.error.ACCOUNT.USER_NOT_EXIST},
-    PASSWORD_NOT_CORRECT : {'errcode' : 2004, 'errmsg' : Lang.error.ACCOUNT.PASSWORD_NOT_CORRECT}
+    MOBILE_IS_BLANK: {'code' : 2001, 'codetxt' : Lang.error.ACCOUNT.MOBILE_IS_BLANK},
+    PASSWORD_IS_BLANK: {'code' : 2002, 'codetxt' : Lang.error.ACCOUNT.PASSWORD_IS_BLANK},
+    USER_NOT_EXIST : {'code' : 2003, 'codetxt' : Lang.error.ACCOUNT.USER_NOT_EXIST},
+    PASSWORD_NOT_CORRECT : {'code' : 2004, 'codetxt' : Lang.error.ACCOUNT.PASSWORD_NOT_CORRECT},
+    NAME_IS_BLANK : {'code' : 2004, 'codetxt' : Lang.error.ACCOUNT.NAME_IS_BLANK},
+    USERNAME_IS_BLANK : {'code' : 2005, 'codetxt' : Lang.error.ACCOUNT.USERNAME_IS_BLANK},
+    MOBILE_FORMAT_ERROR : {'code' : 2006, 'codetxt' : Lang.error.ACCOUNT.MOBILE_FORMAT_ERROR}
   }
 };
