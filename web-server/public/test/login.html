@@ -34,11 +34,12 @@
             pomelo.init({host:host, port:port, log:true}, function() {
                 var route = 'user.entryHandler.login';
                 pomelo.request(route, {mobile: mobile, password: password}, function (data) {
+                    alert(JSON.stringify(data));
                     if (data.errcode) {
                         layer.msg(data.errmsg);
                     } else {
                         layer.msg('验证成功');
-                        $.cookie('token', data, {expires: 7});
+                        $.cookie('token', data.token, {expires: 7});
                         goToIndex();
                     }
                 });

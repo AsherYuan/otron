@@ -2625,3 +2625,148 @@
 [2016-07-14 15:38:12.433] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
 [2016-07-14 15:38:12.441] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
 [2016-07-14 15:38:12.441] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 946 ms
+[2016-08-04 17:17:53.356] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-04 17:17:55.406] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-04 17:17:56.000] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-04 17:17:56.032] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-04 17:17:56.041] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 2610 ms
+[2016-08-04 17:26:50.506] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-04 17:26:53.474] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-04 17:26:54.547] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-04 17:26:54.566] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-04 17:26:54.580] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 4033 ms
+[2016-08-04 17:30:36.256] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-04 17:30:40.851] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-04 17:30:42.239] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-04 17:30:42.310] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-04 17:30:42.337] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 5985 ms
+[2016-08-04 17:31:23.304] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-04 17:31:25.651] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-04 17:31:26.333] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-04 17:31:26.371] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-04 17:31:26.388] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 3035 ms
+[2016-08-04 17:32:11.181] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-04 17:32:15.121] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-04 17:32:15.890] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-04 17:32:15.914] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-04 17:32:15.924] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 4559 ms
+[2016-08-04 17:38:11.682] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-04 17:38:15.740] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-04 17:38:16.815] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-04 17:38:16.953] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-04 17:38:16.971] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 5114 ms
+[2016-08-04 17:38:50.096] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-04 17:38:53.495] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-04 17:38:55.375] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-04 17:38:55.468] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-04 17:38:55.489] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 5250 ms
+[2016-08-04 17:40:38.495] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-04 17:40:43.018] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-04 17:40:44.435] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-04 17:40:44.505] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-04 17:40:44.520] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 5842 ms
+[2016-08-05 08:59:50.065] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 08:59:54.580] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 08:59:56.237] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 08:59:56.362] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 08:59:56.369] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 6240 ms
+[2016-08-05 09:12:31.015] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 09:12:34.091] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 09:12:35.064] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 09:12:35.136] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 09:12:35.141] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 4031 ms
+[2016-08-05 09:23:06.075] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 09:23:08.119] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 09:23:08.639] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 09:23:08.668] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 09:23:08.671] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 2539 ms
+[2016-08-05 09:26:37.165] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 09:26:39.081] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 09:26:39.665] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 09:26:39.689] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 09:26:39.698] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 2484 ms
+[2016-08-05 09:28:29.688] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 09:28:31.589] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 09:28:32.140] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 09:28:32.210] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 09:28:32.212] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 2472 ms
+[2016-08-05 09:31:03.353] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 09:31:05.047] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 09:31:05.587] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 09:31:05.620] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 09:31:05.626] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 2180 ms
+[2016-08-05 09:38:38.614] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 09:38:42.329] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 09:38:43.690] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 09:38:43.785] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 09:38:43.806] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 5090 ms
+[2016-08-05 10:12:39.704] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 10:12:41.858] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 10:12:42.527] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 10:12:42.561] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 10:12:42.570] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 2787 ms
+[2016-08-05 10:13:32.810] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 10:13:34.952] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 10:13:35.875] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 10:13:35.905] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 10:13:35.924] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 3058 ms
+[2016-08-05 13:10:29.441] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 13:10:31.394] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 13:10:31.925] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 13:10:31.956] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 13:10:31.958] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 2463 ms
+[2016-08-05 13:35:40.673] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 13:35:43.286] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 13:35:44.129] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 13:35:44.189] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 13:35:44.190] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 3358 ms
+[2016-08-05 13:36:22.321] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 13:36:26.084] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 13:36:26.720] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 13:36:26.764] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 13:36:26.772] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 4331 ms
+[2016-08-05 13:38:31.813] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 13:38:34.567] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 13:38:35.231] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 13:38:35.279] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 13:38:35.290] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 3410 ms
+[2016-08-05 13:39:47.913] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-05 13:39:50.597] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-05 13:39:51.038] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-05 13:39:51.075] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-05 13:39:51.085] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 3115 ms
+[2016-08-08 08:53:54.674] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-08 08:53:57.288] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-08 08:53:57.812] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-08 08:53:57.840] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-08 08:53:57.845] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 3039 ms
+[2016-08-08 10:04:18.725] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-08 10:04:20.562] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-08 10:04:21.314] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-08 10:04:21.332] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-08 10:04:21.354] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 2586 ms
+[2016-08-08 11:01:05.397] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-08 11:01:08.713] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-08 11:01:09.593] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-08 11:01:09.631] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-08 11:01:09.644] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 4157 ms
+[2016-08-08 13:11:05.062] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-08 13:11:09.995] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-08 13:11:11.524] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-08 13:11:11.598] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-08 13:11:11.623] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 6483 ms
+[2016-08-08 13:19:10.953] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-08 13:19:14.331] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-08 13:19:15.111] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-08 13:19:15.134] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-08 13:19:15.160] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 4104 ms
+[2016-08-08 13:20:58.533] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-08 13:21:02.936] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-08 13:21:03.869] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-08 13:21:03.984] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-08 13:21:03.985] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 5250 ms
+[2016-08-08 13:22:39.288] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "gate-server-1"
+[2016-08-08 13:22:42.913] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "gate", "127.0.0.1", 3005
+[2016-08-08 13:22:43.987] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" enter after start...
+[2016-08-08 13:22:44.025] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" finish start
+[2016-08-08 13:22:44.044] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"gate-server-1" startup in 4645 ms

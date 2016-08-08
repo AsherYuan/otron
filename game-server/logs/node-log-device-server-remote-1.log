@@ -1808,3 +1808,148 @@
 [2016-07-14 15:38:12.452] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
 [2016-07-14 15:38:12.458] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
 [2016-07-14 15:38:12.458] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 892 ms
+[2016-08-04 17:17:53.416] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-04 17:17:55.181] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-04 17:17:55.831] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-04 17:17:55.835] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-04 17:17:55.842] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 2353 ms
+[2016-08-04 17:26:50.678] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-04 17:26:53.004] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-04 17:26:54.197] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-04 17:26:54.379] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-04 17:26:54.405] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 3649 ms
+[2016-08-04 17:30:36.264] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-04 17:30:40.860] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-04 17:30:42.260] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-04 17:30:42.320] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-04 17:30:42.375] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 6005 ms
+[2016-08-04 17:31:23.404] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-04 17:31:25.508] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-04 17:31:26.132] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-04 17:31:26.167] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-04 17:31:26.210] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 2708 ms
+[2016-08-04 17:32:11.119] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-04 17:32:14.574] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-04 17:32:15.430] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-04 17:32:15.433] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-04 17:32:15.456] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 4214 ms
+[2016-08-04 17:38:11.830] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-04 17:38:15.458] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-04 17:38:16.507] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-04 17:38:16.542] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-04 17:38:16.549] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 4599 ms
+[2016-08-04 17:38:50.125] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-04 17:38:52.796] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-04 17:38:54.515] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-04 17:38:54.648] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-04 17:38:54.649] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 4442 ms
+[2016-08-04 17:40:38.710] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-04 17:40:42.676] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-04 17:40:44.162] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-04 17:40:44.229] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-04 17:40:44.246] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 5376 ms
+[2016-08-05 08:59:50.042] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 08:59:54.719] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 08:59:56.093] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 08:59:56.348] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 08:59:56.355] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 6224 ms
+[2016-08-05 09:12:31.175] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 09:12:34.024] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 09:12:34.930] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 09:12:34.964] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 09:12:35.006] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 3686 ms
+[2016-08-05 09:23:06.201] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 09:23:07.760] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 09:23:08.485] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 09:23:08.507] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 09:23:08.507] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 2242 ms
+[2016-08-05 09:26:37.255] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 09:26:38.999] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 09:26:39.582] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 09:26:39.584] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 09:26:39.590] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 2173 ms
+[2016-08-05 09:28:29.698] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 09:28:31.584] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 09:28:32.113] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 09:28:32.146] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 09:28:32.166] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 2415 ms
+[2016-08-05 09:31:03.425] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 09:31:04.965] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 09:31:05.493] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 09:31:05.536] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 09:31:05.542] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 2018 ms
+[2016-08-05 09:38:38.601] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 09:38:42.123] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 09:38:43.455] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 09:38:43.488] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 09:38:43.524] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 4823 ms
+[2016-08-05 10:12:39.739] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 10:12:41.593] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 10:12:42.360] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 10:12:42.381] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 10:12:42.386] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 2567 ms
+[2016-08-05 10:13:32.962] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 10:13:34.785] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 10:13:35.454] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 10:13:35.468] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 10:13:35.550] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 2508 ms
+[2016-08-05 13:10:29.524] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 13:10:31.305] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 13:10:31.834] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 13:10:31.860] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 13:10:31.872] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 2284 ms
+[2016-08-05 13:35:40.893] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 13:35:43.241] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 13:35:44.013] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 13:35:44.029] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 13:35:44.040] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 3047 ms
+[2016-08-05 13:36:22.426] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 13:36:25.873] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 13:36:26.539] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 13:36:26.541] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 13:36:26.543] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 3978 ms
+[2016-08-05 13:38:31.856] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 13:38:34.405] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 13:38:35.112] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 13:38:35.120] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 13:38:35.122] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 3155 ms
+[2016-08-05 13:39:48.048] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-05 13:39:50.562] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-05 13:39:51.060] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-05 13:39:51.070] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-05 13:39:51.090] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 2931 ms
+[2016-08-08 08:53:54.957] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-08 08:53:57.146] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-08 08:53:57.672] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-08 08:53:57.718] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-08 08:53:57.719] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 2715 ms
+[2016-08-08 10:04:18.803] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-08 10:04:20.450] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-08 10:04:21.113] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-08 10:04:21.170] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-08 10:04:21.176] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 2308 ms
+[2016-08-08 11:01:05.387] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-08 11:01:08.488] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-08 11:01:09.390] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-08 11:01:09.427] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-08 11:01:09.432] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 3891 ms
+[2016-08-08 13:11:04.806] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-08 13:11:09.738] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-08 13:11:11.236] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-08 13:11:11.263] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-08 13:11:11.288] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 6249 ms
+[2016-08-08 13:19:11.060] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-08 13:19:14.537] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-08 13:19:15.354] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-08 13:19:15.362] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-08 13:19:15.369] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 4233 ms
+[2016-08-08 13:20:58.968] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-08 13:21:02.945] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-08 13:21:03.859] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-08 13:21:03.861] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-08 13:21:03.864] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 4787 ms
+[2016-08-08 13:22:39.643] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "device-server-remote-1"
+[2016-08-08 13:22:42.801] [INFO] pomelo-admin - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "device", "127.0.0.1", 3005
+[2016-08-08 13:22:43.790] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" enter after start...
+[2016-08-08 13:22:43.859] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" finish start
+[2016-08-08 13:22:43.860] [INFO] pomelo - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"device-server-remote-1" startup in 4164 ms

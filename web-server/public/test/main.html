@@ -34,8 +34,8 @@
     </style>
     <script type="text/javascript">
         var pomelo = window.pomelo;
-//        var host = "127.0.0.1";
-        var host = "121.40.53.201";
+        var host = "127.0.0.1";
+//        var host = "121.40.53.201";
         var port = "3015";
         var uid = '';
 
@@ -102,7 +102,6 @@
                     var route = 'user.entryHandler.auth';
                     var uid = 'web' + new Date().getTime();
                     pomelo.request(route, {token:cookieToken}, function(data) {
-
                         if(data === 1001) {
                             layer.msg('验证失败');
                         } else {
@@ -155,11 +154,11 @@
                                 $("#homeInfoDiv").append(layerHtml);
                                 pomelo.request('user.userHandler.getHomeGridList', {homeId:hi._id, layerName:hi.layers[j].name, centerBoxSerialno:hi.layers[j].centerBoxSerialno}, function(gridListData) {
                                     var gridList = gridListData.data.docs;
-                                    var centerBoxSerialno = gridListData.centerBoxSerialno;
+                                    var centerBoxSerialno = gridListData.data.centerBoxSerialno;
                                     for(var l=0;l<gridList.length;l++) {
                                         var gridHtml = "<div class='homeGridDiv'";
                                         if(!! gridList[l].terminalId) {
-                                            gridHtml += " id='homeGrid" + gridList[l].terminalId + "' homeId='" + gridListData.homeId + "' gridId='" + gridList[l]._id + "' layerName='" + gridListData.layerName + "'>";
+                                            gridHtml += " id='homeGrid" + gridList[l].terminalId + "' homeId='" + gridListData.data.homeId + "' gridId='" + gridList[l]._id + "' layerName='" + gridListData.data.layerName + "'>";
                                         } else {
                                             gridHtml += ">";
                                         }
@@ -168,21 +167,20 @@
                                         gridHtml += "</div>";
                                         $("#gridListDiv").append(gridHtml);
                                     }
-
-                                    pomelo.request("user.userHandler.queryDevices", function(deviceList) {
+                                    pomelo.request("user.userHandler.queryDevices", {centerBoxSerialno:centerBoxSerialno}, function(deviceList) {
                                         if( !! deviceList) {
-                                            for(var de=0;de<deviceList.length;de++) {
-                                                var deHomeId = deviceList[de].home_id;
-                                                var deHomeGridId = deviceList[de].homeGridId;
+                                            for(var de=0;de<deviceList.data.length;de++) {
+                                                var deHomeId = deviceList.data[de].home_id;
+                                                var deHomeGridId = deviceList.data[de].homeGridId;
                                                 var label = '';
-                                                if(deviceList[de].e_name != undefined) {
-                                                    label = deviceList[de].e_name + "[" + deviceList[de].pingpai + "]";
+                                                if(deviceList.data[de].e_name != undefined) {
+                                                    label = deviceList.data[de].e_name + "[" + deviceList.data[de].pingpai + "]";
                                                 } else {
-                                                    label = deviceList[de].e_type + "[" + deviceList[de].pingpai + "]";
+                                                    label = deviceList.data[de].e_type + "[" + deviceList.data[de].pingpai + "]";
                                                 }
-                                                var deviceItem = "<div class='deviceItem' onclick='deleteDevice(\"" + deviceList[de]._id + "\");'>" + label + "</div>";
+                                                var deviceItem = "<div class='deviceItem' onclick='deleteDevice(\"" + deviceList.data[de]._id + "\");'>" + label + "</div>";
 
-                                                if( !! deviceList[de].status) {
+                                                if( !! deviceList.data[de].status) {
 //                                                    asdfasdfasdfasdfasdfas// TODO 对状态的解读和调整
                                                 }
                                                 $("#deviceList" + deHomeGridId).append(deviceItem);
@@ -191,21 +189,21 @@
                                     });
 
                                     pomelo.request('user.userHandler.queryTerminal', {centerBoxSerialno:centerBoxSerialno}, function(terminalList) {
-                                        for(var l=0;l<terminalList.length;l++) {
-                                            if($("#homeGrid" + terminalList[l]._id).length > 0) {
-                                                var homeId = $("#homeGrid" + terminalList[l]._id).attr("homeId");
-                                                var layerName = $("#homeGrid" + terminalList[l]._id).attr("layerName");
-                                                var gridId = $("#homeGrid" + terminalList[l]._id).attr("gridId");
+                                        for(var l=0;l<terminalList.data.length;l++) {
+                                            if($("#homeGrid" + terminalList.data[l]._id).length > 0) {
+                                                var homeId = $("#homeGrid" + terminalList.data[l]._id).attr("homeId");
+                                                var layerName = $("#homeGrid" + terminalList.data[l]._id).attr("layerName");
+                                                var gridId = $("#homeGrid" + terminalList.data[l]._id).attr("gridId");
 
-                                                var terminalOnlineHtml = "<p style='clear:both;'>终端:" + terminalList[l].code + "<input type='button' value='添加电器' onclick='addNewDeviceWin(\"" + terminalList[l]._id;
+                                                var terminalOnlineHtml = "<p style='clear:both;'>终端:" + terminalList.data[l].code + "<input type='button' value='添加电器' onclick='addNewDeviceWin(\"" + terminalList.data[l]._id;
                                                 terminalOnlineHtml += "\", \"" + homeId + "\", \"" + layerName + "\", \"" + gridId + "\");'></p>";
-                                                terminalOnlineHtml += "<p id='isOnlineSpanT" + terminalList[l]._id + "' style='color:red;'>离线</p>";
-                                                $("#homeGrid" + terminalList[l]._id).append(terminalOnlineHtml);
+                                                terminalOnlineHtml += "<p id='isOnlineSpanT" + terminalList.data[l]._id + "' style='color:red;'>离线</p>";
+                                                $("#homeGrid" + terminalList.data[l]._id).append(terminalOnlineHtml);
                                             } else {
                                                 var bindTerminalHtml = '<p>您有新的终端设备，请绑定所在房间</p>';
                                                 bindTerminalHtml += '<p>终端信息:设备编码:' + terminalList[l].code + '</p>';
                                                 for(var x=0; x<gridList.length;x++) {
-                                                    bindTerminalHtml += '<div class="gridToChoose" onclick="bindTerminalToHomeGrid(\'' + gridList[x]._id + '\', \'' + terminalList[l]._id + '\');">';
+                                                    bindTerminalHtml += '<div class="gridToChoose" onclick="bindTerminalToHomeGrid(\'' + gridList[x]._id + '\', \'' + terminalList.data[l]._id + '\');">';
                                                     bindTerminalHtml += gridList[x].gridType + ':' + gridList[x].name + '</div>';
                                                 }
                                                 layer.open({
@@ -304,9 +302,10 @@
         function changeDeviceType() {
             var type = $("#deviceTypeSelect").val();
             pomelo.request('user.userHandler.getDeviceBrands', {type:type}, function(data) {
+                alert(JSON.stringify(data));
                 $("#deviceBrandListDiv").html("");
-                for(var i=0;i<data.length;i++) {
-                    var brand = data[i];
+                for(var i=0;i<data.data.length;i++) {
+                    var brand = data.data[i];
                     var xHtml = '<div class="deviceBrand" onclick="chooseDeviceBrand(\'' + brand.name + '\', \'' + type + '\');">' + brand.name + '</div>';
                     $("#deviceBrandListDiv").append(xHtml);
                 }
@@ -404,18 +403,9 @@
 
         function say() {
             var words = $("#userSaying").val();
-//            pomelo.request('user.userHandler.userSaySomething', {words:words}, function(data) {
-//                layer.alert(data);
-//            });
-
-            pomelo.init({host:'121.40.53.201', port:3010, log:true}, function() {
-                var route = 'connector.entryHandler.webMsg';
-                var ipAddress = '122.225.88.66';
-                var command = '3000';
-                var terminalCode = '01';
-                pomelo.request(route, {"ipAddress":ipAddress, "command":command, 'terminalCode':terminalCode}, function(data) {
-                    alert(data);
-                });
+            words = escape(escape(words));
+            pomelo.request('user.userHandler.userSaySomething', {words:words}, function(data) {
+                layer.alert(data);
             });
         }
 
