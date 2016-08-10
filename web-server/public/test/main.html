@@ -485,11 +485,13 @@
 
         function testRouteStr() {
             var route = $("#routeStr").val();
-            var param = null;
-            if($("#paramStr").val() == "") {
-                param = {};
-            } else {
-                param = JSON.parse($("#paramStr").val());
+            var param = new Object();
+            for(var i=1;i<7;i++) {
+                var x = $("#param" + i).val();
+                if(x != "") {
+                    var xarray = x.split("=");
+                    param[xarray[0]] = xarray[1];
+                }
             }
             pomelo.request(route, param, function(data) {
                 layer.alert(JSON.stringify(data));
@@ -499,7 +501,12 @@
 </head>
 <body>
 <div><input type="text" value="" id="routeStr"><br/>
-    <input type="text" value="" id="paramStr" placeHolder="{aaa:'bbb', ccc:123}"><input type="button" value="测试接口" onclick="testRouteStr();" /></div>
+    <input type="text" id="param1" value="" placeHolder="homeId=5754eb2a37c667e737df9ee3"><br/>
+    <input type="text" id="param2" value="" placeHolder="layerName=一楼"><br/>
+    <input type="text" id="param3" value=""><br/>
+    <input type="text" id="param4" value=""><br/>
+    <input type="text" id="param5" value=""><br/>
+    <input type="text" id="param6" value=""><input type="button" value="测试接口" onclick="testRouteStr();" /></div><hr>
 <div><input type="button" value="测试数据" onclick="getTempList()" /></div>
 <div><input type="button" value="测试开关--开" onclick="testOn()" /></div>
 <div><input type="button" value="测试开关--关" onclick="testOff()" /></div>
