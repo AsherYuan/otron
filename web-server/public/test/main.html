@@ -34,8 +34,8 @@
     </style>
     <script type="text/javascript">
         var pomelo = window.pomelo;
-        var host = "127.0.0.1";
-//        var host = "121.40.53.201";
+//        var host = "127.0.0.1";
+        var host = "121.40.53.201";
         var port = "3015";
         var uid = '';
 
@@ -302,24 +302,35 @@
         function changeDeviceType() {
             var type = $("#deviceTypeSelect").val();
             pomelo.request('user.userHandler.getDeviceBrands', {type:type}, function(data) {
-                alert(JSON.stringify(data));
                 $("#deviceBrandListDiv").html("");
                 for(var i=0;i<data.data.length;i++) {
                     var brand = data.data[i];
-                    var xHtml = '<div class="deviceBrand" onclick="chooseDeviceBrand(\'' + brand.name + '\', \'' + type + '\');">' + brand.name + '</div>';
+                    var xHtml = '<div class="deviceBrand" onclick="chooseDeviceBrand(\'' + brand + '\', \'' + type + '\');">' + brand + '</div>';
                     $("#deviceBrandListDiv").append(xHtml);
                 }
             });
         }
 
-        function chooseDeviceBrand(brandName, type) {
+        function chooseDeviceBrand(brand, type) {
+            $("#deviceBrandListDiv").html("");
+            pomelo.request('user.userHandler.getDeviceModels', {brand:brand, type:type}, function(data) {
+                $("#deviceBrandListDiv").html("");
+                for(var i=0;i<data.data.length;i++) {
+                    var model = data.data[i];
+                    var xHtml = '<div class="deviceBrand" onclick="chooseDeviceLast(\'' + brand + '\', \'' + model + '\', \'' + data.type + '\');">' + model + '</div>';
+                    $("#deviceBrandListDiv").append(xHtml);
+                }
+            });
+        }
+
+        function chooseDeviceLast(brandName, model, type) {
             var terminalId = $("#addNewDeviceTerminalId").val();
             var homeId = $("#addNewDeviceHomeId").val();
             var layerName = $("#addNewDeviceLayerName").val();
             var gridId = $("#addNewDeviceGridId").val();
             var name = $("#addNewDeviceName").val();
 
-            pomelo.request('user.userHandler.saveNewDevice', {name:name, terminalId:terminalId, homeId:homeId, layerName:layerName, gridId:gridId, brand:brandName, type:type}, function(data) {
+            pomelo.request('user.userHandler.saveNewDevice', {name:name, terminalId:terminalId, homeId:homeId, layerName:layerName, gridId:gridId, brand:brandName, model:model, type:type}, function(data) {
                 window.location.reload();
             });
         }
@@ -405,7 +416,7 @@
             var words = $("#userSaying").val();
             words = escape(escape(words));
             pomelo.request('user.userHandler.userSaySomething', {words:words}, function(data) {
-                layer.alert(data);
+                layer.alert(JSON.stringify(data));
             });
         }
 

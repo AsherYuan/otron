@@ -8,7 +8,7 @@ var FloorModel = require('../../../mongodb/models/FloorModel');
 var FloorModelModel = require('../../../mongodb/models/FloorModelModel');
 var DeviceBrandModel = require('../../../mongodb/models/DeviceBrandModel');
 var DeviceModel = require('../../../mongodb/models/DeviceModel');
-var UserEquipmentModel = require('../../../mongodb/models/UserEquipment');
+var UserEquipmentModel = require('../../../mongodb/models/UserEquipmentModel');
 var HomeWifiModel = require('../../../mongodb/models/HomeWifiModel');
 var CenterBoxModel = require('../../../mongodb/models/CenterBoxModel');
 var TerminalModel = require('../../../mongodb/models/TerminalModel');
@@ -18,6 +18,7 @@ var DeviceStatusUtil = require('../../../util/DeviceStatusUtil');
 var SensorDataModel = require('../../../mongodb/models/SensorDataModel');
 var request = require('request');
 var RDeviceModel = require('../../../mongodb/models/RDeviceModel');
+var SayingUtil = require('../../../domain/SayingUtil');
 
 module.exports = function (app) {
     return new Handler(app);
@@ -122,8 +123,6 @@ Handler.prototype.queryTerminal = function (msg, session, next) {
             next(null, ret);
         });
     } else {
-
-        console.log(JSON.stringify(params));
         TerminalModel.find(params, function (err, docs) {
             var ret = Code.OK;
             ret.data = docs;
@@ -140,13 +139,13 @@ Handler.prototype.queryDevices = function (msg, session, next) {
             for (var i = 0; i < docs.length; i++) {
                 ids.push(docs[i]._id);
             }
-            UserEquipmentModel.find({home_id: {$in: ids}}, function (err, devices) {
+            UserEquipmentModel.find({home_id: {$in: ids}}, function (err, docs) {
                 if (err) {
                     console.log(err);
                     next(null, Code.DATABASE);
                 } else {
                     var ret = Code.OK;
-                    ret.data = devices;
+                    ret.data = docs;
                     next(null, ret);
                 }
             });
@@ -162,7 +161,6 @@ Handler.prototype.getDeviceList = function (msg, session, next) {
     var userMobile = session.uid;
     var homeId = msg.homeId;
     var layerName = msg.layerName;
-
     UserEquipmentModel.find({homeId: homeId, layerName: layerName}, function (err, devices) {
         if (err) {
             console.log(err);
@@ -305,7 +303,6 @@ Handler.prototype.getHomeGridList = function (msg, session, next) {
     var homeId = msg.homeId;
     var layerName = msg.layerName;
     var centerBoxSerialno = msg.centerBoxSerialno;
-
     HomeGridModel.find({homeId: homeId, layerName: layerName}, function (err, grids) {
         if (err) {
             console.log(err);
@@ -487,11 +484,7 @@ Handler.prototype.getDeviceTypes = function (msg, session, next) {
  */
 Handler.prototype.getDeviceBrands = function (msg, session, next) {
     var type = msg.type;
-    RDeviceModel.distinct({"_id", "typeID", typeName, devType, brand}, {devType:type}, function(err, docs) {
-
-        {"_id":"578899037396c3aa2716207a","_class":"com.mongodb.entity.query.Rdevice",
-            "typeID":"100012","typeName":"三菱10","devType":"空调","brand":"三菱"},
-
+    RDeviceModel.distinct("brand", {devType:type}, function(err, docs) {
         if(err) {
             console.log(err);
             next(null, Code.DATABASE);
@@ -501,18 +494,28 @@ Handler.prototype.getDeviceBrands = function (msg, session, next) {
             next(null, ret);
         }
     });
+};
 
-    // DeviceBrandModel.find({'type':type}, function(err, docs) {
-    //   if(err) {
-    //     console.log(err);
-    //     next(null, Code.DATABASE);
-    //   }
-    //   else {
-    //     var ret = Code.OK;
-    //     ret.data = docs;
-    //     next(null, ret);
-    //   }
-    // });
+/**
+ * 根据设备品牌获得型号列表
+ * @param msg
+ * @param session
+ * @param next
+ */
+Handler.prototype.getDeviceModels = function (msg, session, next) {
+    var brand = msg.brand;
+    var type = msg.type;
+    RDeviceModel.distinct("typeName", {brand:brand}, function(err, docs) {
+        if(err) {
+            console.log(err);
+            next(null, Code.DATABASE);
+        } else {
+            var ret = Code.OK;
+            ret.data = docs;
+            ret.type = type;
+            next(null, ret);
+        }
+    });
 };
 
 Handler.prototype.saveNewDevice = function (msg, session, next) {
@@ -523,6 +526,7 @@ Handler.prototype.saveNewDevice = function (msg, session, next) {
     var type = msg.type;
     var brand = msg.brand;
     var name = msg.name;
+    var model = msg.model;
 
     // 设备初始化状态添加,各种状态的调整和解读
     var status = DeviceStatusUtil.getInitStatus(type);
@@ -535,6 +539,7 @@ Handler.prototype.saveNewDevice = function (msg, session, next) {
         homeGridId: homeGridId,
         e_type: type,
         pingpai: brand,
+        typeName:model,
         status: status.power,
         ac_model: status.mode,
         ac_windspeed: status.wind,
@@ -645,8 +650,10 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
     var words = msg.words;
 
     HomeModel.find({userMobile: uid}, function (err, docs) {
-        if (err) console.log(docs);
-        else {
+        if (err) {
+            console.log(docs);
+            next(null, Code.DATABASE);
+        } else {
             // TODO 选择homeId, 语言模式上调整
             if (!!docs) {
                 var homeId = docs[0]._id;
@@ -659,9 +666,70 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
                 var host = "http://192.168.2.113:8080/SpringMongod/main/ao?" + data;
                 request(host, function (error, response, body) {
                     if (!error && response.statusCode == 200) {
-                        next(null, body);
+                        var result = JSON.parse(body);
+                        console.log("语音解析结果:" + JSON.stringify(result));
+                        var ret = Code.OK;
+                        if(!! result.orderAndInfrared && result.orderAndInfrared.length > 0) {
+                            // 判断房间是否相同 如果相同，则直接执行，如果不同，对用户进行询问
+                            // 返回的数据结构：
+                            var targetArray = new Array();
+                            var sentence = "";
+
+                            for(var i=0;i<result.orderAndInfrared.length;i++) {
+                                var t = result.orderAndInfrared[i];
+                                targetArray.push(SayingUtil.translateStatus(t.order.ueq));
+                            }
+
+                            // 判断是否延时
+                            if(result.delayOrder == true) {
+                                sentence = result.delayDesc + "将为您" + JSON.stringify(targetArray);
+                            } else {
+                                sentence = "已为您" + JSON.stringify(targetArray);
+                            }
+                            ret.data = sentence;
+
+                            // 同时，发送红外码到对应的终端
+                            // 获取所有终端，如果不同的终端应该分开发送
+                            // /*********************** 红外码发送 ****************************/
+                            //         var terminalCode = '01';
+                            //
+                            //         var suffix1 = ' 36 FF 00 8A 22 A2 A2 A2 28 A2 88 88 88 A2 AA AA 22 2A 22 2A 88 80 1F E0 11 44 54 54 54 45 14 51 11 11 14 55 55 44 45 44 45 51 10 00 00'; // 18度
+                            //         var suffix2 = ' 36 FF 00 8A 22 A2 A2 A2 28 AA 22 22 22 22 AA A2 A2 A8 A2 28 88 80 1F E0 11 44 54 54 54 45 15 44 44 44 44 55 54 54 55 14 45 11 10 00 00'; // 24度
+                            //                         36 FF 00 8A 22 A2 A2 A2 28 A2 22 28 88 AA 8A 88 8A AA A8 88 88 80 1F E0 11 44 54 54 54 45 14 44 45 11 15 51 51 11 55 55 11 11 10
+
+
+                            //         var data = terminalCode + suffix1;
+                            //         param = {
+                            //           command: '3000',
+                            //           ipAddress: msg.ipAddress,
+                            //           data: data
+                            //         };
+                            //         var sessionService = self.app.get('sessionService');
+                            //         console.log("sessionService::" + sessionService);
+                            //         self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+                            //           uid: 'socketServer*otron',
+                            //           sid: 'connector-server-1'
+                            //         }]);
+                                                        /*********************** 红外码发送 ****************************/
+                                                        // req.on('error', function (e) {
+                                                        //   console.log('problem with request: ' + e.message);
+                                                        // });
+                                                        //
+                                                        // req.write(data);
+                                                        // req.end();
+
+
+                        } else {
+                            ret.data = {result:"没有任何匹配"};
+                        }
+                        next(null, ret);
+                    } else {
+                        next(null, Code.NET_FAIL);
                     }
                 });
+            } else {
+                next(null, Code.DATABASE)
+            }
 
 //         console.log(data);
 //
@@ -724,7 +792,6 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
                 // req.write(data);
                 // req.end();
 
-            }
         }
     });
 };
@@ -763,7 +830,6 @@ Handler.prototype.remoteControll = function (msg, session, next) {
         chg_chn: chg_chn
     };
     data = require('querystring').stringify(data);
-    console.log(data);
     var opt = {
         method: "POST",
         host: "122.225.88.66",
@@ -856,6 +922,7 @@ Handler.prototype.delayNotify = function (msg, session, next) {
         command: '6000',
         content: content
     };
+    console.log("延时命令：" + JSON.stringify(msg));
     self.app.get('channelService').pushMessageByUids('onMsg', param, [{
         uid: uid,
         sid: 'user-server-1'

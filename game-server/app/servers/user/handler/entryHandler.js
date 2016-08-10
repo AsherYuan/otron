@@ -29,10 +29,8 @@ Handler.prototype.auth = function(msg, session, next) {
   var version = msg.version;
   var sessionService = self.app.get('sessionService');
   var channelService = self.app.get('channelService');
-console.log("[token:]" + token);
   //根据token获取uid
   var res = tokenManager.parse(token, authConfig.authSecret);
-  console.log("[res:]" + JSON.stringify(res));
   if(!res) {
     next(null, Code.ENTRY.FA_TOKEN_INVALID);
     return;
@@ -40,7 +38,6 @@ console.log("[token:]" + token);
   // Token解析成功 开始验证数据
   var uid = res.uid;
   UserModel.find({"mobile":uid}, function(err, docs){
-    console.log("auth--------------------------------" + JSON.stringify(docs));
     if(err) console.log(err);
     else {
       // 用户没找到

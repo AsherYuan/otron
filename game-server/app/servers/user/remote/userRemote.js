@@ -88,7 +88,6 @@ UserRemote.prototype.userInfoCheck = function (mobile, cb) {
 UserRemote.prototype.updateUserInfo = function (mobile, name, cb) {
   var conditions = {mobile : mobile};
   var update     = {$set : {name : name}};
-  console.log(mobile + ":" + name);
   UserModel.update(conditions, update, null, function(error){
     if(error) {
       console.log(error);

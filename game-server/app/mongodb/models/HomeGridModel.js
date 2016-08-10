@@ -2,17 +2,17 @@ var mongoose = require('../mongoose.js');
 
 var TerminalSchema = new mongoose.Schema({
   centerBoxSerialno:String,
-  homeGridId:mongoose.Schema.Types.ObjectId,
+  homeGridId:String,
   code:String,
   type:String,
   regTime : { type:Date, default:Date.now }
 });
 
 var HomeGridScheme = new mongoose.Schema({
-  homeId : mongoose.Schema.Types.ObjectId,
+  homeId : String,
   gridType : String,
   layerName : String,
-  terminalId:mongoose.Schema.Types.ObjectId,
+  terminalId:String,
   dorder : Number,
   name : String,
   terminal: [TerminalSchema]

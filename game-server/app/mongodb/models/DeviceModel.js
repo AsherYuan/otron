@@ -12,8 +12,8 @@ var DeviceStatusSchema = new mongoose.Schema({
 var DeviceSchema = new mongoose.Schema({
   homeId:mongoose.Schema.Types.ObjectId,
   layerName:String,
-  terminalId:mongoose.Schema.Types.ObjectId,
-  homeGridId:mongoose.Schema.Types.ObjectId,
+  terminalId:String,
+  homeGridId:String,
   type:String,
   brand:String,
   series:String,

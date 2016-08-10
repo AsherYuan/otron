@@ -11,8 +11,12 @@ var Error_cn = {
         USERNAME_IS_BLANK : '用户名不能为空',
         MOBILE_FORMAT_ERROR : '手机号码格式不正确'
     },
+    STRUCTURE : {
+        USER_NO_HOME : '用户尚未设置家庭信息'
+    },
     SUCC : "操作成功",
     FAIL : "操作失败",
+    NET_FAIL : '网络通信错误',
     BUSY : "服务器忙",
     SERVER_CLOSE : "服务器已关闭",
     COMMON: "通用错误",

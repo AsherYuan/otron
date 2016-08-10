@@ -1,7 +1,7 @@
 var mongoose = require('../mongoose.js');
 
 var SensorDataSchema = new mongoose.Schema({
-  centerBoxId:mongoose.Schema.Types.ObjectId,
+  centerBoxId:String,
   temperature:Number,
   humidity:Number,
   co2:Number,
