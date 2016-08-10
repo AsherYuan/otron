@@ -36,6 +36,7 @@
         var pomelo = window.pomelo;
 //        var host = "127.0.0.1";
         var host = "121.40.53.201";
+//        var host = '192.168.2.128';
         var port = "3015";
         var uid = '';
 
@@ -481,9 +482,24 @@
                 layer.alert(JSON.stringify(data));
             });
         }
+
+        function testRouteStr() {
+            var route = $("#routeStr").val();
+            var param = null;
+            if($("#paramStr").val() == "") {
+                param = {};
+            } else {
+                param = JSON.parse($("#paramStr").val());
+            }
+            pomelo.request(route, param, function(data) {
+                layer.alert(JSON.stringify(data));
+            });
+        }
     </script>
 </head>
 <body>
+<div><input type="text" value="" id="routeStr"><br/>
+    <input type="text" value="" id="paramStr" placeHolder="{aaa:'bbb', ccc:123}"><input type="button" value="测试接口" onclick="testRouteStr();" /></div>
 <div><input type="button" value="测试数据" onclick="getTempList()" /></div>
 <div><input type="button" value="测试开关--开" onclick="testOn()" /></div>
 <div><input type="button" value="测试开关--关" onclick="testOff()" /></div>
