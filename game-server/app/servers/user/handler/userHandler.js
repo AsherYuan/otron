@@ -161,15 +161,16 @@ Handler.prototype.getDeviceList = function (msg, session, next) {
     var userMobile = session.uid;
     var homeId = msg.homeId;
     var layerName = msg.layerName;
-    UserEquipmentModel.find({}, function (err, devices) {
-    // UserEquipmentModel.find({home_id: homeId, layerName: layerName}, function (err, devices) {
-        console.log(devices);
+
+    // {home_id: homeId, layerName: layerName}
+    UserEquipmentModel.find({}).populate('homeGridId').exec(function(err, docs) {
+        console.log(docs);
         if (err) {
             console.log(err);
             next(null, Code.DATABASE);
         } else {
             var ret = Code.OK;
-            ret.data = devices;
+            ret.data = docs;
             next(null, ret);
         }
     });

@@ -5,7 +5,7 @@ var UserEquipmentSchema = new mongoose.Schema({
     terminalId:String,
     home_id:String,
     layerName:String,
-    homeGridId:String,
+    homeGridId:{type:String, ref:"homeGrid"},
     e_type:String,
     pingpai:String,
     typeName:String,
