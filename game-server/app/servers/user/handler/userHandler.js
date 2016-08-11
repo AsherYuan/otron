@@ -161,7 +161,7 @@ Handler.prototype.getDeviceList = function (msg, session, next) {
     var userMobile = session.uid;
     var homeId = msg.homeId;
     var layerName = msg.layerName;
-    UserEquipmentModel.find({homeId: homeId, layerName: layerName}, function (err, devices) {
+    UserEquipmentModel.find({home_id: homeId, layerName: layerName}, function (err, devices) {
         if (err) {
             console.log(err);
             next(null, Code.DATABASE);
@@ -678,6 +678,26 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
                             for(var i=0;i<result.orderAndInfrared.length;i++) {
                                 var t = result.orderAndInfrared[i];
                                 targetArray.push(SayingUtil.translateStatus(t.order.ueq));
+
+                                var data = t.infrared.infraredcode;
+
+                                // 开始发送红外命令
+                                UserEquipmentModel.find({_id:t.order.ueq.id}, function(err, docs) {
+                                    TerminalModel.find({_id:docs[0].terminalId}, function(err, docs) {
+                                        var serialNo = docs[0].centerBoxSerialno;
+                                        var param = {
+                                            command: '3000',
+                                            ipAddress: '',
+                                            serialNo:serialNo,
+                                            data: data
+                                        };
+                                        var sessionService = self.app.get('sessionService');
+                                        self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+                                            uid: 'socketServer*otron',
+                                            sid: 'connector-server-1'
+                                        }]);
+                                    });
+                                });
                             }
 
                             // 判断是否延时
@@ -687,38 +707,6 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
                                 sentence = "已为您" + JSON.stringify(targetArray);
                             }
                             ret.data = sentence;
-
-                            // 同时，发送红外码到对应的终端
-                            // 获取所有终端，如果不同的终端应该分开发送
-                            // /*********************** 红外码发送 ****************************/
-                            //         var terminalCode = '01';
-                            //
-                            //         var suffix1 = ' 36 FF 00 8A 22 A2 A2 A2 28 A2 88 88 88 A2 AA AA 22 2A 22 2A 88 80 1F E0 11 44 54 54 54 45 14 51 11 11 14 55 55 44 45 44 45 51 10 00 00'; // 18度
-                            //         var suffix2 = ' 36 FF 00 8A 22 A2 A2 A2 28 AA 22 22 22 22 AA A2 A2 A8 A2 28 88 80 1F E0 11 44 54 54 54 45 15 44 44 44 44 55 54 54 55 14 45 11 10 00 00'; // 24度
-                            //                         36 FF 00 8A 22 A2 A2 A2 28 A2 22 28 88 AA 8A 88 8A AA A8 88 88 80 1F E0 11 44 54 54 54 45 14 44 45 11 15 51 51 11 55 55 11 11 10
-
-
-                            //         var data = terminalCode + suffix1;
-                            //         param = {
-                            //           command: '3000',
-                            //           ipAddress: msg.ipAddress,
-                            //           data: data
-                            //         };
-                            //         var sessionService = self.app.get('sessionService');
-                            //         console.log("sessionService::" + sessionService);
-                            //         self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-                            //           uid: 'socketServer*otron',
-                            //           sid: 'connector-server-1'
-                            //         }]);
-                                                        /*********************** 红外码发送 ****************************/
-                                                        // req.on('error', function (e) {
-                                                        //   console.log('problem with request: ' + e.message);
-                                                        // });
-                                                        //
-                                                        // req.write(data);
-                                                        // req.end();
-
-
                         } else {
                             ret.data = {result:"没有任何匹配"};
                         }
@@ -730,68 +718,6 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
             } else {
                 next(null, Code.DATABASE)
             }
-
-//         console.log(data);
-//
-//         // var data = {
-//         //   str: words,
-//         //   user_id:'0001',
-//         //   home_id:'h0001'
-//         // };
-//         // var data = 'str=' + words + '&user_id=' + uid + '&home_id=' + homeId;
-//         data = require('querystring').stringify(data);
-//         console.log(data);
-//         var opt = {
-//           method: "POST",
-//           // host: "122.225.88.66",
-//           // port: 8180,
-//           // host: "192.168.2.113",
-//           // port: 8080,
-//           // path: "/SpringMongod/main/ao",
-//           host:"www.baidu.com",
-//           port:"80",
-//           path:"/",
-//           headers: {
-//             "Content-Type": 'application/x-www-form-urlencoded',
-//             "Content-Length": data.length
-//           }
-//         };
-//
-//         var req = http.request(opt, function (res) {
-//           res.setEncoding('utf8');
-//           res.on('data', function (chunk) {
-//               console.log("--------------------------------------------------" + chunk);
-//             next(null, chunk);
-//           });
-//         });
-// /*********************** 红外码发送 ****************************/
-//         var terminalCode = '01';
-//
-//         var suffix1 = ' 36 FF 00 8A 22 A2 A2 A2 28 A2 88 88 88 A2 AA AA 22 2A 22 2A 88 80 1F E0 11 44 54 54 54 45 14 51 11 11 14 55 55 44 45 44 45 51 10 00 00'; // 18度
-//         var suffix2 = ' 36 FF 00 8A 22 A2 A2 A2 28 AA 22 22 22 22 AA A2 A2 A8 A2 28 88 80 1F E0 11 44 54 54 54 45 15 44 44 44 44 55 54 54 55 14 45 11 10 00 00'; // 24度
-//                         36 FF 00 8A 22 A2 A2 A2 28 A2 22 28 88 AA 8A 88 8A AA A8 88 88 80 1F E0 11 44 54 54 54 45 14 44 45 11 15 51 51 11 55 55 11 11 10
-
-
-//         var data = terminalCode + suffix1;
-//         param = {
-//           command: '3000',
-//           ipAddress: msg.ipAddress,
-//           data: data
-//         };
-//         var sessionService = self.app.get('sessionService');
-//         console.log("sessionService::" + sessionService);
-//         self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-//           uid: 'socketServer*otron',
-//           sid: 'connector-server-1'
-//         }]);
-                /*********************** 红外码发送 ****************************/
-                // req.on('error', function (e) {
-                //   console.log('problem with request: ' + e.message);
-                // });
-                //
-                // req.write(data);
-                // req.end();
-
         }
     });
 };
@@ -805,57 +731,55 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
 Handler.prototype.remoteControll = function (msg, session, next) {
 
     // 目前写死一个设备
-    var user_id = '0001';
-    var deviceId = '57674899739656f253648363';
-    // var deviceType = msg.type == '空调' ? '空调' : msg.type == '电视' ? '电视' : '其他';
-    var deviceType = '空调';
-    var status = msg.status;
-    var model = msg.model;
-    var ac_windspeed = msg.ac_windspeed;
-    var ac_temperature = msg.ac_temperature;
-    var num = msg.num;
-    var chg_voice = msg.chg_voice;
-    var chg_chn = msg.chg_chn;
+    var user_id = session.uid;
+    var deviceId = msg.deviceId;
+    UserEquipmentModel.find({_id:deviceId}, function(err, docs) {
+        if(err) {
+            console.log(err);
+            next(null, Code.DATABASE);
+        } else {
+            if(!!docs) {
+                var device = docs[0];
+                var deviceType = msg.deviceType;
+                var status = msg.status;
+                var model = msg.model;
+                var ac_windspeed = msg.ac_windspeed;
+                var ac_temperature = msg.ac_temperature;
+                var num = msg.num;
+                var chg_voice = msg.chg_voice;
+                var chg_chn = msg.chg_chn;
 
-    var data = {
-        user_id: user_id,
-        deviceId: deviceId,
-        deviceType: deviceType,
-        status: status,
-        model: model,
-        ac_windspeed: ac_windspeed,
-        ac_temperature: ac_temperature,
-        num: num,
-        chg_voice: chg_voice,
-        chg_chn: chg_chn
-    };
-    data = require('querystring').stringify(data);
-    var opt = {
-        method: "POST",
-        host: "122.225.88.66",
-        port: 8180,
-        // host: "192.168.1.178",
-        // port: 8080,
-        path: "/SpringMongod/main/getorder",
-        headers: {
-            "Content-Type": 'application/x-www-form-urlencoded',
-            "Content-Length": data.length
+                model = escape(escape(model));
+                deviceType = escape(escape(deviceType));
+                status = escape(escape(status));
+
+                var data = {
+                    user_id: user_id,
+                    deviceId: deviceId,
+                    deviceType: deviceType,
+                    status: status,
+                    model: model,
+                    ac_windspeed: ac_windspeed,
+                    ac_temperature: ac_temperature,
+                    num: num,
+                    chg_voice: chg_voice,
+                    chg_chn: chg_chn
+                };
+
+                data = require('querystring').stringify(data);
+
+                var host = "http://192.168.2.113:8080/SpringMongod/main/getorder?" + data;
+                console.log(host);
+                request(host, function (error, response, body) {
+                    if (!error && response.statusCode == 200) {
+                        next(null, body);
+                    }
+                });
+            } else {
+                next(null, Code.REMOTECONTROLL.USEREQUIPMENT_NOT_EXIST);
+            }
         }
-    };
-
-    var req = http.request(opt, function (res) {
-        res.setEncoding('utf8');
-        res.on('data', function (chunk) {
-            next(null, chunk);
-        });
     });
-
-    req.on('error', function (e) {
-        console.log('problem with request: ' + e.message);
-    });
-
-    req.write(data);
-    req.end();
 };
 
 Handler.prototype.getSensorDatas = function (msg, session, next) {
