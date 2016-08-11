@@ -161,7 +161,8 @@ Handler.prototype.getDeviceList = function (msg, session, next) {
     var userMobile = session.uid;
     var homeId = msg.homeId;
     var layerName = msg.layerName;
-    UserEquipmentModel.find({home_id: homeId, layerName: layerName}, function (err, devices) {
+    UserEquipmentModel.find({}, function (err, devices) {
+    // UserEquipmentModel.find({home_id: homeId, layerName: layerName}, function (err, devices) {
         console.log(devices);
         if (err) {
             console.log(err);
