@@ -495,6 +495,21 @@
                 var x = $("#param" + i).val();
                 if(x != "") {
                     var xarray = x.split("=");
+                    param[xarray[0]] = xarray[1];
+                }
+            }
+            pomelo.request(route, param, function(data) {
+                layer.alert(JSON.stringify(data));
+            });
+        }
+
+        function testRouteStr1() {
+            var route = $("#routeStr1").val();
+            var param = new Object();
+            for(var i=1;i<7;i++) {
+                var x = $("#param" + i + "" + i).val();
+                if(x != "") {
+                    var xarray = x.split("=");
                     var val = xarray[1];
                     val = escape(escape(val));
                     param[xarray[0]] = val;
@@ -514,6 +529,13 @@
     <input type="text" id="param4" value=""><br/>
     <input type="text" id="param5" value=""><br/>
     <input type="text" id="param6" value=""><input type="button" value="测试接口" onclick="testRouteStr();" /></div><hr>
+<div><input type="text" value="" id="routeStr1"><br/>
+    <input type="text" id="param11" value=""><br/>
+    <input type="text" id="param22" value=""><br/>
+    <input type="text" id="param33" value=""><br/>
+    <input type="text" id="param44" value=""><br/>
+    <input type="text" id="param55" value=""><br/>
+    <input type="text" id="param66" value=""><input type="button" value="测试接口(跳转到JAVA端的)" onclick="testRouteStr1();" /></div><hr>
 <div><input type="button" value="测试数据" onclick="getTempList()" /></div>
 <div><input type="button" value="测试开关--开" onclick="testOn()" /></div>
 <div><input type="button" value="测试开关--关" onclick="testOff()" /></div>
