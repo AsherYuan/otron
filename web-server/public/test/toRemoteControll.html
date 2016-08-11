@@ -31,8 +31,8 @@
     </style>
     <script type="text/javascript">
         var pomelo = window.pomelo;
-        var host = "121.40.53.201";
-//        var host = '127.0.0.1';
+//        var host = "121.40.53.201";
+        var host = '192.168.2.128';
         var port = "3015";
         var uid = '';
 
@@ -61,9 +61,9 @@
             var homeId = '5754eb2a37c667e737df9ee3';
             pomelo.request('user.userHandler.getDeviceList', {homeId:homeId, layerName:'一楼'}, function(data) {
                 var html = "";
-                for(var i=0;i<data.length;i++) {
-                    html += "<div class='device' onclick='remoteControll(\"" + data[i]._id + "\", \"" + data[i].type + "\");'>";
-                    html += data[i].brand + data[i].type + "(" + data[i].name + ")";
+                for(var i=0;i<data.data.length;i++) {
+                    html += "<div class='device' onclick='remoteControll(\"" + data.data[i]._id + "\", \"" + data.data[i].e_type + "\");'>";
+                    html += data.data[i].pingpai + data.data[i].e_type + "(" + data.data[i].e_name + ")";
                     html += "</div>";
                 }
                 $("#container").html(html);
@@ -79,7 +79,9 @@
             var num = $("#num").val();
             var chg_voice = $("#chg_voice").val();
             var chg_chn = $("#chg_chn").val();
-            pomelo.request(route, {status:status, model:model, ac_windspeed:ac_windspeed, ac_temperature:ac_temperature,num:num, chg_voice:chg_voice, chg_chn:chg_chn}, function(data) {
+            pomelo.request(route, {deviceId:deviceId, deviceType: type, status:status,
+                model:model, ac_windspeed:ac_windspeed, ac_temperature:ac_temperature,
+                num:num, chg_voice:chg_voice, chg_chn:chg_chn}, function(data) {
                 layer.alert(data);
             });
         }

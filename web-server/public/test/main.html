@@ -498,6 +498,9 @@
                     param[xarray[0]] = xarray[1];
                 }
             }
+
+            alert(route);
+            alert(JSON.stringify(param));
             pomelo.request(route, param, function(data) {
                 layer.alert(JSON.stringify(data));
             });
