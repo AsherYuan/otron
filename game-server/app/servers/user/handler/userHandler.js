@@ -562,13 +562,11 @@ Handler.prototype.saveNewDevice = function (msg, session, next) {
 
 Handler.prototype.deleteDevice = function (msg, session, next) {
     var deviceId = msg.deviceId;
-
-    UserEquipmentModel.remove({_id: deviceId}, function (err, docs) {
+    UserEquipmentModel.remove({_id: new Object(deviceId)}, function (err, docs) {
         if (err) {
             console.log(err);
             next(null, Code.DATABASE);
-        }
-        else {
+        } else {
             next(null, Code.OK);
         }
     })
