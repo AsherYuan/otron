@@ -32,5 +32,9 @@ module.exports = {
 
     STRUCTURE: {
         USER_NO_HOME: {'code': 3001, 'codetxt': Lang.error.STRUCTURE.USER_NO_HOME}
+    },
+
+    REMOTECONTROLL : {
+        USEREQUIPMENT_NOT_EXIST : {'code' : 4001, 'codetxt' : Lang.error.REMOTECONTROLL.USEREQUIPMENT_NOT_EXIST}
     }
 };

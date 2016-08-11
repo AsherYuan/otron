@@ -162,6 +162,7 @@ Handler.prototype.getDeviceList = function (msg, session, next) {
     var homeId = msg.homeId;
     var layerName = msg.layerName;
     UserEquipmentModel.find({home_id: homeId, layerName: layerName}, function (err, devices) {
+        console.log(devices);
         if (err) {
             console.log(err);
             next(null, Code.DATABASE);
@@ -708,7 +709,13 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
                             }
                             ret.data = sentence;
                         } else {
-                            ret.data = {result:"没有任何匹配"};
+
+                            if(result.status == "turing") {
+                                var msgObj = JSON.parse(result.msg);
+                                ret.data = {result:msgObj.text};
+                            } else {
+                                ret.data = {result:result.msg};
+                            }
                         }
                         next(null, ret);
                     } else {
@@ -760,16 +767,12 @@ Handler.prototype.remoteControll = function (msg, session, next) {
                     status: status,
                     model: model,
                     ac_windspeed: ac_windspeed,
-                    ac_temperature: ac_temperature,
-                    num: num,
-                    chg_voice: chg_voice,
-                    chg_chn: chg_chn
+                    ac_temperature: ac_temperature
                 };
 
                 data = require('querystring').stringify(data);
 
                 var host = "http://192.168.2.113:8080/SpringMongod/main/getorder?" + data;
-                console.log(host);
                 request(host, function (error, response, body) {
                     if (!error && response.statusCode == 200) {
                         next(null, body);

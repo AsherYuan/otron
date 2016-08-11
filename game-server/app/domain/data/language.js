@@ -14,6 +14,9 @@ var Error_cn = {
     STRUCTURE : {
         USER_NO_HOME : '用户尚未设置家庭信息'
     },
+    REMOTECONTROLL : {
+        USEREQUIPMENT_NOT_EXIST : '用户设备不存在'
+    },
     SUCC : "操作成功",
     FAIL : "操作失败",
     NET_FAIL : '网络通信错误',
