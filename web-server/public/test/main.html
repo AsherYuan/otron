@@ -35,8 +35,8 @@
     <script type="text/javascript">
         var pomelo = window.pomelo;
 //        var host = "127.0.0.1";
-        var host = "121.40.53.201";
-//        var host = '192.168.2.128';
+//        var host = "121.40.53.201";
+        var host = '192.168.2.128';
         var port = "3015";
         var uid = '';
 
@@ -495,7 +495,9 @@
                 var x = $("#param" + i).val();
                 if(x != "") {
                     var xarray = x.split("=");
-                    param[xarray[0]] = xarray[1];
+                    var val = xarray[1];
+                    val = escape(escape(val));
+                    param[xarray[0]] = val;
                 }
             }
             pomelo.request(route, param, function(data) {
