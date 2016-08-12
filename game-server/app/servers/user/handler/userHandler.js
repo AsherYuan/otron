@@ -664,7 +664,7 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
                     home_id: '5754eb2a37c667e737df9ee3'
                 };
                 data = require('querystring').stringify(data);
-                var host = "http://192.168.2.113:8080/SpringMongod/main/ao?" + data;
+                var host = "http://122.225.88.66:8180/SpringMongod/main/ao?" + data;
                 request(host, function (error, response, body) {
                     if (!error && response.statusCode == 200) {
                         var result = JSON.parse(body);
@@ -771,8 +771,8 @@ Handler.prototype.remoteControll = function (msg, session, next) {
                 };
 
                 data = require('querystring').stringify(data);
-
-                var host = "http://192.168.2.113:8080/SpringMongod/main/getorder?" + data;
+                // var host = "http://192.168.2.113:8080/SpringMongod/main/getorder?" + data;
+                var host = "http://122.225.88.66:8180/SpringMongod/main/getorder?" + data;
                 request(host, function (error, response, body) {
                     if (!error && response.statusCode == 200) {
                         next(null, body);
