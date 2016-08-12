@@ -1,0 +1,2919 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', 'node-schedule' ]
+2 info using npm@3.5.2
+3 info using node@v4.2.6
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData node-schedule
+8 silly fetchNamedPackageData node-schedule
+9 silly mapToRegistry name node-schedule
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/node-schedule
+13 verbose request uri https://registry.npmjs.org/node-schedule
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 上午9:14:18
+16 verbose request id 6b535c73ed464356
+17 http request GET https://registry.npmjs.org/node-schedule
+18 http 200 https://registry.npmjs.org/node-schedule
+19 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+19 verbose headers   etag: '"8M6VU58TG1SA4RPILVJ648CF9"',
+19 verbose headers   'content-type': 'application/json',
+19 verbose headers   'content-encoding': 'gzip',
+19 verbose headers   'cache-control': 'max-age=300',
+19 verbose headers   'content-length': '8981',
+19 verbose headers   'accept-ranges': 'bytes',
+19 verbose headers   date: 'Fri, 12 Aug 2016 01:14:35 GMT',
+19 verbose headers   via: '1.1 varnish',
+19 verbose headers   age: '0',
+19 verbose headers   connection: 'keep-alive',
+19 verbose headers   'x-served-by': 'cache-lcy1132-LCY',
+19 verbose headers   'x-cache': 'HIT',
+19 verbose headers   'x-cache-hits': '1',
+19 verbose headers   'x-timer': 'S1470964474.839962,VS0,VE714',
+19 verbose headers   vary: 'Accept-Encoding' }
+20 silly get cb [ 200,
+20 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+20 silly get     etag: '"8M6VU58TG1SA4RPILVJ648CF9"',
+20 silly get     'content-type': 'application/json',
+20 silly get     'content-encoding': 'gzip',
+20 silly get     'cache-control': 'max-age=300',
+20 silly get     'content-length': '8981',
+20 silly get     'accept-ranges': 'bytes',
+20 silly get     date: 'Fri, 12 Aug 2016 01:14:35 GMT',
+20 silly get     via: '1.1 varnish',
+20 silly get     age: '0',
+20 silly get     connection: 'keep-alive',
+20 silly get     'x-served-by': 'cache-lcy1132-LCY',
+20 silly get     'x-cache': 'HIT',
+20 silly get     'x-cache-hits': '1',
+20 silly get     'x-timer': 'S1470964474.839962,VS0,VE714',
+20 silly get     vary: 'Accept-Encoding' } ]
+21 verbose get saving node-schedule to /home/asher/.npm/registry.npmjs.org/node-schedule/.cache.json
+22 silly install normalizeTree
+23 silly loadCurrentTree Finishing
+24 silly loadIdealTree Starting
+25 silly install loadIdealTree
+26 silly cloneCurrentTree Starting
+27 silly install cloneCurrentTreeToIdealTree
+28 silly cloneCurrentTree Finishing
+29 silly loadShrinkwrap Starting
+30 silly install loadShrinkwrap
+31 silly loadShrinkwrap Finishing
+32 silly loadAllDepsIntoIdealTree Starting
+33 silly install loadAllDepsIntoIdealTree
+34 silly resolveWithNewModule node-schedule@1.1.1 checking installable status
+35 silly cache add args [ 'node-schedule', null ]
+36 verbose cache add spec node-schedule
+37 silly cache add parsed spec Result {
+37 silly cache add   raw: 'node-schedule',
+37 silly cache add   scope: null,
+37 silly cache add   name: 'node-schedule',
+37 silly cache add   rawSpec: '',
+37 silly cache add   spec: 'latest',
+37 silly cache add   type: 'tag' }
+38 silly addNamed node-schedule@latest
+39 verbose addNamed "latest" is being treated as a dist-tag for node-schedule
+40 info addNameTag [ 'node-schedule', 'latest' ]
+41 silly mapToRegistry name node-schedule
+42 silly mapToRegistry using default registry
+43 silly mapToRegistry registry https://registry.npmjs.org/
+44 silly mapToRegistry uri https://registry.npmjs.org/node-schedule
+45 verbose addNameTag registry:https://registry.npmjs.org/node-schedule not in flight; fetching
+46 verbose get https://registry.npmjs.org/node-schedule not expired, no request
+47 silly addNameTag next cb for node-schedule with tag latest
+48 silly addNamed node-schedule@1.1.1
+49 verbose addNamed "1.1.1" is a plain semver version for node-schedule
+50 silly mapToRegistry name node-schedule
+51 silly mapToRegistry using default registry
+52 silly mapToRegistry registry https://registry.npmjs.org/
+53 silly mapToRegistry uri https://registry.npmjs.org/node-schedule
+54 verbose addRemoteTarball https://registry.npmjs.org/node-schedule/-/node-schedule-1.1.1.tgz not in flight; adding
+55 verbose addRemoteTarball [ 'https://registry.npmjs.org/node-schedule/-/node-schedule-1.1.1.tgz',
+55 verbose addRemoteTarball   '6b9701a8e1e67b87d110cb570803ed7dab03ede3' ]
+56 info retry fetch attempt 1 at 上午9:14:37
+57 info attempt registry request try #1 at 上午9:14:37
+58 http fetch GET https://registry.npmjs.org/node-schedule/-/node-schedule-1.1.1.tgz
+59 http fetch 200 https://registry.npmjs.org/node-schedule/-/node-schedule-1.1.1.tgz
+60 silly fetchAndShaCheck shasum 6b9701a8e1e67b87d110cb570803ed7dab03ede3
+61 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/node-schedule/-/node-schedule-1.1.1.tgz not in flight; adding
+62 verbose addTmpTarball already have metadata; skipping unpack for node-schedule@1.1.1
+63 silly cache afterAdd node-schedule@1.1.1
+64 verbose afterAdd /home/asher/.npm/node-schedule/1.1.1/package/package.json not in flight; writing
+65 verbose afterAdd /home/asher/.npm/node-schedule/1.1.1/package/package.json written
+66 silly fetchNamedPackageData cron-parser
+67 silly mapToRegistry name cron-parser
+68 silly mapToRegistry using default registry
+69 silly mapToRegistry registry https://registry.npmjs.org/
+70 silly mapToRegistry uri https://registry.npmjs.org/cron-parser
+71 silly fetchNamedPackageData long-timeout
+72 silly mapToRegistry name long-timeout
+73 silly mapToRegistry using default registry
+74 silly mapToRegistry registry https://registry.npmjs.org/
+75 silly mapToRegistry uri https://registry.npmjs.org/long-timeout
+76 verbose request uri https://registry.npmjs.org/cron-parser
+77 verbose request no auth needed
+78 info attempt registry request try #1 at 上午9:14:46
+79 http request GET https://registry.npmjs.org/cron-parser
+80 verbose request uri https://registry.npmjs.org/long-timeout
+81 verbose request no auth needed
+82 info attempt registry request try #1 at 上午9:14:46
+83 http request GET https://registry.npmjs.org/long-timeout
+84 http 200 https://registry.npmjs.org/long-timeout
+85 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+85 verbose headers   etag: '"DCT4R4ET8W8L3YLXS0T2LYW7W"',
+85 verbose headers   'content-type': 'application/json',
+85 verbose headers   'content-encoding': 'gzip',
+85 verbose headers   'cache-control': 'max-age=300',
+85 verbose headers   'content-length': '1444',
+85 verbose headers   'accept-ranges': 'bytes',
+85 verbose headers   date: 'Fri, 12 Aug 2016 01:14:49 GMT',
+85 verbose headers   via: '1.1 varnish',
+85 verbose headers   age: '201',
+85 verbose headers   connection: 'keep-alive',
+85 verbose headers   'x-served-by': 'cache-ams4420-AMS',
+85 verbose headers   'x-cache': 'HIT',
+85 verbose headers   'x-cache-hits': '1',
+85 verbose headers   'x-timer': 'S1470964489.051286,VS0,VE0',
+85 verbose headers   vary: 'Accept-Encoding' }
+86 silly get cb [ 200,
+86 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+86 silly get     etag: '"DCT4R4ET8W8L3YLXS0T2LYW7W"',
+86 silly get     'content-type': 'application/json',
+86 silly get     'content-encoding': 'gzip',
+86 silly get     'cache-control': 'max-age=300',
+86 silly get     'content-length': '1444',
+86 silly get     'accept-ranges': 'bytes',
+86 silly get     date: 'Fri, 12 Aug 2016 01:14:49 GMT',
+86 silly get     via: '1.1 varnish',
+86 silly get     age: '201',
+86 silly get     connection: 'keep-alive',
+86 silly get     'x-served-by': 'cache-ams4420-AMS',
+86 silly get     'x-cache': 'HIT',
+86 silly get     'x-cache-hits': '1',
+86 silly get     'x-timer': 'S1470964489.051286,VS0,VE0',
+86 silly get     vary: 'Accept-Encoding' } ]
+87 verbose get saving long-timeout to /home/asher/.npm/registry.npmjs.org/long-timeout/.cache.json
+88 silly resolveWithNewModule long-timeout@0.0.2 checking installable status
+89 silly cache add args [ 'long-timeout@0.0.2', null ]
+90 verbose cache add spec long-timeout@0.0.2
+91 silly cache add parsed spec Result {
+91 silly cache add   raw: 'long-timeout@0.0.2',
+91 silly cache add   scope: null,
+91 silly cache add   name: 'long-timeout',
+91 silly cache add   rawSpec: '0.0.2',
+91 silly cache add   spec: '0.0.2',
+91 silly cache add   type: 'version' }
+92 silly addNamed long-timeout@0.0.2
+93 verbose addNamed "0.0.2" is a plain semver version for long-timeout
+94 silly mapToRegistry name long-timeout
+95 silly mapToRegistry using default registry
+96 silly mapToRegistry registry https://registry.npmjs.org/
+97 silly mapToRegistry uri https://registry.npmjs.org/long-timeout
+98 verbose addNameVersion registry:https://registry.npmjs.org/long-timeout not in flight; fetching
+99 verbose get https://registry.npmjs.org/long-timeout not expired, no request
+100 silly mapToRegistry name long-timeout
+101 silly mapToRegistry using default registry
+102 silly mapToRegistry registry https://registry.npmjs.org/
+103 silly mapToRegistry uri https://registry.npmjs.org/long-timeout
+104 verbose addRemoteTarball https://registry.npmjs.org/long-timeout/-/long-timeout-0.0.2.tgz not in flight; adding
+105 verbose addRemoteTarball [ 'https://registry.npmjs.org/long-timeout/-/long-timeout-0.0.2.tgz',
+105 verbose addRemoteTarball   'f36449ba89629d13a7a2b2523a4db9dd66e3ff68' ]
+106 info retry fetch attempt 1 at 上午9:14:49
+107 info attempt registry request try #1 at 上午9:14:49
+108 http fetch GET https://registry.npmjs.org/long-timeout/-/long-timeout-0.0.2.tgz
+109 http 200 https://registry.npmjs.org/cron-parser
+110 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+110 verbose headers   etag: '"95WC4AA2LG35K085NP31IPCWQ"',
+110 verbose headers   'content-type': 'application/json',
+110 verbose headers   'content-encoding': 'gzip',
+110 verbose headers   'cache-control': 'max-age=300',
+110 verbose headers   'content-length': '8118',
+110 verbose headers   'accept-ranges': 'bytes',
+110 verbose headers   date: 'Fri, 12 Aug 2016 01:14:53 GMT',
+110 verbose headers   via: '1.1 varnish',
+110 verbose headers   age: '205',
+110 verbose headers   connection: 'keep-alive',
+110 verbose headers   'x-served-by': 'cache-ams4143-AMS',
+110 verbose headers   'x-cache': 'HIT',
+110 verbose headers   'x-cache-hits': '2',
+110 verbose headers   'x-timer': 'S1470964493.567716,VS0,VE0',
+110 verbose headers   vary: 'Accept-Encoding' }
+111 silly get cb [ 200,
+111 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+111 silly get     etag: '"95WC4AA2LG35K085NP31IPCWQ"',
+111 silly get     'content-type': 'application/json',
+111 silly get     'content-encoding': 'gzip',
+111 silly get     'cache-control': 'max-age=300',
+111 silly get     'content-length': '8118',
+111 silly get     'accept-ranges': 'bytes',
+111 silly get     date: 'Fri, 12 Aug 2016 01:14:53 GMT',
+111 silly get     via: '1.1 varnish',
+111 silly get     age: '205',
+111 silly get     connection: 'keep-alive',
+111 silly get     'x-served-by': 'cache-ams4143-AMS',
+111 silly get     'x-cache': 'HIT',
+111 silly get     'x-cache-hits': '2',
+111 silly get     'x-timer': 'S1470964493.567716,VS0,VE0',
+111 silly get     vary: 'Accept-Encoding' } ]
+112 verbose get saving cron-parser to /home/asher/.npm/registry.npmjs.org/cron-parser/.cache.json
+113 silly resolveWithNewModule cron-parser@1.1.0 checking installable status
+114 silly cache add args [ 'cron-parser@1.1.0', null ]
+115 verbose cache add spec cron-parser@1.1.0
+116 silly cache add parsed spec Result {
+116 silly cache add   raw: 'cron-parser@1.1.0',
+116 silly cache add   scope: null,
+116 silly cache add   name: 'cron-parser',
+116 silly cache add   rawSpec: '1.1.0',
+116 silly cache add   spec: '1.1.0',
+116 silly cache add   type: 'version' }
+117 silly addNamed cron-parser@1.1.0
+118 verbose addNamed "1.1.0" is a plain semver version for cron-parser
+119 silly mapToRegistry name cron-parser
+120 silly mapToRegistry using default registry
+121 silly mapToRegistry registry https://registry.npmjs.org/
+122 silly mapToRegistry uri https://registry.npmjs.org/cron-parser
+123 verbose addNameVersion registry:https://registry.npmjs.org/cron-parser not in flight; fetching
+124 verbose get https://registry.npmjs.org/cron-parser not expired, no request
+125 silly mapToRegistry name cron-parser
+126 silly mapToRegistry using default registry
+127 silly mapToRegistry registry https://registry.npmjs.org/
+128 silly mapToRegistry uri https://registry.npmjs.org/cron-parser
+129 verbose addRemoteTarball https://registry.npmjs.org/cron-parser/-/cron-parser-1.1.0.tgz not in flight; adding
+130 verbose addRemoteTarball [ 'https://registry.npmjs.org/cron-parser/-/cron-parser-1.1.0.tgz',
+130 verbose addRemoteTarball   '075b84c459c155e8c482ab4d56aff99dae58352e' ]
+131 info retry fetch attempt 1 at 上午9:14:53
+132 info attempt registry request try #1 at 上午9:14:53
+133 http fetch GET https://registry.npmjs.org/cron-parser/-/cron-parser-1.1.0.tgz
+134 http fetch 200 https://registry.npmjs.org/cron-parser/-/cron-parser-1.1.0.tgz
+135 http fetch 200 https://registry.npmjs.org/long-timeout/-/long-timeout-0.0.2.tgz
+136 silly fetchAndShaCheck shasum f36449ba89629d13a7a2b2523a4db9dd66e3ff68
+137 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/long-timeout/-/long-timeout-0.0.2.tgz not in flight; adding
+138 verbose addTmpTarball already have metadata; skipping unpack for long-timeout@0.0.2
+139 silly cache afterAdd long-timeout@0.0.2
+140 verbose afterAdd /home/asher/.npm/long-timeout/0.0.2/package/package.json not in flight; writing
+141 verbose afterAdd /home/asher/.npm/long-timeout/0.0.2/package/package.json written
+142 silly fetchAndShaCheck shasum 075b84c459c155e8c482ab4d56aff99dae58352e
+143 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/cron-parser/-/cron-parser-1.1.0.tgz not in flight; adding
+144 verbose addTmpTarball already have metadata; skipping unpack for cron-parser@1.1.0
+145 silly cache afterAdd cron-parser@1.1.0
+146 verbose afterAdd /home/asher/.npm/cron-parser/1.1.0/package/package.json not in flight; writing
+147 verbose afterAdd /home/asher/.npm/cron-parser/1.1.0/package/package.json written
+148 silly loadAllDepsIntoIdealTree Finishing
+149 silly idealTree:prePrune otron
+149 silly idealTree:prePrune ├── abab@1.0.3
+149 silly idealTree:prePrune ├── accepts@1.2.13
+149 silly idealTree:prePrune ├── acorn-globals@1.0.9
+149 silly idealTree:prePrune ├── acorn@2.7.0
+149 silly idealTree:prePrune ├── align-text@0.1.4
+149 silly idealTree:prePrune ├── amdefine@1.0.0
+149 silly idealTree:prePrune ├── ansi-regex@2.0.0
+149 silly idealTree:prePrune ├── ansi-styles@2.2.1
+149 silly idealTree:prePrune ├── array-flatten@1.1.1
+149 silly idealTree:prePrune ├── asap@1.0.0
+149 silly idealTree:prePrune ├── asn1@0.2.3
+149 silly idealTree:prePrune ├── assert-plus@0.2.0
+149 silly idealTree:prePrune ├── async@1.5.2
+149 silly idealTree:prePrune ├── aws-sign2@0.6.0
+149 silly idealTree:prePrune ├── aws4@1.4.1
+149 silly idealTree:prePrune ├── base64-url@1.2.1
+149 silly idealTree:prePrune ├── basic-auth@1.0.4
+149 silly idealTree:prePrune ├─┬ bl@1.1.2
+149 silly idealTree:prePrune │ ├── isarray@1.0.0
+149 silly idealTree:prePrune │ └── readable-stream@2.0.6
+149 silly idealTree:prePrune ├── bluebird@2.10.2
+149 silly idealTree:prePrune ├─┬ body-parser@1.15.1
+149 silly idealTree:prePrune │ └── http-errors@1.4.0
+149 silly idealTree:prePrune ├── boolbase@1.0.0
+149 silly idealTree:prePrune ├── boom@2.10.1
+149 silly idealTree:prePrune ├── bson@0.4.23
+149 silly idealTree:prePrune ├── bufferhelper@0.2.1
+149 silly idealTree:prePrune ├── bytes@2.3.0
+149 silly idealTree:prePrune ├── camelcase@1.2.1
+149 silly idealTree:prePrune ├── caseless@0.11.0
+149 silly idealTree:prePrune ├── center-align@0.1.3
+149 silly idealTree:prePrune ├── chalk@1.1.3
+149 silly idealTree:prePrune ├── character-parser@1.2.1
+149 silly idealTree:prePrune ├── cheerio@0.20.0
+149 silly idealTree:prePrune ├─┬ clean-css@3.4.13
+149 silly idealTree:prePrune │ ├── commander@2.8.1
+149 silly idealTree:prePrune │ └── source-map@0.4.4
+149 silly idealTree:prePrune ├─┬ cliui@2.1.0
+149 silly idealTree:prePrune │ └── wordwrap@0.0.2
+149 silly idealTree:prePrune ├── combined-stream@1.0.5
+149 silly idealTree:prePrune ├── commander@2.9.0
+149 silly idealTree:prePrune ├── constantinople@3.0.2
+149 silly idealTree:prePrune ├── content-disposition@0.5.1
+149 silly idealTree:prePrune ├── content-type@1.0.2
+149 silly idealTree:prePrune ├─┬ cookie-parser@1.4.3
+149 silly idealTree:prePrune │ └── cookie@0.3.1
+149 silly idealTree:prePrune ├── cookie-session@2.0.0-alpha.1
+149 silly idealTree:prePrune ├── cookie-signature@1.0.6
+149 silly idealTree:prePrune ├── cookie@0.1.5
+149 silly idealTree:prePrune ├── cookies@0.5.1
+149 silly idealTree:prePrune ├── core-util-is@1.0.2
+149 silly idealTree:prePrune ├── crc@3.4.0
+149 silly idealTree:prePrune ├── cron-parser@1.1.0
+149 silly idealTree:prePrune ├── cryptiles@2.0.5
+149 silly idealTree:prePrune ├── css-parse@1.0.4
+149 silly idealTree:prePrune ├── css-select@1.2.0
+149 silly idealTree:prePrune ├── css-stringify@1.0.5
+149 silly idealTree:prePrune ├── css-what@2.1.0
+149 silly idealTree:prePrune ├── css@1.0.8
+149 silly idealTree:prePrune ├── cssom@0.3.1
+149 silly idealTree:prePrune ├── cssstyle@0.2.36
+149 silly idealTree:prePrune ├─┬ dashdash@1.13.1
+149 silly idealTree:prePrune │ └── assert-plus@1.0.0
+149 silly idealTree:prePrune ├── debug@2.2.0
+149 silly idealTree:prePrune ├── decamelize@1.2.0
+149 silly idealTree:prePrune ├── deep-is@0.1.3
+149 silly idealTree:prePrune ├── delayed-stream@1.0.0
+149 silly idealTree:prePrune ├── depd@1.1.0
+149 silly idealTree:prePrune ├── destroy@1.0.4
+149 silly idealTree:prePrune ├─┬ dom-serializer@0.1.0
+149 silly idealTree:prePrune │ └── domelementtype@1.1.3
+149 silly idealTree:prePrune ├── domelementtype@1.3.0
+149 silly idealTree:prePrune ├── domhandler@2.3.0
+149 silly idealTree:prePrune ├── domutils@1.5.1
+149 silly idealTree:prePrune ├── duplexer@0.1.1
+149 silly idealTree:prePrune ├── ecc-jsbn@0.1.1
+149 silly idealTree:prePrune ├── ee-first@1.1.1
+149 silly idealTree:prePrune ├── ejs@2.4.2
+149 silly idealTree:prePrune ├── entities@1.1.1
+149 silly idealTree:prePrune ├── es6-promise@3.0.2
+149 silly idealTree:prePrune ├── escape-html@1.0.3
+149 silly idealTree:prePrune ├── escape-string-regexp@1.0.5
+149 silly idealTree:prePrune ├── escodegen@1.8.0
+149 silly idealTree:prePrune ├── esprima@2.7.2
+149 silly idealTree:prePrune ├── estraverse@1.9.3
+149 silly idealTree:prePrune ├── esutils@2.0.2
+149 silly idealTree:prePrune ├── etag@1.7.0
+149 silly idealTree:prePrune ├── event-stream@3.3.2
+149 silly idealTree:prePrune ├─┬ express-session@1.13.0
+149 silly idealTree:prePrune │ └── cookie@0.2.3
+149 silly idealTree:prePrune ├─┬ express@4.13.4
+149 silly idealTree:prePrune │ └── qs@4.0.0
+149 silly idealTree:prePrune ├── extend@3.0.0
+149 silly idealTree:prePrune ├── extsprintf@1.0.2
+149 silly idealTree:prePrune ├── fast-levenshtein@1.1.3
+149 silly idealTree:prePrune ├── finalhandler@0.4.1
+149 silly idealTree:prePrune ├── forever-agent@0.6.1
+149 silly idealTree:prePrune ├── form-data@1.0.0-rc4
+149 silly idealTree:prePrune ├── forwarded@0.1.0
+149 silly idealTree:prePrune ├── fresh@0.3.0
+149 silly idealTree:prePrune ├── from@0.1.3
+149 silly idealTree:prePrune ├── generate-function@2.0.0
+149 silly idealTree:prePrune ├── generate-object-property@1.2.0
+149 silly idealTree:prePrune ├─┬ getpass@0.1.6
+149 silly idealTree:prePrune │ └── assert-plus@1.0.0
+149 silly idealTree:prePrune ├── graceful-readlink@1.0.1
+149 silly idealTree:prePrune ├── har-validator@2.0.6
+149 silly idealTree:prePrune ├── has-ansi@2.0.0
+149 silly idealTree:prePrune ├── hawk@3.1.3
+149 silly idealTree:prePrune ├── hoek@2.16.3
+149 silly idealTree:prePrune ├── hooks-fixed@1.1.0
+149 silly idealTree:prePrune ├─┬ htmlparser2@3.8.3
+149 silly idealTree:prePrune │ ├── entities@1.0.0
+149 silly idealTree:prePrune │ └── readable-stream@1.1.14
+149 silly idealTree:prePrune ├── http-errors@1.3.1
+149 silly idealTree:prePrune ├── http-signature@1.1.1
+149 silly idealTree:prePrune ├── iconv-lite@0.4.13
+149 silly idealTree:prePrune ├── inherits@2.0.1
+149 silly idealTree:prePrune ├── ipaddr.js@1.0.5
+149 silly idealTree:prePrune ├── is-buffer@1.1.3
+149 silly idealTree:prePrune ├── is-my-json-valid@2.13.1
+149 silly idealTree:prePrune ├── is-promise@2.1.0
+149 silly idealTree:prePrune ├── is-property@1.0.2
+149 silly idealTree:prePrune ├── is-typedarray@1.0.0
+149 silly idealTree:prePrune ├── isarray@0.0.1
+149 silly idealTree:prePrune ├── isstream@0.1.2
+149 silly idealTree:prePrune ├─┬ jade@1.11.0
+149 silly idealTree:prePrune │ └── commander@2.6.0
+149 silly idealTree:prePrune ├── jodid25519@1.0.2
+149 silly idealTree:prePrune ├── jsbn@0.1.0
+149 silly idealTree:prePrune ├── jsdom@7.2.2
+149 silly idealTree:prePrune ├── json-schema@0.2.2
+149 silly idealTree:prePrune ├── json-stringify-safe@5.0.1
+149 silly idealTree:prePrune ├── jsonpointer@2.0.0
+149 silly idealTree:prePrune ├── jsprim@1.2.2
+149 silly idealTree:prePrune ├── jstransformer@0.0.2
+149 silly idealTree:prePrune ├── kareem@1.0.1
+149 silly idealTree:prePrune ├── keygrip@1.0.1
+149 silly idealTree:prePrune ├── kind-of@3.0.3
+149 silly idealTree:prePrune ├── lazy-cache@1.0.4
+149 silly idealTree:prePrune ├── levn@0.3.0
+149 silly idealTree:prePrune ├── lodash.assign@4.0.9
+149 silly idealTree:prePrune ├── lodash.keys@4.0.7
+149 silly idealTree:prePrune ├── lodash.rest@4.0.3
+149 silly idealTree:prePrune ├── lodash@4.13.1
+149 silly idealTree:prePrune ├─┬ log4js@0.6.36
+149 silly idealTree:prePrune │ └── semver@4.3.6
+149 silly idealTree:prePrune ├── long-timeout@0.0.2
+149 silly idealTree:prePrune ├── longest@1.0.1
+149 silly idealTree:prePrune ├── map-stream@0.1.0
+149 silly idealTree:prePrune ├── media-typer@0.3.0
+149 silly idealTree:prePrune ├─┬ memcached@2.2.2
+149 silly idealTree:prePrune │ ├─┬ hashring@3.2.0
+149 silly idealTree:prePrune │ │ ├── connection-parse@0.0.7
+149 silly idealTree:prePrune │ │ └── simple-lru-cache@0.0.2
+149 silly idealTree:prePrune │ └─┬ jackpot@0.0.6
+149 silly idealTree:prePrune │   └── retry@0.6.0
+149 silly idealTree:prePrune ├── merge-descriptors@1.0.1
+149 silly idealTree:prePrune ├─┬ method-override@2.3.6
+149 silly idealTree:prePrune │ └── vary@1.1.0
+149 silly idealTree:prePrune ├── methods@1.1.2
+149 silly idealTree:prePrune ├── mime-db@1.23.0
+149 silly idealTree:prePrune ├── mime-types@2.1.11
+149 silly idealTree:prePrune ├── mime@1.3.4
+149 silly idealTree:prePrune ├── mingo@0.6.4
+149 silly idealTree:prePrune ├── minimist@0.0.8
+149 silly idealTree:prePrune ├── mkdirp@0.5.1
+149 silly idealTree:prePrune ├── mongodb-core@1.3.18
+149 silly idealTree:prePrune ├── mongodb@2.1.18
+149 silly idealTree:prePrune ├── mongoose@4.4.19
+149 silly idealTree:prePrune ├── morgan@1.7.0
+149 silly idealTree:prePrune ├── mpath@0.2.1
+149 silly idealTree:prePrune ├── mpromise@0.5.5
+149 silly idealTree:prePrune ├─┬ mquery@1.10.0
+149 silly idealTree:prePrune │ └── sliced@0.0.5
+149 silly idealTree:prePrune ├── ms@0.7.1
+149 silly idealTree:prePrune ├── muri@1.1.0
+149 silly idealTree:prePrune ├── negotiator@0.5.3
+149 silly idealTree:prePrune ├── node-schedule@1.1.1
+149 silly idealTree:prePrune ├── node-uuid@1.4.7
+149 silly idealTree:prePrune ├── nth-check@1.0.1
+149 silly idealTree:prePrune ├── nwmatcher@1.3.7
+149 silly idealTree:prePrune ├── oauth-sign@0.8.2
+149 silly idealTree:prePrune ├── on-finished@2.3.0
+149 silly idealTree:prePrune ├── on-headers@1.0.1
+149 silly idealTree:prePrune ├─┬ optimist@0.3.7
+149 silly idealTree:prePrune │ └── wordwrap@0.0.3
+149 silly idealTree:prePrune ├── optionator@0.8.1
+149 silly idealTree:prePrune ├── parse5@1.5.1
+149 silly idealTree:prePrune ├── parseurl@1.3.1
+149 silly idealTree:prePrune ├── path-to-regexp@0.1.7
+149 silly idealTree:prePrune ├── pause-stream@0.0.11
+149 silly idealTree:prePrune ├── pinkie-promise@2.0.1
+149 silly idealTree:prePrune ├── pinkie@2.0.4
+149 silly idealTree:prePrune ├── pomelo-schedule@0.3.7
+149 silly idealTree:prePrune ├── prelude-ls@1.1.2
+149 silly idealTree:prePrune ├── process-nextick-args@1.0.7
+149 silly idealTree:prePrune ├── promise@6.1.0
+149 silly idealTree:prePrune ├── proxy-addr@1.0.10
+149 silly idealTree:prePrune ├── qs@6.1.0
+149 silly idealTree:prePrune ├── range-parser@1.0.3
+149 silly idealTree:prePrune ├── raw-body@2.1.6
+149 silly idealTree:prePrune ├── readable-stream@1.0.31
+149 silly idealTree:prePrune ├── regexp-clone@0.0.1
+149 silly idealTree:prePrune ├── repeat-string@1.5.4
+149 silly idealTree:prePrune ├── request@2.72.0
+149 silly idealTree:prePrune ├── require_optional@1.0.0
+149 silly idealTree:prePrune ├── resolve-from@2.0.0
+149 silly idealTree:prePrune ├── right-align@0.1.3
+149 silly idealTree:prePrune ├── save@2.3.0
+149 silly idealTree:prePrune ├── sax@1.2.1
+149 silly idealTree:prePrune ├── semver@5.1.0
+149 silly idealTree:prePrune ├── send@0.13.1
+149 silly idealTree:prePrune ├── serve-static@1.10.2
+149 silly idealTree:prePrune ├── sliced@1.0.1
+149 silly idealTree:prePrune ├── sntp@1.0.9
+149 silly idealTree:prePrune ├── source-map@0.2.0
+149 silly idealTree:prePrune ├── split@0.3.3
+149 silly idealTree:prePrune ├─┬ sshpk@1.8.3
+149 silly idealTree:prePrune │ └── assert-plus@1.0.0
+149 silly idealTree:prePrune ├── statuses@1.2.1
+149 silly idealTree:prePrune ├── stream-combiner@0.0.4
+149 silly idealTree:prePrune ├── string_decoder@0.10.31
+149 silly idealTree:prePrune ├── stringstream@0.0.5
+149 silly idealTree:prePrune ├── strip-ansi@3.0.1
+149 silly idealTree:prePrune ├── supports-color@2.0.0
+149 silly idealTree:prePrune ├── symbol-tree@3.1.4
+149 silly idealTree:prePrune ├── through@2.3.8
+149 silly idealTree:prePrune ├── tough-cookie@2.2.2
+149 silly idealTree:prePrune ├── tr46@0.0.3
+149 silly idealTree:prePrune ├─┬ transformers@2.1.0
+149 silly idealTree:prePrune │ ├── is-promise@1.0.1
+149 silly idealTree:prePrune │ ├── promise@2.0.0
+149 silly idealTree:prePrune │ ├── source-map@0.1.43
+149 silly idealTree:prePrune │ └── uglify-js@2.2.5
+149 silly idealTree:prePrune ├── tunnel-agent@0.4.3
+149 silly idealTree:prePrune ├── tweetnacl@0.13.3
+149 silly idealTree:prePrune ├── type-check@0.3.2
+149 silly idealTree:prePrune ├── type-is@1.6.13
+149 silly idealTree:prePrune ├─┬ uglify-js@2.6.2
+149 silly idealTree:prePrune │ ├── async@0.2.10
+149 silly idealTree:prePrune │ └── source-map@0.5.6
+149 silly idealTree:prePrune ├── uglify-to-browserify@1.0.2
+149 silly idealTree:prePrune ├── uid-safe@2.0.0
+149 silly idealTree:prePrune ├── underscore@1.8.3
+149 silly idealTree:prePrune ├── unpipe@1.0.0
+149 silly idealTree:prePrune ├── util-deprecate@1.0.2
+149 silly idealTree:prePrune ├── utils-merge@1.0.0
+149 silly idealTree:prePrune ├── vary@1.0.1
+149 silly idealTree:prePrune ├── verror@1.3.6
+149 silly idealTree:prePrune ├── void-elements@2.0.1
+149 silly idealTree:prePrune ├── webidl-conversions@2.0.1
+149 silly idealTree:prePrune ├── whatwg-url-compat@0.6.5
+149 silly idealTree:prePrune ├── window-size@0.1.0
+149 silly idealTree:prePrune ├─┬ with@4.0.3
+149 silly idealTree:prePrune │ └── acorn@1.2.2
+149 silly idealTree:prePrune ├── wordwrap@1.0.0
+149 silly idealTree:prePrune ├── xml-name-validator@2.0.1
+149 silly idealTree:prePrune ├── xtend@4.0.1
+149 silly idealTree:prePrune └── yargs@3.10.0
+150 silly loadIdealTree Finishing
+151 silly currentTree otron
+151 silly currentTree ├── abab@1.0.3
+151 silly currentTree ├── accepts@1.2.13
+151 silly currentTree ├── acorn-globals@1.0.9
+151 silly currentTree ├── acorn@2.7.0
+151 silly currentTree ├── align-text@0.1.4
+151 silly currentTree ├── amdefine@1.0.0
+151 silly currentTree ├── ansi-regex@2.0.0
+151 silly currentTree ├── ansi-styles@2.2.1
+151 silly currentTree ├── array-flatten@1.1.1
+151 silly currentTree ├── asap@1.0.0
+151 silly currentTree ├── asn1@0.2.3
+151 silly currentTree ├── assert-plus@0.2.0
+151 silly currentTree ├── async@1.5.2
+151 silly currentTree ├── aws-sign2@0.6.0
+151 silly currentTree ├── aws4@1.4.1
+151 silly currentTree ├── base64-url@1.2.1
+151 silly currentTree ├── basic-auth@1.0.4
+151 silly currentTree ├─┬ bl@1.1.2
+151 silly currentTree │ ├── isarray@1.0.0
+151 silly currentTree │ └── readable-stream@2.0.6
+151 silly currentTree ├── bluebird@2.10.2
+151 silly currentTree ├─┬ body-parser@1.15.1
+151 silly currentTree │ └── http-errors@1.4.0
+151 silly currentTree ├── boolbase@1.0.0
+151 silly currentTree ├── boom@2.10.1
+151 silly currentTree ├── bson@0.4.23
+151 silly currentTree ├── bufferhelper@0.2.1
+151 silly currentTree ├── bytes@2.3.0
+151 silly currentTree ├── camelcase@1.2.1
+151 silly currentTree ├── caseless@0.11.0
+151 silly currentTree ├── center-align@0.1.3
+151 silly currentTree ├── chalk@1.1.3
+151 silly currentTree ├── character-parser@1.2.1
+151 silly currentTree ├── cheerio@0.20.0
+151 silly currentTree ├─┬ clean-css@3.4.13
+151 silly currentTree │ ├── commander@2.8.1
+151 silly currentTree │ └── source-map@0.4.4
+151 silly currentTree ├─┬ cliui@2.1.0
+151 silly currentTree │ └── wordwrap@0.0.2
+151 silly currentTree ├── combined-stream@1.0.5
+151 silly currentTree ├── commander@2.9.0
+151 silly currentTree ├── constantinople@3.0.2
+151 silly currentTree ├── content-disposition@0.5.1
+151 silly currentTree ├── content-type@1.0.2
+151 silly currentTree ├─┬ cookie-parser@1.4.3
+151 silly currentTree │ └── cookie@0.3.1
+151 silly currentTree ├── cookie-session@2.0.0-alpha.1
+151 silly currentTree ├── cookie-signature@1.0.6
+151 silly currentTree ├── cookie@0.1.5
+151 silly currentTree ├── cookies@0.5.1
+151 silly currentTree ├── core-util-is@1.0.2
+151 silly currentTree ├── crc@3.4.0
+151 silly currentTree ├── cryptiles@2.0.5
+151 silly currentTree ├── css-parse@1.0.4
+151 silly currentTree ├── css-select@1.2.0
+151 silly currentTree ├── css-stringify@1.0.5
+151 silly currentTree ├── css-what@2.1.0
+151 silly currentTree ├── css@1.0.8
+151 silly currentTree ├── cssom@0.3.1
+151 silly currentTree ├── cssstyle@0.2.36
+151 silly currentTree ├─┬ dashdash@1.13.1
+151 silly currentTree │ └── assert-plus@1.0.0
+151 silly currentTree ├── debug@2.2.0
+151 silly currentTree ├── decamelize@1.2.0
+151 silly currentTree ├── deep-is@0.1.3
+151 silly currentTree ├── delayed-stream@1.0.0
+151 silly currentTree ├── depd@1.1.0
+151 silly currentTree ├── destroy@1.0.4
+151 silly currentTree ├─┬ dom-serializer@0.1.0
+151 silly currentTree │ └── domelementtype@1.1.3
+151 silly currentTree ├── domelementtype@1.3.0
+151 silly currentTree ├── domhandler@2.3.0
+151 silly currentTree ├── domutils@1.5.1
+151 silly currentTree ├── duplexer@0.1.1
+151 silly currentTree ├── ecc-jsbn@0.1.1
+151 silly currentTree ├── ee-first@1.1.1
+151 silly currentTree ├── ejs@2.4.2
+151 silly currentTree ├── entities@1.1.1
+151 silly currentTree ├── es6-promise@3.0.2
+151 silly currentTree ├── escape-html@1.0.3
+151 silly currentTree ├── escape-string-regexp@1.0.5
+151 silly currentTree ├── escodegen@1.8.0
+151 silly currentTree ├── esprima@2.7.2
+151 silly currentTree ├── estraverse@1.9.3
+151 silly currentTree ├── esutils@2.0.2
+151 silly currentTree ├── etag@1.7.0
+151 silly currentTree ├── event-stream@3.3.2
+151 silly currentTree ├─┬ express-session@1.13.0
+151 silly currentTree │ └── cookie@0.2.3
+151 silly currentTree ├─┬ express@4.13.4
+151 silly currentTree │ └── qs@4.0.0
+151 silly currentTree ├── extend@3.0.0
+151 silly currentTree ├── extsprintf@1.0.2
+151 silly currentTree ├── fast-levenshtein@1.1.3
+151 silly currentTree ├── finalhandler@0.4.1
+151 silly currentTree ├── forever-agent@0.6.1
+151 silly currentTree ├── form-data@1.0.0-rc4
+151 silly currentTree ├── forwarded@0.1.0
+151 silly currentTree ├── fresh@0.3.0
+151 silly currentTree ├── from@0.1.3
+151 silly currentTree ├── generate-function@2.0.0
+151 silly currentTree ├── generate-object-property@1.2.0
+151 silly currentTree ├─┬ getpass@0.1.6
+151 silly currentTree │ └── assert-plus@1.0.0
+151 silly currentTree ├── graceful-readlink@1.0.1
+151 silly currentTree ├── har-validator@2.0.6
+151 silly currentTree ├── has-ansi@2.0.0
+151 silly currentTree ├── hawk@3.1.3
+151 silly currentTree ├── hoek@2.16.3
+151 silly currentTree ├── hooks-fixed@1.1.0
+151 silly currentTree ├─┬ htmlparser2@3.8.3
+151 silly currentTree │ ├── entities@1.0.0
+151 silly currentTree │ └── readable-stream@1.1.14
+151 silly currentTree ├── http-errors@1.3.1
+151 silly currentTree ├── http-signature@1.1.1
+151 silly currentTree ├── iconv-lite@0.4.13
+151 silly currentTree ├── inherits@2.0.1
+151 silly currentTree ├── ipaddr.js@1.0.5
+151 silly currentTree ├── is-buffer@1.1.3
+151 silly currentTree ├── is-my-json-valid@2.13.1
+151 silly currentTree ├── is-promise@2.1.0
+151 silly currentTree ├── is-property@1.0.2
+151 silly currentTree ├── is-typedarray@1.0.0
+151 silly currentTree ├── isarray@0.0.1
+151 silly currentTree ├── isstream@0.1.2
+151 silly currentTree ├─┬ jade@1.11.0
+151 silly currentTree │ └── commander@2.6.0
+151 silly currentTree ├── jodid25519@1.0.2
+151 silly currentTree ├── jsbn@0.1.0
+151 silly currentTree ├── jsdom@7.2.2
+151 silly currentTree ├── json-schema@0.2.2
+151 silly currentTree ├── json-stringify-safe@5.0.1
+151 silly currentTree ├── jsonpointer@2.0.0
+151 silly currentTree ├── jsprim@1.2.2
+151 silly currentTree ├── jstransformer@0.0.2
+151 silly currentTree ├── kareem@1.0.1
+151 silly currentTree ├── keygrip@1.0.1
+151 silly currentTree ├── kind-of@3.0.3
+151 silly currentTree ├── lazy-cache@1.0.4
+151 silly currentTree ├── levn@0.3.0
+151 silly currentTree ├── lodash.assign@4.0.9
+151 silly currentTree ├── lodash.keys@4.0.7
+151 silly currentTree ├── lodash.rest@4.0.3
+151 silly currentTree ├── lodash@4.13.1
+151 silly currentTree ├─┬ log4js@0.6.36
+151 silly currentTree │ └── semver@4.3.6
+151 silly currentTree ├── longest@1.0.1
+151 silly currentTree ├── map-stream@0.1.0
+151 silly currentTree ├── media-typer@0.3.0
+151 silly currentTree ├─┬ memcached@2.2.2
+151 silly currentTree │ ├─┬ hashring@3.2.0
+151 silly currentTree │ │ ├── connection-parse@0.0.7
+151 silly currentTree │ │ └── simple-lru-cache@0.0.2
+151 silly currentTree │ └─┬ jackpot@0.0.6
+151 silly currentTree │   └── retry@0.6.0
+151 silly currentTree ├── merge-descriptors@1.0.1
+151 silly currentTree ├─┬ method-override@2.3.6
+151 silly currentTree │ └── vary@1.1.0
+151 silly currentTree ├── methods@1.1.2
+151 silly currentTree ├── mime-db@1.23.0
+151 silly currentTree ├── mime-types@2.1.11
+151 silly currentTree ├── mime@1.3.4
+151 silly currentTree ├── mingo@0.6.4
+151 silly currentTree ├── minimist@0.0.8
+151 silly currentTree ├── mkdirp@0.5.1
+151 silly currentTree ├── mongodb-core@1.3.18
+151 silly currentTree ├── mongodb@2.1.18
+151 silly currentTree ├── mongoose@4.4.19
+151 silly currentTree ├── morgan@1.7.0
+151 silly currentTree ├── mpath@0.2.1
+151 silly currentTree ├── mpromise@0.5.5
+151 silly currentTree ├─┬ mquery@1.10.0
+151 silly currentTree │ └── sliced@0.0.5
+151 silly currentTree ├── ms@0.7.1
+151 silly currentTree ├── muri@1.1.0
+151 silly currentTree ├── negotiator@0.5.3
+151 silly currentTree ├── node-uuid@1.4.7
+151 silly currentTree ├── nth-check@1.0.1
+151 silly currentTree ├── nwmatcher@1.3.7
+151 silly currentTree ├── oauth-sign@0.8.2
+151 silly currentTree ├── on-finished@2.3.0
+151 silly currentTree ├── on-headers@1.0.1
+151 silly currentTree ├─┬ optimist@0.3.7
+151 silly currentTree │ └── wordwrap@0.0.3
+151 silly currentTree ├── optionator@0.8.1
+151 silly currentTree ├── parse5@1.5.1
+151 silly currentTree ├── parseurl@1.3.1
+151 silly currentTree ├── path-to-regexp@0.1.7
+151 silly currentTree ├── pause-stream@0.0.11
+151 silly currentTree ├── pinkie-promise@2.0.1
+151 silly currentTree ├── pinkie@2.0.4
+151 silly currentTree ├── pomelo-schedule@0.3.7
+151 silly currentTree ├── prelude-ls@1.1.2
+151 silly currentTree ├── process-nextick-args@1.0.7
+151 silly currentTree ├── promise@6.1.0
+151 silly currentTree ├── proxy-addr@1.0.10
+151 silly currentTree ├── qs@6.1.0
+151 silly currentTree ├── range-parser@1.0.3
+151 silly currentTree ├── raw-body@2.1.6
+151 silly currentTree ├── readable-stream@1.0.31
+151 silly currentTree ├── regexp-clone@0.0.1
+151 silly currentTree ├── repeat-string@1.5.4
+151 silly currentTree ├── request@2.72.0
+151 silly currentTree ├── require_optional@1.0.0
+151 silly currentTree ├── resolve-from@2.0.0
+151 silly currentTree ├── right-align@0.1.3
+151 silly currentTree ├── save@2.3.0
+151 silly currentTree ├── sax@1.2.1
+151 silly currentTree ├── semver@5.1.0
+151 silly currentTree ├── send@0.13.1
+151 silly currentTree ├── serve-static@1.10.2
+151 silly currentTree ├── sliced@1.0.1
+151 silly currentTree ├── sntp@1.0.9
+151 silly currentTree ├── source-map@0.2.0
+151 silly currentTree ├── split@0.3.3
+151 silly currentTree ├─┬ sshpk@1.8.3
+151 silly currentTree │ └── assert-plus@1.0.0
+151 silly currentTree ├── statuses@1.2.1
+151 silly currentTree ├── stream-combiner@0.0.4
+151 silly currentTree ├── string_decoder@0.10.31
+151 silly currentTree ├── stringstream@0.0.5
+151 silly currentTree ├── strip-ansi@3.0.1
+151 silly currentTree ├── supports-color@2.0.0
+151 silly currentTree ├── symbol-tree@3.1.4
+151 silly currentTree ├── through@2.3.8
+151 silly currentTree ├── tough-cookie@2.2.2
+151 silly currentTree ├── tr46@0.0.3
+151 silly currentTree ├─┬ transformers@2.1.0
+151 silly currentTree │ ├── is-promise@1.0.1
+151 silly currentTree │ ├── promise@2.0.0
+151 silly currentTree │ ├── source-map@0.1.43
+151 silly currentTree │ └── uglify-js@2.2.5
+151 silly currentTree ├── tunnel-agent@0.4.3
+151 silly currentTree ├── tweetnacl@0.13.3
+151 silly currentTree ├── type-check@0.3.2
+151 silly currentTree ├── type-is@1.6.13
+151 silly currentTree ├─┬ uglify-js@2.6.2
+151 silly currentTree │ ├── async@0.2.10
+151 silly currentTree │ └── source-map@0.5.6
+151 silly currentTree ├── uglify-to-browserify@1.0.2
+151 silly currentTree ├── uid-safe@2.0.0
+151 silly currentTree ├── underscore@1.8.3
+151 silly currentTree ├── unpipe@1.0.0
+151 silly currentTree ├── util-deprecate@1.0.2
+151 silly currentTree ├── utils-merge@1.0.0
+151 silly currentTree ├── vary@1.0.1
+151 silly currentTree ├── verror@1.3.6
+151 silly currentTree ├── void-elements@2.0.1
+151 silly currentTree ├── webidl-conversions@2.0.1
+151 silly currentTree ├── whatwg-url-compat@0.6.5
+151 silly currentTree ├── window-size@0.1.0
+151 silly currentTree ├─┬ with@4.0.3
+151 silly currentTree │ └── acorn@1.2.2
+151 silly currentTree ├── wordwrap@1.0.0
+151 silly currentTree ├── xml-name-validator@2.0.1
+151 silly currentTree ├── xtend@4.0.1
+151 silly currentTree └── yargs@3.10.0
+152 silly idealTree otron
+152 silly idealTree ├── abab@1.0.3
+152 silly idealTree ├── accepts@1.2.13
+152 silly idealTree ├── acorn-globals@1.0.9
+152 silly idealTree ├── acorn@2.7.0
+152 silly idealTree ├── align-text@0.1.4
+152 silly idealTree ├── amdefine@1.0.0
+152 silly idealTree ├── ansi-regex@2.0.0
+152 silly idealTree ├── ansi-styles@2.2.1
+152 silly idealTree ├── array-flatten@1.1.1
+152 silly idealTree ├── asap@1.0.0
+152 silly idealTree ├── asn1@0.2.3
+152 silly idealTree ├── assert-plus@0.2.0
+152 silly idealTree ├── async@1.5.2
+152 silly idealTree ├── aws-sign2@0.6.0
+152 silly idealTree ├── aws4@1.4.1
+152 silly idealTree ├── base64-url@1.2.1
+152 silly idealTree ├── basic-auth@1.0.4
+152 silly idealTree ├─┬ bl@1.1.2
+152 silly idealTree │ ├── isarray@1.0.0
+152 silly idealTree │ └── readable-stream@2.0.6
+152 silly idealTree ├── bluebird@2.10.2
+152 silly idealTree ├─┬ body-parser@1.15.1
+152 silly idealTree │ └── http-errors@1.4.0
+152 silly idealTree ├── boolbase@1.0.0
+152 silly idealTree ├── boom@2.10.1
+152 silly idealTree ├── bson@0.4.23
+152 silly idealTree ├── bufferhelper@0.2.1
+152 silly idealTree ├── bytes@2.3.0
+152 silly idealTree ├── camelcase@1.2.1
+152 silly idealTree ├── caseless@0.11.0
+152 silly idealTree ├── center-align@0.1.3
+152 silly idealTree ├── chalk@1.1.3
+152 silly idealTree ├── character-parser@1.2.1
+152 silly idealTree ├── cheerio@0.20.0
+152 silly idealTree ├─┬ clean-css@3.4.13
+152 silly idealTree │ ├── commander@2.8.1
+152 silly idealTree │ └── source-map@0.4.4
+152 silly idealTree ├─┬ cliui@2.1.0
+152 silly idealTree │ └── wordwrap@0.0.2
+152 silly idealTree ├── combined-stream@1.0.5
+152 silly idealTree ├── commander@2.9.0
+152 silly idealTree ├── constantinople@3.0.2
+152 silly idealTree ├── content-disposition@0.5.1
+152 silly idealTree ├── content-type@1.0.2
+152 silly idealTree ├─┬ cookie-parser@1.4.3
+152 silly idealTree │ └── cookie@0.3.1
+152 silly idealTree ├── cookie-session@2.0.0-alpha.1
+152 silly idealTree ├── cookie-signature@1.0.6
+152 silly idealTree ├── cookie@0.1.5
+152 silly idealTree ├── cookies@0.5.1
+152 silly idealTree ├── core-util-is@1.0.2
+152 silly idealTree ├── crc@3.4.0
+152 silly idealTree ├── cron-parser@1.1.0
+152 silly idealTree ├── cryptiles@2.0.5
+152 silly idealTree ├── css-parse@1.0.4
+152 silly idealTree ├── css-select@1.2.0
+152 silly idealTree ├── css-stringify@1.0.5
+152 silly idealTree ├── css-what@2.1.0
+152 silly idealTree ├── css@1.0.8
+152 silly idealTree ├── cssom@0.3.1
+152 silly idealTree ├── cssstyle@0.2.36
+152 silly idealTree ├─┬ dashdash@1.13.1
+152 silly idealTree │ └── assert-plus@1.0.0
+152 silly idealTree ├── debug@2.2.0
+152 silly idealTree ├── decamelize@1.2.0
+152 silly idealTree ├── deep-is@0.1.3
+152 silly idealTree ├── delayed-stream@1.0.0
+152 silly idealTree ├── depd@1.1.0
+152 silly idealTree ├── destroy@1.0.4
+152 silly idealTree ├─┬ dom-serializer@0.1.0
+152 silly idealTree │ └── domelementtype@1.1.3
+152 silly idealTree ├── domelementtype@1.3.0
+152 silly idealTree ├── domhandler@2.3.0
+152 silly idealTree ├── domutils@1.5.1
+152 silly idealTree ├── duplexer@0.1.1
+152 silly idealTree ├── ecc-jsbn@0.1.1
+152 silly idealTree ├── ee-first@1.1.1
+152 silly idealTree ├── ejs@2.4.2
+152 silly idealTree ├── entities@1.1.1
+152 silly idealTree ├── es6-promise@3.0.2
+152 silly idealTree ├── escape-html@1.0.3
+152 silly idealTree ├── escape-string-regexp@1.0.5
+152 silly idealTree ├── escodegen@1.8.0
+152 silly idealTree ├── esprima@2.7.2
+152 silly idealTree ├── estraverse@1.9.3
+152 silly idealTree ├── esutils@2.0.2
+152 silly idealTree ├── etag@1.7.0
+152 silly idealTree ├── event-stream@3.3.2
+152 silly idealTree ├─┬ express-session@1.13.0
+152 silly idealTree │ └── cookie@0.2.3
+152 silly idealTree ├─┬ express@4.13.4
+152 silly idealTree │ └── qs@4.0.0
+152 silly idealTree ├── extend@3.0.0
+152 silly idealTree ├── extsprintf@1.0.2
+152 silly idealTree ├── fast-levenshtein@1.1.3
+152 silly idealTree ├── finalhandler@0.4.1
+152 silly idealTree ├── forever-agent@0.6.1
+152 silly idealTree ├── form-data@1.0.0-rc4
+152 silly idealTree ├── forwarded@0.1.0
+152 silly idealTree ├── fresh@0.3.0
+152 silly idealTree ├── from@0.1.3
+152 silly idealTree ├── generate-function@2.0.0
+152 silly idealTree ├── generate-object-property@1.2.0
+152 silly idealTree ├─┬ getpass@0.1.6
+152 silly idealTree │ └── assert-plus@1.0.0
+152 silly idealTree ├── graceful-readlink@1.0.1
+152 silly idealTree ├── har-validator@2.0.6
+152 silly idealTree ├── has-ansi@2.0.0
+152 silly idealTree ├── hawk@3.1.3
+152 silly idealTree ├── hoek@2.16.3
+152 silly idealTree ├── hooks-fixed@1.1.0
+152 silly idealTree ├─┬ htmlparser2@3.8.3
+152 silly idealTree │ ├── entities@1.0.0
+152 silly idealTree │ └── readable-stream@1.1.14
+152 silly idealTree ├── http-errors@1.3.1
+152 silly idealTree ├── http-signature@1.1.1
+152 silly idealTree ├── iconv-lite@0.4.13
+152 silly idealTree ├── inherits@2.0.1
+152 silly idealTree ├── ipaddr.js@1.0.5
+152 silly idealTree ├── is-buffer@1.1.3
+152 silly idealTree ├── is-my-json-valid@2.13.1
+152 silly idealTree ├── is-promise@2.1.0
+152 silly idealTree ├── is-property@1.0.2
+152 silly idealTree ├── is-typedarray@1.0.0
+152 silly idealTree ├── isarray@0.0.1
+152 silly idealTree ├── isstream@0.1.2
+152 silly idealTree ├─┬ jade@1.11.0
+152 silly idealTree │ └── commander@2.6.0
+152 silly idealTree ├── jodid25519@1.0.2
+152 silly idealTree ├── jsbn@0.1.0
+152 silly idealTree ├── jsdom@7.2.2
+152 silly idealTree ├── json-schema@0.2.2
+152 silly idealTree ├── json-stringify-safe@5.0.1
+152 silly idealTree ├── jsonpointer@2.0.0
+152 silly idealTree ├── jsprim@1.2.2
+152 silly idealTree ├── jstransformer@0.0.2
+152 silly idealTree ├── kareem@1.0.1
+152 silly idealTree ├── keygrip@1.0.1
+152 silly idealTree ├── kind-of@3.0.3
+152 silly idealTree ├── lazy-cache@1.0.4
+152 silly idealTree ├── levn@0.3.0
+152 silly idealTree ├── lodash.assign@4.0.9
+152 silly idealTree ├── lodash.keys@4.0.7
+152 silly idealTree ├── lodash.rest@4.0.3
+152 silly idealTree ├── lodash@4.13.1
+152 silly idealTree ├─┬ log4js@0.6.36
+152 silly idealTree │ └── semver@4.3.6
+152 silly idealTree ├── long-timeout@0.0.2
+152 silly idealTree ├── longest@1.0.1
+152 silly idealTree ├── map-stream@0.1.0
+152 silly idealTree ├── media-typer@0.3.0
+152 silly idealTree ├─┬ memcached@2.2.2
+152 silly idealTree │ ├─┬ hashring@3.2.0
+152 silly idealTree │ │ ├── connection-parse@0.0.7
+152 silly idealTree │ │ └── simple-lru-cache@0.0.2
+152 silly idealTree │ └─┬ jackpot@0.0.6
+152 silly idealTree │   └── retry@0.6.0
+152 silly idealTree ├── merge-descriptors@1.0.1
+152 silly idealTree ├─┬ method-override@2.3.6
+152 silly idealTree │ └── vary@1.1.0
+152 silly idealTree ├── methods@1.1.2
+152 silly idealTree ├── mime-db@1.23.0
+152 silly idealTree ├── mime-types@2.1.11
+152 silly idealTree ├── mime@1.3.4
+152 silly idealTree ├── mingo@0.6.4
+152 silly idealTree ├── minimist@0.0.8
+152 silly idealTree ├── mkdirp@0.5.1
+152 silly idealTree ├── mongodb-core@1.3.18
+152 silly idealTree ├── mongodb@2.1.18
+152 silly idealTree ├── mongoose@4.4.19
+152 silly idealTree ├── morgan@1.7.0
+152 silly idealTree ├── mpath@0.2.1
+152 silly idealTree ├── mpromise@0.5.5
+152 silly idealTree ├─┬ mquery@1.10.0
+152 silly idealTree │ └── sliced@0.0.5
+152 silly idealTree ├── ms@0.7.1
+152 silly idealTree ├── muri@1.1.0
+152 silly idealTree ├── negotiator@0.5.3
+152 silly idealTree ├── node-schedule@1.1.1
+152 silly idealTree ├── node-uuid@1.4.7
+152 silly idealTree ├── nth-check@1.0.1
+152 silly idealTree ├── nwmatcher@1.3.7
+152 silly idealTree ├── oauth-sign@0.8.2
+152 silly idealTree ├── on-finished@2.3.0
+152 silly idealTree ├── on-headers@1.0.1
+152 silly idealTree ├─┬ optimist@0.3.7
+152 silly idealTree │ └── wordwrap@0.0.3
+152 silly idealTree ├── optionator@0.8.1
+152 silly idealTree ├── parse5@1.5.1
+152 silly idealTree ├── parseurl@1.3.1
+152 silly idealTree ├── path-to-regexp@0.1.7
+152 silly idealTree ├── pause-stream@0.0.11
+152 silly idealTree ├── pinkie-promise@2.0.1
+152 silly idealTree ├── pinkie@2.0.4
+152 silly idealTree ├── pomelo-schedule@0.3.7
+152 silly idealTree ├── prelude-ls@1.1.2
+152 silly idealTree ├── process-nextick-args@1.0.7
+152 silly idealTree ├── promise@6.1.0
+152 silly idealTree ├── proxy-addr@1.0.10
+152 silly idealTree ├── qs@6.1.0
+152 silly idealTree ├── range-parser@1.0.3
+152 silly idealTree ├── raw-body@2.1.6
+152 silly idealTree ├── readable-stream@1.0.31
+152 silly idealTree ├── regexp-clone@0.0.1
+152 silly idealTree ├── repeat-string@1.5.4
+152 silly idealTree ├── request@2.72.0
+152 silly idealTree ├── require_optional@1.0.0
+152 silly idealTree ├── resolve-from@2.0.0
+152 silly idealTree ├── right-align@0.1.3
+152 silly idealTree ├── save@2.3.0
+152 silly idealTree ├── sax@1.2.1
+152 silly idealTree ├── semver@5.1.0
+152 silly idealTree ├── send@0.13.1
+152 silly idealTree ├── serve-static@1.10.2
+152 silly idealTree ├── sliced@1.0.1
+152 silly idealTree ├── sntp@1.0.9
+152 silly idealTree ├── source-map@0.2.0
+152 silly idealTree ├── split@0.3.3
+152 silly idealTree ├─┬ sshpk@1.8.3
+152 silly idealTree │ └── assert-plus@1.0.0
+152 silly idealTree ├── statuses@1.2.1
+152 silly idealTree ├── stream-combiner@0.0.4
+152 silly idealTree ├── string_decoder@0.10.31
+152 silly idealTree ├── stringstream@0.0.5
+152 silly idealTree ├── strip-ansi@3.0.1
+152 silly idealTree ├── supports-color@2.0.0
+152 silly idealTree ├── symbol-tree@3.1.4
+152 silly idealTree ├── through@2.3.8
+152 silly idealTree ├── tough-cookie@2.2.2
+152 silly idealTree ├── tr46@0.0.3
+152 silly idealTree ├─┬ transformers@2.1.0
+152 silly idealTree │ ├── is-promise@1.0.1
+152 silly idealTree │ ├── promise@2.0.0
+152 silly idealTree │ ├── source-map@0.1.43
+152 silly idealTree │ └── uglify-js@2.2.5
+152 silly idealTree ├── tunnel-agent@0.4.3
+152 silly idealTree ├── tweetnacl@0.13.3
+152 silly idealTree ├── type-check@0.3.2
+152 silly idealTree ├── type-is@1.6.13
+152 silly idealTree ├─┬ uglify-js@2.6.2
+152 silly idealTree │ ├── async@0.2.10
+152 silly idealTree │ └── source-map@0.5.6
+152 silly idealTree ├── uglify-to-browserify@1.0.2
+152 silly idealTree ├── uid-safe@2.0.0
+152 silly idealTree ├── underscore@1.8.3
+152 silly idealTree ├── unpipe@1.0.0
+152 silly idealTree ├── util-deprecate@1.0.2
+152 silly idealTree ├── utils-merge@1.0.0
+152 silly idealTree ├── vary@1.0.1
+152 silly idealTree ├── verror@1.3.6
+152 silly idealTree ├── void-elements@2.0.1
+152 silly idealTree ├── webidl-conversions@2.0.1
+152 silly idealTree ├── whatwg-url-compat@0.6.5
+152 silly idealTree ├── window-size@0.1.0
+152 silly idealTree ├─┬ with@4.0.3
+152 silly idealTree │ └── acorn@1.2.2
+152 silly idealTree ├── wordwrap@1.0.0
+152 silly idealTree ├── xml-name-validator@2.0.1
+152 silly idealTree ├── xtend@4.0.1
+152 silly idealTree └── yargs@3.10.0
+153 silly generateActionsToTake Starting
+154 silly install generateActionsToTake
+155 silly generateActionsToTake Finishing
+156 silly diffTrees action count 17
+157 silly diffTrees add cron-parser@1.1.0
+158 silly diffTrees update iconv-lite@0.4.13
+159 silly diffTrees add long-timeout@0.0.2
+160 silly diffTrees update body-parser@1.15.1
+161 silly diffTrees update bufferhelper@0.2.1
+162 silly diffTrees update cheerio@0.20.0
+163 silly diffTrees update cookie-parser@1.4.3
+164 silly diffTrees update cookie-session@2.0.0-alpha.1
+165 silly diffTrees update ejs@2.4.2
+166 silly diffTrees update express@4.13.4
+167 silly diffTrees update express-session@1.13.0
+168 silly diffTrees update jade@1.11.0
+169 silly diffTrees update method-override@2.3.6
+170 silly diffTrees update mongoose@4.4.19
+171 silly diffTrees update morgan@1.7.0
+172 silly diffTrees add node-schedule@1.1.1
+173 silly diffTrees update save@2.3.0
+174 silly decomposeActions action count 136
+175 silly decomposeActions fetch cron-parser@1.1.0
+176 silly decomposeActions extract cron-parser@1.1.0
+177 silly decomposeActions test cron-parser@1.1.0
+178 silly decomposeActions preinstall cron-parser@1.1.0
+179 silly decomposeActions build cron-parser@1.1.0
+180 silly decomposeActions install cron-parser@1.1.0
+181 silly decomposeActions postinstall cron-parser@1.1.0
+182 silly decomposeActions finalize cron-parser@1.1.0
+183 silly decomposeActions fetch iconv-lite@0.4.13
+184 silly decomposeActions extract iconv-lite@0.4.13
+185 silly decomposeActions test iconv-lite@0.4.13
+186 silly decomposeActions preinstall iconv-lite@0.4.13
+187 silly decomposeActions build iconv-lite@0.4.13
+188 silly decomposeActions install iconv-lite@0.4.13
+189 silly decomposeActions postinstall iconv-lite@0.4.13
+190 silly decomposeActions finalize iconv-lite@0.4.13
+191 silly decomposeActions fetch long-timeout@0.0.2
+192 silly decomposeActions extract long-timeout@0.0.2
+193 silly decomposeActions test long-timeout@0.0.2
+194 silly decomposeActions preinstall long-timeout@0.0.2
+195 silly decomposeActions build long-timeout@0.0.2
+196 silly decomposeActions install long-timeout@0.0.2
+197 silly decomposeActions postinstall long-timeout@0.0.2
+198 silly decomposeActions finalize long-timeout@0.0.2
+199 silly decomposeActions fetch body-parser@1.15.1
+200 silly decomposeActions extract body-parser@1.15.1
+201 silly decomposeActions test body-parser@1.15.1
+202 silly decomposeActions preinstall body-parser@1.15.1
+203 silly decomposeActions build body-parser@1.15.1
+204 silly decomposeActions install body-parser@1.15.1
+205 silly decomposeActions postinstall body-parser@1.15.1
+206 silly decomposeActions finalize body-parser@1.15.1
+207 silly decomposeActions fetch bufferhelper@0.2.1
+208 silly decomposeActions extract bufferhelper@0.2.1
+209 silly decomposeActions test bufferhelper@0.2.1
+210 silly decomposeActions preinstall bufferhelper@0.2.1
+211 silly decomposeActions build bufferhelper@0.2.1
+212 silly decomposeActions install bufferhelper@0.2.1
+213 silly decomposeActions postinstall bufferhelper@0.2.1
+214 silly decomposeActions finalize bufferhelper@0.2.1
+215 silly decomposeActions fetch cheerio@0.20.0
+216 silly decomposeActions extract cheerio@0.20.0
+217 silly decomposeActions test cheerio@0.20.0
+218 silly decomposeActions preinstall cheerio@0.20.0
+219 silly decomposeActions build cheerio@0.20.0
+220 silly decomposeActions install cheerio@0.20.0
+221 silly decomposeActions postinstall cheerio@0.20.0
+222 silly decomposeActions finalize cheerio@0.20.0
+223 silly decomposeActions fetch cookie-parser@1.4.3
+224 silly decomposeActions extract cookie-parser@1.4.3
+225 silly decomposeActions test cookie-parser@1.4.3
+226 silly decomposeActions preinstall cookie-parser@1.4.3
+227 silly decomposeActions build cookie-parser@1.4.3
+228 silly decomposeActions install cookie-parser@1.4.3
+229 silly decomposeActions postinstall cookie-parser@1.4.3
+230 silly decomposeActions finalize cookie-parser@1.4.3
+231 silly decomposeActions fetch cookie-session@2.0.0-alpha.1
+232 silly decomposeActions extract cookie-session@2.0.0-alpha.1
+233 silly decomposeActions test cookie-session@2.0.0-alpha.1
+234 silly decomposeActions preinstall cookie-session@2.0.0-alpha.1
+235 silly decomposeActions build cookie-session@2.0.0-alpha.1
+236 silly decomposeActions install cookie-session@2.0.0-alpha.1
+237 silly decomposeActions postinstall cookie-session@2.0.0-alpha.1
+238 silly decomposeActions finalize cookie-session@2.0.0-alpha.1
+239 silly decomposeActions fetch ejs@2.4.2
+240 silly decomposeActions extract ejs@2.4.2
+241 silly decomposeActions test ejs@2.4.2
+242 silly decomposeActions preinstall ejs@2.4.2
+243 silly decomposeActions build ejs@2.4.2
+244 silly decomposeActions install ejs@2.4.2
+245 silly decomposeActions postinstall ejs@2.4.2
+246 silly decomposeActions finalize ejs@2.4.2
+247 silly decomposeActions fetch express@4.13.4
+248 silly decomposeActions extract express@4.13.4
+249 silly decomposeActions test express@4.13.4
+250 silly decomposeActions preinstall express@4.13.4
+251 silly decomposeActions build express@4.13.4
+252 silly decomposeActions install express@4.13.4
+253 silly decomposeActions postinstall express@4.13.4
+254 silly decomposeActions finalize express@4.13.4
+255 silly decomposeActions fetch express-session@1.13.0
+256 silly decomposeActions extract express-session@1.13.0
+257 silly decomposeActions test express-session@1.13.0
+258 silly decomposeActions preinstall express-session@1.13.0
+259 silly decomposeActions build express-session@1.13.0
+260 silly decomposeActions install express-session@1.13.0
+261 silly decomposeActions postinstall express-session@1.13.0
+262 silly decomposeActions finalize express-session@1.13.0
+263 silly decomposeActions fetch jade@1.11.0
+264 silly decomposeActions extract jade@1.11.0
+265 silly decomposeActions test jade@1.11.0
+266 silly decomposeActions preinstall jade@1.11.0
+267 silly decomposeActions build jade@1.11.0
+268 silly decomposeActions install jade@1.11.0
+269 silly decomposeActions postinstall jade@1.11.0
+270 silly decomposeActions finalize jade@1.11.0
+271 silly decomposeActions fetch method-override@2.3.6
+272 silly decomposeActions extract method-override@2.3.6
+273 silly decomposeActions test method-override@2.3.6
+274 silly decomposeActions preinstall method-override@2.3.6
+275 silly decomposeActions build method-override@2.3.6
+276 silly decomposeActions install method-override@2.3.6
+277 silly decomposeActions postinstall method-override@2.3.6
+278 silly decomposeActions finalize method-override@2.3.6
+279 silly decomposeActions fetch mongoose@4.4.19
+280 silly decomposeActions extract mongoose@4.4.19
+281 silly decomposeActions test mongoose@4.4.19
+282 silly decomposeActions preinstall mongoose@4.4.19
+283 silly decomposeActions build mongoose@4.4.19
+284 silly decomposeActions install mongoose@4.4.19
+285 silly decomposeActions postinstall mongoose@4.4.19
+286 silly decomposeActions finalize mongoose@4.4.19
+287 silly decomposeActions fetch morgan@1.7.0
+288 silly decomposeActions extract morgan@1.7.0
+289 silly decomposeActions test morgan@1.7.0
+290 silly decomposeActions preinstall morgan@1.7.0
+291 silly decomposeActions build morgan@1.7.0
+292 silly decomposeActions install morgan@1.7.0
+293 silly decomposeActions postinstall morgan@1.7.0
+294 silly decomposeActions finalize morgan@1.7.0
+295 silly decomposeActions fetch node-schedule@1.1.1
+296 silly decomposeActions extract node-schedule@1.1.1
+297 silly decomposeActions test node-schedule@1.1.1
+298 silly decomposeActions preinstall node-schedule@1.1.1
+299 silly decomposeActions build node-schedule@1.1.1
+300 silly decomposeActions install node-schedule@1.1.1
+301 silly decomposeActions postinstall node-schedule@1.1.1
+302 silly decomposeActions finalize node-schedule@1.1.1
+303 silly decomposeActions fetch save@2.3.0
+304 silly decomposeActions extract save@2.3.0
+305 silly decomposeActions test save@2.3.0
+306 silly decomposeActions preinstall save@2.3.0
+307 silly decomposeActions build save@2.3.0
+308 silly decomposeActions install save@2.3.0
+309 silly decomposeActions postinstall save@2.3.0
+310 silly decomposeActions finalize save@2.3.0
+311 silly executeActions Starting
+312 silly install executeActions
+313 silly doSerial global-install 0
+314 silly doParallel fetch 17
+315 verbose lock using /home/asher/.npm/_locks/staging-eae94c4b42351727.lock for /home/asher/git-repo/otron/node_modules/.staging
+316 silly doParallel extract 17
+317 silly extract cron-parser@1.1.0
+318 silly extract iconv-lite@0.4.13
+319 silly extract long-timeout@0.0.2
+320 silly extract body-parser@1.15.1
+321 silly extract bufferhelper@0.2.1
+322 silly extract cheerio@0.20.0
+323 silly extract cookie-parser@1.4.3
+324 silly extract cookie-session@2.0.0-alpha.1
+325 silly extract ejs@2.4.2
+326 silly extract express@4.13.4
+327 silly extract express-session@1.13.0
+328 silly extract jade@1.11.0
+329 silly extract method-override@2.3.6
+330 silly extract mongoose@4.4.19
+331 silly extract morgan@1.7.0
+332 silly extract node-schedule@1.1.1
+333 silly extract save@2.3.0
+334 silly addNamed iconv-lite@0.4.13
+335 verbose addNamed "0.4.13" is a plain semver version for iconv-lite
+336 silly mapToRegistry name iconv-lite
+337 silly mapToRegistry using default registry
+338 silly mapToRegistry registry https://registry.npmjs.org/
+339 silly mapToRegistry uri https://registry.npmjs.org/iconv-lite
+340 verbose addNameVersion registry:https://registry.npmjs.org/iconv-lite not in flight; fetching
+341 silly addNamed body-parser@1.15.1
+342 verbose addNamed "1.15.1" is a plain semver version for body-parser
+343 silly mapToRegistry name body-parser
+344 silly mapToRegistry using default registry
+345 silly mapToRegistry registry https://registry.npmjs.org/
+346 silly mapToRegistry uri https://registry.npmjs.org/body-parser
+347 verbose addNameVersion registry:https://registry.npmjs.org/body-parser not in flight; fetching
+348 silly addNamed bufferhelper@0.2.1
+349 verbose addNamed "0.2.1" is a plain semver version for bufferhelper
+350 silly mapToRegistry name bufferhelper
+351 silly mapToRegistry using default registry
+352 silly mapToRegistry registry https://registry.npmjs.org/
+353 silly mapToRegistry uri https://registry.npmjs.org/bufferhelper
+354 verbose addNameVersion registry:https://registry.npmjs.org/bufferhelper not in flight; fetching
+355 silly addNamed cheerio@0.20.0
+356 verbose addNamed "0.20.0" is a plain semver version for cheerio
+357 silly mapToRegistry name cheerio
+358 silly mapToRegistry using default registry
+359 silly mapToRegistry registry https://registry.npmjs.org/
+360 silly mapToRegistry uri https://registry.npmjs.org/cheerio
+361 verbose addNameVersion registry:https://registry.npmjs.org/cheerio not in flight; fetching
+362 silly addNamed cookie-parser@1.4.3
+363 verbose addNamed "1.4.3" is a plain semver version for cookie-parser
+364 silly mapToRegistry name cookie-parser
+365 silly mapToRegistry using default registry
+366 silly mapToRegistry registry https://registry.npmjs.org/
+367 silly mapToRegistry uri https://registry.npmjs.org/cookie-parser
+368 verbose addNameVersion registry:https://registry.npmjs.org/cookie-parser not in flight; fetching
+369 silly addNamed cookie-session@2.0.0-alpha.1
+370 verbose addNamed "2.0.0-alpha.1" is a plain semver version for cookie-session
+371 silly mapToRegistry name cookie-session
+372 silly mapToRegistry using default registry
+373 silly mapToRegistry registry https://registry.npmjs.org/
+374 silly mapToRegistry uri https://registry.npmjs.org/cookie-session
+375 verbose addNameVersion registry:https://registry.npmjs.org/cookie-session not in flight; fetching
+376 silly addNamed ejs@2.4.2
+377 verbose addNamed "2.4.2" is a plain semver version for ejs
+378 silly mapToRegistry name ejs
+379 silly mapToRegistry using default registry
+380 silly mapToRegistry registry https://registry.npmjs.org/
+381 silly mapToRegistry uri https://registry.npmjs.org/ejs
+382 verbose addNameVersion registry:https://registry.npmjs.org/ejs not in flight; fetching
+383 silly addNamed express@4.13.4
+384 verbose addNamed "4.13.4" is a plain semver version for express
+385 silly mapToRegistry name express
+386 silly mapToRegistry using default registry
+387 silly mapToRegistry registry https://registry.npmjs.org/
+388 silly mapToRegistry uri https://registry.npmjs.org/express
+389 verbose addNameVersion registry:https://registry.npmjs.org/express not in flight; fetching
+390 silly addNamed express-session@1.13.0
+391 verbose addNamed "1.13.0" is a plain semver version for express-session
+392 silly mapToRegistry name express-session
+393 silly mapToRegistry using default registry
+394 silly mapToRegistry registry https://registry.npmjs.org/
+395 silly mapToRegistry uri https://registry.npmjs.org/express-session
+396 verbose addNameVersion registry:https://registry.npmjs.org/express-session not in flight; fetching
+397 silly addNamed jade@1.11.0
+398 verbose addNamed "1.11.0" is a plain semver version for jade
+399 silly mapToRegistry name jade
+400 silly mapToRegistry using default registry
+401 silly mapToRegistry registry https://registry.npmjs.org/
+402 silly mapToRegistry uri https://registry.npmjs.org/jade
+403 verbose addNameVersion registry:https://registry.npmjs.org/jade not in flight; fetching
+404 silly addNamed method-override@2.3.6
+405 verbose addNamed "2.3.6" is a plain semver version for method-override
+406 silly mapToRegistry name method-override
+407 silly mapToRegistry using default registry
+408 silly mapToRegistry registry https://registry.npmjs.org/
+409 silly mapToRegistry uri https://registry.npmjs.org/method-override
+410 verbose addNameVersion registry:https://registry.npmjs.org/method-override not in flight; fetching
+411 silly addNamed mongoose@4.4.19
+412 verbose addNamed "4.4.19" is a plain semver version for mongoose
+413 silly mapToRegistry name mongoose
+414 silly mapToRegistry using default registry
+415 silly mapToRegistry registry https://registry.npmjs.org/
+416 silly mapToRegistry uri https://registry.npmjs.org/mongoose
+417 verbose addNameVersion registry:https://registry.npmjs.org/mongoose not in flight; fetching
+418 silly addNamed morgan@1.7.0
+419 verbose addNamed "1.7.0" is a plain semver version for morgan
+420 silly mapToRegistry name morgan
+421 silly mapToRegistry using default registry
+422 silly mapToRegistry registry https://registry.npmjs.org/
+423 silly mapToRegistry uri https://registry.npmjs.org/morgan
+424 verbose addNameVersion registry:https://registry.npmjs.org/morgan not in flight; fetching
+425 silly addNamed save@2.3.0
+426 verbose addNamed "2.3.0" is a plain semver version for save
+427 silly mapToRegistry name save
+428 silly mapToRegistry using default registry
+429 silly mapToRegistry registry https://registry.npmjs.org/
+430 silly mapToRegistry uri https://registry.npmjs.org/save
+431 verbose addNameVersion registry:https://registry.npmjs.org/save not in flight; fetching
+432 verbose request uri https://registry.npmjs.org/iconv-lite
+433 verbose request no auth needed
+434 info attempt registry request try #1 at 上午9:15:48
+435 http request GET https://registry.npmjs.org/iconv-lite
+436 verbose request uri https://registry.npmjs.org/body-parser
+437 verbose request no auth needed
+438 info attempt registry request try #1 at 上午9:15:48
+439 http request GET https://registry.npmjs.org/body-parser
+440 verbose request uri https://registry.npmjs.org/bufferhelper
+441 verbose request no auth needed
+442 info attempt registry request try #1 at 上午9:15:48
+443 http request GET https://registry.npmjs.org/bufferhelper
+444 verbose request uri https://registry.npmjs.org/cheerio
+445 verbose request no auth needed
+446 info attempt registry request try #1 at 上午9:15:48
+447 http request GET https://registry.npmjs.org/cheerio
+448 verbose request uri https://registry.npmjs.org/cookie-parser
+449 verbose request no auth needed
+450 info attempt registry request try #1 at 上午9:15:48
+451 http request GET https://registry.npmjs.org/cookie-parser
+452 verbose request uri https://registry.npmjs.org/cookie-session
+453 verbose request no auth needed
+454 info attempt registry request try #1 at 上午9:15:48
+455 http request GET https://registry.npmjs.org/cookie-session
+456 verbose request uri https://registry.npmjs.org/ejs
+457 verbose request no auth needed
+458 info attempt registry request try #1 at 上午9:15:48
+459 http request GET https://registry.npmjs.org/ejs
+460 verbose request uri https://registry.npmjs.org/express
+461 verbose request no auth needed
+462 info attempt registry request try #1 at 上午9:15:48
+463 http request GET https://registry.npmjs.org/express
+464 verbose request uri https://registry.npmjs.org/express-session
+465 verbose request no auth needed
+466 info attempt registry request try #1 at 上午9:15:48
+467 http request GET https://registry.npmjs.org/express-session
+468 verbose request uri https://registry.npmjs.org/jade
+469 verbose request no auth needed
+470 info attempt registry request try #1 at 上午9:15:48
+471 http request GET https://registry.npmjs.org/jade
+472 verbose request uri https://registry.npmjs.org/method-override
+473 verbose request no auth needed
+474 info attempt registry request try #1 at 上午9:15:48
+475 http request GET https://registry.npmjs.org/method-override
+476 verbose request uri https://registry.npmjs.org/mongoose
+477 verbose request no auth needed
+478 info attempt registry request try #1 at 上午9:15:48
+479 http request GET https://registry.npmjs.org/mongoose
+480 verbose request uri https://registry.npmjs.org/morgan
+481 verbose request no auth needed
+482 info attempt registry request try #1 at 上午9:15:48
+483 http request GET https://registry.npmjs.org/morgan
+484 verbose request uri https://registry.npmjs.org/save
+485 verbose request no auth needed
+486 info attempt registry request try #1 at 上午9:15:48
+487 http request GET https://registry.npmjs.org/save
+488 verbose unbuild node_modules/.staging/cron-parser-be922e75
+489 verbose unbuild node_modules/.staging/long-timeout-857562f1
+490 verbose unbuild node_modules/.staging/node-schedule-8acb5ad9
+491 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/cron-parser-be922e75 is being purged from base /home/asher/git-repo/otron
+492 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/cron-parser-be922e75
+493 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/long-timeout-857562f1 is being purged from base /home/asher/git-repo/otron
+494 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/long-timeout-857562f1
+495 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/node-schedule-8acb5ad9 is being purged from base /home/asher/git-repo/otron
+496 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/node-schedule-8acb5ad9
+497 verbose tar unpack /home/asher/.npm/cron-parser/1.1.0/package.tgz
+498 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/cron-parser-be922e75
+499 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/cron-parser-be922e75 is being purged
+500 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/cron-parser-be922e75
+501 verbose tar unpack /home/asher/.npm/long-timeout/0.0.2/package.tgz
+502 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/long-timeout-857562f1
+503 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/long-timeout-857562f1 is being purged
+504 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/long-timeout-857562f1
+505 verbose tar unpack /home/asher/.npm/node-schedule/1.1.1/package.tgz
+506 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/node-schedule-8acb5ad9
+507 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/node-schedule-8acb5ad9 is being purged
+508 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/node-schedule-8acb5ad9
+509 silly gunzTarPerm modes [ '775', '664' ]
+510 silly gunzTarPerm modes [ '775', '664' ]
+511 silly gunzTarPerm modes [ '775', '664' ]
+512 silly gunzTarPerm extractEntry package.json
+513 silly gunzTarPerm modified mode [ 'package.json', 420, 436 ]
+514 silly gunzTarPerm extractEntry package.json
+515 silly gunzTarPerm modified mode [ 'package.json', 420, 436 ]
+516 silly gunzTarPerm extractEntry package.json
+517 silly gunzTarPerm modified mode [ 'package.json', 420, 436 ]
+518 silly gunzTarPerm extractEntry README.md
+519 silly gunzTarPerm modified mode [ 'README.md', 420, 436 ]
+520 silly gunzTarPerm extractEntry example.js
+521 silly gunzTarPerm modified mode [ 'example.js', 420, 436 ]
+522 silly gunzTarPerm extractEntry .npmignore
+523 silly gunzTarPerm modified mode [ '.npmignore', 420, 436 ]
+524 silly gunzTarPerm extractEntry README.md
+525 silly gunzTarPerm modified mode [ 'README.md', 420, 436 ]
+526 silly gunzTarPerm extractEntry LICENSE
+527 silly gunzTarPerm modified mode [ 'LICENSE', 420, 436 ]
+528 silly gunzTarPerm extractEntry test_cancel.js
+529 silly gunzTarPerm modified mode [ 'test_cancel.js', 420, 436 ]
+530 silly gunzTarPerm extractEntry index.js
+531 silly gunzTarPerm modified mode [ 'index.js', 420, 436 ]
+532 silly gunzTarPerm extractEntry .idea/.name
+533 silly gunzTarPerm modified mode [ '.idea/.name', 420, 436 ]
+534 silly gunzTarPerm extractEntry .idea/cron-parser.iml
+535 silly gunzTarPerm modified mode [ '.idea/cron-parser.iml', 420, 436 ]
+536 silly gunzTarPerm extractEntry test.js
+537 silly gunzTarPerm modified mode [ 'test.js', 420, 436 ]
+538 silly gunzTarPerm extractEntry fail.js
+539 silly gunzTarPerm modified mode [ 'fail.js', 420, 436 ]
+540 silly gunzTarPerm extractEntry .idea/encodings.xml
+541 silly gunzTarPerm modified mode [ '.idea/encodings.xml', 420, 436 ]
+542 silly gunzTarPerm extractEntry .idea/jsLibraryMappings.xml
+543 silly gunzTarPerm modified mode [ '.idea/jsLibraryMappings.xml', 420, 436 ]
+544 silly gunzTarPerm extractEntry every_second.js
+545 silly gunzTarPerm modified mode [ 'every_second.js', 420, 436 ]
+546 silly gunzTarPerm extractEntry CONTRIBUTING.md
+547 silly gunzTarPerm modified mode [ 'CONTRIBUTING.md', 420, 436 ]
+548 silly gunzTarPerm extractEntry lib/schedule.js
+549 silly gunzTarPerm modified mode [ 'lib/schedule.js', 420, 436 ]
+550 silly gunzTarPerm extractEntry .travis.yml
+551 silly gunzTarPerm modified mode [ '.travis.yml', 420, 436 ]
+552 silly gunzTarPerm extractEntry test/convenience-method-test.js
+553 silly gunzTarPerm modified mode [ 'test/convenience-method-test.js', 420, 436 ]
+554 silly gunzTarPerm extractEntry test/date-convenience-methods-test.js
+555 silly gunzTarPerm modified mode [ 'test/date-convenience-methods-test.js', 420, 436 ]
+556 silly gunzTarPerm extractEntry test/job-test.js
+557 silly gunzTarPerm modified mode [ 'test/job-test.js', 420, 436 ]
+558 silly gunzTarPerm extractEntry test/range-test.js
+559 silly gunzTarPerm modified mode [ 'test/range-test.js', 420, 436 ]
+560 silly gunzTarPerm extractEntry test/recurrence-rule-test.js
+561 silly gunzTarPerm modified mode [ 'test/recurrence-rule-test.js', 420, 436 ]
+562 silly gunzTarPerm extractEntry test/schedule-cron-jobs.js
+563 silly gunzTarPerm modified mode [ 'test/schedule-cron-jobs.js', 420, 436 ]
+564 silly gunzTarPerm extractEntry test/es6/job-test.js
+565 silly gunzTarPerm modified mode [ 'test/es6/job-test.js', 420, 436 ]
+566 silly gunzTarPerm extractEntry .eslintrc
+567 silly gunzTarPerm modified mode [ '.eslintrc', 420, 436 ]
+568 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/long-timeout-857562f1/node_modules is being purged
+569 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/long-timeout-857562f1/node_modules
+570 silly gunzTarPerm extractEntry .idea/libraries/cron_parser_node_modules.xml
+571 silly gunzTarPerm modified mode [ '.idea/libraries/cron_parser_node_modules.xml', 420, 436 ]
+572 silly gunzTarPerm extractEntry .idea/misc.xml
+573 silly gunzTarPerm modified mode [ '.idea/misc.xml', 420, 436 ]
+574 silly gunzTarPerm extractEntry .idea/modules.xml
+575 silly gunzTarPerm modified mode [ '.idea/modules.xml', 420, 436 ]
+576 silly gunzTarPerm extractEntry .idea/vcs.xml
+577 silly gunzTarPerm modified mode [ '.idea/vcs.xml', 420, 436 ]
+578 silly gunzTarPerm extractEntry .idea/workspace.xml
+579 silly gunzTarPerm modified mode [ '.idea/workspace.xml', 420, 436 ]
+580 silly gunzTarPerm extractEntry .travis.yml
+581 silly gunzTarPerm modified mode [ '.travis.yml', 420, 436 ]
+582 silly gunzTarPerm extractEntry component.json
+583 silly gunzTarPerm modified mode [ 'component.json', 420, 436 ]
+584 silly gunzTarPerm extractEntry lib/date.js
+585 silly gunzTarPerm modified mode [ 'lib/date.js', 420, 436 ]
+586 silly gunzTarPerm extractEntry lib/expression.js
+587 silly gunzTarPerm modified mode [ 'lib/expression.js', 420, 436 ]
+588 silly gunzTarPerm extractEntry lib/parser.js
+589 silly gunzTarPerm modified mode [ 'lib/parser.js', 420, 436 ]
+590 silly gunzTarPerm extractEntry test/31_of_month.js
+591 silly gunzTarPerm modified mode [ 'test/31_of_month.js', 420, 436 ]
+592 silly gunzTarPerm extractEntry test/expression.js
+593 silly gunzTarPerm modified mode [ 'test/expression.js', 420, 436 ]
+594 silly gunzTarPerm extractEntry test/parser.js
+595 silly gunzTarPerm modified mode [ 'test/parser.js', 420, 436 ]
+596 silly gunzTarPerm extractEntry test/crontab.example
+597 silly gunzTarPerm modified mode [ 'test/crontab.example', 420, 436 ]
+598 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/node-schedule-8acb5ad9/node_modules is being purged
+599 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/node-schedule-8acb5ad9/node_modules
+600 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/cron-parser-be922e75/node_modules is being purged
+601 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/cron-parser-be922e75/node_modules
+602 http 200 https://registry.npmjs.org/morgan
+603 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+603 verbose headers   etag: '"CH0OPZE3XP4MI0OANIT29PURD"',
+603 verbose headers   'content-type': 'application/json',
+603 verbose headers   'content-encoding': 'gzip',
+603 verbose headers   'cache-control': 'max-age=300',
+603 verbose headers   'content-length': '9042',
+603 verbose headers   'accept-ranges': 'bytes',
+603 verbose headers   date: 'Fri, 12 Aug 2016 01:15:50 GMT',
+603 verbose headers   via: '1.1 varnish',
+603 verbose headers   age: '0',
+603 verbose headers   connection: 'keep-alive',
+603 verbose headers   'x-served-by': 'cache-ams4435-AMS',
+603 verbose headers   'x-cache': 'HIT',
+603 verbose headers   'x-cache-hits': '1',
+603 verbose headers   'x-timer': 'S1470964550.167857,VS0,VE721',
+603 verbose headers   vary: 'Accept-Encoding' }
+604 silly get cb [ 200,
+604 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+604 silly get     etag: '"CH0OPZE3XP4MI0OANIT29PURD"',
+604 silly get     'content-type': 'application/json',
+604 silly get     'content-encoding': 'gzip',
+604 silly get     'cache-control': 'max-age=300',
+604 silly get     'content-length': '9042',
+604 silly get     'accept-ranges': 'bytes',
+604 silly get     date: 'Fri, 12 Aug 2016 01:15:50 GMT',
+604 silly get     via: '1.1 varnish',
+604 silly get     age: '0',
+604 silly get     connection: 'keep-alive',
+604 silly get     'x-served-by': 'cache-ams4435-AMS',
+604 silly get     'x-cache': 'HIT',
+604 silly get     'x-cache-hits': '1',
+604 silly get     'x-timer': 'S1470964550.167857,VS0,VE721',
+604 silly get     vary: 'Accept-Encoding' } ]
+605 verbose get saving morgan to /home/asher/.npm/registry.npmjs.org/morgan/.cache.json
+606 silly mapToRegistry name morgan
+607 silly mapToRegistry using default registry
+608 silly mapToRegistry registry https://registry.npmjs.org/
+609 silly mapToRegistry uri https://registry.npmjs.org/morgan
+610 verbose addRemoteTarball https://registry.npmjs.org/morgan/-/morgan-1.7.0.tgz not in flight; adding
+611 verbose addRemoteTarball [ 'https://registry.npmjs.org/morgan/-/morgan-1.7.0.tgz',
+611 verbose addRemoteTarball   'eb10ca8e50d1abe0f8d3dad5c0201d052d981c62' ]
+612 info retry fetch attempt 1 at 上午9:15:51
+613 info attempt registry request try #1 at 上午9:15:51
+614 http fetch GET https://registry.npmjs.org/morgan/-/morgan-1.7.0.tgz
+615 http 200 https://registry.npmjs.org/cheerio
+616 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+616 verbose headers   etag: '"ECX808T19L152GHYW7H0RYJ43"',
+616 verbose headers   'content-type': 'application/json',
+616 verbose headers   'content-encoding': 'gzip',
+616 verbose headers   'cache-control': 'max-age=300',
+616 verbose headers   'content-length': '20029',
+616 verbose headers   'accept-ranges': 'bytes',
+616 verbose headers   date: 'Fri, 12 Aug 2016 01:15:51 GMT',
+616 verbose headers   via: '1.1 varnish',
+616 verbose headers   age: '277',
+616 verbose headers   connection: 'keep-alive',
+616 verbose headers   'x-served-by': 'cache-ams4445-AMS',
+616 verbose headers   'x-cache': 'HIT',
+616 verbose headers   'x-cache-hits': '1',
+616 verbose headers   'x-timer': 'S1470964551.223863,VS0,VE0',
+616 verbose headers   vary: 'Accept-Encoding' }
+617 silly get cb [ 200,
+617 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+617 silly get     etag: '"ECX808T19L152GHYW7H0RYJ43"',
+617 silly get     'content-type': 'application/json',
+617 silly get     'content-encoding': 'gzip',
+617 silly get     'cache-control': 'max-age=300',
+617 silly get     'content-length': '20029',
+617 silly get     'accept-ranges': 'bytes',
+617 silly get     date: 'Fri, 12 Aug 2016 01:15:51 GMT',
+617 silly get     via: '1.1 varnish',
+617 silly get     age: '277',
+617 silly get     connection: 'keep-alive',
+617 silly get     'x-served-by': 'cache-ams4445-AMS',
+617 silly get     'x-cache': 'HIT',
+617 silly get     'x-cache-hits': '1',
+617 silly get     'x-timer': 'S1470964551.223863,VS0,VE0',
+617 silly get     vary: 'Accept-Encoding' } ]
+618 verbose get saving cheerio to /home/asher/.npm/registry.npmjs.org/cheerio/.cache.json
+619 silly mapToRegistry name cheerio
+620 silly mapToRegistry using default registry
+621 silly mapToRegistry registry https://registry.npmjs.org/
+622 silly mapToRegistry uri https://registry.npmjs.org/cheerio
+623 verbose addRemoteTarball https://registry.npmjs.org/cheerio/-/cheerio-0.20.0.tgz not in flight; adding
+624 verbose addRemoteTarball [ 'https://registry.npmjs.org/cheerio/-/cheerio-0.20.0.tgz',
+624 verbose addRemoteTarball   '5c710f2bab95653272842ba01c6ea61b3545ec35' ]
+625 info retry fetch attempt 1 at 上午9:15:51
+626 info attempt registry request try #1 at 上午9:15:51
+627 http fetch GET https://registry.npmjs.org/cheerio/-/cheerio-0.20.0.tgz
+628 http 200 https://registry.npmjs.org/save
+629 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+629 verbose headers   etag: '"6DEQ55OQWC3YE05VRYI5EOMX3"',
+629 verbose headers   'content-type': 'application/json',
+629 verbose headers   'content-encoding': 'gzip',
+629 verbose headers   'cache-control': 'max-age=300',
+629 verbose headers   'content-length': '5895',
+629 verbose headers   'accept-ranges': 'bytes',
+629 verbose headers   date: 'Fri, 12 Aug 2016 01:15:51 GMT',
+629 verbose headers   via: '1.1 varnish',
+629 verbose headers   age: '0',
+629 verbose headers   connection: 'keep-alive',
+629 verbose headers   'x-served-by': 'cache-ams4441-AMS',
+629 verbose headers   'x-cache': 'MISS',
+629 verbose headers   'x-cache-hits': '0',
+629 verbose headers   'x-timer': 'S1470964551.111123,VS0,VE724',
+629 verbose headers   vary: 'Accept-Encoding' }
+630 silly get cb [ 200,
+630 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+630 silly get     etag: '"6DEQ55OQWC3YE05VRYI5EOMX3"',
+630 silly get     'content-type': 'application/json',
+630 silly get     'content-encoding': 'gzip',
+630 silly get     'cache-control': 'max-age=300',
+630 silly get     'content-length': '5895',
+630 silly get     'accept-ranges': 'bytes',
+630 silly get     date: 'Fri, 12 Aug 2016 01:15:51 GMT',
+630 silly get     via: '1.1 varnish',
+630 silly get     age: '0',
+630 silly get     connection: 'keep-alive',
+630 silly get     'x-served-by': 'cache-ams4441-AMS',
+630 silly get     'x-cache': 'MISS',
+630 silly get     'x-cache-hits': '0',
+630 silly get     'x-timer': 'S1470964551.111123,VS0,VE724',
+630 silly get     vary: 'Accept-Encoding' } ]
+631 verbose get saving save to /home/asher/.npm/registry.npmjs.org/save/.cache.json
+632 silly mapToRegistry name save
+633 silly mapToRegistry using default registry
+634 silly mapToRegistry registry https://registry.npmjs.org/
+635 silly mapToRegistry uri https://registry.npmjs.org/save
+636 verbose addRemoteTarball https://registry.npmjs.org/save/-/save-2.3.0.tgz not in flight; adding
+637 verbose addRemoteTarball [ 'https://registry.npmjs.org/save/-/save-2.3.0.tgz',
+637 verbose addRemoteTarball   '8726cf38dc5ea5addaea81382aa8f032f09b98a9' ]
+638 info retry fetch attempt 1 at 上午9:15:52
+639 info attempt registry request try #1 at 上午9:15:52
+640 http fetch GET https://registry.npmjs.org/save/-/save-2.3.0.tgz
+641 http 200 https://registry.npmjs.org/express-session
+642 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+642 verbose headers   etag: '"EB179TPOE9R0V7CNWM5G700WY"',
+642 verbose headers   'content-type': 'application/json',
+642 verbose headers   'content-encoding': 'gzip',
+642 verbose headers   'cache-control': 'max-age=300',
+642 verbose headers   'content-length': '18047',
+642 verbose headers   'accept-ranges': 'bytes',
+642 verbose headers   date: 'Fri, 12 Aug 2016 01:15:52 GMT',
+642 verbose headers   via: '1.1 varnish',
+642 verbose headers   age: '162',
+642 verbose headers   connection: 'keep-alive',
+642 verbose headers   'x-served-by': 'cache-ams4446-AMS',
+642 verbose headers   'x-cache': 'HIT',
+642 verbose headers   'x-cache-hits': '1',
+642 verbose headers   'x-timer': 'S1470964552.205808,VS0,VE0',
+642 verbose headers   vary: 'Accept-Encoding' }
+643 silly get cb [ 200,
+643 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+643 silly get     etag: '"EB179TPOE9R0V7CNWM5G700WY"',
+643 silly get     'content-type': 'application/json',
+643 silly get     'content-encoding': 'gzip',
+643 silly get     'cache-control': 'max-age=300',
+643 silly get     'content-length': '18047',
+643 silly get     'accept-ranges': 'bytes',
+643 silly get     date: 'Fri, 12 Aug 2016 01:15:52 GMT',
+643 silly get     via: '1.1 varnish',
+643 silly get     age: '162',
+643 silly get     connection: 'keep-alive',
+643 silly get     'x-served-by': 'cache-ams4446-AMS',
+643 silly get     'x-cache': 'HIT',
+643 silly get     'x-cache-hits': '1',
+643 silly get     'x-timer': 'S1470964552.205808,VS0,VE0',
+643 silly get     vary: 'Accept-Encoding' } ]
+644 verbose get saving express-session to /home/asher/.npm/registry.npmjs.org/express-session/.cache.json
+645 silly mapToRegistry name express-session
+646 silly mapToRegistry using default registry
+647 silly mapToRegistry registry https://registry.npmjs.org/
+648 silly mapToRegistry uri https://registry.npmjs.org/express-session
+649 verbose addRemoteTarball https://registry.npmjs.org/express-session/-/express-session-1.13.0.tgz not in flight; adding
+650 verbose addRemoteTarball [ 'https://registry.npmjs.org/express-session/-/express-session-1.13.0.tgz',
+650 verbose addRemoteTarball   '8ac3b5c0188b48382851d88207b8e7746efb4011' ]
+651 info retry fetch attempt 1 at 上午9:15:52
+652 info attempt registry request try #1 at 上午9:15:52
+653 http fetch GET https://registry.npmjs.org/express-session/-/express-session-1.13.0.tgz
+654 http 200 https://registry.npmjs.org/jade
+655 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+655 verbose headers   etag: '"BA1RKUDFPVMN3N0O4JTH00LFK"',
+655 verbose headers   'content-type': 'application/json',
+655 verbose headers   'content-encoding': 'gzip',
+655 verbose headers   'cache-control': 'max-age=300',
+655 verbose headers   'content-length': '19512',
+655 verbose headers   'accept-ranges': 'bytes',
+655 verbose headers   date: 'Fri, 12 Aug 2016 01:15:52 GMT',
+655 verbose headers   via: '1.1 varnish',
+655 verbose headers   age: '98',
+655 verbose headers   connection: 'keep-alive',
+655 verbose headers   'x-served-by': 'cache-ams4423-AMS',
+655 verbose headers   'x-cache': 'HIT',
+655 verbose headers   'x-cache-hits': '1',
+655 verbose headers   'x-timer': 'S1470964552.565848,VS0,VE0',
+655 verbose headers   vary: 'Accept-Encoding' }
+656 silly get cb [ 200,
+656 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+656 silly get     etag: '"BA1RKUDFPVMN3N0O4JTH00LFK"',
+656 silly get     'content-type': 'application/json',
+656 silly get     'content-encoding': 'gzip',
+656 silly get     'cache-control': 'max-age=300',
+656 silly get     'content-length': '19512',
+656 silly get     'accept-ranges': 'bytes',
+656 silly get     date: 'Fri, 12 Aug 2016 01:15:52 GMT',
+656 silly get     via: '1.1 varnish',
+656 silly get     age: '98',
+656 silly get     connection: 'keep-alive',
+656 silly get     'x-served-by': 'cache-ams4423-AMS',
+656 silly get     'x-cache': 'HIT',
+656 silly get     'x-cache-hits': '1',
+656 silly get     'x-timer': 'S1470964552.565848,VS0,VE0',
+656 silly get     vary: 'Accept-Encoding' } ]
+657 verbose get saving jade to /home/asher/.npm/registry.npmjs.org/jade/.cache.json
+658 warn deprecated jade@1.11.0: Jade has been renamed to pug, please install the latest version of pug instead of jade
+659 silly mapToRegistry name jade
+660 silly mapToRegistry using default registry
+661 silly mapToRegistry registry https://registry.npmjs.org/
+662 silly mapToRegistry uri https://registry.npmjs.org/jade
+663 verbose addRemoteTarball https://registry.npmjs.org/jade/-/jade-1.11.0.tgz not in flight; adding
+664 verbose addRemoteTarball [ 'https://registry.npmjs.org/jade/-/jade-1.11.0.tgz',
+664 verbose addRemoteTarball   '9c80e538c12d3fb95c8d9bb9559fa0cc040405fd' ]
+665 info retry fetch attempt 1 at 上午9:15:53
+666 info attempt registry request try #1 at 上午9:15:53
+667 http fetch GET https://registry.npmjs.org/jade/-/jade-1.11.0.tgz
+668 http fetch 200 https://registry.npmjs.org/save/-/save-2.3.0.tgz
+669 silly fetchAndShaCheck shasum 8726cf38dc5ea5addaea81382aa8f032f09b98a9
+670 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/save/-/save-2.3.0.tgz not in flight; adding
+671 verbose addTmpTarball already have metadata; skipping unpack for save@2.3.0
+672 verbose unbuild node_modules/.staging/save-3dd41e2d
+673 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/save-3dd41e2d is being purged from base /home/asher/git-repo/otron
+674 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/save-3dd41e2d
+675 verbose tar unpack /home/asher/.npm/save/2.3.0/package.tgz
+676 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/save-3dd41e2d
+677 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/save-3dd41e2d is being purged
+678 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/save-3dd41e2d
+679 silly gunzTarPerm modes [ '775', '664' ]
+680 silly gunzTarPerm extractEntry package.json
+681 silly gunzTarPerm modified mode [ 'package.json', 420, 436 ]
+682 silly gunzTarPerm extractEntry .npmignore
+683 silly gunzTarPerm modified mode [ '.npmignore', 432, 436 ]
+684 silly gunzTarPerm extractEntry README.md
+685 silly gunzTarPerm modified mode [ 'README.md', 420, 436 ]
+686 http fetch 200 https://registry.npmjs.org/morgan/-/morgan-1.7.0.tgz
+687 silly gunzTarPerm extractEntry LICENSE
+688 silly gunzTarPerm modified mode [ 'LICENSE', 420, 436 ]
+689 silly gunzTarPerm extractEntry .travis.yml
+690 silly gunzTarPerm modified mode [ '.travis.yml', 420, 436 ]
+691 silly gunzTarPerm extractEntry .jshintignore
+692 silly gunzTarPerm modified mode [ '.jshintignore', 416, 436 ]
+693 silly gunzTarPerm extractEntry lib/memory-engine.js
+694 silly gunzTarPerm modified mode [ 'lib/memory-engine.js', 420, 436 ]
+695 silly gunzTarPerm extractEntry lib/save.js
+696 silly gunzTarPerm modified mode [ 'lib/save.js', 432, 436 ]
+697 silly gunzTarPerm extractEntry .jshintrc
+698 silly gunzTarPerm modified mode [ '.jshintrc', 420, 436 ]
+699 silly gunzTarPerm extractEntry test/count.js
+700 silly gunzTarPerm modified mode [ 'test/count.js', 420, 436 ]
+701 silly gunzTarPerm extractEntry test/delete.js
+702 silly gunzTarPerm modified mode [ 'test/delete.js', 420, 436 ]
+703 silly gunzTarPerm extractEntry test/engine.tests.js
+704 silly gunzTarPerm modified mode [ 'test/engine.tests.js', 420, 436 ]
+705 silly gunzTarPerm extractEntry test/find-one.js
+706 silly gunzTarPerm modified mode [ 'test/find-one.js', 420, 436 ]
+707 silly gunzTarPerm extractEntry test/delete-many.js
+708 silly gunzTarPerm modified mode [ 'test/delete-many.js', 420, 436 ]
+709 silly gunzTarPerm extractEntry test/id-property.js
+710 silly gunzTarPerm modified mode [ 'test/id-property.js', 420, 436 ]
+711 silly gunzTarPerm extractEntry test/memory-engine.test.js
+712 silly gunzTarPerm modified mode [ 'test/memory-engine.test.js', 432, 436 ]
+713 silly gunzTarPerm extractEntry test/read.js
+714 silly gunzTarPerm modified mode [ 'test/read.js', 420, 436 ]
+715 silly gunzTarPerm extractEntry test/save.test.js
+716 silly gunzTarPerm modified mode [ 'test/save.test.js', 432, 436 ]
+717 silly gunzTarPerm extractEntry test/streaming.js
+718 silly gunzTarPerm modified mode [ 'test/streaming.js', 420, 436 ]
+719 silly gunzTarPerm extractEntry test/create.js
+720 silly gunzTarPerm modified mode [ 'test/create.js', 420, 436 ]
+721 silly gunzTarPerm extractEntry test/update-many.js
+722 silly gunzTarPerm modified mode [ 'test/update-many.js', 420, 436 ]
+723 silly gunzTarPerm extractEntry test/create-or-update.js
+724 silly gunzTarPerm modified mode [ 'test/create-or-update.js', 420, 436 ]
+725 silly gunzTarPerm extractEntry test/update.js
+726 silly gunzTarPerm modified mode [ 'test/update.js', 420, 436 ]
+727 silly gunzTarPerm extractEntry test/find.js
+728 silly gunzTarPerm modified mode [ 'test/find.js', 420, 436 ]
+729 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/save-3dd41e2d/node_modules is being purged
+730 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/save-3dd41e2d/node_modules
+731 http 200 https://registry.npmjs.org/body-parser
+732 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+732 verbose headers   etag: '"7SL10YG8V3CPJO96BADN2LDCH"',
+732 verbose headers   'content-type': 'application/json',
+732 verbose headers   'content-encoding': 'gzip',
+732 verbose headers   'cache-control': 'max-age=300',
+732 verbose headers   'content-length': '16164',
+732 verbose headers   'accept-ranges': 'bytes',
+732 verbose headers   date: 'Fri, 12 Aug 2016 01:15:53 GMT',
+732 verbose headers   via: '1.1 varnish',
+732 verbose headers   age: '154',
+732 verbose headers   connection: 'keep-alive',
+732 verbose headers   'x-served-by': 'cache-ams4134-AMS',
+732 verbose headers   'x-cache': 'HIT',
+732 verbose headers   'x-cache-hits': '2',
+732 verbose headers   'x-timer': 'S1470964553.430535,VS0,VE0',
+732 verbose headers   vary: 'Accept-Encoding' }
+733 silly get cb [ 200,
+733 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+733 silly get     etag: '"7SL10YG8V3CPJO96BADN2LDCH"',
+733 silly get     'content-type': 'application/json',
+733 silly get     'content-encoding': 'gzip',
+733 silly get     'cache-control': 'max-age=300',
+733 silly get     'content-length': '16164',
+733 silly get     'accept-ranges': 'bytes',
+733 silly get     date: 'Fri, 12 Aug 2016 01:15:53 GMT',
+733 silly get     via: '1.1 varnish',
+733 silly get     age: '154',
+733 silly get     connection: 'keep-alive',
+733 silly get     'x-served-by': 'cache-ams4134-AMS',
+733 silly get     'x-cache': 'HIT',
+733 silly get     'x-cache-hits': '2',
+733 silly get     'x-timer': 'S1470964553.430535,VS0,VE0',
+733 silly get     vary: 'Accept-Encoding' } ]
+734 verbose get saving body-parser to /home/asher/.npm/registry.npmjs.org/body-parser/.cache.json
+735 silly mapToRegistry name body-parser
+736 silly mapToRegistry using default registry
+737 silly mapToRegistry registry https://registry.npmjs.org/
+738 silly mapToRegistry uri https://registry.npmjs.org/body-parser
+739 verbose addRemoteTarball https://registry.npmjs.org/body-parser/-/body-parser-1.15.1.tgz not in flight; adding
+740 verbose addRemoteTarball [ 'https://registry.npmjs.org/body-parser/-/body-parser-1.15.1.tgz',
+740 verbose addRemoteTarball   '9bceef0669b8f8b943f0ad8ce5d95716bd740fd2' ]
+741 info retry fetch attempt 1 at 上午9:15:54
+742 info attempt registry request try #1 at 上午9:15:54
+743 http fetch GET https://registry.npmjs.org/body-parser/-/body-parser-1.15.1.tgz
+744 http 200 https://registry.npmjs.org/express
+745 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+745 verbose headers   etag: '"7NUGBSH0Q3X3GS8TU1KZBF0AE"',
+745 verbose headers   'content-type': 'application/json',
+745 verbose headers   'content-encoding': 'gzip',
+745 verbose headers   'cache-control': 'max-age=300',
+745 verbose headers   'content-length': '55817',
+745 verbose headers   'accept-ranges': 'bytes',
+745 verbose headers   date: 'Fri, 12 Aug 2016 01:15:53 GMT',
+745 verbose headers   via: '1.1 varnish',
+745 verbose headers   age: '18',
+745 verbose headers   connection: 'keep-alive',
+745 verbose headers   'x-served-by': 'cache-ams4138-AMS',
+745 verbose headers   'x-cache': 'HIT',
+745 verbose headers   'x-cache-hits': '1',
+745 verbose headers   'x-timer': 'S1470964553.250056,VS0,VE0',
+745 verbose headers   vary: 'Accept-Encoding' }
+746 silly get cb [ 200,
+746 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+746 silly get     etag: '"7NUGBSH0Q3X3GS8TU1KZBF0AE"',
+746 silly get     'content-type': 'application/json',
+746 silly get     'content-encoding': 'gzip',
+746 silly get     'cache-control': 'max-age=300',
+746 silly get     'content-length': '55817',
+746 silly get     'accept-ranges': 'bytes',
+746 silly get     date: 'Fri, 12 Aug 2016 01:15:53 GMT',
+746 silly get     via: '1.1 varnish',
+746 silly get     age: '18',
+746 silly get     connection: 'keep-alive',
+746 silly get     'x-served-by': 'cache-ams4138-AMS',
+746 silly get     'x-cache': 'HIT',
+746 silly get     'x-cache-hits': '1',
+746 silly get     'x-timer': 'S1470964553.250056,VS0,VE0',
+746 silly get     vary: 'Accept-Encoding' } ]
+747 verbose get saving express to /home/asher/.npm/registry.npmjs.org/express/.cache.json
+748 silly mapToRegistry name express
+749 silly mapToRegistry using default registry
+750 silly mapToRegistry registry https://registry.npmjs.org/
+751 silly mapToRegistry uri https://registry.npmjs.org/express
+752 verbose addRemoteTarball https://registry.npmjs.org/express/-/express-4.13.4.tgz not in flight; adding
+753 verbose addRemoteTarball [ 'https://registry.npmjs.org/express/-/express-4.13.4.tgz',
+753 verbose addRemoteTarball   '3c0b76f3c77590c8345739061ec0bd3ba067ec24' ]
+754 info retry fetch attempt 1 at 上午9:15:55
+755 info attempt registry request try #1 at 上午9:15:55
+756 http fetch GET https://registry.npmjs.org/express/-/express-4.13.4.tgz
+757 http fetch 200 https://registry.npmjs.org/jade/-/jade-1.11.0.tgz
+758 silly fetchAndShaCheck shasum eb10ca8e50d1abe0f8d3dad5c0201d052d981c62
+759 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/morgan/-/morgan-1.7.0.tgz not in flight; adding
+760 verbose addTmpTarball already have metadata; skipping unpack for morgan@1.7.0
+761 verbose unbuild node_modules/.staging/morgan-5a23fc02
+762 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/morgan-5a23fc02 is being purged from base /home/asher/git-repo/otron
+763 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/morgan-5a23fc02
+764 verbose tar unpack /home/asher/.npm/morgan/1.7.0/package.tgz
+765 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/morgan-5a23fc02
+766 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/morgan-5a23fc02 is being purged
+767 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/morgan-5a23fc02
+768 silly gunzTarPerm modes [ '775', '664' ]
+769 silly gunzTarPerm extractEntry package.json
+770 silly gunzTarPerm modified mode [ 'package.json', 438, 436 ]
+771 silly gunzTarPerm extractEntry README.md
+772 silly gunzTarPerm modified mode [ 'README.md', 438, 436 ]
+773 silly gunzTarPerm extractEntry LICENSE
+774 silly gunzTarPerm modified mode [ 'LICENSE', 438, 436 ]
+775 silly gunzTarPerm extractEntry index.js
+776 silly gunzTarPerm modified mode [ 'index.js', 438, 436 ]
+777 silly gunzTarPerm extractEntry HISTORY.md
+778 silly gunzTarPerm modified mode [ 'HISTORY.md', 438, 436 ]
+779 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/morgan-5a23fc02/node_modules is being purged
+780 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/morgan-5a23fc02/node_modules
+781 silly fetchAndShaCheck shasum 9c80e538c12d3fb95c8d9bb9559fa0cc040405fd
+782 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/jade/-/jade-1.11.0.tgz not in flight; adding
+783 verbose addTmpTarball already have metadata; skipping unpack for jade@1.11.0
+784 verbose unbuild node_modules/.staging/jade-584e3985
+785 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/jade-584e3985 is being purged from base /home/asher/git-repo/otron
+786 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/jade-584e3985
+787 verbose tar unpack /home/asher/.npm/jade/1.11.0/package.tgz
+788 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/jade-584e3985
+789 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/jade-584e3985 is being purged
+790 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/jade-584e3985
+791 silly gunzTarPerm modes [ '775', '664' ]
+792 silly gunzTarPerm extractEntry package.json
+793 silly gunzTarPerm extractEntry .npmignore
+794 silly gunzTarPerm extractEntry README.md
+795 silly gunzTarPerm extractEntry LICENSE
+796 silly gunzTarPerm extractEntry jade.js
+797 silly gunzTarPerm extractEntry release.js
+798 silly gunzTarPerm extractEntry runtime.js
+799 silly gunzTarPerm extractEntry component.json
+800 silly gunzTarPerm extractEntry bin/jade.js
+801 silly gunzTarPerm extractEntry block-code.html
+802 silly gunzTarPerm extractEntry History.md
+803 silly gunzTarPerm extractEntry lib/compiler.js
+804 silly gunzTarPerm extractEntry lib/filters-client.js
+805 silly gunzTarPerm extractEntry lib/filters.js
+806 silly gunzTarPerm extractEntry lib/index.js
+807 silly gunzTarPerm extractEntry lib/doctypes.js
+808 silly gunzTarPerm extractEntry lib/lexer.js
+809 silly gunzTarPerm extractEntry lib/runtime.js
+810 silly gunzTarPerm extractEntry lib/parser.js
+811 silly gunzTarPerm extractEntry lib/utils.js
+812 silly gunzTarPerm extractEntry lib/inline-tags.js
+813 silly gunzTarPerm extractEntry lib/nodes/attrs.js
+814 silly gunzTarPerm extractEntry lib/nodes/code.js
+815 silly gunzTarPerm extractEntry lib/nodes/comment.js
+816 silly gunzTarPerm extractEntry lib/nodes/doctype.js
+817 silly gunzTarPerm extractEntry lib/nodes/each.js
+818 silly gunzTarPerm extractEntry lib/nodes/case.js
+819 silly gunzTarPerm extractEntry lib/nodes/index.js
+820 silly gunzTarPerm extractEntry lib/nodes/literal.js
+821 silly gunzTarPerm extractEntry lib/nodes/mixin-block.js
+822 silly gunzTarPerm extractEntry lib/nodes/mixin.js
+823 silly gunzTarPerm extractEntry lib/nodes/node.js
+824 silly gunzTarPerm extractEntry lib/nodes/block.js
+825 silly gunzTarPerm extractEntry lib/nodes/tag.js
+826 silly gunzTarPerm extractEntry lib/nodes/block-comment.js
+827 silly gunzTarPerm extractEntry lib/nodes/text.js
+828 silly gunzTarPerm extractEntry lib/nodes/filter.js
+829 silly gunzTarPerm extractEntry .release.json
+830 silly gunzTarPerm modified mode [ '.release.json', 438, 436 ]
+831 silly gunzTarPerm extractEntry Readme_zh-cn.md
+832 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/jade-584e3985/node_modules is being purged
+833 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/jade-584e3985/node_modules
+834 http 200 https://registry.npmjs.org/iconv-lite
+835 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+835 verbose headers   etag: '"BGWCHSLYRXNH89SN68K8LB7RY"',
+835 verbose headers   'content-type': 'application/json',
+835 verbose headers   'content-encoding': 'gzip',
+835 verbose headers   'cache-control': 'max-age=300',
+835 verbose headers   'content-length': '8580',
+835 verbose headers   'accept-ranges': 'bytes',
+835 verbose headers   date: 'Fri, 12 Aug 2016 01:15:57 GMT',
+835 verbose headers   via: '1.1 varnish',
+835 verbose headers   age: '213',
+835 verbose headers   connection: 'keep-alive',
+835 verbose headers   'x-served-by': 'cache-ams4125-AMS',
+835 verbose headers   'x-cache': 'HIT',
+835 verbose headers   'x-cache-hits': '2',
+835 verbose headers   'x-timer': 'S1470964557.156367,VS0,VE0',
+835 verbose headers   vary: 'Accept-Encoding' }
+836 silly get cb [ 200,
+836 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+836 silly get     etag: '"BGWCHSLYRXNH89SN68K8LB7RY"',
+836 silly get     'content-type': 'application/json',
+836 silly get     'content-encoding': 'gzip',
+836 silly get     'cache-control': 'max-age=300',
+836 silly get     'content-length': '8580',
+836 silly get     'accept-ranges': 'bytes',
+836 silly get     date: 'Fri, 12 Aug 2016 01:15:57 GMT',
+836 silly get     via: '1.1 varnish',
+836 silly get     age: '213',
+836 silly get     connection: 'keep-alive',
+836 silly get     'x-served-by': 'cache-ams4125-AMS',
+836 silly get     'x-cache': 'HIT',
+836 silly get     'x-cache-hits': '2',
+836 silly get     'x-timer': 'S1470964557.156367,VS0,VE0',
+836 silly get     vary: 'Accept-Encoding' } ]
+837 verbose get saving iconv-lite to /home/asher/.npm/registry.npmjs.org/iconv-lite/.cache.json
+838 silly mapToRegistry name iconv-lite
+839 silly mapToRegistry using default registry
+840 silly mapToRegistry registry https://registry.npmjs.org/
+841 silly mapToRegistry uri https://registry.npmjs.org/iconv-lite
+842 verbose addRemoteTarball https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.13.tgz not in flight; adding
+843 verbose addRemoteTarball [ 'https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.13.tgz',
+843 verbose addRemoteTarball   '1f88aba4ab0b1508e8312acc39345f36e992e2f2' ]
+844 info retry fetch attempt 1 at 上午9:15:57
+845 info attempt registry request try #1 at 上午9:15:57
+846 http fetch GET https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.13.tgz
+847 http 200 https://registry.npmjs.org/ejs
+848 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+848 verbose headers   etag: '"848ICFWQLUPMJVZI27FVWW4PL"',
+848 verbose headers   'content-type': 'application/json',
+848 verbose headers   'content-encoding': 'gzip',
+848 verbose headers   'cache-control': 'max-age=300',
+848 verbose headers   'content-length': '10942',
+848 verbose headers   'accept-ranges': 'bytes',
+848 verbose headers   date: 'Fri, 12 Aug 2016 01:15:58 GMT',
+848 verbose headers   via: '1.1 varnish',
+848 verbose headers   age: '53',
+848 verbose headers   connection: 'keep-alive',
+848 verbose headers   'x-served-by': 'cache-ams4440-AMS',
+848 verbose headers   'x-cache': 'HIT',
+848 verbose headers   'x-cache-hits': '1',
+848 verbose headers   'x-timer': 'S1470964558.408972,VS0,VE0',
+848 verbose headers   vary: 'Accept-Encoding' }
+849 silly get cb [ 200,
+849 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+849 silly get     etag: '"848ICFWQLUPMJVZI27FVWW4PL"',
+849 silly get     'content-type': 'application/json',
+849 silly get     'content-encoding': 'gzip',
+849 silly get     'cache-control': 'max-age=300',
+849 silly get     'content-length': '10942',
+849 silly get     'accept-ranges': 'bytes',
+849 silly get     date: 'Fri, 12 Aug 2016 01:15:58 GMT',
+849 silly get     via: '1.1 varnish',
+849 silly get     age: '53',
+849 silly get     connection: 'keep-alive',
+849 silly get     'x-served-by': 'cache-ams4440-AMS',
+849 silly get     'x-cache': 'HIT',
+849 silly get     'x-cache-hits': '1',
+849 silly get     'x-timer': 'S1470964558.408972,VS0,VE0',
+849 silly get     vary: 'Accept-Encoding' } ]
+850 verbose get saving ejs to /home/asher/.npm/registry.npmjs.org/ejs/.cache.json
+851 silly mapToRegistry name ejs
+852 silly mapToRegistry using default registry
+853 silly mapToRegistry registry https://registry.npmjs.org/
+854 silly mapToRegistry uri https://registry.npmjs.org/ejs
+855 verbose addRemoteTarball https://registry.npmjs.org/ejs/-/ejs-2.4.2.tgz not in flight; adding
+856 verbose addRemoteTarball [ 'https://registry.npmjs.org/ejs/-/ejs-2.4.2.tgz',
+856 verbose addRemoteTarball   '7057eb4812958fb731841cd9ca353343efe597b1' ]
+857 info retry fetch attempt 1 at 上午9:15:58
+858 info attempt registry request try #1 at 上午9:15:58
+859 http fetch GET https://registry.npmjs.org/ejs/-/ejs-2.4.2.tgz
+860 http fetch 200 https://registry.npmjs.org/body-parser/-/body-parser-1.15.1.tgz
+861 http 200 https://registry.npmjs.org/cookie-parser
+862 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+862 verbose headers   etag: '"98AUBN3V3T5GO8423G03D9OE"',
+862 verbose headers   'content-type': 'application/json',
+862 verbose headers   'content-encoding': 'gzip',
+862 verbose headers   'cache-control': 'max-age=300',
+862 verbose headers   'content-length': '5057',
+862 verbose headers   'accept-ranges': 'bytes',
+862 verbose headers   date: 'Fri, 12 Aug 2016 01:16:00 GMT',
+862 verbose headers   via: '1.1 varnish',
+862 verbose headers   age: '220',
+862 verbose headers   connection: 'keep-alive',
+862 verbose headers   'x-served-by': 'cache-ams4129-AMS',
+862 verbose headers   'x-cache': 'HIT',
+862 verbose headers   'x-cache-hits': '1',
+862 verbose headers   'x-timer': 'S1470964560.230028,VS0,VE0',
+862 verbose headers   vary: 'Accept-Encoding' }
+863 silly get cb [ 200,
+863 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+863 silly get     etag: '"98AUBN3V3T5GO8423G03D9OE"',
+863 silly get     'content-type': 'application/json',
+863 silly get     'content-encoding': 'gzip',
+863 silly get     'cache-control': 'max-age=300',
+863 silly get     'content-length': '5057',
+863 silly get     'accept-ranges': 'bytes',
+863 silly get     date: 'Fri, 12 Aug 2016 01:16:00 GMT',
+863 silly get     via: '1.1 varnish',
+863 silly get     age: '220',
+863 silly get     connection: 'keep-alive',
+863 silly get     'x-served-by': 'cache-ams4129-AMS',
+863 silly get     'x-cache': 'HIT',
+863 silly get     'x-cache-hits': '1',
+863 silly get     'x-timer': 'S1470964560.230028,VS0,VE0',
+863 silly get     vary: 'Accept-Encoding' } ]
+864 verbose get saving cookie-parser to /home/asher/.npm/registry.npmjs.org/cookie-parser/.cache.json
+865 silly mapToRegistry name cookie-parser
+866 silly mapToRegistry using default registry
+867 silly mapToRegistry registry https://registry.npmjs.org/
+868 silly mapToRegistry uri https://registry.npmjs.org/cookie-parser
+869 verbose addRemoteTarball https://registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.3.tgz not in flight; adding
+870 verbose addRemoteTarball [ 'https://registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.3.tgz',
+870 verbose addRemoteTarball   '0fe31fa19d000b95f4aadf1f53fdc2b8a203baa5' ]
+871 info retry fetch attempt 1 at 上午9:16:00
+872 info attempt registry request try #1 at 上午9:16:00
+873 http fetch GET https://registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.3.tgz
+874 http fetch 200 https://registry.npmjs.org/ejs/-/ejs-2.4.2.tgz
+875 silly fetchAndShaCheck shasum 7057eb4812958fb731841cd9ca353343efe597b1
+876 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/ejs/-/ejs-2.4.2.tgz not in flight; adding
+877 verbose addTmpTarball already have metadata; skipping unpack for ejs@2.4.2
+878 verbose unbuild node_modules/.staging/ejs-941e0b0c
+879 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/ejs-941e0b0c is being purged from base /home/asher/git-repo/otron
+880 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/ejs-941e0b0c
+881 verbose tar unpack /home/asher/.npm/ejs/2.4.2/package.tgz
+882 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/ejs-941e0b0c
+883 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/ejs-941e0b0c is being purged
+884 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/ejs-941e0b0c
+885 silly gunzTarPerm modes [ '775', '664' ]
+886 silly gunzTarPerm extractEntry
+887 silly gunzTarPerm modified mode [ '', 493, 509 ]
+888 silly gunzTarPerm extractEntry ejs.js
+889 silly gunzTarPerm modified mode [ 'ejs.js', 420, 436 ]
+890 silly gunzTarPerm extractEntry ejs.min.js
+891 silly gunzTarPerm modified mode [ 'ejs.min.js', 420, 436 ]
+892 silly gunzTarPerm extractEntry Jakefile
+893 silly gunzTarPerm modified mode [ 'Jakefile', 420, 436 ]
+894 silly gunzTarPerm extractEntry lib/
+895 silly gunzTarPerm modified mode [ 'lib/', 493, 509 ]
+896 silly gunzTarPerm extractEntry LICENSE
+897 silly gunzTarPerm modified mode [ 'LICENSE', 420, 436 ]
+898 silly gunzTarPerm extractEntry package.json
+899 silly gunzTarPerm modified mode [ 'package.json', 420, 436 ]
+900 silly gunzTarPerm extractEntry README.md
+901 silly gunzTarPerm modified mode [ 'README.md', 420, 436 ]
+902 silly gunzTarPerm extractEntry test/
+903 silly gunzTarPerm modified mode [ 'test/', 493, 509 ]
+904 silly gunzTarPerm extractEntry test/ejs.js
+905 silly gunzTarPerm modified mode [ 'test/ejs.js', 420, 436 ]
+906 silly gunzTarPerm extractEntry test/fixtures/
+907 silly gunzTarPerm modified mode [ 'test/fixtures/', 493, 509 ]
+908 silly gunzTarPerm extractEntry test/mocha.opts
+909 silly gunzTarPerm modified mode [ 'test/mocha.opts', 420, 436 ]
+910 silly gunzTarPerm extractEntry test/fixtures/backslash.ejs
+911 silly gunzTarPerm modified mode [ 'test/fixtures/backslash.ejs', 420, 436 ]
+912 silly gunzTarPerm extractEntry test/fixtures/backslash.html
+913 silly gunzTarPerm modified mode [ 'test/fixtures/backslash.html', 420, 436 ]
+914 silly gunzTarPerm extractEntry test/fixtures/comments.ejs
+915 silly gunzTarPerm modified mode [ 'test/fixtures/comments.ejs', 420, 436 ]
+916 silly gunzTarPerm extractEntry test/fixtures/comments.html
+917 silly gunzTarPerm modified mode [ 'test/fixtures/comments.html', 420, 436 ]
+918 silly gunzTarPerm extractEntry test/fixtures/consecutive-tags.ejs
+919 silly gunzTarPerm modified mode [ 'test/fixtures/consecutive-tags.ejs', 420, 436 ]
+920 silly gunzTarPerm extractEntry test/fixtures/consecutive-tags.html
+921 silly gunzTarPerm modified mode [ 'test/fixtures/consecutive-tags.html', 420, 436 ]
+922 silly gunzTarPerm extractEntry test/fixtures/double-quote.ejs
+923 silly gunzTarPerm modified mode [ 'test/fixtures/double-quote.ejs', 420, 436 ]
+924 silly gunzTarPerm extractEntry test/fixtures/double-quote.html
+925 silly gunzTarPerm modified mode [ 'test/fixtures/double-quote.html', 420, 436 ]
+926 silly gunzTarPerm extractEntry test/fixtures/error.ejs
+927 silly gunzTarPerm modified mode [ 'test/fixtures/error.ejs', 420, 436 ]
+928 silly gunzTarPerm extractEntry test/fixtures/error.out
+929 silly gunzTarPerm modified mode [ 'test/fixtures/error.out', 420, 436 ]
+930 silly gunzTarPerm extractEntry test/fixtures/fail.ejs
+931 silly gunzTarPerm modified mode [ 'test/fixtures/fail.ejs', 420, 436 ]
+932 silly gunzTarPerm extractEntry test/fixtures/hello-world.ejs
+933 silly gunzTarPerm modified mode [ 'test/fixtures/hello-world.ejs', 420, 436 ]
+934 silly gunzTarPerm extractEntry test/fixtures/include-abspath.ejs
+935 silly gunzTarPerm modified mode [ 'test/fixtures/include-abspath.ejs', 420, 436 ]
+936 silly gunzTarPerm extractEntry test/fixtures/include-simple.ejs
+937 silly gunzTarPerm modified mode [ 'test/fixtures/include-simple.ejs', 420, 436 ]
+938 silly gunzTarPerm extractEntry test/fixtures/include-simple.html
+939 silly gunzTarPerm modified mode [ 'test/fixtures/include-simple.html', 420, 436 ]
+940 silly gunzTarPerm extractEntry test/fixtures/include.css.ejs
+941 silly gunzTarPerm modified mode [ 'test/fixtures/include.css.ejs', 420, 436 ]
+942 silly gunzTarPerm extractEntry test/fixtures/include.css.html
+943 silly gunzTarPerm modified mode [ 'test/fixtures/include.css.html', 420, 436 ]
+944 silly gunzTarPerm extractEntry test/fixtures/include.ejs
+945 silly gunzTarPerm modified mode [ 'test/fixtures/include.ejs', 420, 436 ]
+946 silly gunzTarPerm extractEntry test/fixtures/include.html
+947 silly gunzTarPerm modified mode [ 'test/fixtures/include.html', 420, 436 ]
+948 silly gunzTarPerm extractEntry test/fixtures/include_cache.ejs
+949 silly gunzTarPerm modified mode [ 'test/fixtures/include_cache.ejs', 420, 436 ]
+950 silly gunzTarPerm extractEntry test/fixtures/include_cache.html
+951 silly gunzTarPerm modified mode [ 'test/fixtures/include_cache.html', 420, 436 ]
+952 silly gunzTarPerm extractEntry test/fixtures/include_preprocessor.css.ejs
+953 silly gunzTarPerm modified mode [ 'test/fixtures/include_preprocessor.css.ejs', 420, 436 ]
+954 silly gunzTarPerm extractEntry test/fixtures/include_preprocessor.css.html
+955 silly gunzTarPerm modified mode [ 'test/fixtures/include_preprocessor.css.html', 420, 436 ]
+956 silly gunzTarPerm extractEntry test/fixtures/include_preprocessor.ejs
+957 silly gunzTarPerm modified mode [ 'test/fixtures/include_preprocessor.ejs', 420, 436 ]
+958 silly gunzTarPerm extractEntry test/fixtures/include_preprocessor.html
+959 silly gunzTarPerm modified mode [ 'test/fixtures/include_preprocessor.html', 420, 436 ]
+960 silly gunzTarPerm extractEntry test/fixtures/include_preprocessor_cache.ejs
+961 silly gunzTarPerm modified mode [ 'test/fixtures/include_preprocessor_cache.ejs', 420, 436 ]
+962 silly gunzTarPerm extractEntry test/fixtures/include_preprocessor_cache.html
+963 silly gunzTarPerm modified mode [ 'test/fixtures/include_preprocessor_cache.html', 420, 436 ]
+964 silly gunzTarPerm extractEntry test/fixtures/includes/
+965 silly gunzTarPerm modified mode [ 'test/fixtures/includes/', 493, 509 ]
+966 silly gunzTarPerm extractEntry test/fixtures/literal.ejs
+967 silly gunzTarPerm modified mode [ 'test/fixtures/literal.ejs', 420, 436 ]
+968 silly gunzTarPerm extractEntry test/fixtures/literal.html
+969 silly gunzTarPerm modified mode [ 'test/fixtures/literal.html', 420, 436 ]
+970 silly gunzTarPerm extractEntry test/fixtures/menu.ejs
+971 silly gunzTarPerm modified mode [ 'test/fixtures/menu.ejs', 420, 436 ]
+972 silly gunzTarPerm extractEntry test/fixtures/menu.html
+973 silly gunzTarPerm modified mode [ 'test/fixtures/menu.html', 420, 436 ]
+974 silly gunzTarPerm extractEntry test/fixtures/menu_preprocessor.ejs
+975 silly gunzTarPerm modified mode [ 'test/fixtures/menu_preprocessor.ejs', 420, 436 ]
+976 silly gunzTarPerm extractEntry test/fixtures/menu_preprocessor.html
+977 silly gunzTarPerm modified mode [ 'test/fixtures/menu_preprocessor.html', 420, 436 ]
+978 silly gunzTarPerm extractEntry test/fixtures/menu_var.ejs
+979 silly gunzTarPerm modified mode [ 'test/fixtures/menu_var.ejs', 420, 436 ]
+980 silly gunzTarPerm extractEntry test/fixtures/messed.ejs
+981 silly gunzTarPerm modified mode [ 'test/fixtures/messed.ejs', 420, 436 ]
+982 silly gunzTarPerm extractEntry test/fixtures/messed.html
+983 silly gunzTarPerm modified mode [ 'test/fixtures/messed.html', 420, 436 ]
+984 silly gunzTarPerm extractEntry test/fixtures/newlines.ejs
+985 silly gunzTarPerm modified mode [ 'test/fixtures/newlines.ejs', 420, 436 ]
+986 silly gunzTarPerm extractEntry test/fixtures/newlines.html
+987 silly gunzTarPerm modified mode [ 'test/fixtures/newlines.html', 420, 436 ]
+988 silly gunzTarPerm extractEntry test/fixtures/newlines.mixed.ejs
+989 silly gunzTarPerm modified mode [ 'test/fixtures/newlines.mixed.ejs', 420, 436 ]
+990 silly gunzTarPerm extractEntry test/fixtures/newlines.mixed.html
+991 silly gunzTarPerm modified mode [ 'test/fixtures/newlines.mixed.html', 420, 436 ]
+992 silly gunzTarPerm extractEntry test/fixtures/no.newlines.ejs
+993 silly gunzTarPerm modified mode [ 'test/fixtures/no.newlines.ejs', 420, 436 ]
+994 silly gunzTarPerm extractEntry test/fixtures/no.newlines.error.ejs
+995 silly gunzTarPerm modified mode [ 'test/fixtures/no.newlines.error.ejs', 420, 436 ]
+996 silly gunzTarPerm extractEntry test/fixtures/no.newlines.html
+997 silly gunzTarPerm modified mode [ 'test/fixtures/no.newlines.html', 420, 436 ]
+998 silly gunzTarPerm extractEntry test/fixtures/no.semicolons.ejs
+999 silly gunzTarPerm modified mode [ 'test/fixtures/no.semicolons.ejs', 420, 436 ]
+1000 silly gunzTarPerm extractEntry test/fixtures/no.semicolons.html
+1001 silly gunzTarPerm modified mode [ 'test/fixtures/no.semicolons.html', 420, 436 ]
+1002 silly gunzTarPerm extractEntry test/fixtures/para.ejs
+1003 silly gunzTarPerm modified mode [ 'test/fixtures/para.ejs', 420, 436 ]
+1004 silly gunzTarPerm extractEntry test/fixtures/pet.ejs
+1005 silly gunzTarPerm modified mode [ 'test/fixtures/pet.ejs', 420, 436 ]
+1006 silly gunzTarPerm extractEntry test/fixtures/rmWhitespace.ejs
+1007 silly gunzTarPerm modified mode [ 'test/fixtures/rmWhitespace.ejs', 420, 436 ]
+1008 silly gunzTarPerm extractEntry test/fixtures/rmWhitespace.html
+1009 silly gunzTarPerm modified mode [ 'test/fixtures/rmWhitespace.html', 420, 436 ]
+1010 silly gunzTarPerm extractEntry test/fixtures/single-quote.ejs
+1011 silly gunzTarPerm modified mode [ 'test/fixtures/single-quote.ejs', 420, 436 ]
+1012 silly gunzTarPerm extractEntry test/fixtures/single-quote.html
+1013 silly gunzTarPerm modified mode [ 'test/fixtures/single-quote.html', 420, 436 ]
+1014 silly gunzTarPerm extractEntry test/fixtures/space-and-tab-slurp.ejs
+1015 silly gunzTarPerm modified mode [ 'test/fixtures/space-and-tab-slurp.ejs', 420, 436 ]
+1016 silly gunzTarPerm extractEntry test/fixtures/space-and-tab-slurp.html
+1017 silly gunzTarPerm modified mode [ 'test/fixtures/space-and-tab-slurp.html', 420, 436 ]
+1018 silly gunzTarPerm extractEntry test/fixtures/style.css
+1019 silly gunzTarPerm modified mode [ 'test/fixtures/style.css', 420, 436 ]
+1020 silly gunzTarPerm extractEntry test/fixtures/user-no-with.ejs
+1021 silly gunzTarPerm modified mode [ 'test/fixtures/user-no-with.ejs', 420, 436 ]
+1022 silly gunzTarPerm extractEntry test/fixtures/user.ejs
+1023 silly gunzTarPerm modified mode [ 'test/fixtures/user.ejs', 420, 436 ]
+1024 silly gunzTarPerm extractEntry test/fixtures/with-context.ejs
+1025 silly gunzTarPerm modified mode [ 'test/fixtures/with-context.ejs', 420, 436 ]
+1026 silly gunzTarPerm extractEntry test/fixtures/includes/bom.ejs
+1027 silly gunzTarPerm modified mode [ 'test/fixtures/includes/bom.ejs', 420, 436 ]
+1028 silly gunzTarPerm extractEntry test/fixtures/includes/menu/
+1029 silly gunzTarPerm modified mode [ 'test/fixtures/includes/menu/', 493, 509 ]
+1030 silly gunzTarPerm extractEntry test/fixtures/includes/menu-item.ejs
+1031 silly gunzTarPerm modified mode [ 'test/fixtures/includes/menu-item.ejs', 420, 436 ]
+1032 silly gunzTarPerm extractEntry test/fixtures/includes/menu/item.ejs
+1033 silly gunzTarPerm modified mode [ 'test/fixtures/includes/menu/item.ejs', 420, 436 ]
+1034 silly gunzTarPerm extractEntry lib/ejs.js
+1035 silly gunzTarPerm modified mode [ 'lib/ejs.js', 420, 436 ]
+1036 silly gunzTarPerm extractEntry lib/utils.js
+1037 silly gunzTarPerm modified mode [ 'lib/utils.js', 420, 436 ]
+1038 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/ejs-941e0b0c/node_modules is being purged
+1039 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/ejs-941e0b0c/node_modules
+1040 http fetch 200 https://registry.npmjs.org/express-session/-/express-session-1.13.0.tgz
+1041 silly fetchAndShaCheck shasum 8ac3b5c0188b48382851d88207b8e7746efb4011
+1042 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/express-session/-/express-session-1.13.0.tgz not in flight; adding
+1043 verbose addTmpTarball already have metadata; skipping unpack for express-session@1.13.0
+1044 verbose unbuild node_modules/.staging/express-session-cc4dfdd9
+1045 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/express-session-cc4dfdd9 is being purged from base /home/asher/git-repo/otron
+1046 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/express-session-cc4dfdd9
+1047 verbose tar unpack /home/asher/.npm/express-session/1.13.0/package.tgz
+1048 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/express-session-cc4dfdd9
+1049 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/express-session-cc4dfdd9 is being purged
+1050 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/express-session-cc4dfdd9
+1051 silly gunzTarPerm modes [ '775', '664' ]
+1052 silly gunzTarPerm extractEntry package.json
+1053 silly gunzTarPerm modified mode [ 'package.json', 438, 436 ]
+1054 silly gunzTarPerm extractEntry README.md
+1055 silly gunzTarPerm modified mode [ 'README.md', 438, 436 ]
+1056 silly gunzTarPerm extractEntry LICENSE
+1057 silly gunzTarPerm modified mode [ 'LICENSE', 438, 436 ]
+1058 silly gunzTarPerm extractEntry index.js
+1059 silly gunzTarPerm modified mode [ 'index.js', 438, 436 ]
+1060 silly gunzTarPerm extractEntry HISTORY.md
+1061 silly gunzTarPerm modified mode [ 'HISTORY.md', 438, 436 ]
+1062 silly gunzTarPerm extractEntry session/cookie.js
+1063 silly gunzTarPerm modified mode [ 'session/cookie.js', 438, 436 ]
+1064 silly gunzTarPerm extractEntry session/memory.js
+1065 silly gunzTarPerm modified mode [ 'session/memory.js', 438, 436 ]
+1066 silly gunzTarPerm extractEntry session/session.js
+1067 silly gunzTarPerm modified mode [ 'session/session.js', 438, 436 ]
+1068 silly gunzTarPerm extractEntry session/store.js
+1069 silly gunzTarPerm modified mode [ 'session/store.js', 438, 436 ]
+1070 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/express-session-cc4dfdd9/node_modules is being purged
+1071 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/express-session-cc4dfdd9/node_modules
+1072 http fetch 200 https://registry.npmjs.org/cheerio/-/cheerio-0.20.0.tgz
+1073 http 200 https://registry.npmjs.org/cookie-session
+1074 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+1074 verbose headers   etag: '"UA0SNT44GB73LQ2QSXA19D6F"',
+1074 verbose headers   'content-type': 'application/json',
+1074 verbose headers   'content-encoding': 'gzip',
+1074 verbose headers   'cache-control': 'max-age=300',
+1074 verbose headers   'content-length': '4869',
+1074 verbose headers   'accept-ranges': 'bytes',
+1074 verbose headers   date: 'Fri, 12 Aug 2016 01:16:25 GMT',
+1074 verbose headers   via: '1.1 varnish',
+1074 verbose headers   age: '31',
+1074 verbose headers   connection: 'keep-alive',
+1074 verbose headers   'x-served-by': 'cache-ams4446-AMS',
+1074 verbose headers   'x-cache': 'HIT',
+1074 verbose headers   'x-cache-hits': '1',
+1074 verbose headers   'x-timer': 'S1470964585.513016,VS0,VE0',
+1074 verbose headers   vary: 'Accept-Encoding' }
+1075 silly get cb [ 200,
+1075 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+1075 silly get     etag: '"UA0SNT44GB73LQ2QSXA19D6F"',
+1075 silly get     'content-type': 'application/json',
+1075 silly get     'content-encoding': 'gzip',
+1075 silly get     'cache-control': 'max-age=300',
+1075 silly get     'content-length': '4869',
+1075 silly get     'accept-ranges': 'bytes',
+1075 silly get     date: 'Fri, 12 Aug 2016 01:16:25 GMT',
+1075 silly get     via: '1.1 varnish',
+1075 silly get     age: '31',
+1075 silly get     connection: 'keep-alive',
+1075 silly get     'x-served-by': 'cache-ams4446-AMS',
+1075 silly get     'x-cache': 'HIT',
+1075 silly get     'x-cache-hits': '1',
+1075 silly get     'x-timer': 'S1470964585.513016,VS0,VE0',
+1075 silly get     vary: 'Accept-Encoding' } ]
+1076 verbose get saving cookie-session to /home/asher/.npm/registry.npmjs.org/cookie-session/.cache.json
+1077 silly mapToRegistry name cookie-session
+1078 silly mapToRegistry using default registry
+1079 silly mapToRegistry registry https://registry.npmjs.org/
+1080 silly mapToRegistry uri https://registry.npmjs.org/cookie-session
+1081 verbose addRemoteTarball https://registry.npmjs.org/cookie-session/-/cookie-session-2.0.0-alpha.1.tgz not in flight; adding
+1082 verbose addRemoteTarball [ 'https://registry.npmjs.org/cookie-session/-/cookie-session-2.0.0-alpha.1.tgz',
+1082 verbose addRemoteTarball   '0266d1b1eee7ca7a78f53777a0a0b0573be32d5f' ]
+1083 info retry fetch attempt 1 at 上午9:16:25
+1084 info attempt registry request try #1 at 上午9:16:25
+1085 http fetch GET https://registry.npmjs.org/cookie-session/-/cookie-session-2.0.0-alpha.1.tgz
+1086 http fetch 200 https://registry.npmjs.org/cookie-session/-/cookie-session-2.0.0-alpha.1.tgz
+1087 silly fetchAndShaCheck shasum 0266d1b1eee7ca7a78f53777a0a0b0573be32d5f
+1088 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/cookie-session/-/cookie-session-2.0.0-alpha.1.tgz not in flight; adding
+1089 verbose addTmpTarball already have metadata; skipping unpack for cookie-session@2.0.0-alpha.1
+1090 verbose unbuild node_modules/.staging/cookie-session-6e594768
+1091 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/cookie-session-6e594768 is being purged from base /home/asher/git-repo/otron
+1092 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/cookie-session-6e594768
+1093 verbose tar unpack /home/asher/.npm/cookie-session/2.0.0-alpha.1/package.tgz
+1094 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/cookie-session-6e594768
+1095 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/cookie-session-6e594768 is being purged
+1096 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/cookie-session-6e594768
+1097 silly gunzTarPerm modes [ '775', '664' ]
+1098 silly gunzTarPerm extractEntry package.json
+1099 silly gunzTarPerm modified mode [ 'package.json', 438, 436 ]
+1100 silly gunzTarPerm extractEntry README.md
+1101 silly gunzTarPerm modified mode [ 'README.md', 438, 436 ]
+1102 silly gunzTarPerm extractEntry LICENSE
+1103 silly gunzTarPerm modified mode [ 'LICENSE', 438, 436 ]
+1104 silly gunzTarPerm extractEntry index.js
+1105 silly gunzTarPerm modified mode [ 'index.js', 438, 436 ]
+1106 silly gunzTarPerm extractEntry HISTORY.md
+1107 silly gunzTarPerm modified mode [ 'HISTORY.md', 438, 436 ]
+1108 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/cookie-session-6e594768/node_modules is being purged
+1109 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/cookie-session-6e594768/node_modules
+1110 http fetch 200 https://registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.3.tgz
+1111 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 151.101.36.162:443
+1112 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 151.101.36.162:443
+1113 info attempt registry request try #2 at 上午9:18:05
+1114 http request GET https://registry.npmjs.org/bufferhelper
+1115 info attempt registry request try #2 at 上午9:18:05
+1116 http request GET https://registry.npmjs.org/mongoose
+1117 silly fetchAndShaCheck shasum 5c710f2bab95653272842ba01c6ea61b3545ec35
+1118 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/cheerio/-/cheerio-0.20.0.tgz not in flight; adding
+1119 verbose addTmpTarball already have metadata; skipping unpack for cheerio@0.20.0
+1120 verbose unbuild node_modules/.staging/cheerio-9a021693
+1121 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/cheerio-9a021693 is being purged from base /home/asher/git-repo/otron
+1122 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/cheerio-9a021693
+1123 verbose tar unpack /home/asher/.npm/cheerio/0.20.0/package.tgz
+1124 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/cheerio-9a021693
+1125 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/cheerio-9a021693 is being purged
+1126 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/cheerio-9a021693
+1127 silly gunzTarPerm modes [ '775', '664' ]
+1128 silly gunzTarPerm extractEntry package.json
+1129 silly gunzTarPerm modified mode [ 'package.json', 420, 436 ]
+1130 silly gunzTarPerm extractEntry index.js
+1131 silly gunzTarPerm modified mode [ 'index.js', 420, 436 ]
+1132 silly gunzTarPerm extractEntry Readme.md
+1133 silly gunzTarPerm modified mode [ 'Readme.md', 420, 436 ]
+1134 silly gunzTarPerm extractEntry History.md
+1135 silly gunzTarPerm modified mode [ 'History.md', 384, 436 ]
+1136 silly gunzTarPerm extractEntry lib/cheerio.js
+1137 silly gunzTarPerm modified mode [ 'lib/cheerio.js', 420, 436 ]
+1138 silly gunzTarPerm extractEntry lib/parse.js
+1139 silly gunzTarPerm modified mode [ 'lib/parse.js', 420, 436 ]
+1140 silly gunzTarPerm extractEntry lib/static.js
+1141 silly gunzTarPerm modified mode [ 'lib/static.js', 420, 436 ]
+1142 silly gunzTarPerm extractEntry lib/utils.js
+1143 silly gunzTarPerm modified mode [ 'lib/utils.js', 420, 436 ]
+1144 silly gunzTarPerm extractEntry lib/api/attributes.js
+1145 silly gunzTarPerm modified mode [ 'lib/api/attributes.js', 420, 436 ]
+1146 silly gunzTarPerm extractEntry lib/api/css.js
+1147 silly gunzTarPerm modified mode [ 'lib/api/css.js', 420, 436 ]
+1148 silly gunzTarPerm extractEntry lib/api/forms.js
+1149 silly gunzTarPerm modified mode [ 'lib/api/forms.js', 420, 436 ]
+1150 silly gunzTarPerm extractEntry lib/api/manipulation.js
+1151 silly gunzTarPerm modified mode [ 'lib/api/manipulation.js', 420, 436 ]
+1152 silly gunzTarPerm extractEntry lib/api/traversing.js
+1153 silly gunzTarPerm modified mode [ 'lib/api/traversing.js', 420, 436 ]
+1154 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/cheerio-9a021693/node_modules is being purged
+1155 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/cheerio-9a021693/node_modules
+1156 http 200 https://registry.npmjs.org/mongoose
+1157 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+1157 verbose headers   etag: '"80WMC5PBS0U5CUPVAO7VZ8EJ1"',
+1157 verbose headers   'content-type': 'application/json',
+1157 verbose headers   'content-encoding': 'gzip',
+1157 verbose headers   'cache-control': 'max-age=300',
+1157 verbose headers   'content-length': '52675',
+1157 verbose headers   'accept-ranges': 'bytes',
+1157 verbose headers   date: 'Fri, 12 Aug 2016 01:18:14 GMT',
+1157 verbose headers   via: '1.1 varnish',
+1157 verbose headers   age: '65',
+1157 verbose headers   connection: 'keep-alive',
+1157 verbose headers   'x-served-by': 'cache-ams4129-AMS',
+1157 verbose headers   'x-cache': 'HIT',
+1157 verbose headers   'x-cache-hits': '1',
+1157 verbose headers   'x-timer': 'S1470964694.989922,VS0,VE0',
+1157 verbose headers   vary: 'Accept-Encoding' }
+1158 silly get cb [ 200,
+1158 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+1158 silly get     etag: '"80WMC5PBS0U5CUPVAO7VZ8EJ1"',
+1158 silly get     'content-type': 'application/json',
+1158 silly get     'content-encoding': 'gzip',
+1158 silly get     'cache-control': 'max-age=300',
+1158 silly get     'content-length': '52675',
+1158 silly get     'accept-ranges': 'bytes',
+1158 silly get     date: 'Fri, 12 Aug 2016 01:18:14 GMT',
+1158 silly get     via: '1.1 varnish',
+1158 silly get     age: '65',
+1158 silly get     connection: 'keep-alive',
+1158 silly get     'x-served-by': 'cache-ams4129-AMS',
+1158 silly get     'x-cache': 'HIT',
+1158 silly get     'x-cache-hits': '1',
+1158 silly get     'x-timer': 'S1470964694.989922,VS0,VE0',
+1158 silly get     vary: 'Accept-Encoding' } ]
+1159 verbose get saving mongoose to /home/asher/.npm/registry.npmjs.org/mongoose/.cache.json
+1160 silly mapToRegistry name mongoose
+1161 silly mapToRegistry using default registry
+1162 silly mapToRegistry registry https://registry.npmjs.org/
+1163 silly mapToRegistry uri https://registry.npmjs.org/mongoose
+1164 verbose addRemoteTarball https://registry.npmjs.org/mongoose/-/mongoose-4.4.19.tgz not in flight; adding
+1165 verbose addRemoteTarball [ 'https://registry.npmjs.org/mongoose/-/mongoose-4.4.19.tgz',
+1165 verbose addRemoteTarball   '954b5baa6186e96c463ac14e4654de6db0fe201a' ]
+1166 info retry fetch attempt 1 at 上午9:18:16
+1167 info attempt registry request try #1 at 上午9:18:16
+1168 http fetch GET https://registry.npmjs.org/mongoose/-/mongoose-4.4.19.tgz
+1169 http 200 https://registry.npmjs.org/method-override
+1170 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+1170 verbose headers   etag: '"BQ6B2R877XB9TK0AIBI7AGQT5"',
+1170 verbose headers   'content-type': 'application/json',
+1170 verbose headers   'content-encoding': 'gzip',
+1170 verbose headers   'cache-control': 'max-age=300',
+1170 verbose headers   'content-length': '6685',
+1170 verbose headers   'accept-ranges': 'bytes',
+1170 verbose headers   date: 'Fri, 12 Aug 2016 01:17:02 GMT',
+1170 verbose headers   via: '1.1 varnish',
+1170 verbose headers   age: '232',
+1170 verbose headers   connection: 'keep-alive',
+1170 verbose headers   'x-served-by': 'cache-ams4445-AMS',
+1170 verbose headers   'x-cache': 'HIT',
+1170 verbose headers   'x-cache-hits': '1',
+1170 verbose headers   'x-timer': 'S1470964622.792290,VS0,VE0',
+1170 verbose headers   vary: 'Accept-Encoding' }
+1171 silly get cb [ 200,
+1171 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+1171 silly get     etag: '"BQ6B2R877XB9TK0AIBI7AGQT5"',
+1171 silly get     'content-type': 'application/json',
+1171 silly get     'content-encoding': 'gzip',
+1171 silly get     'cache-control': 'max-age=300',
+1171 silly get     'content-length': '6685',
+1171 silly get     'accept-ranges': 'bytes',
+1171 silly get     date: 'Fri, 12 Aug 2016 01:17:02 GMT',
+1171 silly get     via: '1.1 varnish',
+1171 silly get     age: '232',
+1171 silly get     connection: 'keep-alive',
+1171 silly get     'x-served-by': 'cache-ams4445-AMS',
+1171 silly get     'x-cache': 'HIT',
+1171 silly get     'x-cache-hits': '1',
+1171 silly get     'x-timer': 'S1470964622.792290,VS0,VE0',
+1171 silly get     vary: 'Accept-Encoding' } ]
+1172 verbose get saving method-override to /home/asher/.npm/registry.npmjs.org/method-override/.cache.json
+1173 silly mapToRegistry name method-override
+1174 silly mapToRegistry using default registry
+1175 silly mapToRegistry registry https://registry.npmjs.org/
+1176 silly mapToRegistry uri https://registry.npmjs.org/method-override
+1177 verbose addRemoteTarball https://registry.npmjs.org/method-override/-/method-override-2.3.6.tgz not in flight; adding
+1178 verbose addRemoteTarball [ 'https://registry.npmjs.org/method-override/-/method-override-2.3.6.tgz',
+1178 verbose addRemoteTarball   '209261cc588d45d9d5a022ff20d7d5eb8e92179e' ]
+1179 info retry fetch attempt 1 at 上午9:18:20
+1180 info attempt registry request try #1 at 上午9:18:20
+1181 http fetch GET https://registry.npmjs.org/method-override/-/method-override-2.3.6.tgz
+1182 http fetch 200 https://registry.npmjs.org/method-override/-/method-override-2.3.6.tgz
+1183 silly fetchAndShaCheck shasum 209261cc588d45d9d5a022ff20d7d5eb8e92179e
+1184 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/method-override/-/method-override-2.3.6.tgz not in flight; adding
+1185 verbose addTmpTarball already have metadata; skipping unpack for method-override@2.3.6
+1186 verbose unbuild node_modules/.staging/method-override-f6a96d8c
+1187 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/method-override-f6a96d8c is being purged from base /home/asher/git-repo/otron
+1188 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/method-override-f6a96d8c
+1189 verbose tar unpack /home/asher/.npm/method-override/2.3.6/package.tgz
+1190 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/method-override-f6a96d8c
+1191 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/method-override-f6a96d8c is being purged
+1192 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/method-override-f6a96d8c
+1193 silly gunzTarPerm modes [ '775', '664' ]
+1194 silly gunzTarPerm extractEntry package.json
+1195 silly gunzTarPerm modified mode [ 'package.json', 438, 436 ]
+1196 silly gunzTarPerm extractEntry README.md
+1197 silly gunzTarPerm modified mode [ 'README.md', 438, 436 ]
+1198 silly gunzTarPerm extractEntry LICENSE
+1199 silly gunzTarPerm modified mode [ 'LICENSE', 438, 436 ]
+1200 silly gunzTarPerm extractEntry index.js
+1201 silly gunzTarPerm modified mode [ 'index.js', 438, 436 ]
+1202 silly gunzTarPerm extractEntry HISTORY.md
+1203 silly gunzTarPerm modified mode [ 'HISTORY.md', 438, 436 ]
+1204 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/method-override-f6a96d8c/node_modules is being purged
+1205 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/method-override-f6a96d8c/node_modules
+1206 http fetch 200 https://registry.npmjs.org/express/-/express-4.13.4.tgz
+1207 silly fetchAndShaCheck shasum 3c0b76f3c77590c8345739061ec0bd3ba067ec24
+1208 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/express/-/express-4.13.4.tgz not in flight; adding
+1209 verbose addTmpTarball already have metadata; skipping unpack for express@4.13.4
+1210 verbose unbuild node_modules/.staging/express-f1635524
+1211 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/express-f1635524 is being purged from base /home/asher/git-repo/otron
+1212 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/express-f1635524
+1213 verbose tar unpack /home/asher/.npm/express/4.13.4/package.tgz
+1214 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/express-f1635524
+1215 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/express-f1635524 is being purged
+1216 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/express-f1635524
+1217 silly gunzTarPerm modes [ '775', '664' ]
+1218 silly gunzTarPerm extractEntry package.json
+1219 silly gunzTarPerm modified mode [ 'package.json', 438, 436 ]
+1220 silly gunzTarPerm extractEntry LICENSE
+1221 silly gunzTarPerm modified mode [ 'LICENSE', 438, 436 ]
+1222 silly gunzTarPerm extractEntry index.js
+1223 silly gunzTarPerm modified mode [ 'index.js', 438, 436 ]
+1224 silly gunzTarPerm extractEntry History.md
+1225 silly gunzTarPerm modified mode [ 'History.md', 438, 436 ]
+1226 silly gunzTarPerm extractEntry Readme.md
+1227 silly gunzTarPerm modified mode [ 'Readme.md', 438, 436 ]
+1228 silly gunzTarPerm extractEntry lib/application.js
+1229 silly gunzTarPerm modified mode [ 'lib/application.js', 438, 436 ]
+1230 silly gunzTarPerm extractEntry lib/express.js
+1231 silly gunzTarPerm modified mode [ 'lib/express.js', 438, 436 ]
+1232 silly gunzTarPerm extractEntry lib/request.js
+1233 silly gunzTarPerm modified mode [ 'lib/request.js', 438, 436 ]
+1234 silly gunzTarPerm extractEntry lib/response.js
+1235 silly gunzTarPerm modified mode [ 'lib/response.js', 438, 436 ]
+1236 silly gunzTarPerm extractEntry lib/utils.js
+1237 silly gunzTarPerm modified mode [ 'lib/utils.js', 438, 436 ]
+1238 silly gunzTarPerm extractEntry lib/view.js
+1239 silly gunzTarPerm modified mode [ 'lib/view.js', 438, 436 ]
+1240 silly gunzTarPerm extractEntry lib/middleware/init.js
+1241 silly gunzTarPerm modified mode [ 'lib/middleware/init.js', 438, 436 ]
+1242 silly gunzTarPerm extractEntry lib/middleware/query.js
+1243 silly gunzTarPerm modified mode [ 'lib/middleware/query.js', 438, 436 ]
+1244 silly gunzTarPerm extractEntry lib/router/index.js
+1245 silly gunzTarPerm modified mode [ 'lib/router/index.js', 438, 436 ]
+1246 silly gunzTarPerm extractEntry lib/router/layer.js
+1247 silly gunzTarPerm modified mode [ 'lib/router/layer.js', 438, 436 ]
+1248 silly gunzTarPerm extractEntry lib/router/route.js
+1249 silly gunzTarPerm modified mode [ 'lib/router/route.js', 438, 436 ]
+1250 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/express-f1635524/node_modules is being purged
+1251 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/express-f1635524/node_modules
+1252 http 200 https://registry.npmjs.org/bufferhelper
+1253 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+1253 verbose headers   etag: '"BE2SP2MXMATTFJXUX8GHC5WKR"',
+1253 verbose headers   'content-type': 'application/json',
+1253 verbose headers   'content-encoding': 'gzip',
+1253 verbose headers   'cache-control': 'max-age=300',
+1253 verbose headers   'content-length': '1597',
+1253 verbose headers   'accept-ranges': 'bytes',
+1253 verbose headers   date: 'Fri, 12 Aug 2016 01:19:14 GMT',
+1253 verbose headers   via: '1.1 varnish',
+1253 verbose headers   age: '0',
+1253 verbose headers   connection: 'keep-alive',
+1253 verbose headers   'x-served-by': 'cache-ams4140-AMS',
+1253 verbose headers   'x-cache': 'MISS',
+1253 verbose headers   'x-cache-hits': '0',
+1253 verbose headers   'x-timer': 'S1470964754.196286,VS0,VE183',
+1253 verbose headers   vary: 'Accept-Encoding' }
+1254 silly get cb [ 200,
+1254 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+1254 silly get     etag: '"BE2SP2MXMATTFJXUX8GHC5WKR"',
+1254 silly get     'content-type': 'application/json',
+1254 silly get     'content-encoding': 'gzip',
+1254 silly get     'cache-control': 'max-age=300',
+1254 silly get     'content-length': '1597',
+1254 silly get     'accept-ranges': 'bytes',
+1254 silly get     date: 'Fri, 12 Aug 2016 01:19:14 GMT',
+1254 silly get     via: '1.1 varnish',
+1254 silly get     age: '0',
+1254 silly get     connection: 'keep-alive',
+1254 silly get     'x-served-by': 'cache-ams4140-AMS',
+1254 silly get     'x-cache': 'MISS',
+1254 silly get     'x-cache-hits': '0',
+1254 silly get     'x-timer': 'S1470964754.196286,VS0,VE183',
+1254 silly get     vary: 'Accept-Encoding' } ]
+1255 verbose get saving bufferhelper to /home/asher/.npm/registry.npmjs.org/bufferhelper/.cache.json
+1256 silly mapToRegistry name bufferhelper
+1257 silly mapToRegistry using default registry
+1258 silly mapToRegistry registry https://registry.npmjs.org/
+1259 silly mapToRegistry uri https://registry.npmjs.org/bufferhelper
+1260 verbose addRemoteTarball https://registry.npmjs.org/bufferhelper/-/bufferhelper-0.2.1.tgz not in flight; adding
+1261 verbose addRemoteTarball [ 'https://registry.npmjs.org/bufferhelper/-/bufferhelper-0.2.1.tgz',
+1261 verbose addRemoteTarball   'fa74a385724a58e242f04ad6646c2366f83b913e' ]
+1262 info retry fetch attempt 1 at 上午9:19:14
+1263 info attempt registry request try #1 at 上午9:19:14
+1264 http fetch GET https://registry.npmjs.org/bufferhelper/-/bufferhelper-0.2.1.tgz
+1265 silly fetchAndShaCheck shasum 0fe31fa19d000b95f4aadf1f53fdc2b8a203baa5
+1266 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.3.tgz not in flight; adding
+1267 verbose addTmpTarball already have metadata; skipping unpack for cookie-parser@1.4.3
+1268 verbose unbuild node_modules/.staging/cookie-parser-05d8e38a
+1269 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/cookie-parser-05d8e38a is being purged from base /home/asher/git-repo/otron
+1270 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/cookie-parser-05d8e38a
+1271 verbose tar unpack /home/asher/.npm/cookie-parser/1.4.3/package.tgz
+1272 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/cookie-parser-05d8e38a
+1273 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/cookie-parser-05d8e38a is being purged
+1274 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/cookie-parser-05d8e38a
+1275 silly gunzTarPerm modes [ '775', '664' ]
+1276 silly gunzTarPerm extractEntry package.json
+1277 silly gunzTarPerm modified mode [ 'package.json', 438, 436 ]
+1278 silly gunzTarPerm extractEntry README.md
+1279 silly gunzTarPerm modified mode [ 'README.md', 438, 436 ]
+1280 silly gunzTarPerm extractEntry LICENSE
+1281 silly gunzTarPerm modified mode [ 'LICENSE', 438, 436 ]
+1282 silly gunzTarPerm extractEntry index.js
+1283 silly gunzTarPerm modified mode [ 'index.js', 438, 436 ]
+1284 silly gunzTarPerm extractEntry HISTORY.md
+1285 silly gunzTarPerm modified mode [ 'HISTORY.md', 438, 436 ]
+1286 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/cookie-parser-05d8e38a/node_modules is being purged
+1287 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/cookie-parser-05d8e38a/node_modules
+1288 http fetch 200 https://registry.npmjs.org/bufferhelper/-/bufferhelper-0.2.1.tgz
+1289 silly fetchAndShaCheck shasum fa74a385724a58e242f04ad6646c2366f83b913e
+1290 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/bufferhelper/-/bufferhelper-0.2.1.tgz not in flight; adding
+1291 verbose addTmpTarball already have metadata; skipping unpack for bufferhelper@0.2.1
+1292 verbose unbuild node_modules/.staging/bufferhelper-e5d15a9e
+1293 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/bufferhelper-e5d15a9e is being purged from base /home/asher/git-repo/otron
+1294 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/bufferhelper-e5d15a9e
+1295 verbose tar unpack /home/asher/.npm/bufferhelper/0.2.1/package.tgz
+1296 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/bufferhelper-e5d15a9e
+1297 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/bufferhelper-e5d15a9e is being purged
+1298 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/bufferhelper-e5d15a9e
+1299 silly gunzTarPerm modes [ '775', '664' ]
+1300 silly gunzTarPerm extractEntry package.json
+1301 silly gunzTarPerm modified mode [ 'package.json', 420, 436 ]
+1302 silly gunzTarPerm extractEntry .npmignore
+1303 silly gunzTarPerm modified mode [ '.npmignore', 420, 436 ]
+1304 silly gunzTarPerm extractEntry README.md
+1305 silly gunzTarPerm modified mode [ 'README.md', 420, 436 ]
+1306 silly gunzTarPerm extractEntry index.js
+1307 silly gunzTarPerm modified mode [ 'index.js', 420, 436 ]
+1308 silly gunzTarPerm extractEntry .travis.yml
+1309 silly gunzTarPerm modified mode [ '.travis.yml', 420, 436 ]
+1310 silly gunzTarPerm extractEntry MIT_License
+1311 silly gunzTarPerm modified mode [ 'MIT_License', 420, 436 ]
+1312 silly gunzTarPerm extractEntry lib/bufferhelper.js
+1313 silly gunzTarPerm modified mode [ 'lib/bufferhelper.js', 493, 509 ]
+1314 silly gunzTarPerm extractEntry test/test.js
+1315 silly gunzTarPerm modified mode [ 'test/test.js', 420, 436 ]
+1316 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/bufferhelper-e5d15a9e/node_modules is being purged
+1317 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/bufferhelper-e5d15a9e/node_modules
+1318 http fetch 200 https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.13.tgz
+1319 silly fetchAndShaCheck shasum 1f88aba4ab0b1508e8312acc39345f36e992e2f2
+1320 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.13.tgz not in flight; adding
+1321 verbose addTmpTarball already have metadata; skipping unpack for iconv-lite@0.4.13
+1322 verbose unbuild node_modules/.staging/iconv-lite-dc5a7870
+1323 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/iconv-lite-dc5a7870 is being purged from base /home/asher/git-repo/otron
+1324 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/iconv-lite-dc5a7870
+1325 verbose tar unpack /home/asher/.npm/iconv-lite/0.4.13/package.tgz
+1326 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/iconv-lite-dc5a7870
+1327 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/iconv-lite-dc5a7870 is being purged
+1328 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/iconv-lite-dc5a7870
+1329 silly gunzTarPerm modes [ '775', '664' ]
+1330 silly gunzTarPerm extractEntry package.json
+1331 silly gunzTarPerm modified mode [ 'package.json', 420, 436 ]
+1332 silly gunzTarPerm extractEntry .npmignore
+1333 silly gunzTarPerm modified mode [ '.npmignore', 420, 436 ]
+1334 silly gunzTarPerm extractEntry README.md
+1335 silly gunzTarPerm modified mode [ 'README.md', 420, 436 ]
+1336 silly gunzTarPerm extractEntry LICENSE
+1337 silly gunzTarPerm modified mode [ 'LICENSE', 420, 436 ]
+1338 silly gunzTarPerm extractEntry encodings/dbcs-codec.js
+1339 silly gunzTarPerm modified mode [ 'encodings/dbcs-codec.js', 420, 436 ]
+1340 silly gunzTarPerm extractEntry encodings/dbcs-data.js
+1341 silly gunzTarPerm modified mode [ 'encodings/dbcs-data.js', 420, 436 ]
+1342 silly gunzTarPerm extractEntry encodings/index.js
+1343 silly gunzTarPerm modified mode [ 'encodings/index.js', 420, 436 ]
+1344 silly gunzTarPerm extractEntry encodings/internal.js
+1345 silly gunzTarPerm modified mode [ 'encodings/internal.js', 420, 436 ]
+1346 silly gunzTarPerm extractEntry encodings/sbcs-codec.js
+1347 silly gunzTarPerm modified mode [ 'encodings/sbcs-codec.js', 420, 436 ]
+1348 silly gunzTarPerm extractEntry encodings/sbcs-data-generated.js
+1349 silly gunzTarPerm modified mode [ 'encodings/sbcs-data-generated.js', 420, 436 ]
+1350 silly gunzTarPerm extractEntry encodings/sbcs-data.js
+1351 silly gunzTarPerm modified mode [ 'encodings/sbcs-data.js', 420, 436 ]
+1352 silly gunzTarPerm extractEntry encodings/utf16.js
+1353 silly gunzTarPerm modified mode [ 'encodings/utf16.js', 420, 436 ]
+1354 silly gunzTarPerm extractEntry encodings/utf7.js
+1355 silly gunzTarPerm modified mode [ 'encodings/utf7.js', 420, 436 ]
+1356 silly gunzTarPerm extractEntry encodings/tables/big5-added.json
+1357 silly gunzTarPerm modified mode [ 'encodings/tables/big5-added.json', 420, 436 ]
+1358 silly gunzTarPerm extractEntry encodings/tables/cp936.json
+1359 silly gunzTarPerm modified mode [ 'encodings/tables/cp936.json', 420, 436 ]
+1360 silly gunzTarPerm extractEntry encodings/tables/cp949.json
+1361 silly gunzTarPerm modified mode [ 'encodings/tables/cp949.json', 420, 436 ]
+1362 silly gunzTarPerm extractEntry encodings/tables/cp950.json
+1363 silly gunzTarPerm modified mode [ 'encodings/tables/cp950.json', 420, 436 ]
+1364 silly gunzTarPerm extractEntry encodings/tables/eucjp.json
+1365 silly gunzTarPerm modified mode [ 'encodings/tables/eucjp.json', 420, 436 ]
+1366 silly gunzTarPerm extractEntry encodings/tables/gb18030-ranges.json
+1367 silly gunzTarPerm modified mode [ 'encodings/tables/gb18030-ranges.json', 420, 436 ]
+1368 silly gunzTarPerm extractEntry encodings/tables/gbk-added.json
+1369 silly gunzTarPerm modified mode [ 'encodings/tables/gbk-added.json', 420, 436 ]
+1370 silly gunzTarPerm extractEntry encodings/tables/shiftjis.json
+1371 silly gunzTarPerm modified mode [ 'encodings/tables/shiftjis.json', 420, 436 ]
+1372 silly gunzTarPerm extractEntry .travis.yml
+1373 silly gunzTarPerm modified mode [ '.travis.yml', 420, 436 ]
+1374 silly gunzTarPerm extractEntry lib/bom-handling.js
+1375 silly gunzTarPerm modified mode [ 'lib/bom-handling.js', 420, 436 ]
+1376 silly gunzTarPerm extractEntry lib/extend-node.js
+1377 silly gunzTarPerm modified mode [ 'lib/extend-node.js', 420, 436 ]
+1378 silly gunzTarPerm extractEntry lib/index.js
+1379 silly gunzTarPerm modified mode [ 'lib/index.js', 420, 436 ]
+1380 silly gunzTarPerm extractEntry lib/streams.js
+1381 silly gunzTarPerm modified mode [ 'lib/streams.js', 420, 436 ]
+1382 silly gunzTarPerm extractEntry Changelog.md
+1383 silly gunzTarPerm modified mode [ 'Changelog.md', 420, 436 ]
+1384 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/iconv-lite-dc5a7870/node_modules is being purged
+1385 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/iconv-lite-dc5a7870/node_modules
+1386 http fetch 200 https://registry.npmjs.org/mongoose/-/mongoose-4.4.19.tgz
+1387 silly fetchAndShaCheck shasum 954b5baa6186e96c463ac14e4654de6db0fe201a
+1388 verbose addTmpTarball /tmp/npm-4492-d198577c/registry.npmjs.org/mongoose/-/mongoose-4.4.19.tgz not in flight; adding
+1389 verbose addTmpTarball already have metadata; skipping unpack for mongoose@4.4.19
+1390 verbose unbuild node_modules/.staging/mongoose-793ee834
+1391 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/mongoose-793ee834 is being purged from base /home/asher/git-repo/otron
+1392 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/mongoose-793ee834
+1393 verbose tar unpack /home/asher/.npm/mongoose/4.4.19/package.tgz
+1394 verbose tar unpacking to /home/asher/git-repo/otron/node_modules/.staging/mongoose-793ee834
+1395 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/mongoose-793ee834 is being purged
+1396 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/mongoose-793ee834
+1397 silly gunzTarPerm modes [ '775', '664' ]
+1398 silly gunzTarPerm extractEntry package.json
+1399 silly gunzTarPerm extractEntry .npmignore
+1400 silly gunzTarPerm extractEntry README.md
+1401 silly gunzTarPerm extractEntry website.js
+1402 silly gunzTarPerm extractEntry index.js
+1403 silly gunzTarPerm extractEntry static.js
+1404 silly gunzTarPerm extractEntry .eslintrc.yml
+1405 silly gunzTarPerm extractEntry .eslintignore
+1406 silly gunzTarPerm extractEntry .travis.yml
+1407 silly gunzTarPerm extractEntry lib/ES6Promise.js
+1408 silly gunzTarPerm extractEntry lib/document.js
+1409 silly gunzTarPerm extractEntry lib/document_provider.js
+1410 silly gunzTarPerm extractEntry lib/utils.js
+1411 silly gunzTarPerm extractEntry lib/statemachine.js
+1412 silly gunzTarPerm extractEntry lib/connectionstate.js
+1413 silly gunzTarPerm extractEntry lib/index.js
+1414 silly gunzTarPerm extractEntry lib/aggregate.js
+1415 silly gunzTarPerm extractEntry lib/model.js
+1416 silly gunzTarPerm extractEntry lib/promise.js
+1417 silly gunzTarPerm extractEntry lib/promise_provider.js
+1418 silly gunzTarPerm extractEntry lib/connection.js
+1419 silly gunzTarPerm extractEntry lib/query.js
+1420 silly gunzTarPerm extractEntry lib/collection.js
+1421 silly gunzTarPerm extractEntry lib/queryhelpers.js
+1422 silly gunzTarPerm extractEntry lib/cast.js
+1423 silly gunzTarPerm extractEntry lib/querystream.js
+1424 silly gunzTarPerm extractEntry lib/browserDocument.js
+1425 silly gunzTarPerm extractEntry lib/schematype.js
+1426 silly gunzTarPerm extractEntry lib/browser.js
+1427 silly gunzTarPerm extractEntry lib/schema.js
+1428 silly gunzTarPerm extractEntry lib/error.js
+1429 silly gunzTarPerm extractEntry lib/virtualtype.js
+1430 silly gunzTarPerm extractEntry lib/internal.js
+1431 silly gunzTarPerm extractEntry lib/schema/array.js
+1432 silly gunzTarPerm extractEntry lib/schema/buffer.js
+1433 silly gunzTarPerm extractEntry lib/schema/date.js
+1434 silly gunzTarPerm extractEntry lib/schema/documentarray.js
+1435 silly gunzTarPerm extractEntry lib/schema/embedded.js
+1436 silly gunzTarPerm extractEntry lib/schema/boolean.js
+1437 silly gunzTarPerm extractEntry lib/schema/mixed.js
+1438 silly gunzTarPerm extractEntry lib/schema/number.js
+1439 silly gunzTarPerm extractEntry lib/schema/objectid.js
+1440 silly gunzTarPerm extractEntry lib/schema/string.js
+1441 silly gunzTarPerm extractEntry lib/schema/index.js
+1442 silly gunzTarPerm extractEntry lib/schema/operators/bitwise.js
+1443 silly gunzTarPerm extractEntry lib/schema/operators/geospatial.js
+1444 silly gunzTarPerm extractEntry lib/schema/operators/helpers.js
+1445 silly gunzTarPerm extractEntry lib/services/common.js
+1446 silly gunzTarPerm extractEntry lib/services/setDefaultsOnInsert.js
+1447 silly gunzTarPerm extractEntry lib/services/updateValidators.js
+1448 silly gunzTarPerm extractEntry lib/error/browserMissingSchema.js
+1449 silly gunzTarPerm extractEntry lib/error/divergentArray.js
+1450 silly gunzTarPerm extractEntry lib/error/messages.js
+1451 silly gunzTarPerm extractEntry lib/error/missingSchema.js
+1452 silly gunzTarPerm extractEntry lib/error/cast.js
+1453 silly gunzTarPerm extractEntry lib/error/overwriteModel.js
+1454 silly gunzTarPerm extractEntry lib/error/strict.js
+1455 silly gunzTarPerm extractEntry lib/error/validation.js
+1456 silly gunzTarPerm extractEntry lib/error/validator.js
+1457 silly gunzTarPerm extractEntry lib/error/version.js
+1458 silly gunzTarPerm extractEntry lib/error/objectExpected.js
+1459 silly gunzTarPerm extractEntry lib/types/array.js
+1460 silly gunzTarPerm extractEntry lib/types/buffer.js
+1461 silly gunzTarPerm extractEntry lib/types/documentarray.js
+1462 silly gunzTarPerm extractEntry lib/types/embedded.js
+1463 silly gunzTarPerm extractEntry lib/types/index.js
+1464 silly gunzTarPerm extractEntry lib/types/objectid.js
+1465 silly gunzTarPerm extractEntry lib/types/subdocument.js
+1466 silly gunzTarPerm extractEntry lib/drivers/index.js
+1467 silly gunzTarPerm extractEntry lib/drivers/SPEC.md
+1468 silly gunzTarPerm extractEntry lib/drivers/browser/ReadPreference.js
+1469 silly gunzTarPerm extractEntry lib/drivers/browser/binary.js
+1470 silly gunzTarPerm extractEntry lib/drivers/browser/index.js
+1471 silly gunzTarPerm extractEntry lib/drivers/browser/objectid.js
+1472 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/ReadPreference.js
+1473 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/binary.js
+1474 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/collection.js
+1475 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/connection.js
+1476 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/index.js
+1477 silly gunzTarPerm extractEntry lib/drivers/node-mongodb-native/objectid.js
+1478 silly gunzTarPerm extractEntry CONTRIBUTING.md
+1479 silly gunzTarPerm extractEntry release-items.md
+1480 silly gunzTarPerm extractEntry History.md
+1481 silly gunzTarPerm extractEntry examples/README.md
+1482 silly gunzTarPerm extractEntry examples/doc-methods.js
+1483 silly gunzTarPerm extractEntry examples/statics/person.js
+1484 silly gunzTarPerm extractEntry examples/statics/statics.js
+1485 silly gunzTarPerm extractEntry examples/express/README.md
+1486 silly gunzTarPerm extractEntry examples/express/connection-sharing/package.json
+1487 silly gunzTarPerm extractEntry examples/express/connection-sharing/README.md
+1488 silly gunzTarPerm extractEntry examples/express/connection-sharing/app.js
+1489 silly gunzTarPerm extractEntry examples/express/connection-sharing/modelA.js
+1490 silly gunzTarPerm extractEntry examples/express/connection-sharing/routes.js
+1491 silly gunzTarPerm extractEntry examples/geospatial/package.json
+1492 silly gunzTarPerm extractEntry examples/geospatial/geoJSONSchema.js
+1493 silly gunzTarPerm extractEntry examples/geospatial/geoJSONexample.js
+1494 silly gunzTarPerm extractEntry examples/geospatial/geospatial.js
+1495 silly gunzTarPerm extractEntry examples/geospatial/person.js
+1496 silly gunzTarPerm extractEntry examples/globalschemas/gs_example.js
+1497 silly gunzTarPerm extractEntry examples/globalschemas/person.js
+1498 silly gunzTarPerm extractEntry examples/lean/package.json
+1499 silly gunzTarPerm extractEntry examples/lean/lean.js
+1500 silly gunzTarPerm extractEntry examples/lean/person.js
+1501 silly gunzTarPerm extractEntry examples/aggregate/package.json
+1502 silly gunzTarPerm extractEntry examples/aggregate/aggregate.js
+1503 silly gunzTarPerm extractEntry examples/aggregate/person.js
+1504 silly gunzTarPerm extractEntry examples/population/population-across-three-collections.js
+1505 silly gunzTarPerm extractEntry examples/population/population-basic.js
+1506 silly gunzTarPerm extractEntry examples/population/population-of-existing-doc.js
+1507 silly gunzTarPerm extractEntry examples/population/population-of-multiple-existing-docs.js
+1508 silly gunzTarPerm extractEntry examples/population/population-options.js
+1509 silly gunzTarPerm extractEntry examples/population/population-plain-objects.js
+1510 silly gunzTarPerm extractEntry examples/promises/package.json
+1511 silly gunzTarPerm extractEntry examples/promises/person.js
+1512 silly gunzTarPerm extractEntry examples/promises/promise.js
+1513 silly gunzTarPerm extractEntry examples/querybuilder/package.json
+1514 silly gunzTarPerm extractEntry examples/querybuilder/person.js
+1515 silly gunzTarPerm extractEntry examples/querybuilder/querybuilder.js
+1516 silly gunzTarPerm extractEntry examples/replicasets/package.json
+1517 silly gunzTarPerm extractEntry examples/replicasets/person.js
+1518 silly gunzTarPerm extractEntry examples/replicasets/replica-sets.js
+1519 silly gunzTarPerm extractEntry examples/schema/schema.js
+1520 silly gunzTarPerm extractEntry examples/schema/storing-schemas-as-json/index.js
+1521 silly gunzTarPerm extractEntry examples/schema/storing-schemas-as-json/schema.json
+1522 silly gunzTarPerm extractEntry examples/mapreduce/package.json
+1523 silly gunzTarPerm extractEntry examples/mapreduce/mapreduce.js
+1524 silly gunzTarPerm extractEntry examples/mapreduce/person.js
+1525 silly gentlyRm /home/asher/git-repo/otron/node_modules/.staging/mongoose-793ee834/node_modules is being purged
+1526 verbose gentlyRm don't care about contents; nuking /home/asher/git-repo/otron/node_modules/.staging/mongoose-793ee834/node_modules
+1527 info retry will retry, error on last attempt: Error: read ECONNRESET
+1528 info retry will retry, error on last attempt: Error: read ECONNRESET
+1529 silly fetchAndShaCheck shasum 9bceef0669b8f8b943f0ad8ce5d95716bd740fd2
+1530 verbose cache Error: shasum check failed for /tmp/npm-4492-d198577c/registry.npmjs.org/body-parser/-/body-parser-1.15.1.tgz
+1530 verbose cache Expected: 9bceef0669b8f8b943f0ad8ce5d95716bd740fd2
+1530 verbose cache Actual:   6ca391faead96907574bf7c751a7b7e978051323
+1530 verbose cache From:     https://registry.npmjs.org/body-parser/-/body-parser-1.15.1.tgz
+1530 verbose cache     at /usr/share/npm/node_modules/sha/index.js:25:8
+1530 verbose cache     at ReadStream.<anonymous> (/usr/share/npm/node_modules/sha/index.js:72:7)
+1530 verbose cache     at emitNone (events.js:72:20)
+1530 verbose cache     at ReadStream.emit (events.js:166:7)
+1530 verbose cache     at endReadableNT (_stream_readable.js:905:12)
+1530 verbose cache     at nextTickCallbackWith2Args (node.js:441:9)
+1530 verbose cache     at process._tickCallback (node.js:355:17)
+1530 verbose cache  addNamed error for body-parser@1.15.1 [Error: shasum check failed for /tmp/npm-4492-d198577c/registry.npmjs.org/body-parser/-/body-parser-1.15.1.tgz
+1530 verbose cache Expected: 9bceef0669b8f8b943f0ad8ce5d95716bd740fd2
+1530 verbose cache Actual:   6ca391faead96907574bf7c751a7b7e978051323
+1530 verbose cache From:     https://registry.npmjs.org/body-parser/-/body-parser-1.15.1.tgz]
+1531 error unpack Could not read data for body-parser@1.15.1
+1532 verbose unlock done using /home/asher/.npm/_locks/staging-eae94c4b42351727.lock for /home/asher/git-repo/otron/node_modules/.staging
+1533 silly rollbackFailedOptional Starting
+1534 silly rollbackFailedOptional Finishing
+1535 silly runTopLevelLifecycles Starting
+1536 silly runTopLevelLifecycles Finishing
+1537 silly install printInstalled
+1538 warn enoent ENOENT: no such file or directory, open '/home/asher/git-repo/otron/package.json'
+1539 warn otron No description
+1540 warn otron No repository field.
+1541 warn otron No README data
+1542 warn otron No license field.
+1543 verbose stack Error: shasum check failed for /tmp/npm-4492-d198577c/registry.npmjs.org/body-parser/-/body-parser-1.15.1.tgz
+1543 verbose stack Expected: 9bceef0669b8f8b943f0ad8ce5d95716bd740fd2
+1543 verbose stack Actual:   6ca391faead96907574bf7c751a7b7e978051323
+1543 verbose stack From:     https://registry.npmjs.org/body-parser/-/body-parser-1.15.1.tgz
+1543 verbose stack     at /usr/share/npm/node_modules/sha/index.js:25:8
+1543 verbose stack     at ReadStream.<anonymous> (/usr/share/npm/node_modules/sha/index.js:72:7)
+1543 verbose stack     at emitNone (events.js:72:20)
+1543 verbose stack     at ReadStream.emit (events.js:166:7)
+1543 verbose stack     at endReadableNT (_stream_readable.js:905:12)
+1543 verbose stack     at nextTickCallbackWith2Args (node.js:441:9)
+1543 verbose stack     at process._tickCallback (node.js:355:17)
+1544 verbose cwd /home/asher/git-repo/otron
+1545 error Linux 4.4.0-34-generic
+1546 error argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "node-schedule"
+1547 error node v4.2.6
+1548 error npm  v3.5.2
+1549 error shasum check failed for /tmp/npm-4492-d198577c/registry.npmjs.org/body-parser/-/body-parser-1.15.1.tgz
+1549 error Expected: 9bceef0669b8f8b943f0ad8ce5d95716bd740fd2
+1549 error Actual:   6ca391faead96907574bf7c751a7b7e978051323
+1549 error From:     https://registry.npmjs.org/body-parser/-/body-parser-1.15.1.tgz
+1550 error If you need help, you may report this error at:
+1550 error     <https://github.com/npm/npm/issues>
+1551 verbose exit [ 1, true ]

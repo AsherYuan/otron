@@ -42,6 +42,8 @@
 
         $(document).ready(function() {
             pomelo.on('onMsg', function (data) {
+                alert(JSON.stringify(data));
+
                 if(data.sysNotice) {
                     layer.alert(data.sysNotice);
                     window.location.href = "/test/login.html";
