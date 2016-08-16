@@ -649,6 +649,8 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
     var self = this;
     var uid = session.uid;
     var words = msg.words;
+    var ipAddress = msg.ipAddress;
+    var port = msg.port;
 
     HomeModel.find({userMobile: uid}, function (err, docs) {
         if (err) {
@@ -670,6 +672,8 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
                         var result = JSON.parse(body);
                         console.log("语音解析结果:" + JSON.stringify(result));
                         var ret = Code.OK;
+
+                        console.log(!! result.orderAndInfrared && result.orderAndInfrared.length > 0);
                         if(!! result.orderAndInfrared && result.orderAndInfrared.length > 0) {
                             // 判断房间是否相同 如果相同，则直接执行，如果不同，对用户进行询问
                             // 返回的数据结构：
@@ -681,6 +685,7 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
                                 targetArray.push(SayingUtil.translateStatus(t.order.ueq));
 
                                 var data = t.infrared.infraredcode;
+                                var terminalCode = "01";
 
                                 // 开始发送红外命令
                                 UserEquipmentModel.find({_id:t.order.ueq.id}, function(err, docs) {
@@ -688,11 +693,13 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
                                         var serialNo = docs[0].centerBoxSerialno;
                                         var param = {
                                             command: '3000',
-                                            ipAddress: '',
+                                            ipAddress: ipAddress,
                                             serialNo:serialNo,
-                                            data: data
+                                            data: terminalCode + " " + data,
+                                            port: port
                                         };
                                         var sessionService = self.app.get('sessionService');
+                                        console.log("向ots推送消息:" + JSON.stringify(param));
                                         self.app.get('channelService').pushMessageByUids('onMsg', param, [{
                                             uid: 'socketServer*otron',
                                             sid: 'connector-server-1'

@@ -28,7 +28,48 @@
 
         $(document).ready(function() {
             pomelo.on('onMsg', function (data) {
-                alert(data);
+                if(data.command == "5000") {
+
+                } else if(data.command == "2000") {
+                    var mac = data.data.substring(0, 12).toUpperCase();
+                    var centerBoxIp = data.data.substring(12, 20);
+                    var serverIp = data.data.substring(20, 28);
+                    var maskCode = data.data.substring(28, 36);
+                    var gateaway = data.data.substring(36, 44);
+                    var serverPort = data.data.substring(44, 48);
+                    var centerBoxPort = data.data.substring(48, 52);
+                    mac = mac.substring(0, 2) + ":" + mac.substring(2, 4) + ":" + mac.substring(4, 6) + ":" + mac.substring(6, 8) + ":" + mac.substring(8, 10) + ":" + mac.substring(10, 12);
+                    centerBoxIp = getIp(centerBoxIp);
+                    serverIp = getIp(serverIp);
+                    maskCode = getIp(maskCode);
+                    gateaway = getIp(gateaway);
+                    serverPort = getPort(serverPort);
+                    centerBoxPort = getPort(centerBoxPort);
+                    layer.alert("mac:" + mac + "<br>centerBoxIp:" + centerBoxIp +
+                            "<br>serverIp:" + serverIp + "<br>maskCode:" + maskCode +
+                            "<br>gateaway:" + gateaway + "<br>serverPort:" + serverPort + "<br>centerBoxPort:" + centerBoxPort);
+                } else if(data.command == "2001") {
+                    layer.alert("已注册终端数量:" + data.data.substring(0, 2) + "<br>已设置终端数量:" + data.data.substring(2, 4) + "<br>在线终端数量:" + data.data.substring(4, 6));
+                } else if(data.command == "2002") {
+                    layer.alert(JSON.stringify(data));
+                } else if(data.command == "2005") {
+                    var msg = "终端编码:" + data.data.substring(0, 2);
+                    var flag = data.data.substring(2, 4);
+                    var x = "非充电";
+                    if(flag == "01") {
+                        x = "充电中";
+                    } else if(flag == "02") {
+                        x = "充电完成";
+                    }
+                    msg += "<br>电池状态:" + x;
+                    msg += "<br>电池电压:" + (parseInt(data.data.substring(4, 6), 16) / 10) + "v";
+                    msg += "<br>湿度:" + parseInt(data.data.substring(6, 8), 16) + "%";
+                    msg += "<br>温度:" + parseInt(data.data.substring(8, 10), 16) + "℃";
+                    layer.alert(msg);
+                } else {
+                    $("#ipAddress").val(data.ipAddress);
+                    $("#port").val(data.port);
+                }
             });
 
             var cookieToken = $.cookie('token');
@@ -43,7 +84,6 @@
                             layer.msg('验证失败');
                         } else {
                             layer.msg('验证成功');
-                            initUserInfo();
                         }
                     });
                 });
@@ -51,15 +91,61 @@
         });
 
         function test2000() {
-            var ipAddress = ip;
+            var ipAddress = $("#ipAddress").val();
+            var portx = $("#port").val();
             var command = '2000';
-            pomelo.request("connector.entryHandler.webMsg", {"ipAddress":ipAddress, "command":command}, function(data) {
-                alert('webmsg::' + data.msg);
+            pomelo.init({host:host, port:3010, log:true}, function() {
+                pomelo.request("connector.entryHandler.webMsg", {"ipAddress":ipAddress, "port":portx, "command":command}, function(data) {
+                });
             });
+        }
+
+        function test2001() {
+            var ipAddress = $("#ipAddress").val();
+            var portx = $("#port").val();
+            var command = '2001';
+            pomelo.init({host:host, port:3010, log:true}, function() {
+                pomelo.request("connector.entryHandler.webMsg", {"ipAddress":ipAddress, "port":portx, "command":command}, function(data) {
+                });
+            });
+        }
+
+        function test2002() {
+            var ipAddress = $("#ipAddress").val();
+            var portx = $("#port").val();
+            var command = '2002';
+            pomelo.init({host:host, port:3010, log:true}, function() {
+                pomelo.request("connector.entryHandler.webMsg", {"ipAddress":ipAddress, "port":portx, "terminalCode":"01", "command":command}, function(data) {
+                });
+            });
+        }
+
+        function test2005() {
+            var ipAddress = $("#ipAddress").val();
+            var portx = $("#port").val();
+            var command = '2005';
+            pomelo.init({host:host, port:3010, log:true}, function() {
+                pomelo.request("connector.entryHandler.webMsg", {"ipAddress":ipAddress, "port":portx, "terminalCode":"01", "command":command}, function(data) {
+                });
+            });
+        }
+
+        function getIp(ip) {
+            return parseInt(ip.substring(0, 2), 16) + "." + parseInt(ip.substring(2, 4), 16) + "." + parseInt(ip.substring(4, 6), 16) + "." + parseInt(ip.substring(6, 8), 16);
+        }
+
+        function getPort(str) {
+            return parseInt(str.substring(2, 4) + str.substring(0, 2), 16);
         }
     </script>
 </head>
 <body>
+<input type="text" id="ipAddress">
+<input type="text" id="port">
+
 <div><input type="button" value="测试0x2000" onclick="test2000();" /></div>
+<div><input type="button" value="测试0x2001" onclick="test2001();" /></div>
+<div><input type="button" value="测试0x2002" onclick="test2002();" /></div>
+<div><input type="button" value="测试0x2005" onclick="test2005();" /></div>
 </body>
 </html>

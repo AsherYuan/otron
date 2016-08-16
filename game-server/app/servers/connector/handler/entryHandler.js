@@ -20,6 +20,7 @@ var Handler = function(app) {
  * @return {Void}
  */
 Handler.prototype.entry = function(msg, session, next) {
+	console.log("################msg" + JSON.stringify(msg));
 	var self = this;
 	var rid = 'otron'; // 暂时全部统一m
 	var uid = msg.uid + "*" + rid;
@@ -55,12 +56,6 @@ Handler.prototype.entry = function(msg, session, next) {
 			channel.add(uid, self.app.get('serverId'));
 		}
 	}
-
-	self.app.rpc.centerbox.centerboxRemote.add(session, uid, self.app.get('serverId'), rid, true, function(){
-		next(null, {
-			msg:'连接成功'
-		});
-	});
 };
 
 /**
@@ -151,6 +146,8 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 	console.log("-----");
 	console.log("     " + JSON.stringify(msg));
 
+	console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>session:::' + session.uid);
+
 	CenterBoxModel.findOne({serialno:msg.serialno}, function(err, doc) {
 		if(err) console.log(err);
 		else {
@@ -185,7 +182,6 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					port : msg.port,
 					msg: '终端上线, 终端编码： ' + msg.terminalCode
 				};
-				// 如果没有，新建
 				TerminalModel.find({centerBoxSerialno:msg.serialno, code:msg.terminalCode, type:msg.terminalType}, function(err,docs) {
 					if(err) console.log(err);
 					else {
@@ -209,14 +205,21 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 				};
 			} else if(command == '2001') {
 				param = {
-					command:'2000',
+					command:'2001',
 					ipAddress: msg.ipAddress,
 					port : msg.port,
 					data:msg.data
 				};
 			} else if(command == '2002') {
 				param = {
-					command:'2000',
+					command:'2002',
+					ipAddress: msg.ipAddress,
+					port : msg.port,
+					data:msg.data
+				};
+			} else if(command == '2005') {
+				param = {
+					command:'2005',
 					ipAddress: msg.ipAddress,
 					port : msg.port,
 					data:msg.data
@@ -255,7 +258,8 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					humidity:wet,
 					co2:co2,
 					pm25:pm25,
-					quality:quality
+					quality:quality,
+					port:msg.port
 				}
 
 				CenterBoxModel.find({serialno:msg.serialno}, function(err, docs) {
@@ -280,6 +284,7 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					}
 				});
 			}
+			console.log("发送给网页端：：" + JSON.stringify(param) + "_______________" + userMobile);
 			self.app.get('channelService').pushMessageByUids('onMsg', param, [{
 				uid: userMobile,
 				sid: 'user-server-1'
@@ -293,7 +298,6 @@ Handler.prototype.webMsg = function(msg, session, next) {
 	var self = this;
 
 	var command = msg.command;
-	var ipAddress = msg.ipAddress;
 	var port = msg.port;
 	var param = {
 		msg: ''
@@ -317,10 +321,18 @@ Handler.prototype.webMsg = function(msg, session, next) {
 			data: msg.terminalCode,
 			port:port
 		};
+	} else if(command == '2005') {
+		param = {
+			command: '2005',
+			ipAddress: msg.ipAddress,
+			data: msg.terminalCode,
+			port:port
+		};
 	} else if(command == '3000') {
 		var terminalCode = msg.terminalCode;
 
 		var suffix1 = ' 36 FF 00 8A 22 A2 A2 A2 28 A2 88 88 88 A2 AA AA 22 2A 22 2A 88 80 1F E0 11 44 54 54 54 45 14 51 11 11 14 55 55 44 45 44 45 51 10 00 00'; // 18度
+						// 36 FF 00 8A 22 A2 A2 A2 28 8A 88 88 8A 22 AA 88 A2 AA A2 88 88 80 1F E0 11 44 54 54 54 45 11 51 11 11 44 55 51 14 55 54 51 11 10
 		var suffix2 = ' 36 FF 00 8A 22 A2 A2 A2 28 AA 22 22 22 22 AA A2 A2 A8 A2 28 88 80 1F E0 11 44 54 54 54 45 15 44 44 44 44 55 54 54 55 14 45 11 10 00 00'; // 24度
 		var data = terminalCode + suffix1;
 		param = {
@@ -341,10 +353,11 @@ Handler.prototype.webMsg = function(msg, session, next) {
 	}
 
 	console.log('向OTS发送请求：：' + JSON.stringify(param));
+	console.log(self.app.get('serverId'));
 
 	self.app.get('channelService').pushMessageByUids('onMsg', param, [{
 		uid: 'socketServer*otron',
-		sid: self.app.get('serverId')
+		sid: 'connector-server-1'
 	}]);
 };
 

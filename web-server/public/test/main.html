@@ -35,14 +35,14 @@
     <script type="text/javascript">
         var pomelo = window.pomelo;
 //        var host = "127.0.0.1";
-//        var host = "121.40.53.201";
-        var host = '192.168.2.128';
+        var host = "121.40.53.201";
+//        var host = '192.168.2.128';
         var port = "3015";
         var uid = '';
 
         $(document).ready(function() {
             pomelo.on('onMsg', function (data) {
-                alert(JSON.stringify(data));
+//                alert(JSON.stringify(data));
 
                 if(data.sysNotice) {
                     layer.alert(data.sysNotice);
@@ -90,6 +90,9 @@
                     pm25 = parseInt(pm25, 16);
                     var quaity = sensorData.substring(18, 20) + sensorData.substring(16, 18);
                     quaity = parseInt(quaity, 16);
+
+                    $("#ipAddressX").val(data.ipAddress);
+                    $("#portX").val(data.port);
                     $("#sensors").text("温度：" + temp + " 摄氏度, 湿度：" + wet + " %, 二氧化碳：" + co2 + " , ＰＭ２．５:" + pm25 + " , 空气质量指数:" + quaity);
                 } else if(data.command === '4001') {
                     $('#xwind').append("<p>ip地址为:" + data.ipAddress + "获取图像数据，自动提交:" + data.data + "</p>");
@@ -423,7 +426,9 @@
         function say() {
             var words = $("#userSaying").val();
             words = escape(escape(words));
-            pomelo.request('user.userHandler.userSaySomething', {words:words}, function(data) {
+            var ipAddressX = $("#ipAddressX").val();
+            var portX = $("#portX").val();
+            pomelo.request('user.userHandler.userSaySomething', {words:words, ipAddress:ipAddressX, port:portX}, function(data) {
                 layer.alert(JSON.stringify(data));
             });
         }
@@ -545,7 +550,11 @@
 <div><input type="button" value="测试开关--开" onclick="testOn()" /></div>
 <div><input type="button" value="测试开关--关" onclick="testOff()" /></div>
 <div><input type="button" value="遥控界面" onclick="toRemoteControllWin()" /></div>
-<div><input type="text" id="userSaying"/><input type="button" value="语音提交" onclick="say()" /></div>
+<div>
+    <input type="text" id="userSaying"/><input type="button" value="语音提交" onclick="say()" />
+    <input type="text" id="ipAddressX">
+    <input type="text" id="portX">
+</div>
 <div><input type="text" id="contentToNotice"/><input type="button" value="发送推送" onclick="sendNoticeWin()" /></div>
 <hr/>
 <div id="menus">
