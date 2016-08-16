@@ -171,6 +171,7 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 				param = {
 					command:'999',
 					ipAddress:msg.ipAddress,
+					port : msg.port,
 					msg: '控制器断开连接, IP地址： ' + msg.ipAddress + ", 端口:" + msg.port,
 					serialno : msg.serialno
 				};
@@ -181,6 +182,7 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					terminalCode:msg.terminalCode,
 					centerBoxSerialno:msg.serialno,
 					terminalType:msg.terminalType,
+					port : msg.port,
 					msg: '终端上线, 终端编码： ' + msg.terminalCode
 				};
 				// 如果没有，新建
@@ -202,43 +204,48 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 				param = {
 					command:'2000',
 					ipAddress: msg.ipAddress,
+					port : msg.port,
 					data:msg.data
 				};
 			} else if(command == '2001') {
 				param = {
 					command:'2000',
 					ipAddress: msg.ipAddress,
+					port : msg.port,
 					data:msg.data
 				};
 			} else if(command == '2002') {
 				param = {
 					command:'2000',
 					ipAddress: msg.ipAddress,
+					port : msg.port,
 					data:msg.data
 				};
 			} else if(command == '3000') {
 				param = {
 					command:'3000',
 					ipAddress: msg.ipAddress,
+					port : msg.port,
 					data:msg.data
 				};
 			} else if(command == '3007') {
 				param = {
 					command:'3007',
 					ipAddress: msg.ipAddress,
+					port : msg.port,
 					data:msg.data
 				};
 			} else if(command == '4000') {
 				var sensorData = msg.data;
-				var temp = sensorData.substring(0, 4);
+				var temp = sensorData.substring(2, 4) + sensorData.substring(0, 2);
 				temp = parseInt(temp, 16) / 10;
-				var wet = sensorData.substring(4, 8);
+				var wet = sensorData.substring(6, 8) + sensorData.substring(4, 6);
 				wet = parseInt(wet, 16) / 10;
-				var co2 = sensorData.substring(8, 12);
+				var co2 = sensorData.substring(10, 12) + sensorData.substring(8, 10);
 				co2 = parseInt(co2, 16);
-				var pm25 = sensorData.substring(12, 16);
+				var pm25 = sensorData.substring(14, 16) + sensorData.substring(12, 14);
 				pm25 = parseInt(pm25, 16);
-				var quality = sensorData.substring(16, 20);
+				var quality = sensorData.substring(18, 20) + sensorData.substring(16, 18);
 				quality = parseInt(quality, 16);
 				param = {
 					command:'4000',
@@ -256,15 +263,15 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					else {
 						var cBox = docs[0];
 						var sensorData = msg.data;
-						var temp = sensorData.substring(0, 4);
+						var temp = sensorData.substring(2, 4) + sensorData.substring(0, 2);
 						temp = parseInt(temp, 16) / 10;
-						var wet = sensorData.substring(4, 8);
+						var wet = sensorData.substring(6, 8) + sensorData.substring(4, 6);
 						wet = parseInt(wet, 16) / 10;
-						var co2 = sensorData.substring(8, 12);
+						var co2 = sensorData.substring(10, 12) + sensorData.substring(8, 10);
 						co2 = parseInt(co2, 16);
-						var pm25 = sensorData.substring(12, 16);
+						var pm25 = sensorData.substring(14, 16) + sensorData.substring(12, 14);
 						pm25 = parseInt(pm25, 16);
-						var quality = sensorData.substring(16, 20);
+						var quality = sensorData.substring(18, 20) + sensorData.substring(16, 18);
 						quality = parseInt(quality, 16);
 						var entity = new SensorDataModel({centerBoxId:cBox._id, temperature:temp, humidity:wet, co2:co2, quality:quality, pm25:pm25});
 						entity.save(function(err, docs) {
@@ -287,24 +294,28 @@ Handler.prototype.webMsg = function(msg, session, next) {
 
 	var command = msg.command;
 	var ipAddress = msg.ipAddress;
+	var port = msg.port;
 	var param = {
 		msg: ''
 	};
 	if(command == '2000') {
 		param = {
 			command: '2000',
-			ipAddress: msg.ipAddress
+			ipAddress: msg.ipAddress,
+			port:port
 		};
 	} else if (command == '2001') {
 		param = {
 			command: '2001',
-			ipAddress: msg.ipAddress
+			ipAddress: msg.ipAddress,
+			port:port
 		};
 	} else if(command == '2002') {
 		param = {
 			command: '2002',
 			ipAddress: msg.ipAddress,
-			data: msg.terminalCode
+			data: msg.terminalCode,
+			port:port
 		};
 	} else if(command == '3000') {
 		var terminalCode = msg.terminalCode;
@@ -315,7 +326,8 @@ Handler.prototype.webMsg = function(msg, session, next) {
 		param = {
 			command: '3000',
 			ipAddress: msg.ipAddress,
-			data: data
+			data: data,
+			port:port
 		};
 	} else if(command == '3007') {
 		var jCode = msg.terminalCode;
@@ -323,9 +335,13 @@ Handler.prototype.webMsg = function(msg, session, next) {
 		param = {
 			command: '3007',
 			ipAddress: msg.ipAddress,
-			data: jData
+			data: jData,
+			port:port
 		};
 	}
+
+	console.log('向OTS发送请求：：' + JSON.stringify(param));
+
 	self.app.get('channelService').pushMessageByUids('onMsg', param, [{
 		uid: 'socketServer*otron',
 		sid: self.app.get('serverId')
