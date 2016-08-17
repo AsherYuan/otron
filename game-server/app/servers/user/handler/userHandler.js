@@ -675,7 +675,7 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
                         // var x = require('querystring').stringify(data);
                         // console.log("传递参数：2：" + x);
 
-                        var host = "http://192.168.2.108:8080/SpringMongod/main/ao?str=" + words + "&user_id=" + user_id + "&home_id=5754eb2a37c667e737df9ee3";
+                        var host = "http://122.225.88.66:8180/SpringMongod/main/ao?str=" + words + "&user_id=" + user_id + "&home_id=5754eb2a37c667e737df9ee3";
                         console.log("最终参数::" + host);
                         request(host, function (error, response, body) {
                             if (!error && response.statusCode == 200) {
@@ -789,7 +789,7 @@ Handler.prototype.study = function (msg, session, next) {
             postString.orderparamlist = orderparamlist;
             // 122.225.88.66:8180
 
-            request.post('http://192.168.2.108:8080/SpringMongod/main/learnorder', {form:{learnParam:JSON.stringify(postString)}}, function(error, response, body) {
+            request.post('http://122.225.88.66:8180/SpringMongod/main/learnorder', {form:{learnParam:JSON.stringify(postString)}}, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
                     var result = JSON.parse(body);
                     console.log("语音解析结果:" + JSON.stringify(result));
