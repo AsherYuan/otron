@@ -381,4 +381,6 @@ Handler.prototype.deleteController = function(msg, session, next) {
 	});
 };
 
-
+Handler.prototype.monitorhooker = function(msg, session, next) {
+	next(null, Code.OK);
+};

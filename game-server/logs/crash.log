@@ -8,3 +8,8 @@
 [2016-05-26 16:35:48.566] [INFO] crash-log - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/master/master.js] [39m[user],[user-server-1],[1464251748565],[disconnect]
 [2016-05-27 13:38:04.512] [INFO] crash-log - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/master/master.js] [39m[user],[user-server-1],[1464327484512],[disconnect]
 [2016-05-27 13:41:37.802] [INFO] crash-log - [32m[/home/asheryuan/git-repo/otron/game-server/node_modules/pomelo/lib/master/master.js] [39m[user],[user-server-1],[1464327697802],[disconnect]
+[2016-08-17 12:02:24.580] [INFO] crash-log - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/master/master.js] [39m[connector],[connector-server-1],[1471406544580],[disconnect]
+[2016-08-17 12:02:24.585] [INFO] crash-log - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/master/master.js] [39m[user],[user-server-remote-1],[1471406544585],[disconnect]
+[2016-08-17 12:02:24.587] [INFO] crash-log - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/master/master.js] [39m[gate],[gate-server-1],[1471406544587],[disconnect]
+[2016-08-17 12:02:24.590] [INFO] crash-log - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/master/master.js] [39m[user],[user-server-1],[1471406544590],[disconnect]
+[2016-08-17 12:02:24.592] [INFO] crash-log - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/master/master.js] [39m[master],[master-server-1],[1471406544592],[disconnect]

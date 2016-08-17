@@ -163,7 +163,7 @@ Handler.prototype.getDeviceList = function (msg, session, next) {
     var layerName = msg.layerName;
 
     // {home_id: homeId, layerName: layerName}
-    UserEquipmentModel.find({}).populate('homeGridId').exec(function(err, docs) {
+    UserEquipmentModel.find({}).populate('homeGridId').exec(function (err, docs) {
         console.log(docs);
         if (err) {
             console.log(err);
@@ -487,8 +487,8 @@ Handler.prototype.getDeviceTypes = function (msg, session, next) {
  */
 Handler.prototype.getDeviceBrands = function (msg, session, next) {
     var type = msg.type;
-    RDeviceModel.distinct("brand", {devType:type}, function(err, docs) {
-        if(err) {
+    RDeviceModel.distinct("brand", {devType: type}, function (err, docs) {
+        if (err) {
             console.log(err);
             next(null, Code.DATABASE);
         } else {
@@ -508,8 +508,8 @@ Handler.prototype.getDeviceBrands = function (msg, session, next) {
 Handler.prototype.getDeviceModels = function (msg, session, next) {
     var brand = msg.brand;
     var type = msg.type;
-    RDeviceModel.distinct("typeName", {brand:brand}, function(err, docs) {
-        if(err) {
+    RDeviceModel.distinct("typeName", {brand: brand}, function (err, docs) {
+        if (err) {
             console.log(err);
             next(null, Code.DATABASE);
         } else {
@@ -542,7 +542,7 @@ Handler.prototype.saveNewDevice = function (msg, session, next) {
         homeGridId: homeGridId,
         e_type: type,
         pingpai: brand,
-        typeName:model,
+        typeName: model,
         status: status.power,
         ac_model: status.mode,
         ac_windspeed: status.wind,
@@ -657,81 +657,197 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
             console.log(docs);
             next(null, Code.DATABASE);
         } else {
-            // TODO 选择homeId, 语言模式上调整
-            if (!!docs) {
-                var homeId = docs[0]._id;
-                var data = {
-                    str: words,
-                    user_id: uid,
-                    home_id: '5754eb2a37c667e737df9ee3'
-                };
-                data = require('querystring').stringify(data);
-                var host = "http://122.225.88.66:8180/SpringMongod/main/ao?" + data;
-                request(host, function (error, response, body) {
-                    if (!error && response.statusCode == 200) {
-                        var result = JSON.parse(body);
-                        console.log("语音解析结果:" + JSON.stringify(result));
-                        var ret = Code.OK;
+            UserModel.find({mobile: uid}, function (err, userDocs) {
+                if (err) {
+                    console.log(userDocs);
+                    next(null, Code.DATABASE);
+                } else {
+                    var user_id = userDocs[0]._id;
+                    // TODO 选择homeId, 语言模式上调整
+                    if (!!docs) {
+                        var homeId = docs[0]._id;
+                        var data = {
+                            str: words,
+                            user_id: user_id,
+                            home_id: '5754eb2a37c667e737df9ee3'
+                        };
+                        // console.log("传递参数：1：" + JSON.stringify(data));
+                        // var x = require('querystring').stringify(data);
+                        // console.log("传递参数：2：" + x);
 
-                        console.log(!! result.orderAndInfrared && result.orderAndInfrared.length > 0);
-                        if(!! result.orderAndInfrared && result.orderAndInfrared.length > 0) {
-                            // 判断房间是否相同 如果相同，则直接执行，如果不同，对用户进行询问
-                            // 返回的数据结构：
-                            var targetArray = new Array();
-                            var sentence = "";
+                        var host = "http://192.168.2.108:8080/SpringMongod/main/ao?str=" + words + "&user_id=" + user_id + "&home_id=5754eb2a37c667e737df9ee3";
+                        console.log("最终参数::" + host);
+                        request(host, function (error, response, body) {
+                            if (!error && response.statusCode == 200) {
+                                var result = JSON.parse(body);
+                                console.log("语音解析结果:" + JSON.stringify(result));
+                                var ret = Code.OK;
+                                var data = new Object();
+                                data.voiceId = result.inputstr_id;
+                                data.isDelayOrder = result.delayOrder;
+                                data.isCanLearn = result.iscanlearn;
+                                data.from = result.status;
 
-                            for(var i=0;i<result.orderAndInfrared.length;i++) {
-                                var t = result.orderAndInfrared[i];
-                                targetArray.push(SayingUtil.translateStatus(t.order.ueq));
+                                if (!!result.orderAndInfrared && result.orderAndInfrared.length > 0) {
+                                    // 判断房间是否相同 如果相同，则直接执行，如果不同，对用户进行询问
+                                    // 返回的数据结构：
+                                    var targetArray = new Array();
+                                    var devices = new Array();
+                                    var sentence = "";
 
-                                var data = t.infrared.infraredcode;
-                                var terminalCode = "01";
+                                    for (var i = 0; i < result.orderAndInfrared.length; i++) {
+                                        var t = result.orderAndInfrared[i];
+                                        targetArray.push(SayingUtil.translateStatus(t.order.ueq));
+                                        devices.push(t.order.ueq);
 
-                                // 开始发送红外命令
-                                UserEquipmentModel.find({_id:t.order.ueq.id}, function(err, docs) {
-                                    TerminalModel.find({_id:docs[0].terminalId}, function(err, docs) {
-                                        var serialNo = docs[0].centerBoxSerialno;
-                                        var param = {
-                                            command: '3000',
-                                            ipAddress: ipAddress,
-                                            serialNo:serialNo,
-                                            data: terminalCode + " " + data,
-                                            port: port
-                                        };
-                                        var sessionService = self.app.get('sessionService');
-                                        console.log("向ots推送消息:" + JSON.stringify(param));
-                                        self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-                                            uid: 'socketServer*otron',
-                                            sid: 'connector-server-1'
-                                        }]);
-                                    });
-                                });
-                            }
+                                        var ircode = t.infrared.infraredcode;
+                                        var terminalCode = "01";
 
-                            // 判断是否延时
-                            if(result.delayOrder == true) {
-                                sentence = result.delayDesc + "将为您" + JSON.stringify(targetArray);
+                                        // 开始发送红外命令
+                                        UserEquipmentModel.find({_id: t.order.ueq.id}, function (err, docs) {
+                                            TerminalModel.find({_id: docs[0].terminalId}, function (err, docs) {
+                                                var serialNo = docs[0].centerBoxSerialno;
+                                                var param = {
+                                                    command: '3000',
+                                                    ipAddress: ipAddress,
+                                                    serialNo: serialNo,
+                                                    data: terminalCode + " " + ircode,
+                                                    port: port
+                                                };
+                                                var sessionService = self.app.get('sessionService');
+                                                console.log("向ots推送消息:" + JSON.stringify(param));
+                                                self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+                                                    uid: 'socketServer*otron',
+                                                    sid: 'connector-server-1'
+                                                }]);
+                                            });
+                                        });
+                                    }
+                                    // 判断是否延时
+                                    if (result.delayOrder == true) {
+                                        sentence = result.delayDesc + "将为您" + JSON.stringify(targetArray);
+                                    } else {
+                                        sentence = "已为您" + JSON.stringify(targetArray);
+                                    }
+
+                                    data.answer = sentence;
+                                    data.devices = devices;
+                                    ret.data = data;
+                                } else {
+                                    if (result.status == "turing") {
+                                        var msgObj = JSON.parse(result.msg);
+                                        ret.data = {result: msgObj.text};
+                                    } else {
+                                        ret.data = {result: result.msg};
+                                    }
+                                }
+                                next(null, ret);
                             } else {
-                                sentence = "已为您" + JSON.stringify(targetArray);
+                                next(null, Code.NET_FAIL);
                             }
-                            ret.data = sentence;
-                        } else {
-
-                            if(result.status == "turing") {
-                                var msgObj = JSON.parse(result.msg);
-                                ret.data = {result:msgObj.text};
-                            } else {
-                                ret.data = {result:result.msg};
-                            }
-                        }
-                        next(null, ret);
+                        });
                     } else {
-                        next(null, Code.NET_FAIL);
+                        next(null, Code.DATABASE)
                     }
-                });
-            } else {
-                next(null, Code.DATABASE)
+                }
+            });
+        }
+    });
+};
+
+
+/**
+ * 用户学习
+ * @param msg
+ * @param session
+ * @param next
+ */
+Handler.prototype.study = function (msg, session, next) {
+
+    var inputstr_id = msg.lastVoiceId;
+    var devicesString = msg.devices;
+    var devices = JSON.parse(devicesString);
+    var postString = new Object();
+    postString.inputstr_id = inputstr_id;
+    var orderparamlist = new Array();
+    UserModel.find({mobile: session.uid}, function (err, userDocs) {
+        if(err) {
+            console.log(err);
+            next(null, Code.DATABASE);
+        } else {
+            for (var i = 0; i < devices.length; i++) {
+                var d = new Object();
+                d.ac_temperature = devices[i].ac_temperature;
+                d.ac_windspeed = devices[i].ac_windspeed;
+                d.deviceId = devices[i].deviceId;
+                d.deviceType = devices[i].deviceType;
+                d.model = devices[i].model;
+                d.status = devices[i].status;
+                d.user_id = userDocs[0]._id;
+                orderparamlist.push(d);
             }
+            postString.orderparamlist = orderparamlist;
+            // 122.225.88.66:8180
+
+            request.post('http://192.168.2.108:8080/SpringMongod/main/learnorder', {form:{learnParam:JSON.stringify(postString)}}, function(error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    var result = JSON.parse(body);
+                    console.log("语音解析结果:" + JSON.stringify(result));
+                    var ret = Code.OK;
+                    if (!!result) {
+                        var data = new Object();
+                        var targetArray = new Array();
+                        var devices = new Array();
+                        var sentence = "";
+                        var delayDesc = "";
+
+                        for(var i=0; i<result.length; i++) {
+                            data.voiceId = result[i].inputstr_id;
+                            data.isDelayOrder = result[i].delayOrder;
+                            data.isCanLearn = result[i].iscanlearn;
+                            data.from = result[i].status;
+
+                            delayDesc = result[i].delayDesc;
+
+                            var t = result[i].orderAndInfrared;
+                            targetArray.push(SayingUtil.translateStatus(t[0].order.c_ac));
+                            devices.push(t[0].order.c_ac);
+                        }
+
+                        // 判断是否延时
+                        if (data.isDelayOrder == true) {
+                            sentence = delayDesc + "将为您" + JSON.stringify(targetArray);
+                        } else {
+                            sentence = "已为您" + JSON.stringify(targetArray);
+                        }
+                        data.answer = sentence;
+                        data.devices = devices;
+                        ret.data = data;
+                        next(null, ret);
+                    }
+                }
+            });
+        }
+    });
+};
+
+/**
+ * 根据用户某句话得到设备列表
+ * @param msg
+ * @param session
+ * @param next
+ */
+Handler.prototype.getDeviceListByVoiceId = function (msg, session, next) {
+    var deviceIds = msg.deviceIds;
+    var array = deviceIds.split(",");
+    UserEquipmentModel.find({_id: {$in: array}}, function (err, docs) {
+        if (err) {
+            console.log(err);
+            next(null, Code.DATABASE);
+        } else {
+            var ret = Code.OK;
+            ret.data = docs;
+            next(null, ret);
         }
     });
 };
@@ -747,12 +863,12 @@ Handler.prototype.remoteControll = function (msg, session, next) {
     // 目前写死一个设备
     var user_id = session.uid;
     var deviceId = msg.deviceId;
-    UserEquipmentModel.find({_id:deviceId}, function(err, docs) {
-        if(err) {
+    UserEquipmentModel.find({_id: deviceId}, function (err, docs) {
+        if (err) {
             console.log(err);
             next(null, Code.DATABASE);
         } else {
-            if(!!docs) {
+            if (!!docs) {
                 var device = docs[0];
                 var deviceType = msg.deviceType;
                 var status = msg.status;
@@ -778,7 +894,6 @@ Handler.prototype.remoteControll = function (msg, session, next) {
                 };
 
                 data = require('querystring').stringify(data);
-                // var host = "http://192.168.2.113:8080/SpringMongod/main/getorder?" + data;
                 var host = "http://122.225.88.66:8180/SpringMongod/main/getorder?" + data;
                 request(host, function (error, response, body) {
                     if (!error && response.statusCode == 200) {
@@ -911,5 +1026,9 @@ Handler.prototype.testOff = function (msg, session, next) {
         uid: 'socketServer*otron',
         sid: 'connector-server-1'
     }]);
+    next(null, Code.OK);
+};
+
+Handler.prototype.monitorhooker = function (msg, session, next) {
     next(null, Code.OK);
 };

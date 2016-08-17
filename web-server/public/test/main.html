@@ -35,8 +35,8 @@
     <script type="text/javascript">
         var pomelo = window.pomelo;
 //        var host = "127.0.0.1";
-        var host = "121.40.53.201";
-//        var host = '192.168.2.128';
+//        var host = "121.40.53.201";
+        var host = '192.168.2.105';
         var port = "3015";
         var uid = '';
 
@@ -212,7 +212,7 @@
                                                 $("#homeGrid" + terminalList.data[l]._id).append(terminalOnlineHtml);
                                             } else {
                                                 var bindTerminalHtml = '<p>您有新的终端设备，请绑定所在房间</p>';
-                                                bindTerminalHtml += '<p>终端信息:设备编码:' + terminalList[l].code + '</p>';
+                                                bindTerminalHtml += '<p>终端信息:设备编码:' + terminalList.data[l].code + '</p>';
                                                 for(var x=0; x<gridList.length;x++) {
                                                     bindTerminalHtml += '<div class="gridToChoose" onclick="bindTerminalToHomeGrid(\'' + gridList[x]._id + '\', \'' + terminalList.data[l]._id + '\');">';
                                                     bindTerminalHtml += gridList[x].gridType + ':' + gridList[x].name + '</div>';
@@ -429,6 +429,35 @@
             var ipAddressX = $("#ipAddressX").val();
             var portX = $("#portX").val();
             pomelo.request('user.userHandler.userSaySomething', {words:words, ipAddress:ipAddressX, port:portX}, function(data) {
+                $("#lastVoiceId").val(data.data.voiceId);
+                var deviceIds = "";
+                for(var i=0;i<data.data.devices.length;i++) {
+                    if(deviceIds == "") {
+                        deviceIds += data.data.devices[i].id;
+                    } else {
+                        deviceIds += "," + data.data.devices[i].id;
+                    }
+                }
+
+                $("#deviceIds").val(deviceIds);
+                layer.alert(JSON.stringify(data));
+            });
+        }
+
+        function study() {
+//            var lastVoiceId = $("#lastVoiceId").val();
+            var lastVoiceId = "57b42435fa5204ddf2a46713";
+
+            var devices = '[{"ac_temperature":16, "ac_windspeed":2, "deviceId":"57a974f8a7155aca2fa7f083", "deviceType":"空调", "model":"制冷", "status":"开"},';
+            devices += '{"ac_temperature":16, "ac_windspeed":2, "deviceId":"57a974f8a7155aca2fa7f083", "deviceType":"空调", "model":"制冷", "status":"开"}]';
+            pomelo.request('user.userHandler.study', {devices:devices, lastVoiceId:lastVoiceId}, function(data) {
+                layer.alert(JSON.stringify(data));
+            });
+        }
+
+        function getDevicesByVoiceId() {
+            var deviceIds = $("#deviceIds").val();
+            pomelo.request('user.userHandler.getDeviceListByVoiceId', {deviceIds:deviceIds}, function(data) {
                 layer.alert(JSON.stringify(data));
             });
         }
@@ -505,9 +534,6 @@
                     param[xarray[0]] = xarray[1];
                 }
             }
-
-            alert(route);
-            alert(JSON.stringify(param));
             pomelo.request(route, param, function(data) {
                 layer.alert(JSON.stringify(data));
             });
@@ -554,6 +580,11 @@
     <input type="text" id="userSaying"/><input type="button" value="语音提交" onclick="say()" />
     <input type="text" id="ipAddressX">
     <input type="text" id="portX">
+    <br/>
+    <input type="text" id="deviceIds">
+    <input type="text" id="lastVoiceId">
+    <input type="button" value="学习" onclick="study()" />
+    <input type="button" value="获取列表" onclick="getDevicesByVoiceId();" />
 </div>
 <div><input type="text" id="contentToNotice"/><input type="button" value="发送推送" onclick="sendNoticeWin()" /></div>
 <hr/>
