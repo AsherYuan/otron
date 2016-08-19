@@ -1,12 +1,30 @@
 {
   "development": {
-    "connector":[
-      {"id":1, "time":"0 * 1 * * *", "action":"outdoorDataCron.currentData"}
+    "connector": [
+      {
+        "id": 1,
+        "time": "0 * 1 * * *",
+        "action": "outdoorDataCron.currentData"
+      },
+      {
+        "id": 1,
+        "time": "0 0/5 * * * *",
+        "action": "terminalSensorDataCron.currentData"
+      }
     ]
   },
   "production": {
-    "connector":[
-      {"id":1, "time":"0/5 * * * * *", "action":"outdoorDataCron.currentData"}
+    "connector": [
+      {
+        "id": 1,
+        "time": "0 * 1 * * *",
+        "action": "outdoorDataCron.currentData"
+      },
+      {
+        "id": 1,
+        "time": "0 0/5 * * * *",
+        "action": "terminalSensorDataCron.currentData"
+      }
     ]
   }
 }

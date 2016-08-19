@@ -4332,3 +4332,136 @@
 [2016-08-17 16:54:30.929] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
 [2016-08-17 16:54:30.936] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
 [2016-08-17 16:54:30.937] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 848 ms
+[2016-08-19 09:19:41.513] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 09:20:23.053] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 09:20:23.940] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 09:20:23.951] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 09:20:24.055] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 09:20:24.062] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 09:20:24.062] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 924 ms
+[2016-08-19 10:06:17.496] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:06:18.370] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:06:18.379] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:06:18.451] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:06:18.461] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:06:18.461] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 843 ms
+[2016-08-19 10:13:20.675] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:13:21.461] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:13:21.466] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:13:21.536] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:13:21.546] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:13:21.546] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 783 ms
+[2016-08-19 10:30:35.437] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:30:36.351] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:30:36.360] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:30:36.441] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:30:36.447] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:30:36.448] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 922 ms
+[2016-08-19 10:31:14.931] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:31:15.720] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:31:15.729] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:31:15.832] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:31:15.842] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:31:15.842] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 825 ms
+[2016-08-19 10:31:55.100] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:31:55.957] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:31:55.962] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:31:56.039] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:31:56.049] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:31:56.050] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 864 ms
+[2016-08-19 10:32:45.397] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:32:46.193] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:32:46.200] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:32:46.295] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:32:46.304] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:32:46.305] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 822 ms
+[2016-08-19 10:33:20.277] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:33:21.069] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:33:21.074] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:33:21.146] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:33:21.156] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:33:21.157] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 794 ms
+[2016-08-19 10:34:08.341] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:34:09.231] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:34:09.236] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:34:09.337] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:34:09.347] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:34:09.347] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 910 ms
+[2016-08-19 10:35:05.540] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:35:06.436] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:35:06.446] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:35:06.557] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:35:06.564] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:35:06.565] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 941 ms
+[2016-08-19 10:39:34.548] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:39:35.422] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:39:35.429] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:39:35.506] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:39:35.512] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:39:35.513] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 879 ms
+[2016-08-19 10:39:55.630] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:39:56.495] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:39:56.503] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:39:56.613] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:39:56.630] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:39:56.631] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 911 ms
+[2016-08-19 10:40:29.619] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:40:30.516] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:40:30.523] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:40:30.597] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:40:30.604] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:40:30.604] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 899 ms
+[2016-08-19 10:44:38.535] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:44:39.456] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:44:39.465] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:44:39.572] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:44:39.579] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:44:39.579] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 957 ms
+[2016-08-19 10:49:31.649] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:49:32.544] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:49:32.553] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:49:32.653] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:49:32.660] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:49:32.660] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 921 ms
+[2016-08-19 10:50:49.582] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:50:50.427] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:50:50.434] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:50:50.495] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:50:50.502] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:50:50.502] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 810 ms
+[2016-08-19 10:51:53.178] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:51:53.943] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:51:53.952] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:51:54.040] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:51:54.049] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:51:54.049] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 785 ms
+[2016-08-19 10:57:13.070] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 10:57:13.875] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 10:57:13.881] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 10:57:13.951] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 10:57:13.957] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 10:57:13.957] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 799 ms
+[2016-08-19 11:23:14.189] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 11:23:15.058] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 11:23:15.064] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 11:23:15.151] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 11:23:15.158] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 11:23:15.159] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 882 ms
+[2016-08-19 11:24:51.141] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 11:24:52.060] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 11:24:52.065] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 11:24:52.141] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 11:24:52.152] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 11:24:52.152] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 917 ms
+[2016-08-19 11:30:40.821] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 11:30:41.714] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 11:30:41.722] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 11:30:41.807] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 11:30:41.814] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 11:30:41.814] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 904 ms
+[2016-08-19 11:34:46.375] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-19 11:34:47.235] [WARN] pomelo - [33m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/server/server.js] [39mcron is duplicated: {"id":1,"time":"0 0/5 * * * *","action":"terminalSensorDataCron.currentData"}
+[2016-08-19 11:34:47.244] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.105", 3005
+[2016-08-19 11:34:47.340] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-19 11:34:47.348] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-19 11:34:47.348] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 886 ms

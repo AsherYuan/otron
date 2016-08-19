@@ -30,6 +30,19 @@ var Handler = function (app) {
 };
 
 /**
+ * 获取主控列表
+ */
+Handler.prototype.getCenterBoxList = function(msg, session, next) {
+    CenterBoxModel.find({}, function(error, docs) {
+        if(error) {
+            console.log(error);
+        } else {
+            next(null, docs);
+        }
+    });
+};
+
+/**
  * 用户更新
  * @param msg
  * @param session
@@ -92,6 +105,59 @@ Handler.prototype.getUserInfo = function (msg, session, next) {
                                 });
                             }
                         });
+                    }
+                });
+            } else {
+                next(null, Code.ACCOUNT.USER_NOT_EXIST);
+            }
+        }
+    });
+};
+
+/**
+ * 获取用户的家庭和楼层列表
+ */
+Handler.prototype.getUserHomeTitle = function(msg, session, next) {
+    var uid = session.uid;
+    UserModel.findOne({mobile: uid}, function (err, userDoc) {
+        if (err) {
+            console.log(err);
+            next(null, Code.DATABASE);
+        } else {
+            if (!!userDoc) {
+                HomeModel.find({userMobile: uid}, function (err, homeDocs) {
+                    if (err) {
+                        console.log(err);
+                        next(null, Code.DATABASE);
+                    } else {
+                        if(!!homeDocs && homeDocs.length > 0) {
+                            var homeArray = new Array();
+                            for(var x=0; x<homeDocs.length; x++) {
+                                var home = homeDocs[x];
+                                var h = new Object();
+                                var title = home.name;
+                                if(title == undefined) {
+                                    title = home.floorName;
+                                }
+                                h.title = title;
+                                h.homeId = home._id;
+                                if(!!home.layers) {
+                                    if(home.layers.length <= 1) {
+                                        h.layerName = home.layers[0].name;
+                                        homeArray.push(h);
+                                    } else {
+                                        for(var y=0; y<home.layers.length; y++) {
+                                            title += " " + home.layers[y].name;
+                                            h.layerName = home.layers[y].name;
+                                            homeArray.push(h);
+                                        }
+                                    }
+                                }
+                            }
+                            var ret = Code.OK;
+                            ret.data = homeArray;
+                            next(null, ret);
+                        }
                     }
                 });
             } else {
@@ -458,9 +524,26 @@ Handler.prototype.confirmModel = function (msg, session, next) {
                     if (err) console.log(err);
                     else {
                         resolveHomeGrids(data._id, name, room, hall, toilet, kitchen);
-                        // next(null, Code.OK);
+                        next(null, Code.OK);
                     }
                 });
+            // 增加家庭信息
+            } else {
+                for(var i=0;i<docs.length; i++) {
+                    var home = docs[i];
+                    if(home.floorId == floorId) {
+                        var newLayer = {
+                            name: name,
+                            room: room,
+                            hall: hall,
+                            toilet: toilet,
+                            kitchen: kitchen
+                        };
+                        HomeModel.update({_id:home._id}, {'$push':{layers:newLayer}}, function(error, docs) {
+                            next(null, Code.OK);
+                        });
+                    }
+                }
             }
             var ret = Code.OK;
             ret.data = docs;
@@ -922,6 +1005,31 @@ Handler.prototype.getSensorDatas = function (msg, session, next) {
             next(null, ret);
         }
     });
+};
+
+Handler.prototype.setCenterBoxSwitch = function(msg, session, next) {
+    var field = msg.type + "Switch";
+    if(msg.type == "temperature") {
+        CenterBoxModel.update({serialno:msg.serialno}, {"$set":{temperatureSwitch:msg.btn}}, function(error, docs) {
+            next(null, Code.OK);
+        });
+    } else if(msg.type == "humidity") {
+        CenterBoxModel.update({serialno:msg.serialno}, {"$set":{humiditySwitch:msg.btn}}, function(error, docs) {
+            next(null, Code.OK);
+        });
+    } else if(msg.type == "co") {
+        CenterBoxModel.update({serialno:msg.serialno}, {"$set":{coSwitch:msg.btn}}, function(error, docs) {
+            next(null, Code.OK);
+        });
+    } else if(msg.type == "quality") {
+        CenterBoxModel.update({serialno:msg.serialno}, {"$set":{qualitySwitch:msg.btn}}, function(error, docs) {
+            next(null, Code.OK);
+        });
+    } else if(msg.type == "pm25") {
+        CenterBoxModel.update({serialno:msg.serialno}, {"$set":{pm25Switch:msg.btn}}, function(error, docs) {
+            next(null, Code.OK);
+        });
+    }
 };
 
 

@@ -8,6 +8,11 @@ var CenterBoxSchema = new mongoose.Schema({
     hasConnected:{type:Boolean, default:false},
     regTime : { type:Date, default:Date.now },
     lastLoginTime : { type:Date, default:Date.now },
+    temeratureSwitch : String,
+    humiditySwitch : String,
+    qualitySwitch : String,
+    coSwitch : String,
+    pm25Switch : String
 });
 var CenterBoxModel = mongoose.model("centerBox", CenterBoxSchema);
 module.exports = CenterBoxModel;

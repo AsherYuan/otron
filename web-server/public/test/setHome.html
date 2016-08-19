@@ -51,10 +51,10 @@
         function getFloorList() {
             var area = $("#area").val();
             pomelo.request('user.userHandler.getFloorList', {area: area}, function(docs) {
-                if(docs !== undefined && docs !== null) {
-                    for(var i=0;i<docs.length; i++) {
-                        var html = "<tr><td>" + docs[i].area + "</td><td>" + docs[i].name + "</td><td>" + docs[i].busiCircle + "</td>";
-                        html += "<td>" + docs[i].address + "</td><td><input type='button' value='选择' onclick='getFloorModelList(\"" + docs[i]._id + "\", \"" + docs[i].name + "\", \"" + docs[i].url + "\");' /></td></tr>";
+                if(docs.data !== undefined && docs.data !== null) {
+                    for(var i=0;i<docs.data.length; i++) {
+                        var html = "<tr><td>" + docs.data[i].area + "</td><td>" + docs.data[i].name + "</td><td>" + docs.data[i].busiCircle + "</td>";
+                        html += "<td>" + docs.data[i].address + "</td><td><input type='button' value='选择' onclick='getFloorModelList(\"" + docs.data[i]._id + "\", \"" + docs.data[i].name + "\", \"" + docs.data[i].url + "\");' /></td></tr>";
                         $("#floorList").append(html);
                     }
                 }
@@ -70,10 +70,10 @@
                 html += "室:<input type='text' class='modelInput' id='room'>厅:<input type='text' class='modelInput' id='hall'>";
                 html += "卫:<input type='text' class='modelInput' id='toilet'>厨房:<input type='text' class='modelInput' id='kitchen'>";
                 html += "<input type='button' onclick='confirmModel();' value='确认'/><br/>";
-                if(docs !== undefined && docs !== null) {
+                if(docs.data !== undefined && docs.data !== null) {
                     html += '可选：<br/><ul>';
-                    for(var i=0;i<docs.length;i++) {
-                        html += "<li class='modelItem' onclick='chooseModel(" + docs[i].room + "," + docs[i].hall + "," + docs[i].toilet + ");'>" + docs[i].name + "</li>";
+                    for(var i=0;i<docs.data.length;i++) {
+                        html += "<li class='modelItem' onclick='chooseModel(" + docs.data[i].room + "," + docs.data[i].hall + "," + docs.data[i].toilet + ");'>" + docs.data[i].name + "</li>";
                     }
                     html += '</ul>';
                 }
@@ -99,7 +99,7 @@
             var floorName = $("#floorName").val();
 
             pomelo.request('user.userHandler.confirmModel', {floorId: floorId, floorName:floorName, name:name, room:room, hall:hall, toilet:toilet, kitchen:kitchen}, function(data) {
-                if(data == '200') {
+                if(data.code == '200') {
                     layer.msg('设置成功');
                 }
             });
