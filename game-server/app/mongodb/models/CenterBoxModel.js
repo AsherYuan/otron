@@ -12,7 +12,9 @@ var CenterBoxSchema = new mongoose.Schema({
     humiditySwitch : String,
     qualitySwitch : String,
     coSwitch : String,
-    pm25Switch : String
+    pm25Switch : String,
+    curIpAddress : String,
+    curPort : Number
 });
 var CenterBoxModel = mongoose.model("centerBox", CenterBoxSchema);
 module.exports = CenterBoxModel;

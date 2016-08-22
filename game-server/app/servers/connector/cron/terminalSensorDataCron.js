@@ -1,3 +1,4 @@
+var CenterBoxModel = require('../../../mongodb/models/CenterBoxModel');
 var TerminalModel = require('../../../mongodb/models/TerminalModel');
 var TSensorDataModel = require('../../../mongodb/models/TSensorDataModel');
 
@@ -14,50 +15,46 @@ var Cron = function (app) {
  * 定时任务，定时给所有用户去推送消息
  */
 Cron.prototype.getSensorData = function () {
-    TerminalModel.find({}, function(error, terminals) {
+    var self = this;
+    /**
+     * 查找所有主控，要求有IP和PORT，来方便通信
+     */
+    CenterBoxModel.find({}, function(error, centerBoxs) {
         if(error) {
             console.log(error);
         } else {
-            for(var i=0;i<terminals.length; i++) {
-                var code = terminals.code;
-                
-            }
-        }
-    });
-
-
-
-    UserModel.find({}, function (err, docs) {
-        if (err) console.log(err);
-        else {
-            WeatherModel.findOne({}, null, {sort: [{time: -1}]}, function (err, weatherNow) {
-                if (err) console.log(err);
-                else {
-                    var addTime = Moment(weatherNow.time).format('YYYY-MM-DD HH:mm:ss');
-                    var pm25 = weatherNow.pm;
-                    var temperature = weatherNow.temperature;
-                    var humidity = weatherNow.humidity;
-                    var quality = weatherNow.air;
-                    var co2 = 650; // TODO
-
-                    for (var i = 0; i < docs.length; i++) {
-                        var mobile = docs[i].mobile;
-                        var param = {
-                            command: '5000',
-                            temperature: temperature,
-                            humidity: humidity,
-                            quality: quality,
-                            co2: co2,
-                            pm25: pm25,
-                            addTime: addTime
-                        };
-                        self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-                            uid: mobile,
-                            sid: 'user-server-1'
-                        }]);
+            if(!!centerBoxs) {
+                for(var i=0;i<centerBoxs.length;i++) {
+                    if((!! centerBoxs[i].curIpAddress) && (!! centerBoxs[i].curPort)) {
+                        console.log("定时任务中发现当前连接中的主控：" + centerBoxs[i].curIpAddress + "::" + centerBoxs[i].curPort + "___" + centerBoxs[i].serialno);
+                        var curIpAddress = centerBoxs[i].curIpAddress;
+                        var curPort = centerBoxs[i].curPort;
+                        var centerBoxSerialno = centerBoxs[i].serialno;
+                        TerminalModel.find({centerBoxSerialno:centerBoxSerialno, isOnline:true}, function(error, terminals) {
+                            if(error) {
+                                console.log(error);
+                            } else {
+                                if(!!terminals) {
+                                    for (var i = 0; i < terminals.length; i++) {
+                                        var code = terminals.code;
+                                        var param = {
+                                            command: '2005',
+                                            ipAddress: curIpAddress,
+                                            data: code,
+                                            port: curPort
+                                        };
+                                        console.log("向硬件询问终端传感器数据：" + JSON.stringify(param));
+                                        self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+                                            uid: 'socketServer*otron',
+                                            sid: 'connector-server-1'
+                                        }]);
+                                    }
+                                }
+                            }
+                        });
                     }
                 }
-            });
+            }
         }
     });
 };

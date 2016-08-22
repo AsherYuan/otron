@@ -7,9 +7,9 @@
         "action": "outdoorDataCron.currentData"
       },
       {
-        "id": 1,
-        "time": "0 0/5 * * * *",
-        "action": "terminalSensorDataCron.currentData"
+        "id": 2,
+        "time": "0/5 * * * * *",
+        "action": "terminalSensorDataCron.getSensorData"
       }
     ]
   },
@@ -21,9 +21,9 @@
         "action": "outdoorDataCron.currentData"
       },
       {
-        "id": 1,
-        "time": "0 0/5 * * * *",
-        "action": "terminalSensorDataCron.currentData"
+        "id": 2,
+        "time": "0/5 * * * * *",
+        "action": "terminalSensorDataCron.getSensorData"
       }
     ]
   }
