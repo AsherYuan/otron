@@ -734,108 +734,134 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
     var words = msg.words;
     var ipAddress = msg.ipAddress;
     var port = msg.port;
-
-    HomeModel.find({userMobile: uid}, function (err, docs) {
-        if (err) {
-            console.log(docs);
-            next(null, Code.DATABASE);
-        } else {
-            UserModel.find({mobile: uid}, function (err, userDocs) {
-                if (err) {
-                    console.log(userDocs);
-                    next(null, Code.DATABASE);
-                } else {
-                    var user_id = userDocs[0]._id;
-                    // TODO 选择homeId, 语言模式上调整
-                    if (!!docs) {
-                        var homeId = docs[0]._id;
-                        var data = {
-                            str: words,
-                            user_id: user_id,
-                            home_id: '5754eb2a37c667e737df9ee3'
-                        };
-                        // console.log("传递参数：1：" + JSON.stringify(data));
-                        // var x = require('querystring').stringify(data);
-                        // console.log("传递参数：2：" + x);
-
-                        var host = "http://122.225.88.66:8180/SpringMongod/main/ao?str=" + words + "&user_id=" + user_id + "&home_id=5754eb2a37c667e737df9ee3";
-                        console.log("最终参数::" + host);
-                        request(host, function (error, response, body) {
-                            if (!error && response.statusCode == 200) {
-                                var result = JSON.parse(body);
-                                console.log("语音解析结果:" + JSON.stringify(result));
-                                var ret = Code.OK;
-                                var data = new Object();
-                                data.voiceId = result.inputstr_id;
-                                data.isDelayOrder = result.delayOrder;
-                                data.isCanLearn = result.iscanlearn;
-                                data.from = result.status;
-
-                                if (!!result.orderAndInfrared && result.orderAndInfrared.length > 0) {
-                                    // 判断房间是否相同 如果相同，则直接执行，如果不同，对用户进行询问
-                                    // 返回的数据结构：
-                                    var targetArray = new Array();
-                                    var devices = new Array();
-                                    var sentence = "";
-
-                                    for (var i = 0; i < result.orderAndInfrared.length; i++) {
-                                        var t = result.orderAndInfrared[i];
-                                        targetArray.push(SayingUtil.translateStatus(t.order.ueq));
-                                        devices.push(t.order.ueq);
-
-                                        var ircode = t.infrared.infraredcode;
-                                        var terminalCode = "01";
-
-                                        // 开始发送红外命令
-                                        UserEquipmentModel.find({_id: t.order.ueq.id}, function (err, docs) {
-                                            TerminalModel.find({_id: docs[0].terminalId}, function (err, docs) {
-                                                var serialNo = docs[0].centerBoxSerialno;
-                                                var param = {
-                                                    command: '3000',
-                                                    ipAddress: ipAddress,
-                                                    serialNo: serialNo,
-                                                    data: terminalCode + " " + ircode,
-                                                    port: port
-                                                };
-                                                var sessionService = self.app.get('sessionService');
-                                                console.log("向ots推送消息:" + JSON.stringify(param));
-                                                self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-                                                    uid: 'socketServer*otron',
-                                                    sid: 'connector-server-1'
-                                                }]);
-                                            });
-                                        });
-                                    }
-                                    // 判断是否延时
-                                    if (result.delayOrder == true) {
-                                        sentence = result.delayDesc + "将为您" + JSON.stringify(targetArray);
-                                    } else {
-                                        sentence = "已为您" + JSON.stringify(targetArray);
-                                    }
-
-                                    data.answer = sentence;
-                                    data.devices = devices;
-                                    ret.data = data;
-                                } else {
-                                    if (result.status == "turing") {
-                                        var msgObj = JSON.parse(result.msg);
-                                        ret.data = {result: msgObj.text};
-                                    } else {
-                                        ret.data = {result: result.msg};
-                                    }
-                                }
-                                next(null, ret);
-                            } else {
-                                next(null, Code.NET_FAIL);
-                            }
-                        });
+    if(words == "图片") {
+        var ret = Code.OK;
+        var data = new Object();
+        var answer = new Array();
+        answer.push("https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1471605536296&di=31deda21579c79876b8adc8a0d0fbf10&imgtype=jpg&src=http%3A%2F%2Fpic65.nipic.com%2Ffile%2F20150503%2F7487939_220838368000_2.jpg");
+        data.answer = answer;
+        data.type = "pic";
+        ret.data = data;
+        next(null, ret);
+    } else if(words == "链接") {
+        var ret = Code.OK;
+        var data = new Object();
+        var answer = new Array();
+        answer.push("<a href='http://www.baidu.com'>百度</a>");
+        data.answer = answer;
+        data.type = "link";
+        ret.data = data;
+        next(null, ret);
+    } else {
+        HomeModel.find({userMobile: uid}, function (err, docs) {
+            if (err) {
+                console.log(docs);
+                next(null, Code.DATABASE);
+            } else {
+                UserModel.find({mobile: uid}, function (err, userDocs) {
+                    if (err) {
+                        console.log(userDocs);
+                        next(null, Code.DATABASE);
                     } else {
-                        next(null, Code.DATABASE)
+                        var user_id = userDocs[0]._id;
+                        // TODO 选择homeId, 语言模式上调整
+                        if (!!docs) {
+                            var homeId = docs[0]._id;
+                            var data = {
+                                str: words,
+                                user_id: user_id,
+                                home_id: '5754eb2a37c667e737df9ee3'
+                            };
+                            // console.log("传递参数：1：" + JSON.stringify(data));
+                            // var x = require('querystring').stringify(data);
+                            // console.log("传递参数：2：" + x);
+                            words = escape(escape(words));
+                            var host = "http://122.225.88.66:8180/SpringMongod/main/ao?str=" + words + "&user_id=" + user_id + "&home_id=5754eb2a37c667e737df9ee3";
+                            console.log("最终参数::" + host);
+                            request(host, function (error, response, body) {
+                                if (!error && response.statusCode == 200) {
+                                    var result = JSON.parse(body);
+                                    console.log("语音解析结果:" + JSON.stringify(result));
+                                    var ret = Code.OK;
+                                    var data = new Object();
+                                    data.voiceId = result.inputstr_id;
+                                    data.isDelayOrder = result.delayOrder;
+                                    data.isCanLearn = result.iscanlearn;
+                                    data.from = result.status;
+
+                                    if (!!result.orderAndInfrared && result.orderAndInfrared.length > 0) {
+                                        // 判断房间是否相同 如果相同，则直接执行，如果不同，对用户进行询问
+                                        // 返回的数据结构：
+                                        var targetArray = new Array();
+                                        var devices = new Array();
+                                        var sentence = "";
+
+                                        for (var i = 0; i < result.orderAndInfrared.length; i++) {
+                                            var t = result.orderAndInfrared[i];
+                                            targetArray.push(SayingUtil.translateStatus(t.order.ueq));
+                                            devices.push(t.order.ueq);
+
+                                            var ircode = t.infrared.infraredcode;
+                                            var terminalCode = "01";
+
+                                            // 开始发送红外命令
+                                            UserEquipmentModel.find({_id: t.order.ueq.id}, function (err, docs) {
+                                                TerminalModel.find({_id: docs[0].terminalId}, function (err, docs) {
+                                                    var serialNo = docs[0].centerBoxSerialno;
+                                                    CenterBoxModel.find({serialno:serialNo}, function(err, docs) {
+                                                        var curPort = docs[0].curPort;
+                                                        var curIpAddress = docs[0].curIpAddress;
+                                                        console.log("---------------------寻找当前主控信信息---------------------");
+                                                        console.log("curIpAddress : " + curIpAddress + "___curPort : " + curPort);
+                                                        var param = {
+                                                            command: '3000',
+                                                            ipAddress: ipAddress,
+                                                            serialNo: curIpAddress,
+                                                            data: terminalCode + " " + ircode,
+                                                            port: curPort
+                                                        };
+                                                        var sessionService = self.app.get('sessionService');
+                                                        console.log("向ots推送消息:" + JSON.stringify(param));
+                                                        self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+                                                            uid: 'socketServer*otron',
+                                                            sid: 'connector-server-1'
+                                                        }]);
+                                                    });
+                                                });
+                                            });
+                                        }
+                                        // 判断是否延时
+                                        if (result.delayOrder == true) {
+                                            sentence = result.delayDesc + "将为您" + JSON.stringify(targetArray);
+                                        } else {
+                                            sentence = "已为您" + JSON.stringify(targetArray);
+                                        }
+
+                                        data.answer = sentence;
+                                        data.devices = devices;
+                                        data.type = "data";
+                                        ret.data = data;
+                                    } else {
+                                        if (result.status == "turing") {
+                                            var msgObj = JSON.parse(result.msg);
+                                            ret.data = {result: msgObj.text, type:"data"};
+                                        } else {
+                                            ret.data = {result: result.msg, type:"data"};
+                                        }
+                                    }
+                                    next(null, ret);
+                                } else {
+                                    next(null, Code.NET_FAIL);
+                                }
+                            });
+                        } else {
+                            next(null, Code.DATABASE)
+                        }
                     }
-                }
-            });
-        }
-    });
+                });
+            }
+        });
+    }
 };
 
 
@@ -965,6 +991,8 @@ Handler.prototype.remoteControll = function (msg, session, next) {
                 model = escape(escape(model));
                 deviceType = escape(escape(deviceType));
                 status = escape(escape(status));
+                chg_chn = escape(escape(chg_chn));
+                chg_voice = escape(escape(chg_voice));
 
                 var data = {
                     user_id: user_id,
@@ -973,7 +1001,9 @@ Handler.prototype.remoteControll = function (msg, session, next) {
                     status: status,
                     model: model,
                     ac_windspeed: ac_windspeed,
-                    ac_temperature: ac_temperature
+                    ac_temperature: ac_temperature,
+                    chg_chn: chg_chn,
+                    chg_voice:chg_voice
                 };
 
                 data = require('querystring').stringify(data);

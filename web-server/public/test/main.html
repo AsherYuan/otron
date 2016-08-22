@@ -35,8 +35,8 @@
     <script type="text/javascript">
         var pomelo = window.pomelo;
 //        var host = "127.0.0.1";
-//        var host = "121.40.53.201";
-        var host = '192.168.2.105';
+        var host = "121.40.53.201";
+//        var host = '192.168.2.105';
         var port = "3015";
         var uid = '';
 
@@ -425,10 +425,10 @@
 
         function say() {
             var words = $("#userSaying").val();
-            words = escape(escape(words));
             var ipAddressX = $("#ipAddressX").val();
             var portX = $("#portX").val();
             pomelo.request('user.userHandler.userSaySomething', {words:words, ipAddress:ipAddressX, port:portX}, function(data) {
+                layer.alert(JSON.stringify(data));
                 $("#lastVoiceId").val(data.data.voiceId);
                 var deviceIds = "";
                 for(var i=0;i<data.data.devices.length;i++) {
@@ -440,7 +440,6 @@
                 }
 
                 $("#deviceIds").val(deviceIds);
-                layer.alert(JSON.stringify(data));
             });
         }
 
