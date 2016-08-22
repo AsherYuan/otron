@@ -24,7 +24,8 @@ var Error_cn = {
     SERVER_CLOSE : "服务器已关闭",
     COMMON: "通用错误",
     DATABASE : "数据库报错",
-    PARAMERROR : "参数错误"
+    PARAMERROR : "参数错误",
+    NODATA : "没有对应数据"
 };
 
 lang_cn = {

@@ -14,6 +14,8 @@ module.exports = {
 
     PARAMERROR: {'code': 102, 'codetxt': Lang.error.PARAMERROR},
 
+    NODATA : {'code' : 103, 'codetxt' : Lang.error.NODATA},
+
     ENTRY: {
         FA_TOKEN_INVALID: {'code': 1001, 'codetxt': Lang.error.FA_TOKEN_INVALID},
         FA_USER_NOT_EXIST: {'code': 1002, 'codetxt': Lang.error.FA_USER_NOT_EXIST},

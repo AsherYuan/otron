@@ -163,7 +163,8 @@
 
                                 layerHtml += "</div><div id='gridListDiv'></div></div>";
                                 $("#homeInfoDiv").append(layerHtml);
-                                pomelo.request('user.userHandler.getHomeGridList', {homeId:hi._id, layerName:hi.layers[j].name, centerBoxSerialno:hi.layers[j].centerBoxSerialno}, function(gridListData) {
+                                pomelo.request('user.userHandler.getHomeGridList', {homeId:'57b66b5790ed1e61144c0b27', layerName:'二楼', centerBoxSerialno:hi.layers[j].centerBoxSerialno}, function(gridListData) {
+                                    layer.alert("gridListData:::" + JSON.stringify(gridListData));
                                     var gridList = gridListData.data.docs;
                                     var centerBoxSerialno = gridListData.data.centerBoxSerialno;
                                     for(var l=0;l<gridList.length;l++) {

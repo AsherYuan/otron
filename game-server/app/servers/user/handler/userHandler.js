@@ -377,23 +377,27 @@ Handler.prototype.getHomeGridList = function (msg, session, next) {
             console.log(err);
             next(null, Code.DATABASE);
         } else {
-            var gridCount = (!!grids) ? grids.length : 0;
-            var gridIndex = 0;
-            for (var i = 0; i < grids.length; i++) {
-                TerminalModel.findOne({homeGridId: grids[i]._id}, function (err, terminal) {
-                    grids[gridIndex].terminal = terminal;
-                    gridIndex++;
-                    if (gridIndex === gridCount) {
-                        var ret = Code.OK;
-                        ret.data = {
-                            docs: grids,
-                            centerBoxSerialno: centerBoxSerialno,
-                            layerName: layerName,
-                            homeId: homeId
-                        };
-                        next(null, ret);
-                    }
-                });
+            if(!! grids && grids.length > 0) {
+                var gridCount = (!!grids) ? grids.length : 0;
+                var gridIndex = 0;
+                for (var i = 0; i < grids.length; i++) {
+                    TerminalModel.findOne({homeGridId: grids[i]._id}, function (err, terminal) {
+                        grids[gridIndex].terminal = terminal;
+                        gridIndex++;
+                        if (gridIndex === gridCount) {
+                            var ret = Code.OK;
+                            ret.data = {
+                                docs: grids,
+                                centerBoxSerialno: centerBoxSerialno,
+                                layerName: layerName,
+                                homeId: homeId
+                            };
+                            next(null, ret);
+                        }
+                    });
+                }
+            } else {
+                next(null, Code.NODATA);
             }
         }
     });
