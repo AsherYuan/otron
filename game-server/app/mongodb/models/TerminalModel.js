@@ -5,7 +5,8 @@ var TerminalSchema = new mongoose.Schema({
     code:String,
     type:String,
     regTime : { type:Date, default:Date.now },
-    isOnline : Boolean
+    isOnline : Boolean,
+    lastSensorDataTime : { type:Date, default:Date.now }
 });
 var TerminalModel = mongoose.model("terminal", TerminalSchema);
 module.exports = TerminalModel;

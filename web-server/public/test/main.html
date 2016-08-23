@@ -42,10 +42,7 @@
 
         $(document).ready(function() {
             pomelo.on('onMsg', function (data) {
-//                alert(JSON.stringify(data));
-
                 if(data.sysNotice) {
-                    layer.alert(data.sysNotice);
                     window.location.href = "/test/login.html";
                 }
 
@@ -110,9 +107,8 @@
                 window.location.href = '/test/login.html';
             } else {
                 pomelo.init({host:host, port:port, log:true}, function() {
-                    var route = 'user.entryHandler.auth';
                     var uid = 'web' + new Date().getTime();
-                    pomelo.request(route, {token:cookieToken}, function(data) {
+                    pomelo.request('user.entryHandler.auth', {token:cookieToken}, function(data) {
                         if(data === 1001) {
                             layer.msg('验证失败');
                         } else {
@@ -143,6 +139,7 @@
         function initUserInfo() {
             var route = 'user.userHandler.getUserInfo';
             pomelo.request(route, function(data) {
+                layer.msg(JSON.stringify(data));
                 if(data.data.mobile !== undefined) {
                     if( !! data.data.homeInfo) {
                         for(var i=0;i<data.data.homeInfo.length;i++) {
@@ -163,8 +160,7 @@
 
                                 layerHtml += "</div><div id='gridListDiv'></div></div>";
                                 $("#homeInfoDiv").append(layerHtml);
-                                pomelo.request('user.userHandler.getHomeGridList', {homeId:'57b66b5790ed1e61144c0b27', layerName:'二楼', centerBoxSerialno:hi.layers[j].centerBoxSerialno}, function(gridListData) {
-                                    layer.alert("gridListData:::" + JSON.stringify(gridListData));
+                                pomelo.request('user.userHandler.getHomeGridList', {homeId:'57b1333cc99b4cfe3a0a5868', layerName:'一楼', centerBoxSerialno:hi.layers[j].centerBoxSerialno}, function(gridListData) {
                                     var gridList = gridListData.data.docs;
                                     var centerBoxSerialno = gridListData.data.centerBoxSerialno;
                                     for(var l=0;l<gridList.length;l++) {
@@ -267,7 +263,7 @@
                                 for(var x=0; x<data.data.homeInfo.length;x++) {
                                     cBoxHtml += '<div class="homeToChoose">' + data.data.homeInfo[x].floorName + '<br/>';
                                     for(var y=0;y<data.data.homeInfo[x].layers.length;y++) {
-                                        cBoxHtml += '<div class="layerToChoose" onclick="bindCenterBoxToLayer(\'' +  data.data.homeInfo[x]._id + '\', \'' + data.userInfo.homeInfo[x].layers[y].name + '\', \'' + cBox.serialno + '\');">' + data.userInfo.homeInfo[x].layers[y].name + '</div>';
+                                        cBoxHtml += '<div class="layerToChoose" onclick="bindCenterBoxToLayer(\'' +  data.data.homeInfo[x]._id + '\', \'' + data.data.homeInfo[x].layers[y].name + '\', \'' + cBox.serialno + '\');">' + data.data.homeInfo[x].layers[y].name + '</div>';
                                     }
                                     cBoxHtml += '</div>';
                                 }
@@ -429,7 +425,6 @@
             var ipAddressX = $("#ipAddressX").val();
             var portX = $("#portX").val();
             pomelo.request('user.userHandler.userSaySomething', {words:words, ipAddress:ipAddressX, port:portX}, function(data) {
-                layer.alert(JSON.stringify(data));
                 $("#lastVoiceId").val(data.data.voiceId);
                 var deviceIds = "";
                 for(var i=0;i<data.data.devices.length;i++) {

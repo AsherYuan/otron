@@ -1,6 +1,7 @@
 var CenterBoxModel = require('../../../mongodb/models/CenterBoxModel');
 var SensorDataModel = require('../../../mongodb/models/SensorDataModel');
 var TerminalModel = require('../../../mongodb/models/TerminalModel');
+var TSensorDataModel = require('../../../mongodb/models/TSensorDataModel');
 var sessionManager = require('../../../domain/sessionService.js');
 
 module.exports = function(app) {
@@ -143,11 +144,6 @@ Handler.prototype.entry = function(msg, session, next) {
 Handler.prototype.socketMsg = function(msg, session, next) {
 	var self = this;
 
-	console.log("-----");
-	console.log("     " + JSON.stringify(msg));
-
-	console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>session:::' + session.uid);
-
 	CenterBoxModel.findOne({serialno:msg.serialno}, function(err, doc) {
 		if(err) console.log(err);
 		else {
@@ -159,28 +155,28 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 			if(command == '1000') {
 				param = {
 					command: '1000',
-					msg: '控制器上线, IP地址： ' + msg.ipAddress + ", 端口:" + msg.port,
-					ipAddress: msg.ipAddress,
-					port : msg.port,
+					msg: '控制器上线, 串号:' + serialno,
 					serialno : msg.serialno
 				};
 			} else if (command == '999') {
 				param = {
-					command:'999',
-					ipAddress:msg.ipAddress,
-					port : msg.port,
-					msg: '控制器断开连接, IP地址： ' + msg.ipAddress + ", 端口:" + msg.port,
-					serialno : msg.serialno
+					command: '999',
+					msg: '控制器下线, 串号:' + serialno,
+					serialno: msg.serialno
+				};
+			} else if (command == '998') {
+				param = {
+					command:'998',
+					centerBoxSerialno : msg.serialno,
+					terminalCode : msg.code,
+					msg: '终端下线, 终端编码:' + msg.code
 				};
 			} else if(command == '1001') {
 				param = {
 					command:'1001',
-					ipAddress:msg.ipAddress,
 					terminalCode:msg.terminalCode,
 					centerBoxSerialno:msg.serialno,
-					terminalType:msg.terminalType,
-					port : msg.port,
-					msg: '终端上线, 终端编码： ' + msg.terminalCode
+					msg: '终端上线, 终端编码:' + msg.terminalCode
 				};
 				TerminalModel.find({centerBoxSerialno:msg.serialno, code:msg.terminalCode, type:msg.terminalType}, function(err,docs) {
 					if(err) console.log(err);
@@ -218,12 +214,34 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					data:msg.data
 				};
 			} else if(command == '2005') {
+				var sensorData = msg.data;
+				var terminalCode = sensorData.substring(0, 2);
+				var humidity = parseInt(sensorData.substring(6, 8), 16);
+				var temperature = parseInt(sensorData.substring(8, 10), 16);
 				param = {
 					command:'2005',
-					ipAddress: msg.ipAddress,
-					port : msg.port,
-					data:msg.data
+					terminalCode:terminalCode,
+					humidity:humidity,
+					temperature:temperature,
+					centerBoxSerialno:msg.serialno,
+					addTime:new Date()
 				};
+
+				TerminalModel.findOne({centerBoxSerialno:msg.serialno, code:terminalCode}, function(error, terminal) {
+					if(error) console.log(error);
+					else {
+						if(!! terminal) {
+							var tSensorEntity = new TSensorDataModel({terminalId:terminal._id, temperature:temperature, humidity:humidity});
+							tSensorEntity.save(function(saveError) {
+								if(saveError) {
+									console.log(saveError);
+								}
+							});
+						}
+					}
+				});
+
+
 			} else if(command == '3000') {
 				param = {
 					command:'3000',
@@ -252,14 +270,14 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 				quality = parseInt(quality, 16);
 				param = {
 					command:'4000',
-					ipAddress: msg.ipAddress,
 					data:msg.data,
 					temperature:temp,
 					humidity:wet,
 					co2:co2,
 					pm25:pm25,
 					quality:quality,
-					port:msg.port
+					centerBoxSerialno:msg.serialno,
+					addTime:new Date()
 				}
 
 				CenterBoxModel.find({serialno:msg.serialno}, function(err, docs) {
@@ -284,7 +302,7 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					}
 				});
 			}
-			console.log("发送给网页端：：" + JSON.stringify(param) + "_______________" + userMobile);
+			console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
 			self.app.get('channelService').pushMessageByUids('onMsg', param, [{
 				uid: userMobile,
 				sid: 'user-server-1'

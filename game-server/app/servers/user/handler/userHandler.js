@@ -73,6 +73,7 @@ Handler.prototype.updateUserInfo = function (msg, session, next) {
  */
 Handler.prototype.getUserInfo = function (msg, session, next) {
     var uid = session.uid;
+    console.log(uid);
     UserModel.findOne({mobile: uid}, function (err, userDoc) {
         if (err) {
             console.log(err);
@@ -983,20 +984,19 @@ Handler.prototype.remoteControll = function (msg, session, next) {
         } else {
             if (!!docs) {
                 var device = docs[0];
-                var deviceType = msg.deviceType;
-                var status = msg.status;
-                var model = msg.model;
-                var ac_windspeed = msg.ac_windspeed;
-                var ac_temperature = msg.ac_temperature;
-                var num = msg.num;
-                var chg_voice = msg.chg_voice;
-                var chg_chn = msg.chg_chn;
+                var deviceType = msg.deviceType == undefined ? '' : msg.deviceType;
+                var status = msg.status == undefined ? '' : msg.status;
+                var model = msg.model == undefined ? '' : msg.model;
+                var ac_windspeed = msg.ac_windspeed == undefined ? '' : msg.ac_windspeed;
+                var ac_temperature = msg.ac_temperature == undefined ? '' : msg.ac_temperature;
+                var num = msg.num == undefined ? '' : msg.num;
+                var chg_voice = msg.chg_voice == undefined ? '' : msg.chg_voice;
+                var chg_chn = msg.chg_chn == undefined ? '' : msg.chg_chn;
+                var inst = msg.inst == undefined ? '' : msg.inst;
 
                 model = escape(escape(model));
                 deviceType = escape(escape(deviceType));
                 status = escape(escape(status));
-                chg_chn = escape(escape(chg_chn));
-                chg_voice = escape(escape(chg_voice));
 
                 var data = {
                     user_id: user_id,
@@ -1007,7 +1007,8 @@ Handler.prototype.remoteControll = function (msg, session, next) {
                     ac_windspeed: ac_windspeed,
                     ac_temperature: ac_temperature,
                     chg_chn: chg_chn,
-                    chg_voice:chg_voice
+                    chg_voice:chg_voice,
+                    inst:inst
                 };
 
                 data = require('querystring').stringify(data);
@@ -1042,25 +1043,30 @@ Handler.prototype.getSensorDatas = function (msg, session, next) {
 };
 
 Handler.prototype.setCenterBoxSwitch = function(msg, session, next) {
-    var field = msg.type + "Switch";
+    console.log("开关设置:::" + JSON.stringify(msg));
     if(msg.type == "temperature") {
-        CenterBoxModel.update({serialno:msg.serialno}, {"$set":{temperatureSwitch:msg.btn}}, function(error, docs) {
+        CenterBoxModel.update({"serialno":msg.serialno}, {$set:{"temperatureSwitch":msg.btn}}, function(error, docs) {
+            console.log("xxxxxxx1" + JSON.stringify(docs));
             next(null, Code.OK);
         });
     } else if(msg.type == "humidity") {
-        CenterBoxModel.update({serialno:msg.serialno}, {"$set":{humiditySwitch:msg.btn}}, function(error, docs) {
+        CenterBoxModel.update({"serialno":msg.serialno}, {$set:{"humiditySwitch":msg.btn}}, function(error, docs) {
+            console.log("xxxxxxx2" + JSON.stringify(docs));
             next(null, Code.OK);
         });
     } else if(msg.type == "co") {
-        CenterBoxModel.update({serialno:msg.serialno}, {"$set":{coSwitch:msg.btn}}, function(error, docs) {
+        CenterBoxModel.update({"serialno":msg.serialno}, {$set:{"coSwitch":msg.btn}}, function(error, docs) {
+            console.log("xxxxxxx3" + JSON.stringify(docs));
             next(null, Code.OK);
         });
     } else if(msg.type == "quality") {
-        CenterBoxModel.update({serialno:msg.serialno}, {"$set":{qualitySwitch:msg.btn}}, function(error, docs) {
+        CenterBoxModel.update({"serialno":msg.serialno}, {$set:{"qualitySwitch":msg.btn}}, function(error, docs) {
+            console.log("xxxxxxx4" + JSON.stringify(docs));
             next(null, Code.OK);
         });
     } else if(msg.type == "pm25") {
-        CenterBoxModel.update({serialno:msg.serialno}, {"$set":{pm25Switch:msg.btn}}, function(error, docs) {
+        CenterBoxModel.update({"serialno":msg.serialno}, {$set:{"pm25Switch":msg.btn}}, function(error, docs) {
+            console.log("xxxxxxx5" + JSON.stringify(docs));
             next(null, Code.OK);
         });
     }

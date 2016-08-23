@@ -120,6 +120,7 @@
 
         function switching(serialno, type, btn) {
             pomelo.request("user.userHandler.setCenterBoxSwitch", {serialno:serialno, type:type, btn:btn}, function(data) {
+//                layer.alert(JSON.stringify(data));
                 window.location.reload();
             });
         }

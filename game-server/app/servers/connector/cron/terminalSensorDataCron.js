@@ -11,6 +11,32 @@ var Cron = function (app) {
     this.app = app;
 };
 
+var sendQuery = function(curIpAddress, curPort, centerBoxSerialno, channelService) {
+    if((!! curIpAddress) && (!! curPort)) {
+        TerminalModel.find({centerBoxSerialno:centerBoxSerialno, isOnline:true}, function(error, terminals) {
+            if(error) {
+                console.log(error);
+            } else {
+                if(!!terminals) {
+                    for (var i = 0; i < terminals.length; i++) {
+                        var code = terminals[i].code;
+                        var param = {
+                            command: '2005',
+                            ipAddress: curIpAddress,
+                            data: code,
+                            port: curPort
+                        };
+                        channelService.pushMessageByUids('onMsg', param, [{
+                            uid: 'socketServer*otron',
+                            sid: 'connector-server-1'
+                        }]);
+                    }
+                }
+            }
+        });
+    }
+}
+
 /**
  * 定时任务，定时给所有用户去推送消息
  */
@@ -25,34 +51,12 @@ Cron.prototype.getSensorData = function () {
         } else {
             if(!!centerBoxs) {
                 for(var i=0;i<centerBoxs.length;i++) {
-                    if((!! centerBoxs[i].curIpAddress) && (!! centerBoxs[i].curPort)) {
-                        console.log("定时任务中发现当前连接中的主控：" + centerBoxs[i].curIpAddress + "::" + centerBoxs[i].curPort + "___" + centerBoxs[i].serialno);
-                        var curIpAddress = centerBoxs[i].curIpAddress;
-                        var curPort = centerBoxs[i].curPort;
-                        var centerBoxSerialno = centerBoxs[i].serialno;
-                        TerminalModel.find({centerBoxSerialno:centerBoxSerialno, isOnline:true}, function(error, terminals) {
-                            if(error) {
-                                console.log(error);
-                            } else {
-                                if(!!terminals) {
-                                    for (var i = 0; i < terminals.length; i++) {
-                                        var code = terminals.code;
-                                        var param = {
-                                            command: '2005',
-                                            ipAddress: curIpAddress,
-                                            data: code,
-                                            port: curPort
-                                        };
-                                        console.log("向硬件询问终端传感器数据：" + JSON.stringify(param));
-                                        self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-                                            uid: 'socketServer*otron',
-                                            sid: 'connector-server-1'
-                                        }]);
-                                    }
-                                }
-                            }
-                        });
-                    }
+                    var cbString = JSON.stringify(centerBoxs[i]);
+                    var centerBox = JSON.parse(cbString);
+                    var curIpAddress = centerBox.curIpAddress;
+                    var curPort = centerBox.curPort;
+                    var centerBoxSerialno = centerBox.serialno;
+                    sendQuery(curIpAddress, curPort, centerBoxSerialno,  self.app.get('channelService'));
                 }
             }
         }

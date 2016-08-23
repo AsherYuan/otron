@@ -6,6 +6,9 @@ var UserModel = require('../../../mongodb/models/UserModel');
 var sessionManager = require('../../../domain/sessionService.js');
 var StringUtil = require('../../../util/StringUtil.js');
 var RegexUtil = require('../../../util/RegexUtil.js');
+var HomeModel = require('../../../mongodb/models/HomeModel');
+var HomeWifiModel = require('../../../mongodb/models/HomeWifiModel');
+var CenterBoxModel = require('../../../mongodb/models/CenterBoxModel');
 
 module.exports = function (app) {
     return new Handler(app);
@@ -37,11 +40,10 @@ Handler.prototype.auth = function (msg, session, next) {
     }
     // Token解析成功 开始验证数据
     var uid = res.uid;
-    UserModel.find({"mobile": uid}, function (err, docs) {
+    UserModel.find({"mobile": uid}, function (err, userDoc) {
         if (err) console.log(err);
         else {
-            // 用户没找到
-            if (docs.length === 0) {
+            if (userDoc.length === 0) {
                 next(null, Code.ACCOUNT.USER_NOT_EXIST);
                 return;
             } else {
@@ -52,7 +54,7 @@ Handler.prototype.auth = function (msg, session, next) {
                         uid: uid,
                         sid: 'user-server-1'
                     }]);
-                    sessionService.kick(uid);
+                    sessionService.kick(uid, function() {});
                 }
                 sessionManager.addSession(uid, {status: 1, frontendId: session.frontendId});
                 session.on('closed', onUserLeave.bind(null, self.app));
@@ -61,8 +63,35 @@ Handler.prototype.auth = function (msg, session, next) {
                 session.set('uid', uid);
                 session.uid = uid;
 
-                next(null, Code.OK);
-                return;
+                // TODO 与userHandler中的getUserInfo合并到UserRemote中取去
+                HomeModel.find({userMobile: uid}, function (err, homeDocs) {
+                    if (err) {
+                        console.log(err);
+                        next(null, Code.DATABASE);
+                    } else {
+                        HomeWifiModel.find({usermobile: uid}, function (err, homeWifiDocs) {
+                            if (err) {
+                                console.log(err);
+                                next(null, Code.DATABASE);
+                            } else {
+                                CenterBoxModel.find({userMobile: uid}, function (err, centerBoxDocs) {
+                                    if (err) {
+                                        console.log(err);
+                                        next(null, Code.DATABASE);
+                                    } else {
+                                        userDoc.homeInfo = homeDocs;
+                                        userDoc.centerBox = centerBoxDocs;
+                                        userDoc.homeWifi = homeWifiDocs;
+
+                                        var ret = Code.OK;
+                                        ret.data = userDoc;
+                                        next(null, ret);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
             }
         }
     });
