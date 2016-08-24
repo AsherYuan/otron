@@ -22,8 +22,8 @@
     </script>
     <script type="text/javascript">
         var pomelo = window.pomelo;
-//                var host = "121.40.53.201";
-        var host = '192.168.2.123';
+                var host = "121.40.53.201";
+//        var host = '192.168.2.123';
         var port = "3015";
 
         $(document).ready(function() {
@@ -49,10 +49,14 @@
                 });
             }
         });
-
+        [{"_id":"57bd48481dbbfdd0263f48cf","userMobile":"13600000008",
+            "hasRead":0,"title":"橙色大风报警Wed Aug 24 2016 15:10:00 GMT+0800 (CST)",
+            "content":"6小时内可能受大风影响,平均风力可达10级以上，" +
+            "或阵风11级以上；或者已经受大风影响, 平均风力为10—11级，或阵风11—12级并可能持续。","noticeType":2,"addTime":"2016-08-24T07:10:00.000Z"}
         function showNoticeList() {
             pomelo.request("user.userHandler.getNoticeList", {page:1, pageSize:15}, function(data) {
                 for(var i=0; i<data.data.length;i++) {
+                    layer.alert(JSON.stringify(data));
                     var html = "<div>" + data.data[i].title + "<input type='button' onclick='read(\"" + data.data[i]._id + "\");' value='阅读'></div>";
                     $("#container").append(html);
                 }

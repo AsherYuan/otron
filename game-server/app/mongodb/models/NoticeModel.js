@@ -5,6 +5,7 @@ var NoticeScheme = new mongoose.Schema({
 	addTime:{type:Date, default:Date.now},
 	hasRead:Number,
 	title:String,
+	summary:String,
 	content:String,
 	noticeType:Number /** 1 新闻资讯 2 特殊天气预警 **/
 });

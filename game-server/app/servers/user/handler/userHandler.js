@@ -20,6 +20,7 @@ var request = require('request');
 var RDeviceModel = require('../../../mongodb/models/RDeviceModel');
 var SayingUtil = require('../../../domain/SayingUtil');
 var NoticeModel = require('../../../mongodb/models/NoticeModel');
+var Moment = require('moment');
 
 module.exports = function (app) {
     return new Handler(app);
@@ -1197,11 +1198,36 @@ Handler.prototype.getNoticeList = function (msg, session, next) {
     var userMobile = session.uid;
 
     var skip = pageSize * (page - 1);
-    NoticeModel.find({userMobile:userMobile}).select('userMobile addTime hasRead title content noticeType')
+    NoticeModel.find({userMobile:userMobile}).select('userMobile addTime hasRead title content noticeType summary')
         .sort({hasRead:1, addTime:-1}).skip(skip).limit(pageSize).exec(function(err, notices) {
-        var ret = Code.OK;
-        ret.data = notices;
-        next(null, ret);
+        if(err) {
+            console.log(err);
+            next(null, Code.DATABASE);
+        } else {
+            for(var i=0;i<notices.length;i++) {
+                notices[i].addTime = Moment(notices[i].addTime).format('YYYY-MM-DD HH:mm:ss');
+            }
+            var ret = Code.OK;
+            ret.data = notices;
+            next(null, ret);
+        }
+    });
+};
+
+/**
+ 消息详情
+ **/
+Handler.prototype.getNoticeDetail = function (msg, session, next) {
+    var id = msg.noticeId;
+    NoticeModel.findOne({_id:id}, function(err, notice) {
+        if(err) {
+            console.log(err);
+            next(null, Code.DATABASE);
+        } else {
+            var ret = Code.OK;
+            ret.data = notice;
+            next(null, ret);
+        }
     });
 };
 
