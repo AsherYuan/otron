@@ -4559,3 +4559,23 @@
 [2016-08-24 13:39:20.724] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
 [2016-08-24 13:39:20.736] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
 [2016-08-24 13:39:20.736] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 889 ms
+[2016-08-24 13:54:00.203] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-24 13:54:01.034] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.123", 3005
+[2016-08-24 13:54:01.127] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-24 13:54:01.140] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-24 13:54:01.140] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 850 ms
+[2016-08-24 13:55:04.332] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-24 13:55:05.295] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.123", 3005
+[2016-08-24 13:55:05.372] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-24 13:55:05.383] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-24 13:55:05.383] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 957 ms
+[2016-08-24 13:55:32.739] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-24 13:55:33.681] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.123", 3005
+[2016-08-24 13:55:33.762] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-24 13:55:33.774] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-24 13:55:33.775] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 933 ms
+[2016-08-24 13:55:51.034] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2016-08-24 13:55:51.965] [INFO] pomelo-admin - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/node_modules/pomelo-admin/lib/consoleService.js] [39mtry to connect master: "connector", "192.168.2.123", 3005
+[2016-08-24 13:55:52.026] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2016-08-24 13:55:52.033] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2016-08-24 13:55:52.034] [INFO] pomelo - [32m[/home/asher/git-repo/otron/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 912 ms
