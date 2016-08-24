@@ -13,12 +13,12 @@
       },
       {
         "id": 3,
-        "time": "0 0 0/2 * * *",
+        "time": "0/10 * * * * *",
         "action": "newsDataCron.currentData"
       },
       {
         "id": 4,
-        "time": "0 10 0/1 * * *",
+        "time": "0/15 * * * * *",
         "action": "weatherAlarmDataCron.currentData"
       }
     ]
@@ -37,12 +37,12 @@
       },
       {
         "id": 3,
-        "time": "0 0 0/2 * * *",
+        "time": "0/10 * * * * *",
         "action": "newsDataCron.currentData"
       },
       {
         "id": 4,
-        "time": "0 10 0/1 * * *",
+        "time": "0/15 * * * * *",
         "action": "weatherAlarmDataCron.currentData"
       }
     ]

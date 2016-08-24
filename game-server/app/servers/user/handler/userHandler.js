@@ -19,6 +19,7 @@ var SensorDataModel = require('../../../mongodb/models/SensorDataModel');
 var request = require('request');
 var RDeviceModel = require('../../../mongodb/models/RDeviceModel');
 var SayingUtil = require('../../../domain/SayingUtil');
+var NoticeModel = require('../../../mongodb/models/NoticeModel');
 
 module.exports = function (app) {
     return new Handler(app);
@@ -1179,4 +1180,24 @@ Handler.prototype.testOff = function (msg, session, next) {
 
 Handler.prototype.monitorhooker = function (msg, session, next) {
     next(null, Code.OK);
+};
+
+/**
+ 消息列表
+ **/
+Handler.prototype.getNoticeList = function (msg, session, next) {
+    var page = msg.page;
+    if(page == undefined || page < 1) {
+        page = 1;
+    }
+    var pageSize = msg.page;
+    if(pageSize == undefined || pageSize < 1) {
+        pageSize = 10;
+    }
+
+    var skip = pageSize * (page - 1);
+
+    NoticeModel.find({}, {sort: [['addTime', -1]]}, function(err, notices) {
+        next(null, notices);
+    }).skip(skip).limit(pageSize);
 };

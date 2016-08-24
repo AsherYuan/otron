@@ -1,5 +1,6 @@
 var UserModel = require('../../../mongodb/models/UserModel');
 var WeatherModel = require('../../../graber/weather/WeatherModel');
+var NoticeModel = require('../../../mongodb/models/NoticeModel');
 var Moment = require('moment');
 
 module.exports = function (app) {
