@@ -1190,14 +1190,16 @@ Handler.prototype.getNoticeList = function (msg, session, next) {
     if(page == undefined || page < 1) {
         page = 1;
     }
-    var pageSize = msg.page;
+    var pageSize = msg.pageSize;
     if(pageSize == undefined || pageSize < 1) {
         pageSize = 10;
     }
+    var userMobile = session.uid;
 
     var skip = pageSize * (page - 1);
-
-    NoticeModel.find({}, {sort: [['addTime', -1]]}, function(err, notices) {
+    NoticeModel.find({userMobile:userMobile}).select('userMobile addTime hasRead title content noticeType')
+        .sort({addTime:-1}).skip(skip).limit(pageSize).exec(function(err, notices) {
+        console.log(JSON.stringify(notices));
         next(null, notices);
-    }).skip(skip).limit(pageSize);
+    });
 };

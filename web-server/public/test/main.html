@@ -139,7 +139,7 @@
         function initUserInfo() {
             var route = 'user.userHandler.getUserInfo';
             pomelo.request(route, function(data) {
-                layer.msg(JSON.stringify(data));
+                layer.alert(JSON.stringify(data));
                 if(data.data.mobile !== undefined) {
                     if( !! data.data.homeInfo) {
                         for(var i=0;i<data.data.homeInfo.length;i++) {
@@ -550,6 +550,10 @@
                 layer.alert(JSON.stringify(data));
             });
         }
+
+        function toNoticeList() {
+            window.location.href = "/test/noticeList.html";
+        }
     </script>
 </head>
 <body>
@@ -571,6 +575,7 @@
 <div><input type="button" value="测试开关--开" onclick="testOn()" /></div>
 <div><input type="button" value="测试开关--关" onclick="testOff()" /></div>
 <div><input type="button" value="遥控界面" onclick="toRemoteControllWin()" /></div>
+<div><input type="button" value="消息列表" onclick="toNoticeList();" /></div>
 <div>
     <input type="text" id="userSaying"/><input type="button" value="语音提交" onclick="say()" />
     <input type="text" id="ipAddressX">
