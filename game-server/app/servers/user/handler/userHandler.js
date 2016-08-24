@@ -1216,3 +1216,15 @@ Handler.prototype.setNoticeRead = function(msg, session, next) {
             next(null, Code.OK);
     });
 };
+
+Handler.prototype.getNoticeNotReadCount = function(msg, session, next) {
+    var userMobile = session.uid;
+    NoticeModel.count({hasRead:0, userMobile:userMobile}, function(err, count) {
+        if(err) console.log(err);
+        else {
+            var ret = Code.OK;
+            ret.data = count;
+            next(null, ret);
+        }
+    });
+};

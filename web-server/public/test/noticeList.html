@@ -64,9 +64,16 @@
                 window.location.reload();
             });
         }
+
+        function getCount() {
+            pomelo.request('user.userHandler.getNoticeNotReadCount', {}, function(data) {
+                layer.alert(JSON.stringify(data));
+            });
+        }
     </script>
 </head>
 <body>
+<input type="button" value="数量" onclick="getCount();" />
     <div id="container">
 
     </div>
