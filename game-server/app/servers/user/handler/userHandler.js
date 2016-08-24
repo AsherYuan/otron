@@ -1198,8 +1198,21 @@ Handler.prototype.getNoticeList = function (msg, session, next) {
 
     var skip = pageSize * (page - 1);
     NoticeModel.find({userMobile:userMobile}).select('userMobile addTime hasRead title content noticeType')
-        .sort({addTime:-1}).skip(skip).limit(pageSize).exec(function(err, notices) {
-        console.log(JSON.stringify(notices));
-        next(null, notices);
+        .sort({hasRead:1, addTime:-1}).skip(skip).limit(pageSize).exec(function(err, notices) {
+        var ret = Code.OK;
+        ret.data = notices;
+        next(null, ret);
+    });
+};
+
+/**
+ 设置消息为已读
+ **/
+Handler.prototype.setNoticeRead = function(msg, session, next) {
+    var noticeId = msg.noticeId;
+    NoticeModel.update({_id:noticeId}, {$set:{hasRead:1}}, function(err, docs) {
+        if(err) console.log(err);
+        else
+            next(null, Code.OK);
     });
 };
