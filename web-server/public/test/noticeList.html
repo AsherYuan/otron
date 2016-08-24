@@ -22,9 +22,8 @@
     </script>
     <script type="text/javascript">
         var pomelo = window.pomelo;
-                var host = "121.40.53.201";
-        //        var host = '127.0.0.1';
-//        var host = '192.168.2.123';
+//                var host = "121.40.53.201";
+        var host = '192.168.2.123';
         var port = "3015";
 
         $(document).ready(function() {
@@ -54,9 +53,15 @@
         function showNoticeList() {
             pomelo.request("user.userHandler.getNoticeList", {page:1, pageSize:15}, function(data) {
                 for(var i=0; i<data.data.length;i++) {
-                    var html = "<div>" + data.data[i].title + "</div>";
+                    var html = "<div>" + data.data[i].title + "<input type='button' onclick='read(\"" + data.data[i]._id + "\");' value='阅读'></div>";
                     $("#container").append(html);
                 }
+            });
+        }
+
+        function read(noticeId) {
+            pomelo.request('user.userHandler.setNoticeRead', {noticeId:noticeId}, function(data) {
+                window.location.reload();
             });
         }
     </script>
