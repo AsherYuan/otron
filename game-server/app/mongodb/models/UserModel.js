@@ -51,7 +51,9 @@ var UserScheme = new mongoose.Schema({
     name:{type:String}, //真实姓名
     homeInfo : [HomeSchema],
     homeWifi: [HomeWifiSchema],
-    centerBox : [CenterBoxSchema]
+    centerBox : [CenterBoxSchema],
+    city : {type:String, default:'嘉兴'},
+    parentUser : String // 父帐号ID
 });
 var UserModel = mongoose.model("user", UserScheme);
 module.exports = UserModel;

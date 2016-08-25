@@ -22,11 +22,12 @@ Cron.prototype.currentData = function () {
 
 				var userMobile = docs[i].mobile;
 				var hasRead = 0;
-				var title = "橙色大风报警" + new Date();
+				var title = "橙色大风报警";
 				var content = "6小时内可能受大风影响,平均风力可达10级以上，或阵风11级以上；或者已经受大风影响, 平均风力为10—11级，或阵风11—12级并可能持续。";
 				var noticeType = 2;
+				var summary = content.substring(0, 60);
 
-				var NoticeEntity = new NoticeModel({userMobile:userMobile, hasRead:hasRead, title:title, content:content, noticeType:noticeType});
+				var NoticeEntity = new NoticeModel({userMobile:userMobile, hasRead:hasRead, title:title, content:content, noticeType:noticeType, summary:summary});
 				NoticeEntity.save(function(err) {
 					if(err) console.log(err);
 				});
