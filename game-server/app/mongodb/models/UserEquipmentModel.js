@@ -13,7 +13,7 @@ var UserEquipmentSchema = new mongoose.Schema({
     ac_model:String,
     ac_windspeed:Number,
     ac_temperature:Number,
-    addTime:{type:Date, default:Date.now},
+    addTime:{type:Date, default:Date.now}
 });
 var UserEquipmentModel = mongoose.model("userEquipment", UserEquipmentSchema, "userEquipment");
 module.exports = UserEquipmentModel;

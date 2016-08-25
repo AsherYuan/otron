@@ -138,6 +138,12 @@
         function getPort(str) {
             return parseInt(str.substring(2, 4) + str.substring(0, 2), 16);
         }
+
+        function testDeviceList() {
+            pomelo.request("user.userHandler.getDeviceList", function(data) {
+               layer.alert(JSON.stringify(data));
+            });
+        }
     </script>
 </head>
 <body>
@@ -148,5 +154,6 @@
 <div><input type="button" value="测试0x2001" onclick="test2001();" /></div>
 <div><input type="button" value="测试0x2002" onclick="test2002();" /></div>
 <div><input type="button" value="测试0x2005" onclick="test2005();" /></div>
+<div><input type="button" value="设备列表" onclick="testDeviceList();" /></div>
 </body>
 </html>

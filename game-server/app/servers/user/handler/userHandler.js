@@ -1204,8 +1204,20 @@ Handler.prototype.getNoticeList = function (msg, session, next) {
             console.log(err);
             next(null, Code.DATABASE);
         } else {
+            var today = new Date();
+            var yesterday = new Date();
+            yesterday.setDate(today.getDate() - 1);
             for(var i=0;i<notices.length;i++) {
-                notices[i].addTime = Moment(notices[i].addTime).format('YYYY-MM-DD HH:mm:ss');
+                var addTime = notices[i].addTime;
+                if(addTime.getFullYear() == today.getFullYear() && addTime.getMonth() == today.getMonth() && addTime.getDate() == today.getDate()) {
+                    notices[i].addTime = Moment(notices[i].addTime).format('HH:mm');
+                } else {
+                    if(addTime.getFullYear() == yesterday.getFullYear() && addTime.getMonth() == yesterday.getMonth() && addTime.getDate() == yesterday.getDate()) {
+                        notices[i].addTime = "昨天";
+                    } else {
+                        notices[i].addTime = Moment(notices[i].addTime).format('MM-DD HH:mm');
+                    }
+                }
             }
             var ret = Code.OK;
             ret.data = notices;
