@@ -1,6 +1,7 @@
-var NoticeModel = require('../../../mongodb/models/NoticeModel');
 var UserModel = require('../../../mongodb/models/UserModel');
-var WarningModel = require('../../../mongodb/grabmodel/WarningModel');
+var NoticeModel = require('../../../mongodb/models/NoticeModel');
+var SuggestionModel = require('../../../mongodb/grabmodel/SuggestionModel');
+var cheerio = require('cheerio');
 var http = require("http");
 
 module.exports = function (app) {
@@ -16,6 +17,7 @@ var Cron = function (app) {
 Cron.prototype.currentData = function () {
 	var self = this;
 
+	var postData = {};
 	var options = {
 		host: 'apis.baidu.com',
 		port: 80,
@@ -34,25 +36,20 @@ Cron.prototype.currentData = function () {
 		}).on('end', function () {
 			var data = JSON.parse(receiveData);
 			var list = data["HeWeather data service 3.0"];
-			if (list[0].alarms != undefined && list.length > 0) {
-				var alarms = list[0].alarms;
-				if (alarms[0].level != undefined && alarms.length > 0) {
-					var alar = "有预警";
-					var level = alarms[0].level;
-					var stat = alarms[0].stat;
-					var title = alarms[0].title;
-					var txt = alarms[0].txt;
-					var type = alarms[0].type;
+			if (list[0].suggestion != undefined && list.length > 0) {
+				var suggestion = list[0].suggestion;
+				if (suggestion.drsg != undefined) {
+					var drsg = suggestion.drsg.brf + "," + suggestion.drsg.txt;
+					var flu = suggestion.flu.brf + "," + suggestion.flu.txt;
+					var suggest = "穿衣建议及以防感冒";
 
-					var WarningEntity = new WarningModel({
-						alarms: alar,
-						level: level,
-						stat: stat,
-						title: title,
-						txt: txt,
-						type: type
+					var SuggestionEntity = new SuggestionModel({
+						suggestion: suggest,
+						drsg: drsg,
+						flu: flu
 					});
-					WarningEntity.save(function (err) {
+
+					SuggestionEntity.save(function (err) {
 						if (err) console.log(err);
 						else {
 							UserModel.find({}, function (err, docs) {
@@ -61,15 +58,14 @@ Cron.prototype.currentData = function () {
 									for (var i = 0; i < docs.length; i++) {
 										var userMobile = docs[i].mobile;
 										var hasRead = 0;
-										var noticeType = 2;
-										var summary = level + type + title;
-										summary = summary.substring(0, 60);
+										var noticeType = 3;
+										var summary = (drsg + flu).substring(0, 60);
 
 										var NoticeEntity = new NoticeModel({
 											userMobile: userMobile,
 											hasRead: hasRead,
-											title: title,
-											content: txt,
+											title: suggestion,
+											content: drsg + flu,
 											noticeType: noticeType,
 											summary: summary
 										});
@@ -79,9 +75,9 @@ Cron.prototype.currentData = function () {
 
 										var mobile = docs[i].mobile;
 										var param = {
-											command: '9001',
-											title: title,
-											content: txt,
+											command: '9003',
+											title: suggestion,
+											content: drsg + flu,
 											addTime: new Date()
 										};
 										self.app.get('channelService').pushMessageByUids('onMsg', param, [{
@@ -95,6 +91,8 @@ Cron.prototype.currentData = function () {
 					});
 				}
 			}
+
+
 		});
 	};
 
@@ -102,4 +100,5 @@ Cron.prototype.currentData = function () {
 		console.log(e.message);
 	});
 	req.end();
+
 };
