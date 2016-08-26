@@ -144,7 +144,9 @@ Handler.prototype.entry = function(msg, session, next) {
 Handler.prototype.socketMsg = function(msg, session, next) {
 	var self = this;
 
-	CenterBoxModel.findOne({serialno:msg.serialno}, function(err, doc) {
+	var serialno = msg.serialno;
+
+	CenterBoxModel.findOne({serialno:serialno}, function(err, doc) {
 		if(err) console.log(err);
 		else {
 			var userMobile = doc.userMobile;

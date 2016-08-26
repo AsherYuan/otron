@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$" libraries="{otron/node_modules}" />
-    <file url="file://$PROJECT_DIR$/game-server" libraries="{otron/game-server/node_modules}" />
-    <file url="file://$PROJECT_DIR$/web-server" libraries="{otron/web-server/node_modules}" />
-  </component>
-</project>

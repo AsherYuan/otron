@@ -692,15 +692,27 @@ Handler.prototype.saveNewDevice = function (msg, session, next) {
 
 Handler.prototype.deleteDevice = function (msg, session, next) {
     var deviceId = msg.deviceId;
-    UserEquipmentModel.remove({_id: new Object(deviceId)}, function (err, docs) {
-        if (err) {
-            console.log(err);
-            next(null, Code.DATABASE);
-        } else {
-            next(null, Code.OK);
-        }
-    })
-}
+    if(deviceId.indexOf(",") > -1) {
+        var ids = JSON.parse('['  + deviceId + ']');
+        UserEquipmentModel.remove({_id: {$in:ids}}, function (err, docs) {
+            if (err) {
+                console.log(err);
+                next(null, Code.DATABASE);
+            } else {
+                next(null, Code.OK);
+            }
+        });
+    } else {
+        UserEquipmentModel.remove({_id: new Object(deviceId)}, function (err, docs) {
+            if (err) {
+                console.log(err);
+                next(null, Code.DATABASE);
+            } else {
+                next(null, Code.OK);
+            }
+        });
+    }
+};
 
 /**
  * 绑定用户家庭的路由器信息
@@ -911,6 +923,15 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
     }
 };
 
+// TODO 只对在语音界面的用户推送
+Handler.prototype.enterVoice = function(msg, session, next) {
+    next(null, Code.OK);
+};
+// TODO 只对在语音界面的用户推送
+Handler.prototype.leaveVoice = function(msg, session, next) {
+    next(null, Code.OK);
+};
+
 /**
  * 向用户推送
  * type可选 ['txt', 'pic', 'link', 'arch']
@@ -920,13 +941,18 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
  * @param next
  */
 Handler.prototype.pushMsg = function(msg, session, next) {
+    var self = this;
     var targetMobile = msg.targetMobile;
     var type = msg.type;
     var content = msg.content;
+    var pic = msg.pic;
+    var link = msg.link;
 
     var param = {
         type:type,
-        data:content
+        data:content,
+        pic:pic,
+        link:link
     };
 
     /**
@@ -939,7 +965,7 @@ Handler.prototype.pushMsg = function(msg, session, next) {
                     var tm = docs[i].mobile;
                     self.app.get('channelService').pushMessageByUids('onVoice', param, [{
                         uid: tm,
-                        sid: 'connector-server-1'
+                        sid: 'user-server-1'
                     }]);
                 }
             }
@@ -947,7 +973,7 @@ Handler.prototype.pushMsg = function(msg, session, next) {
     } else {
         self.app.get('channelService').pushMessageByUids('onVoice', param, [{
             uid: targetMobile,
-            sid: 'connector-server-1'
+            sid: 'user-server-1'
         }]);
     }
 };
