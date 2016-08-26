@@ -3,12 +3,12 @@
     "connector": [
       {
         "id": 1,
-        "time": "0 * 0/1 * * *",
+        "time": "0 0/10 * * * *",
         "action": "outdoorDataCron.currentData"
       },
       {
         "id": 2,
-        "time": "0 * 0/1 * * *",
+        "time": "10 0/10 * * * *",
         "action": "terminalSensorDataCron.getSensorData"
       },
       {
@@ -18,12 +18,12 @@
       },
       {
         "id": 4,
-        "time": "0 0 0/1 * * *",
+        "time": "0 10 0/1 * * *",
         "action": "weatherAlarmDataCron.currentData"
       },
       {
         "id": 5,
-        "time": "0/10 * * * * *",
+        "time": "0 20 0/3 * * *",
         "action": "weatherSuggestDataCron.currentData"
       }
     ]
@@ -37,7 +37,7 @@
       },
       {
         "id": 2,
-        "time": "0/10 * * * * *",
+        "time": "10 0/10 * * * *",
         "action": "terminalSensorDataCron.getSensorData"
       },
       {
@@ -52,7 +52,7 @@
       },
       {
         "id": 5,
-        "time": "0 10 0/1 * * *",
+        "time": "0 20 0/3 * * *",
         "action": "weatherSuggestDataCron.currentData"
       }
     ]
