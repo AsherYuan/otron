@@ -70,6 +70,6 @@ var onUserLeave = function(app, session) {
   if(!session || !session.uid) {
     return;
   }
-  console.log('用户离开,session消除');
+  console.log('用户离开,session消除 [' + session.uid + "]");
   sessionManager.delSession(session.uid);
 };

@@ -211,22 +211,22 @@ Handler.prototype.queryTerminal = function (msg, session, next) {
 Handler.prototype.queryDevices = function (msg, session, next) {
     var userMobile = session.uid;
     UserModel.findOne({mobile:userMobile}, function(err, user) {
-        if(err) {
+        if (err) {
             console.log(err);
             next(null, Code.DATABASE);
         } else {
             var ids = new Array();
             ids.push(userMobile);
             ids.push(user.parentUser);
-            HomeModel.find({userMobile: {$in: ids}}, function (err, docs) {
-                if (!!docs) {
-                    var ids = [];
-                    for (var i = 0; i < docs.length; i++) {
-                        ids.push(docs[i]._id);
+
+            HomeModel.find({userMobile: {$in:ids}}, function (err, homes) {
+                if (!!homes) {
+                    var homeIds = [];
+                    for (var i = 0; i < homes.length; i++) {
+                        homeIds.push(homes[i]._id);
                     }
 
-                    UserEquipmentModel.find({home_id: {$in: ids}}, function (err, docs) {
-                        console.log("用户设备：" + JSON.stringify(docs));
+                    UserEquipmentModel.find({home_id: {$in: homeIds}}).populate('homeGridId').exec(function (err, docs) {
                         if (err) {
                             console.log(err);
                             next(null, Code.DATABASE);
@@ -240,7 +240,6 @@ Handler.prototype.queryDevices = function (msg, session, next) {
                     next(null, Code.DATABASE);
                 }
             });
-
         }
     });
 };
@@ -256,14 +255,14 @@ Handler.prototype.getDeviceList = function (msg, session, next) {
             ids.push(userMobile);
             ids.push(user.parentUser);
 
-            HomeModel.find({userMobile: {$in:ids}}, function (err, docs) {
-                if (!!docs) {
-                    var ids = [];
-                    for (var i = 0; i < docs.length; i++) {
-                        ids.push(docs[i]._id);
+            HomeModel.find({userMobile: {$in:ids}}, function (err, homes) {
+                if (!!homes) {
+                    var homeIds = [];
+                    for (var i = 0; i < homes.length; i++) {
+                        homeIds.push(homes[i]._id);
                     }
 
-                    UserEquipmentModel.find({home_id: {$in: ids}}).populate('homeGridId').exec(function (err, docs) {
+                    UserEquipmentModel.find({home_id: {$in: homeIds}}).populate('homeGridId').exec(function (err, docs) {
                         if (err) {
                             console.log(err);
                             next(null, Code.DATABASE);
@@ -692,25 +691,32 @@ Handler.prototype.saveNewDevice = function (msg, session, next) {
 
 Handler.prototype.deleteDevice = function (msg, session, next) {
     var deviceId = msg.deviceId;
-    if(deviceId.indexOf(",") > -1) {
-        var ids = JSON.parse('['  + deviceId + ']');
-        UserEquipmentModel.remove({_id: {$in:ids}}, function (err, docs) {
-            if (err) {
-                console.log(err);
-                next(null, Code.DATABASE);
-            } else {
-                next(null, Code.OK);
+    if(!!deviceId) {
+        if(deviceId.indexOf(",") > -1) {
+            var idArray = deviceId.split(',');
+            var ids = new Array();
+            for(var i=0;i<idArray.length;i++) {
+                ids.push(idArray[i]);
             }
-        });
-    } else {
-        UserEquipmentModel.remove({_id: new Object(deviceId)}, function (err, docs) {
-            if (err) {
-                console.log(err);
-                next(null, Code.DATABASE);
-            } else {
-                next(null, Code.OK);
-            }
-        });
+
+            UserEquipmentModel.remove({_id: {$in:ids}}, function (err, docs) {
+                if (err) {
+                    console.log(err);
+                    next(null, Code.DATABASE);
+                } else {
+                    next(null, Code.OK);
+                }
+            });
+        } else {
+            UserEquipmentModel.remove({_id: new Object(deviceId)}, function (err, docs) {
+                if (err) {
+                    console.log(err);
+                    next(null, Code.DATABASE);
+                } else {
+                    next(null, Code.OK);
+                }
+            });
+        }
     }
 };
 
@@ -812,112 +818,119 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
         ret.data = data;
         next(null, ret);
     } else {
-        HomeModel.find({userMobile: uid}, function (err, docs) {
-            if (err) {
-                console.log(docs);
+        UserModel.findOne({mobile:uid}, function(err, userDocs) {
+            console.log("用户列表:" + JSON.stringify(userDocs));
+            if(err) {
+                console.log(err);
                 next(null, Code.DATABASE);
             } else {
-                UserModel.find({mobile: uid}, function (err, userDocs) {
-                    if (err) {
-                        console.log(userDocs);
-                        next(null, Code.DATABASE);
-                    } else {
-                        var user_id = userDocs[0]._id;
-                        // TODO 选择homeId, 语言模式上调整
-                        if (!!docs) {
-                            var homeId = docs[0]._id;
-                            var data = {
-                                str: words,
-                                user_id: user_id,
-                                home_id: '5754eb2a37c667e737df9ee3'
-                            };
-                            // console.log("传递参数：1：" + JSON.stringify(data));
-                            // var x = require('querystring').stringify(data);
-                            // console.log("传递参数：2：" + x);
-                            words = escape(escape(words));
-                            var host = "http://122.225.88.66:8180/SpringMongod/main/ao?str=" + words + "&user_id=" + user_id + "&home_id=5754eb2a37c667e737df9ee3";
-                            console.log("最终参数::" + host);
-                            request(host, function (error, response, body) {
-                                if (!error && response.statusCode == 200) {
-                                    var result = JSON.parse(body);
-                                    console.log("语音解析结果:" + JSON.stringify(result));
-                                    var ret = Code.OK;
-                                    var data = new Object();
-                                    data.voiceId = result.inputstr_id;
-                                    data.isDelayOrder = result.delayOrder;
-                                    data.isCanLearn = result.iscanlearn;
-                                    data.from = result.status;
+                if(!!userDocs) {
+                    var userIds = new Array();
+                    userIds.push(userDocs.mobile);
+                    userIds.push(userDocs.parentUser);
+                    HomeModel.find({userMobile:{$in:userIds}}, function(err, docs) {
+                        console.log("用户家庭请求:" + JSON.stringify(docs));
+                        if (err) {
+                            console.log(docs);
+                            next(null, Code.DATABASE);
+                        } else {
+                            var user_id = userDocs._id;
+                            // TODO 选择homeId, 语言模式上调整
+                            if (!!docs) {
+                                var homeId = docs[0]._id;
+                                var data = {
+                                    str: words,
+                                    user_id: user_id,
+                                    home_id: homeId
+                                };
+                                words = escape(escape(words));
+                                console.log("java request begin:::" + Moment(new Date()).format('HH:mm:ss'));
+                                var host = "http://122.225.88.66:8180/SpringMongod/main/ao?str=" + words + "&user_id=" + user_id + "&home_id=" + homeId;
+                                request(host, function (error, response, body) {
+                                    console.log("java request end  :::" + Moment(new Date()).format('HH:mm:ss'));
+                                    console.log("返回JAVA端错误：：" + response.statusCode);
+                                    if (!error && response.statusCode == 200) {
+                                        var result = JSON.parse(body);
+                                        console.log("语音解析结果:" + JSON.stringify(result));
+                                        var ret = Code.OK;
+                                        var data = new Object();
+                                        data.voiceId = result.inputstr_id;
+                                        data.isDelayOrder = result.delayOrder;
+                                        data.isCanLearn = result.iscanlearn;
+                                        data.from = result.status;
 
-                                    if (!!result.orderAndInfrared && result.orderAndInfrared.length > 0) {
-                                        // 判断房间是否相同 如果相同，则直接执行，如果不同，对用户进行询问
-                                        // 返回的数据结构：
-                                        var targetArray = new Array();
-                                        var devices = new Array();
-                                        var sentence = "";
+                                        if (!!result.orderAndInfrared && result.orderAndInfrared.length > 0) {
+                                            // 判断房间是否相同 如果相同，则直接执行，如果不同，对用户进行询问
+                                            // 返回的数据结构：
+                                            var targetArray = new Array();
+                                            var devices = new Array();
+                                            var sentence = "";
 
-                                        for (var i = 0; i < result.orderAndInfrared.length; i++) {
-                                            var t = result.orderAndInfrared[i];
-                                            targetArray.push(SayingUtil.translateStatus(t.order.ueq));
-                                            devices.push(t.order.ueq);
+                                            for (var i = 0; i < result.orderAndInfrared.length; i++) {
+                                                var t = result.orderAndInfrared[i];
+                                                targetArray.push(SayingUtil.translateStatus(t.order.ueq));
+                                                devices.push(t.order.ueq);
 
-                                            var ircode = t.infrared.infraredcode;
-                                            var terminalCode = "01";
+                                                var ircode = t.infrared.infraredcode;
+                                                var terminalCode = "01";
 
-                                            // 开始发送红外命令
-                                            UserEquipmentModel.find({_id: t.order.ueq.id}, function (err, docs) {
-                                                TerminalModel.find({_id: docs[0].terminalId}, function (err, docs) {
-                                                    var serialNo = docs[0].centerBoxSerialno;
-                                                    CenterBoxModel.find({serialno: serialNo}, function (err, docs) {
-                                                        var curPort = docs[0].curPort;
-                                                        var curIpAddress = docs[0].curIpAddress;
-                                                        console.log("---------------------寻找当前主控信信息---------------------");
-                                                        console.log("curIpAddress : " + curIpAddress + "___curPort : " + curPort);
-                                                        var param = {
-                                                            command: '3000',
-                                                            ipAddress: ipAddress,
-                                                            serialNo: curIpAddress,
-                                                            data: terminalCode + " " + ircode,
-                                                            port: curPort
-                                                        };
-                                                        var sessionService = self.app.get('sessionService');
-                                                        console.log("向ots推送消息:" + JSON.stringify(param));
-                                                        self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-                                                            uid: 'socketServer*otron',
-                                                            sid: 'connector-server-1'
-                                                        }]);
+                                                // 开始发送红外命令
+                                                UserEquipmentModel.find({_id: t.order.ueq.id}, function (err, docs) {
+                                                    TerminalModel.find({_id: docs[0].terminalId}, function (err, docs) {
+                                                        var serialNo = docs[0].centerBoxSerialno;
+                                                        CenterBoxModel.find({serialno: serialNo}, function (err, docs) {
+                                                            var curPort = docs[0].curPort;
+                                                            var curIpAddress = docs[0].curIpAddress;
+                                                            console.log("---------------------寻找当前主控信信息---------------------");
+                                                            console.log("curIpAddress : " + curIpAddress + "___curPort : " + curPort);
+                                                            var param = {
+                                                                command: '3000',
+                                                                ipAddress: curIpAddress,
+                                                                serialNo: serialNo,
+                                                                data: terminalCode + " " + ircode,
+                                                                port: curPort
+                                                            };
+                                                            var sessionService = self.app.get('sessionService');
+                                                            console.log("向ots推送消息:" + JSON.stringify(param));
+                                                            self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+                                                                uid: 'socketServer*otron',
+                                                                sid: 'connector-server-1'
+                                                            }]);
+                                                        });
                                                     });
                                                 });
-                                            });
-                                        }
-                                        // 判断是否延时
-                                        if (result.delayOrder == true) {
-                                            sentence = result.delayDesc + "将为您" + JSON.stringify(targetArray);
-                                        } else {
-                                            sentence = "已为您" + JSON.stringify(targetArray);
-                                        }
+                                            }
+                                            // 判断是否延时
+                                            if (result.delayOrder == true) {
+                                                sentence = result.delayDesc + "将为您" + JSON.stringify(targetArray);
+                                            } else {
+                                                sentence = "已为您" + JSON.stringify(targetArray);
+                                            }
 
-                                        data.answer = sentence;
-                                        data.devices = devices;
-                                        data.type = "data";
-                                        ret.data = data;
-                                    } else {
-                                        if (result.status == "turing") {
-                                            var msgObj = JSON.parse(result.msg);
-                                            ret.data = {result: msgObj.text, type: "data"};
+                                            data.answer = sentence;
+                                            data.devices = devices;
+                                            data.type = "data";
+                                            ret.data = data;
                                         } else {
-                                            ret.data = {result: result.msg, type: "data"};
+                                            if (result.status == "turing") {
+                                                var msgObj = JSON.parse(result.msg);
+                                                ret.data = {result: msgObj.text, type: "data"};
+                                            } else {
+                                                ret.data = {result: result.msg, type: "data"};
+                                            }
                                         }
+                                        console.log("最终反馈给用户:" + JSON.stringify(ret));
+                                        next(null, ret);
+                                    } else {
+                                        next(null, Code.NET_FAIL);
                                     }
-                                    next(null, ret);
-                                } else {
-                                    next(null, Code.NET_FAIL);
-                                }
-                            });
-                        } else {
-                            next(null, Code.DATABASE)
+                                });
+                            } else {
+                                next(null, Code.DATABASE)
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
     }
@@ -1327,8 +1340,10 @@ Handler.prototype.getNoticeList = function (msg, session, next) {
                         n.addTime = Moment(notices[i].addTime).format('MM-DD HH:mm');
                     }
                 }
+                n._id = notices[i]._id;
                 n.title = notices[i].title;
                 n.content = notices[i].content;
+                n.contentTrim = StringUtil.filterHtml(notices[i].content);
                 n.summary = notices[i].summary;
                 n.userMobile = notices[i].userMobile;
                 n.noticeType = notices[i].noticeType;
@@ -1359,7 +1374,31 @@ Handler.prototype.getNoticeDetail = function (msg, session, next) {
                     next(null, Code.OK);
             });
             var ret = Code.OK;
-            ret.data = notice;
+
+            var n = new Object();
+            n._id = notice._id;
+            n.title = notice.title;
+            n.content = notice.content;
+            n.contentTrim = StringUtil.filterHtml(notice.content);
+            n.summary = notice.summary;
+            n.userMobile = notice.userMobile;
+            n.noticeType = notice.noticeType;
+            n.hasRead = notice.hasRead;
+
+            var today = new Date();
+            var yesterday = new Date();
+            yesterday.setDate(today.getDate() - 1);
+            var addTime = notice.addTime;
+            if (addTime.getFullYear() == today.getFullYear() && addTime.getMonth() == today.getMonth() && addTime.getDate() == today.getDate()) {
+                n.addTime = Moment(notice.addTime).format('HH:mm');
+            } else {
+                if (addTime.getFullYear() == yesterday.getFullYear() && addTime.getMonth() == yesterday.getMonth() && addTime.getDate() == yesterday.getDate()) {
+                    n.addTime = "昨天";
+                } else {
+                    n.addTime = Moment(notice.addTime).format('MM-DD HH:mm');
+                }
+            }
+            ret.data = n;
             next(null, ret);
         }
     });
@@ -1368,25 +1407,39 @@ Handler.prototype.getNoticeDetail = function (msg, session, next) {
 /**
  * 删除消息
  */
-Handler.prototype.deleteNotice = function(msg, session, next) {
-    var ids = JSON.parse("[" + msg.noticeId + "]");
-    NoticeModel.remove({_id: {$in:ids}}, function(err, docs) {
-        if (err) console.log(err);
-        else
-            next(null, Code.OK);
-    });
+Handler.prototype.deleteNotice = function (msg, session, next) {
+    if(!!msg.noticeId) {
+        var idArray = msg.noticeId.split(',');
+        var ids = new Array();
+        for(var i=0;i<idArray.length;i++) {
+            ids.push(idArray[i]);
+        }
+
+        NoticeModel.remove({_id: {$in:ids}}, function(err, docs) {
+            if (err) console.log(err);
+            else
+                next(null, Code.OK);
+        });
+    }
 };
 
 /**
  设置消息为已读
  **/
 Handler.prototype.setNoticeRead = function (msg, session, next) {
-    var ids = JSON.parse("[" + msg.noticeId + "]");
-    NoticeModel.update({_id: {$in:ids}}, {$set: {hasRead: 1}}, function (err, docs) {
-        if (err) console.log(err);
-        else
-            next(null, Code.OK);
-    });
+    if(!!msg.noticeId) {
+        var idArray = msg.noticeId.split(',');
+        var ids = new Array();
+        for(var i=0;i<idArray.length;i++) {
+            ids.push(idArray[i]);
+        }
+
+        NoticeModel.update({_id: {$in:ids}}, {$set: {hasRead: 1}}, function (err, docs) {
+            if (err) console.log(err);
+            else
+                next(null, Code.OK);
+        });
+    }
 };
 
 Handler.prototype.getNoticeNotReadCount = function (msg, session, next) {

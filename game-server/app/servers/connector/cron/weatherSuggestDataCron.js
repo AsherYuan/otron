@@ -80,8 +80,6 @@ Cron.prototype.currentData = function () {
                                         				summary: summary
                                         			});
 
-                                        			console.log("数据：" + JSON.stringify(NoticeEntity));
-
                                         			NoticeEntity.save(function (err) {
                                         				if (err) console.log(err);
                                         			});
@@ -93,6 +91,8 @@ Cron.prototype.currentData = function () {
                                         				content: drsg + flu,
                                         				addTime: new Date()
                                         			};
+
+													console.log("mobile:::" + mobile);
                                         			self.app.get('channelService').pushMessageByUids('onMsg', param, [{
                                         				uid: mobile,
                                         				sid: 'user-server-1'

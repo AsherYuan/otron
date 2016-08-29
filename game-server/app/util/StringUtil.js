@@ -64,3 +64,9 @@ StringUtil.length = function(str) {
     }
     return len;
 };
+
+StringUtil.filterHtml = function(str) {
+    str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
+    str.value = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
+    return str;
+};

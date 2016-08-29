@@ -1,5 +1,6 @@
 var NoticeModel = require('../../../mongodb/models/NoticeModel');
 var UserModel = require('../../../mongodb/models/UserModel');
+var StringUtil = require('../../../util/StringUtil');
 
 module.exports = function (app) {
     return new Cron(app);
@@ -30,6 +31,7 @@ Cron.prototype.currentData = function () {
                     '<p>2012年伦敦夏季奥运会的闭幕式演出被命名为“英国音乐交响曲”，以“英国之声”为主题，这场闭幕式也被很多观众调侃为是经典歌曲联唱的“大夜场”。</p>' +
                     '<p>闭幕式的序幕在一位演员扮演的前英国首相丘吉尔的朗诵中揭开序幕。“辣妹”、皇后乐队、平克·弗洛伊德、The Who……这些歌手或乐队纷纷出山，和Jessie J、Ed Sheeran等新生代歌手同台飙歌，用顶尖的音乐展现英国本土文化的发扬和传承。</p>' +
                     '<p>除了出场的众多大牌歌手以外，闭幕式上还向英国音乐史上两位殿堂级人物致敬，分别是披头士乐队的主唱约翰·列侬和皇后乐队的主唱弗雷迪·墨丘利，引发全场观众掌声和大合唱。</p>';
+                content = StringUtil.filterHtml(content);
                 var noticeType = 1;
                 var summary = content.substring(0, 60);
 

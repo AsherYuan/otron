@@ -2,7 +2,7 @@ var CenterBoxModel = require('../../../mongodb/models/CenterBoxModel');
 var SensorDataModel = require('../../../mongodb/models/SensorDataModel');
 var TerminalModel = require('../../../mongodb/models/TerminalModel');
 var TSensorDataModel = require('../../../mongodb/models/TSensorDataModel');
-var sessionManager = require('../../../domain/sessionService.js');
+var UserModel = require('../../../mongodb/models/UserModel');
 
 module.exports = function(app) {
   return new Handler(app);
@@ -149,6 +149,7 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 	CenterBoxModel.findOne({serialno:serialno}, function(err, doc) {
 		if(err) console.log(err);
 		else {
+			console.log(JSON.stringify(serialno));
 			var userMobile = doc.userMobile;
 			var command = msg.command;
 			var param = {
@@ -220,14 +221,6 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 				var terminalCode = sensorData.substring(0, 2);
 				var humidity = parseInt(sensorData.substring(6, 8), 16);
 				var temperature = parseInt(sensorData.substring(8, 10), 16);
-				param = {
-					command:'2005',
-					terminalCode:terminalCode,
-					humidity:humidity,
-					temperature:temperature,
-					centerBoxSerialno:msg.serialno,
-					addTime:new Date()
-				};
 
 				TerminalModel.findOne({centerBoxSerialno:msg.serialno, code:terminalCode}, function(error, terminal) {
 					if(error) console.log(error);
@@ -237,6 +230,44 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 							tSensorEntity.save(function(saveError) {
 								if(saveError) {
 									console.log(saveError);
+								}
+							});
+
+							param = {
+								command:'2005',
+								terminalCode:terminalCode,
+								humidity:humidity,
+								temperature:temperature,
+								centerBoxSerialno:msg.serialno,
+								addTime:new Date(),
+								terminalId:terminal._id
+							};
+
+							UserModel.find({parentUser:userMobile}, function(err, users) {
+								if(err) {
+									console.log(err);
+								} else {
+									if(!!users && users.length > 0) {
+										console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
+										self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+											uid: userMobile,
+											sid: 'user-server-1'
+										}]);
+
+										for(var i=0;i<users.length;i++) {
+											console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + users[i].mobile);
+											self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+												uid: users[i].mobile,
+												sid: 'user-server-1'
+											}]);
+										}
+									} else {
+										console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
+										self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+											uid: userMobile,
+											sid: 'user-server-1'
+										}]);
+									}
 								}
 							});
 						}
@@ -276,7 +307,7 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					temperature:temp,
 					humidity:wet,
 					co2:co2,
-					pm25:pm25,
+					pm25:0,
 					quality:quality,
 					centerBoxSerialno:msg.serialno,
 					addTime:new Date()
@@ -304,11 +335,38 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					}
 				});
 			}
-			console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
-			self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-				uid: userMobile,
-				sid: 'user-server-1'
-			}]);
+
+			if(param.command == '2005') {
+
+			} else {
+				UserModel.find({parentUser:userMobile}, function(err, users) {
+					if(err) {
+						console.log(err);
+					} else {
+						if(!!users && users.length > 0) {
+							console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
+							self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+								uid: userMobile,
+								sid: 'user-server-1'
+							}]);
+
+							for(var i=0;i<users.length;i++) {
+								console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + users[i].mobile);
+								self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+									uid: users[i].mobile,
+									sid: 'user-server-1'
+								}]);
+							}
+						} else {
+							console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
+							self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+								uid: userMobile,
+								sid: 'user-server-1'
+							}]);
+						}
+					}
+				});
+			}
 		}
 	});
 };
