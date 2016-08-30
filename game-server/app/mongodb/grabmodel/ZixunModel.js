@@ -1,4 +1,4 @@
-var mongoose = require('./mongoose.js');
+var mongoose = require('../mongoose.js');
 
 var ZixunSchema = new mongoose.Schema({
 	title: {type: String, default: ''},

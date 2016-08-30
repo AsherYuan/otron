@@ -209,90 +209,122 @@ Handler.prototype.queryTerminal = function (msg, session, next) {
 };
 
 Handler.prototype.queryDevices = function (msg, session, next) {
+    var homeId = msg.homeId;
+    var layerName = msg.layerName;
     var userMobile = session.uid;
-    UserModel.findOne({mobile:userMobile}, function(err, user) {
-        if (err) {
-            console.log(err);
-            next(null, Code.DATABASE);
-        } else {
-            var ids = new Array();
-            ids.push(userMobile);
-            ids.push(user.parentUser);
 
-            HomeModel.find({userMobile: {$in:ids}}, function (err, homes) {
-                if (!!homes) {
-                    var homeIds = [];
-                    for (var i = 0; i < homes.length; i++) {
-                        homeIds.push(homes[i]._id);
-                    }
+    if(!!homeId && !!layerName) {
+        UserEquipmentModel.find({home_id: homeId, layerName:layerName}).populate('homeGridId').exec(function (err, docs) {
+            if (err) {
+                console.log(err);
+                next(null, Code.DATABASE);
+            } else {
+                var ret = Code.OK;
+                ret.data = docs;
+                next(null, ret);
+            }
+        });
+    } else {
+        UserModel.findOne({mobile:userMobile}, function(err, user) {
+            if (err) {
+                console.log(err);
+                next(null, Code.DATABASE);
+            } else {
+                var ids = new Array();
+                ids.push(userMobile);
+                ids.push(user.parentUser);
 
-                    UserEquipmentModel.find({home_id: {$in: homeIds}}).populate('homeGridId').exec(function (err, docs) {
-                        if (err) {
-                            console.log(err);
-                            next(null, Code.DATABASE);
-                        } else {
-                            var ret = Code.OK;
-                            ret.data = docs;
-                            next(null, ret);
+                HomeModel.find({userMobile: {$in:ids}}, function (err, homes) {
+                    if (!!homes) {
+                        var homeIds = [];
+                        for (var i = 0; i < homes.length; i++) {
+                            homeIds.push(homes[i]._id);
                         }
-                    });
-                } else {
-                    next(null, Code.DATABASE);
-                }
-            });
-        }
-    });
+
+                        UserEquipmentModel.find({home_id: {$in: homeIds}}).populate('homeGridId').exec(function (err, docs) {
+                            if (err) {
+                                console.log(err);
+                                next(null, Code.DATABASE);
+                            } else {
+                                var ret = Code.OK;
+                                ret.data = docs;
+                                next(null, ret);
+                            }
+                        });
+                    } else {
+                        next(null, Code.DATABASE);
+                    }
+                });
+            }
+        });
+    }
 };
 
 Handler.prototype.getDeviceList = function (msg, session, next) {
+    var homeId = msg.homeId;
+    var layerName = msg.layerName;
     var userMobile = session.uid;
-    UserModel.findOne({mobile:userMobile}, function(err, user) {
-        if (err) {
-            console.log(err);
-            next(null, Code.DATABASE);
-        } else {
-            var ids = new Array();
-            ids.push(userMobile);
-            ids.push(user.parentUser);
 
-            HomeModel.find({userMobile: {$in:ids}}, function (err, homes) {
-                if (!!homes) {
-                    var homeIds = [];
-                    for (var i = 0; i < homes.length; i++) {
-                        homeIds.push(homes[i]._id);
-                    }
+    if(!!homeId && !!layerName) {
+        UserEquipmentModel.find({home_id: homeId, layerName:layerName}).populate('homeGridId').exec(function (err, docs) {
+            if (err) {
+                console.log(err);
+                next(null, Code.DATABASE);
+            } else {
+                var ret = Code.OK;
+                ret.data = docs;
+                next(null, ret);
+            }
+        });
+    } else {
+        UserModel.findOne({mobile:userMobile}, function(err, user) {
+            if (err) {
+                console.log(err);
+                next(null, Code.DATABASE);
+            } else {
+                var ids = new Array();
+                ids.push(userMobile);
+                ids.push(user.parentUser);
 
-                    UserEquipmentModel.find({home_id: {$in: homeIds}}).populate('homeGridId').exec(function (err, docs) {
-                        if (err) {
-                            console.log(err);
-                            next(null, Code.DATABASE);
-                        } else {
-                            var ret = Code.OK;
-                            ret.data = docs;
-                            next(null, ret);
+                HomeModel.find({userMobile: {$in:ids}}, function (err, homes) {
+                    if (!!homes) {
+                        var homeIds = [];
+                        for (var i = 0; i < homes.length; i++) {
+                            homeIds.push(homes[i]._id);
                         }
-                    });
-                } else {
-                    next(null, Code.DATABASE);
-                }
-            });
-        }
-    });
+
+                        UserEquipmentModel.find({home_id: {$in: homeIds}}).populate('homeGridId').exec(function (err, docs) {
+                            if (err) {
+                                console.log(err);
+                                next(null, Code.DATABASE);
+                            } else {
+                                var ret = Code.OK;
+                                ret.data = docs;
+                                next(null, ret);
+                            }
+                        });
+                    } else {
+                        next(null, Code.DATABASE);
+                    }
+                });
+            }
+        });
+    }
 };
 
 Handler.prototype.getDeviceListByGridId = function (msg, session, next) {
     var homeGridId = msg.homeGridId;
-    DeviceModel.find({homeGridId: homeGridId}, function (err, devices) {
+    UserEquipmentModel.find({homeGridId: homeGridId}).populate('homeGridId').exec(function (err, docs) {
         if (err) {
             console.log(err);
             next(null, Code.DATABASE);
         } else {
             var ret = Code.OK;
-            ret.data = devices;
+            ret.data = docs;
             next(null, ret);
         }
     });
-}
+};
 
 
 Handler.prototype.bindCenterBoxToLayer = function (msg, session, next) {
@@ -848,6 +880,7 @@ Handler.prototype.userSaySomething = function (msg, session, next) {
                                 var host = "http://122.225.88.66:8180/SpringMongod/main/ao?str=" + words + "&user_id=" + user_id + "&home_id=" + homeId;
                                 request(host, function (error, response, body) {
                                     console.log("java request end  :::" + Moment(new Date()).format('HH:mm:ss'));
+                                    console.log("返回JAVA端数据：：" + body);
                                     console.log("返回JAVA端错误：：" + response.statusCode);
                                     if (!error && response.statusCode == 200) {
                                         var result = JSON.parse(body);

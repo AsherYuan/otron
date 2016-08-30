@@ -54,6 +54,7 @@ Handler.prototype.auth = function (msg, session, next) {
                         uid: uid,
                         sid: 'user-server-1'
                     }]);
+                    console.log("用户" + uid + "多点登录，将之前另一个用户踢下线----auth");
                     sessionService.kick(uid, function() {});
                 }
                 sessionManager.addSession(uid, {status: 1, frontendId: session.frontendId});
@@ -129,6 +130,7 @@ Handler.prototype.login = function (msg, session, next) {
                                 uid: uid,
                                 sid: 'user-server-1'
                             }]);
+                            console.log("用户" + uid + "多点登录，将之前另一个用户踢下线----auth");
                             sessionService.kick(uid);
                         }
                         // 登录验证成功，处理session

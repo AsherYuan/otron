@@ -16,6 +16,7 @@ var Cron = function (app) {
  * 定时任务，定时给所有用户去推送消息
  */
 Cron.prototype.currentData = function () {
+	var self = this;
 	graber.grab("http://www.bjnews.com.cn/realtime-page-1.html", function (html) {
 		var $ = cheerio.load(html);
 		var news = $('#main').children('.lleft').children('.news');

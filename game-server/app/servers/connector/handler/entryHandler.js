@@ -339,6 +339,7 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 			if(param.command == '2005') {
 
 			} else {
+				console.log("------------------------------------" + userMobile);
 				UserModel.find({parentUser:userMobile}, function(err, users) {
 					if(err) {
 						console.log(err);
