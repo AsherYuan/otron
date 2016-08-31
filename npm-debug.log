@@ -1,0 +1,56 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'pomelo-robot',
+1 verbose cli   '-g' ]
+2 info using npm@3.5.2
+3 info using node@v4.2.6
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData pomelo-robot
+8 silly fetchNamedPackageData pomelo-robot
+9 silly mapToRegistry name pomelo-robot
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/pomelo-robot
+13 verbose request uri https://registry.npmjs.org/pomelo-robot
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 10:49:58 AM
+16 verbose request id 163b3991dd842573
+17 http request GET https://registry.npmjs.org/pomelo-robot
+18 info retry will retry, error on last attempt: Error: certificate has expired
+19 info attempt registry request try #2 at 10:50:09 AM
+20 http request GET https://registry.npmjs.org/pomelo-robot
+21 info retry will retry, error on last attempt: Error: certificate has expired
+22 info attempt registry request try #3 at 10:51:10 AM
+23 http request GET https://registry.npmjs.org/pomelo-robot
+24 silly fetchPackageMetaData Error: certificate has expired
+24 silly fetchPackageMetaData     at Error (native)
+24 silly fetchPackageMetaData     at TLSSocket.<anonymous> (_tls_wrap.js:1016:38)
+24 silly fetchPackageMetaData     at emitNone (events.js:67:13)
+24 silly fetchPackageMetaData     at TLSSocket.emit (events.js:166:7)
+24 silly fetchPackageMetaData     at TLSSocket._finishInit (_tls_wrap.js:585:8)
+24 silly fetchPackageMetaData  error for pomelo-robot { [Error: certificate has expired] code: 'CERT_HAS_EXPIRED' }
+25 silly rollbackFailedOptional Starting
+26 silly rollbackFailedOptional Finishing
+27 silly runTopLevelLifecycles Starting
+28 silly runTopLevelLifecycles Finishing
+29 silly install printInstalled
+30 verbose stack Error: certificate has expired
+30 verbose stack     at Error (native)
+30 verbose stack     at TLSSocket.<anonymous> (_tls_wrap.js:1016:38)
+30 verbose stack     at emitNone (events.js:67:13)
+30 verbose stack     at TLSSocket.emit (events.js:166:7)
+30 verbose stack     at TLSSocket._finishInit (_tls_wrap.js:585:8)
+31 verbose cwd /home/asheryuan/git-repo/otron
+32 error Linux 4.4.0-28-generic
+33 error argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "pomelo-robot" "-g"
+34 error node v4.2.6
+35 error npm  v3.5.2
+36 error code CERT_HAS_EXPIRED
+37 error certificate has expired
+38 error If you need help, you may report this error at:
+38 error     <https://github.com/npm/npm/issues>
+39 verbose exit [ 1, true ]

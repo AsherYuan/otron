@@ -1197,6 +1197,22 @@ Handler.prototype.getSensorDatas = function (msg, session, next) {
     });
 };
 
+Handler.prototype.getLastSensorDatas = function (msg, session, next) {
+    var uid = session.uid;
+    var centerBoxId = msg.centerBoxId;
+    // TODO 排序
+    SensorDataModel.find({centerBoxId: centerBoxId}).select('-_id -centerBoxId').sort({addTime:-1}).exec(function(err, data) {
+        if(err) {
+            console.log(err);
+            next(null, Code.DATABASE);
+        } else {
+            var ret = Code.OK;
+            ret.data = data;
+            next(null, ret);
+        }
+    });
+};
+
 Handler.prototype.setCenterBoxSwitch = function (msg, session, next) {
     console.log("开关设置:::" + JSON.stringify(msg));
     if (msg.type == "temperature") {
