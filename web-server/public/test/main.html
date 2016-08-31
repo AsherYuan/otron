@@ -34,8 +34,8 @@
     </style>
     <script type="text/javascript">
         var pomelo = window.pomelo;
-//        var host = "127.0.0.1";
-        var host = "121.40.53.201";
+        var host = "127.0.0.1";
+        // var host = "121.40.53.201";
         var port = "3015";
         var uid = '';
 
@@ -178,7 +178,7 @@
                                         if( !! deviceList) {
                                             for(var de=0;de<deviceList.data.length;de++) {
                                                 var deHomeId = deviceList.data[de].home_id;
-                                                var deHomeGridId = deviceList.data[de].homeGridId;
+                                                var deHomeGridId = deviceList.data[de].homeGridId._id;
                                                 var label = '';
                                                 if(deviceList.data[de].e_name != undefined) {
                                                     label = deviceList.data[de].e_name + "[" + deviceList.data[de].pingpai + "]";

@@ -21,7 +21,7 @@ var RDeviceModel = require('../../../mongodb/models/RDeviceModel');
 var SayingUtil = require('../../../domain/SayingUtil');
 var NoticeModel = require('../../../mongodb/models/NoticeModel');
 var Moment = require('moment');
-var WeatherModel = require('../../../graber/weather/WeatherModel');
+var WeatherModel = require('../../../mongodb/grabmodel/WeatherModel');
 
 module.exports = function (app) {
     return new Handler(app);
@@ -1200,8 +1200,7 @@ Handler.prototype.getSensorDatas = function (msg, session, next) {
 Handler.prototype.getLastSensorDatas = function (msg, session, next) {
     var uid = session.uid;
     var centerBoxId = msg.centerBoxId;
-    // TODO 排序
-    SensorDataModel.find({centerBoxId: centerBoxId}).select('-_id -centerBoxId').sort({addTime:-1}).exec(function(err, data) {
+    SensorDataModel.findOne({centerBoxId: centerBoxId}).select('-_id -centerBoxId').sort({addTime:-1}).exec(function(err, data) {
         if(err) {
             console.log(err);
             next(null, Code.DATABASE);
@@ -1496,9 +1495,30 @@ Handler.prototype.getNoticeNotReadCount = function (msg, session, next) {
     NoticeModel.count({hasRead: 0, userMobile: userMobile}, function (err, count) {
         if (err) console.log(err);
         else {
-            var ret = Code.OK;
-            ret.data = count;
-            next(null, ret);
+            NoticeModel.findOne({userMobile:userMobile}).sort({addTime:-1}).exec(function(err, lastNotice) {
+                var n = new Object();
+                var today = new Date();
+                var yesterday = new Date();
+                yesterday.setDate(today.getDate() - 1);
+                var addTime = lastNotice.addTime;
+                if (addTime.getFullYear() == today.getFullYear() && addTime.getMonth() == today.getMonth() && addTime.getDate() == today.getDate()) {
+                    n.addTime = Moment(addTime).format('HH:mm');
+                } else {
+                    if (addTime.getFullYear() == yesterday.getFullYear() && addTime.getMonth() == yesterday.getMonth() && addTime.getDate() == yesterday.getDate()) {
+                        n.addTime = "昨天";
+                    } else {
+                        n.addTime = Moment(addTime).format('MM-DD HH:mm');
+                    }
+                }
+                n.title = lastNotice.title;
+
+                var d = new Object();
+                d.notice = n;
+                d.count = count;
+                var ret = Code.OK;
+                ret.data = d;
+                next(null, ret);
+            });
         }
     });
 };
