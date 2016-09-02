@@ -1199,15 +1199,41 @@ Handler.prototype.getSensorDatas = function (msg, session, next) {
 
 Handler.prototype.getLastSensorDatas = function (msg, session, next) {
     var uid = session.uid;
-    var centerBoxId = msg.centerBoxId;
-    SensorDataModel.findOne({centerBoxId: centerBoxId}).select('-_id -centerBoxId').sort({addTime:-1}).exec(function(err, data) {
+    var layerName = msg.layerName;
+    var homeId = msg.homeId;
+    HomeModel.findOne({_id:homeId}, function(err, home) {
         if(err) {
             console.log(err);
             next(null, Code.DATABASE);
         } else {
-            var ret = Code.OK;
-            ret.data = data;
-            next(null, ret);
+            var layers = home.layers;
+            if(!!layers && layers.length > 0) {
+                for(var i=0;i<layers.length;i++) {
+                    if(layers[i].name == layerName) {
+                        var serialno = layers[i].centerBoxSerialno;
+                        if(!!serialno) {
+                            CenterBoxModel.findOne({serialno:serialno}, function(err, cbox) {
+                                if(err) {
+                                    console.log(err);
+                                    next(null, Code.DATABASE);
+                                } else {
+                                    var centerBoxId = cbox._id;
+                                    SensorDataModel.findOne({centerBoxId: centerBoxId}).select('-_id -centerBoxId').sort({addTime:-1}).exec(function(err, data) {
+                                        if(err) {
+                                            console.log(err);
+                                            next(null, Code.DATABASE);
+                                        } else {
+                                            var ret = Code.OK;
+                                            ret.data = data;
+                                            next(null, ret);
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    }
+                }
+            }
         }
     });
 };
@@ -1500,6 +1526,9 @@ Handler.prototype.getNoticeNotReadCount = function (msg, session, next) {
                 var today = new Date();
                 var yesterday = new Date();
                 yesterday.setDate(today.getDate() - 1);
+                console.log("---------------------------------------------------------------------------------------------------");
+                console.log(JSON.stringify(lastNotice));
+                console.log("---------------------------------------------------------------------------------------------------");
                 var addTime = lastNotice.addTime;
                 if (addTime.getFullYear() == today.getFullYear() && addTime.getMonth() == today.getMonth() && addTime.getDate() == today.getDate()) {
                     n.addTime = Moment(addTime).format('HH:mm');

@@ -41,10 +41,6 @@
 
         $(document).ready(function() {
             pomelo.on('onMsg', function (data) {
-                if(data.sysNotice) {
-                    window.location.href = "/test/login.html";
-                }
-
                 // 中控上线
                 if(data.command === '1000') {
                     $("#isOnlineSpan" + data.serialno).attr('style', 'color:green;');

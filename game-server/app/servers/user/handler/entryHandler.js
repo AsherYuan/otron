@@ -50,14 +50,11 @@ Handler.prototype.auth = function (msg, session, next) {
                 var sessionService = self.app.get('sessionService');
                 //duplicate log in
                 if (!!sessionService.getByUid(uid)) {
-                    self.app.get('channelService').pushMessageByUids('onMsg', {sysNotice:"您的帐号已在别的设备登录，强制下线"}, [{
-                        uid: uid,
-                        sid: 'user-server-1'
-                    }]);
                     console.log("用户" + uid + "多点登录，将之前另一个用户踢下线----auth");
-                    sessionService.kick(uid, function() {});
+                    // sessionService.kick(uid, function() {
+                    //     console.log('kick回调...');
+                    // });
                 }
-                sessionManager.addSession(uid, {status: 1, frontendId: session.frontendId});
                 session.on('closed', onUserLeave.bind(null, self.app));
                 session.bind(uid);
                 // 将uid存入session中
@@ -126,15 +123,12 @@ Handler.prototype.login = function (msg, session, next) {
                         var sessionService = self.app.get('sessionService');
                         //duplicate log in
                         if (!!sessionService.getByUid(uid)) {
-                            self.app.get('channelService').pushMessageByUids('onMsg', {sysNotice:"您的帐号已在别的设备登录，强制下线"}, [{
-                                uid: uid,
-                                sid: 'user-server-1'
-                            }]);
                             console.log("用户" + uid + "多点登录，将之前另一个用户踢下线----auth");
-                            sessionService.kick(uid);
+                            // sessionService.kick(uid, function() {
+                            //     console.log('kick回调...');
+                            // });
                         }
                         // 登录验证成功，处理session
-                        sessionManager.addSession(uid, {status: 1, frontendId: session.frontendId});
                         session.on('closed', onUserLeave.bind(null, self.app));
                         session.bind(uid);
                         // 将uid存入session中
@@ -225,6 +219,6 @@ var onUserLeave = function (app, session) {
     if (!session || !session.uid) {
         return;
     }
-    console.log('用户离开,session消除 [' + session.uid + ']');
+    console.log('用户离开,session消除 [' + session.uid + ']' + new Date());
     sessionManager.delSession(session.uid);
 };

@@ -1588,6 +1588,7 @@ require.register("pomelonode-pomelo-jsclient-websocket/lib/pomelo-client.js", fu
 
   var onKick = function(data) {
     pomelo.emit('onKick');
+    window.location.href = "/test/login.html";
   };
 
   handlers[Package.TYPE_HANDSHAKE] = handshake;
