@@ -1521,6 +1521,7 @@ Handler.prototype.getNoticeNotReadCount = function (msg, session, next) {
     NoticeModel.count({hasRead: 0, userMobile: userMobile}, function (err, count) {
         if (err) console.log(err);
         else {
+            console.log("userMobile:" + userMobile);
             NoticeModel.findOne({userMobile:userMobile}).sort({addTime:-1}).exec(function(err, lastNotice) {
                 var n = new Object();
                 var today = new Date();

@@ -9,6 +9,7 @@ var RegexUtil = require('../../../util/RegexUtil.js');
 var HomeModel = require('../../../mongodb/models/HomeModel');
 var HomeWifiModel = require('../../../mongodb/models/HomeWifiModel');
 var CenterBoxModel = require('../../../mongodb/models/CenterBoxModel');
+var async = require('async');
 
 module.exports = function (app) {
     return new Handler(app);
@@ -27,40 +28,142 @@ var Handler = function (app) {
  * @return {Void}
  */
 Handler.prototype.auth = function (msg, session, next) {
+    console.log("----------------auth--------------------" + JSON.stringify(msg));
+    console.log("----------------auth--------------------" + session);
     var self = this;
     var token = msg.token;
-    var version = msg.version;
-    var sessionService = self.app.get('sessionService');
-    var channelService = self.app.get('channelService');
-    //根据token获取uid
-    var res = tokenManager.parse(token, authConfig.authSecret);
-    if (!res) {
-        next(null, Code.ENTRY.FA_TOKEN_INVALID);
-        return;
-    }
-    // Token解析成功 开始验证数据
-    var uid = res.uid;
-    UserModel.find({"mobile": uid}, function (err, userDoc) {
-        if (err) console.log(err);
-        else {
-            if (userDoc.length === 0) {
-                next(null, Code.ACCOUNT.USER_NOT_EXIST);
+
+    var uid;
+    var userGlobal;
+    async.waterfall([
+        function(cb) {
+            //根据token获取uid
+            var res = tokenManager.parse(token, authConfig.authSecret);
+            console.log('第一步:' + JSON.stringify(res));
+            if (!res) {
+                next(null, Code.ENTRY.FA_TOKEN_INVALID);
                 return;
             } else {
-                var sessionService = self.app.get('sessionService');
-                //duplicate log in
-                if (!!sessionService.getByUid(uid)) {
-                    console.log("用户" + uid + "多点登录，将之前另一个用户踢下线----auth");
-                    // sessionService.kick(uid, function() {
-                    //     console.log('kick回调...');
-                    // });
-                }
-                session.on('closed', onUserLeave.bind(null, self.app));
-                session.bind(uid);
-                // 将uid存入session中
-                session.set('uid', uid);
-                session.uid = uid;
+                uid = res.uid;
+                console.log('第二步:');
+                UserModel.find({'mobile':uid}, function(err, userDoc) {
+                    if(err) {
+                        console.log(err);
+                        next(null, Code.ENTRY.FA_USER_NOT_EXIST);
+                        return;
+                    } else {
+                        if (userDoc.length === 0) {
+                            next(null, Code.ACCOUNT.USER_NOT_EXIST);
+                            return;
+                        } else {
+                            console.log('第二步:' + JSON.stringify(userDoc));
+                            userGlobal = userDoc;
+                            cb();
+                        }
+                    }
+                });
+            }
+        }, function(cb) {
+            console.log("第三步");
+            self.app.get('sessionService').kick(uid, cb);
+        }, function(cb) {
+            console.log("第四步");
+            session.bind(uid, cb);
+        }, function(cb) {
+            session.set('serverId', 'user-server-1');
+            session.on('closed', onUserLeave.bind(null, self.app));
+            console.log("第五步");
+            session.pushAll(cb);
+        }, function(cb) {
+            console.log("第六步");
+            // TODO 与userHandler中的getUserInfo合并到UserRemote中取去
+            HomeModel.find({userMobile: uid}, function (err, homeDocs) {
+                if (err) {
+                    console.log(err);
+                    next(null, Code.DATABASE);
+                } else {
+                    HomeWifiModel.find({usermobile: uid}, function (err, homeWifiDocs) {
+                        if (err) {
+                            console.log(err);
+                            next(null, Code.DATABASE);
+                        } else {
+                            CenterBoxModel.find({userMobile: uid}, function (err, centerBoxDocs) {
+                                if (err) {
+                                    console.log(err);
+                                    next(null, Code.DATABASE);
+                                } else {
+                                    userGlobal.homeInfo = homeDocs;
+                                    userGlobal.centerBox = centerBoxDocs;
+                                    userGlobal.homeWifi = homeWifiDocs;
 
+                                    var ret = Code.OK;
+                                    ret.data = userGlobal;
+                                    next(null, ret);
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    ], function(err) {
+        if(err) {
+            console.log("auth错误::");
+            next(null, Code.FAIL);
+            return null;
+        }
+    });
+};
+
+Handler.prototype.login = function (msg, session, next) {
+    console.log("----------------login--------------------" + JSON.stringify(msg));
+    console.log("----------------login--------------------" + session);
+    var self = this;
+    var mobile = msg.mobile;
+    var password = msg.password;
+    var sessionService = self.app.get('sessionService');
+    var channelService = self.app.get('channelService');
+    var uid = mobile;
+    var userGlobal;
+    if (StringUtil.isBlank(mobile)) {
+        next(null, Code.ACCOUNT.MOBILE_IS_BLANK);
+        return;
+    } else if (StringUtil.isBlank(password)) {
+        next(null, Code.ACCOUNT.PASSWORD_IS_BLANK);
+        return;
+    } else {
+        async.waterfall([
+            function (cb) {
+                UserModel.find({'mobile': mobile}, function (err, userDoc) {
+                    if (err) {
+                        console.log(err);
+                        next(null, Code.ENTRY.FA_USER_NOT_EXIST);
+                        return;
+                    } else {
+                        if (userDoc.length === 0) {
+                            next(null, Code.ACCOUNT.USER_NOT_EXIST);
+                            return;
+                        } else {
+                            console.log('a第二步:' + JSON.stringify(userDoc));
+                            userGlobal = userDoc;
+                            cb();
+                        }
+                    }
+                });
+            }, function (cb) {
+                console.log("a第三步");
+                console.log(self.app.get('sessionService').getByUid(uid));
+                self.app.get('sessionService').kick(uid, cb);
+            }, function (cb) {
+                console.log("a第四步");
+                session.bind(uid, cb);
+            }, function (cb) {
+                session.set('serverId', 'user-server-1');
+                session.on('closed', onUserLeave.bind(null, self.app));
+                console.log("a第五步");
+                session.pushAll(cb);
+            }, function (cb) {
+                console.log("a第六步");
                 // TODO 与userHandler中的getUserInfo合并到UserRemote中取去
                 HomeModel.find({userMobile: uid}, function (err, homeDocs) {
                     if (err) {
@@ -77,13 +180,16 @@ Handler.prototype.auth = function (msg, session, next) {
                                         console.log(err);
                                         next(null, Code.DATABASE);
                                     } else {
-                                        userDoc.homeInfo = homeDocs;
-                                        userDoc.centerBox = centerBoxDocs;
-                                        userDoc.homeWifi = homeWifiDocs;
+                                        userGlobal.homeInfo = homeDocs;
+                                        userGlobal.centerBox = centerBoxDocs;
+                                        userGlobal.homeWifi = homeWifiDocs;
 
                                         var ret = Code.OK;
-                                        ret.data = userDoc;
-                                        next(null, ret);
+                                        ret.data = userGlobal;
+                                        var token = tokenManager.create(uid, authConfig.authSecret);
+                                        ret.token = token;
+                                        next(null, {code:Code.OK, token:token});
+                                        // next(null, ret);
                                     }
                                 });
                             }
@@ -91,60 +197,11 @@ Handler.prototype.auth = function (msg, session, next) {
                     }
                 });
             }
-        }
-    });
-};
-
-Handler.prototype.login = function (msg, session, next) {
-    var self = this;
-    var mobile = msg.mobile;
-    var password = msg.password;
-    var sessionService = self.app.get('sessionService');
-    var channelService = self.app.get('channelService');
-    var uid = mobile;
-    if (StringUtil.isBlank(mobile)) {
-        next(null, Code.ACCOUNT.MOBILE_IS_BLANK);
-        return;
-    } else if (StringUtil.isBlank(password)) {
-        next(null, Code.ACCOUNT.PASSWORD_IS_BLANK);
-        return;
-    } else {
-        UserModel.find({"mobile": mobile}, function (err, docs) {
+        ], function (err) {
             if (err) {
-                console.log(err);
-            } else {
-                // 用户不存在
-                if (docs.length === 0) {
-                    next(null, Code.ACCOUNT.USER_NOT_EXIST);
-                    return;
-                } else {
-                    if (password === docs[0].password) {
-                        // 重复登录问题
-                        var sessionService = self.app.get('sessionService');
-                        //duplicate log in
-                        if (!!sessionService.getByUid(uid)) {
-                            console.log("用户" + uid + "多点登录，将之前另一个用户踢下线----auth");
-                            // sessionService.kick(uid, function() {
-                            //     console.log('kick回调...');
-                            // });
-                        }
-                        // 登录验证成功，处理session
-                        session.on('closed', onUserLeave.bind(null, self.app));
-                        session.bind(uid);
-                        // 将uid存入session中
-                        session.set('uid', uid);
-
-                        // 获取token返回
-                        var token = tokenManager.create(uid, authConfig.authSecret);
-                        var ret = Code.OK;
-                        ret.token = token;
-                        next(null, ret);
-                        return;
-                    } else {
-                        next(null, Code.ACCOUNT.PASSWORD_NOT_CORRECT);
-                        return;
-                    }
-                }
+                console.log("auth错误::");
+                next(null, Code.FAIL);
+                return null;
             }
         });
     }
@@ -220,5 +277,5 @@ var onUserLeave = function (app, session) {
         return;
     }
     console.log('用户离开,session消除 [' + session.uid + ']' + new Date());
-    sessionManager.delSession(session.uid);
+    // sessionManager.delSession(session.uid);
 };

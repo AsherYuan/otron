@@ -3,6 +3,15 @@ var utils = require('./utils');
 var dispatcher = require('./dispatcher');
 
 exp.user = function(session, msg, app, cb){
+
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    console.log("session:" + session);
+    console.log("msg:" + JSON.stringify(msg));
+    console.log("app:" + JSON.stringify(app));
+    console.log("cb:" + JSON.stringify(cb));
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
+
     var servers = app.getServersByType('user');
     if(!servers || servers.length === 0) {
         cb(new Error('can not find main servers.'));
