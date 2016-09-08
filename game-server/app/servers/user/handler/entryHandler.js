@@ -188,8 +188,7 @@ Handler.prototype.login = function (msg, session, next) {
                                         ret.data = userGlobal;
                                         var token = tokenManager.create(uid, authConfig.authSecret);
                                         ret.token = token;
-                                        next(null, {code:Code.OK, token:token});
-                                        // next(null, ret);
+                                        next(null, ret);
                                     }
                                 });
                             }
@@ -214,10 +213,11 @@ Handler.prototype.manageLogin = function (msg, session, next) {
     var password = msg.password;
     var sessionService = self.app.get('sessionService');
     var channelService = self.app.get('channelService');
+    console.log(username);
+    console.log(password);
     if(username == "admin" && password == "orz123") {
         var sessionService = self.app.get('sessionService');
         // 登录验证成功，处理session
-        sessionManager.addSession("admin", {status: 1, frontendId: session.frontendId});
         session.on('closed', onUserLeave.bind(null, self.app));
         session.bind(username);
         // 将uid存入session中

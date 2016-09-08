@@ -85,18 +85,22 @@ Cron.prototype.currentData = function () {
                                         			});
 
                                         			var mobile = docs[i].mobile;
-                                        			var param = {
-                                        				command: '9003',
-                                        				title: suggest,
-                                        				content: drsg + flu,
-                                        				addTime: new Date()
-                                        			};
+													NoticeModel.count({hasRead: 0, userMobile: mobile}, function (err, count) {
+														var param = {
+															command: '9003',
+															title: suggest,
+															content: drsg + flu,
+															addTime: new Date(),
+															addTimeLabel: Moment(new Date()).format('HH:mm'),
+															mobile: mobile,
+															notReadCount: count
+														};
+														self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+															uid: mobile,
+															sid: 'user-server-1'
+														}]);
 
-													console.log("mobile:::" + mobile);
-                                        			self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-                                        				uid: mobile,
-                                        				sid: 'user-server-1'
-                                        			}]);
+													});
                                         		}
                                         	}
                                         });

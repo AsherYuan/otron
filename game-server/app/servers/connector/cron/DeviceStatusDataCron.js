@@ -1,6 +1,7 @@
 var UserModel = require('../../../mongodb/models/UserModel');
 var CenterBoxModel = require('../../../mongodb/models/CenterBoxModel');
 var TerminalModel = require('../../../mongodb/models/TerminalModel');
+var HomeGridModel = require('../../../mongodb/models/HomeGridModel');
 var UserEquipmentModel = require('../../../mongodb/models/UserEquipmentModel');
 
 var StringUtil = require('../../../util/StringUtil');
@@ -52,7 +53,7 @@ var sendNotice = function(userMobile, ids, self) {
 						tIds.push(terminals[j]._id);
 					}
 
-					UserEquipmentModel.find({terminalId:{$in:tIds}}, function(err, devices) {
+					UserEquipmentModel.find({terminalId:{$in:tIds}}).populate('homeGridId').exec(function(err, devices) {
 						if(err) {
 							console.log(err);
 						} else {

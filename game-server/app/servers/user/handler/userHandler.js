@@ -85,7 +85,9 @@ Handler.prototype.getUserInfo = function (msg, session, next) {
             if (!!userDoc) {
                 var ids = new Array();
                 ids.push(uid);
-                ids.push(userDoc.parentUser);
+                if(!!userDoc.parentUser) {
+                    ids.push(userDoc.parentUser);
+                }
 
                 HomeModel.find({userMobile: {$in:ids}}, function (err, homeDocs) {
                     if (err) {
@@ -135,7 +137,9 @@ Handler.prototype.getUserHomeTitle = function (msg, session, next) {
             if (!!userDoc) {
                 var ids = new Array();
                 ids.push(uid);
-                ids.push(userDoc.parentUser);
+                if(!!userDoc.parentUser) {
+                    ids.push(userDoc.parentUser);
+                }
                 HomeModel.find({userMobile: {$in:ids}}, function (err, homeDocs) {
                     if (err) {
                         console.log(err);
@@ -145,24 +149,9 @@ Handler.prototype.getUserHomeTitle = function (msg, session, next) {
                             var homeArray = new Array();
                             for (var x = 0; x < homeDocs.length; x++) {
                                 var home = homeDocs[x];
-                                var h = new Object();
-                                var title = home.name;
-                                if (title == undefined) {
-                                    title = home.floorName;
-                                }
-                                h.title = title;
-                                h.homeId = home._id;
-                                if (!!home.layers) {
-                                    if (home.layers.length <= 1) {
-                                        h.layerName = home.layers[0].name;
-                                        homeArray.push(h);
-                                    } else {
-                                        for (var y = 0; y < home.layers.length; y++) {
-                                            title += " " + home.layers[y].name;
-                                            h.layerName = home.layers[y].name;
-                                            homeArray.push(h);
-                                        }
-                                    }
+                                var newArray = getHomeTitle(home);
+                                for(var z=0;z<newArray.length;z++) {
+                                    homeArray.push(newArray[z]);
                                 }
                             }
                             var ret = Code.OK;
@@ -178,6 +167,41 @@ Handler.prototype.getUserHomeTitle = function (msg, session, next) {
     });
 };
 
+var getHomeTitle = function(home) {
+    var homeArray = new Array();
+    if(!!home.layers) {
+        if(home.layers.length <= 1) {
+            var h = new Object();
+            h.homeId = home._id;
+            h.originTitle = home.name;
+            if(h.originTitle == undefined) {
+                h.originTitle = home.floorName;
+            }
+            h.title = h.originTitle;
+            h.layerName = home.layers[0].name;
+            homeArray.push(h);
+        } else {
+            for (var y = 0; y < home.layers.length; y++) {
+                var h = new Object();
+                h.homeId = home._id;
+                h.originTitle = home.name;
+                if(h.originTitle == undefined) {
+                    h.originTitle = home.floorName;
+                }
+                h.title = renderLayersTitle(h.originTitle, home.layers[y]);
+                h.layerName = home.layers[y].name;
+                homeArray.push(h);
+            }
+        }
+    }
+    return homeArray;
+};
+
+var renderLayersTitle = function(title, layer) {
+    title += " " + layer.name;
+    console.log(title + "___" + layer.name);
+    return title;
+};
 
 /**
  * 根据用户手机号码获取终端列表
@@ -232,7 +256,9 @@ Handler.prototype.queryDevices = function (msg, session, next) {
             } else {
                 var ids = new Array();
                 ids.push(userMobile);
-                ids.push(user.parentUser);
+                if(!!user.parentUser) {
+                    ids.push(user.parentUser);
+                }
 
                 HomeModel.find({userMobile: {$in:ids}}, function (err, homes) {
                     if (!!homes) {
@@ -284,7 +310,9 @@ Handler.prototype.getDeviceList = function (msg, session, next) {
             } else {
                 var ids = new Array();
                 ids.push(userMobile);
-                ids.push(user.parentUser);
+                if(!!user.parentUser) {
+                    ids.push(user.parentUser);
+                }
 
                 HomeModel.find({userMobile: {$in:ids}}, function (err, homes) {
                     if (!!homes) {
@@ -420,7 +448,9 @@ Handler.prototype.getHomeInfo = function (msg, session, next) {
         } else {
             var ids = new Array();
             ids.push(userMobile);
-            ids.push(user.parentUser);
+            if(!!user.parentUser) {
+                ids.push(user.parentUser);
+            }
 
             HomeModel.find({userMobile: {$in: ids}}, function (err, docs) {
                 if (err) console.log(err);
@@ -1026,6 +1056,54 @@ Handler.prototype.pushMsg = function(msg, session, next) {
 
 
 /**
+ * 向用户推送
+ * type可选 ['txt', 'pic', 'link', 'arch']
+ * 对应 文本，图片，链接，APP内部锚点
+ * @param msg
+ * @param session
+ * @param next
+ */
+Handler.prototype.managePush = function(msg, session, next) {
+    var self = this;
+    var targetMobile = msg.targetMobile;
+    var title = msg.title;
+    var content = msg.content;
+
+    /**
+     * 不填写，向全部用户推送
+     */
+    if(targetMobile == "" || targetMobile == undefined || targetMobile == "undefined") {
+        UserModel.find({}, function(err, docs) {
+            if(!!docs) {
+                for(var i=0;i<docs.length;i++) {
+                    managePushProcess(docs[i].mobile, title, content, self);
+                }
+            }
+        });
+    } else {
+        managePushProcess(targetMobile, title, content, self);
+    }
+};
+
+var managePushProcess = function(mobile, title, content, self) {
+    NoticeModel.count({hasRead: 0, userMobile: mobile}, function (err, count) {
+        var param = {
+            command: '9009',
+            title: title,
+            content: content,
+            addTime: new Date(),
+            addTimeLabel: Moment(new Date()).format('HH:mm'),
+            notReadCount: count
+        };
+        self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+            uid: mobile,
+            sid: 'user-server-1'
+        }]);
+    });
+}
+
+
+/**
  * 用户学习
  * @param msg
  * @param session
@@ -1128,10 +1206,11 @@ Handler.prototype.getDeviceListByVoiceId = function (msg, session, next) {
  * @param next
  */
 Handler.prototype.remoteControll = function (msg, session, next) {
-
+    var self = this;
     // 目前写死一个设备
     var user_id = session.uid;
     var deviceId = msg.deviceId;
+    var beginTime = new Date().getTime();
     UserEquipmentModel.find({_id: deviceId}, function (err, docs) {
         if (err) {
             console.log(err);
@@ -1169,8 +1248,84 @@ Handler.prototype.remoteControll = function (msg, session, next) {
                 data = require('querystring').stringify(data);
                 var host = "http://122.225.88.66:8180/SpringMongod/main/getorder?" + data;
                 request(host, function (error, response, body) {
+                    var answerTime = new Date().getTime();
+                    console.log("得到接口数据:" + (answerTime - queryTime));
                     if (!error && response.statusCode == 200) {
-                        next(null, body);
+                        var result = JSON.parse(body);
+                        var ret = Code.OK;
+                        if (!!result) {
+                            var data = new Object();
+                            var targetArray = new Array();
+                            var devices = new Array();
+                            var sentence = "";
+                            var delayDesc = "";
+
+                            if (!!result.orderAndInfrared && result.orderAndInfrared.length > 0) {
+                                var targetArray = new Array();
+                                var devices = new Array();
+                                var sentence = "";
+
+                                for (var i = 0; i < result.orderAndInfrared.length; i++) {
+                                    var t = result.orderAndInfrared[i];
+                                    targetArray.push(SayingUtil.translateStatus(t.order.ueq));
+                                    devices.push(t.order.ueq);
+
+                                    var ircode = t.infrared.infraredcode;
+                                    var terminalCode = "01";
+
+                                    // 开始发送红外命令
+                                    UserEquipmentModel.find({_id: t.order.ueq.id}, function (err, docs) {
+                                        TerminalModel.find({_id: docs[0].terminalId}, function (err, docs) {
+                                            var serialNo = docs[0].centerBoxSerialno;
+                                            CenterBoxModel.find({serialno: serialNo}, function (err, docs) {
+                                                var curPort = docs[0].curPort;
+                                                var curIpAddress = docs[0].curIpAddress;
+                                                var param = {
+                                                    command: '3000',
+                                                    ipAddress: curIpAddress,
+                                                    serialNo: serialNo,
+                                                    data: terminalCode + " " + ircode,
+                                                    port: curPort
+                                                };
+                                                var sessionService = self.app.get('sessionService');
+                                                console.log("向ots推送消息:" + JSON.stringify(param));
+                                                self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+                                                    uid: 'socketServer*otron',
+                                                    sid: 'connector-server-1'
+                                                }]);
+                                            });
+                                        });
+                                    });
+                                }
+                                // 判断是否延时
+                                if (result.delayOrder == true) {
+                                    sentence = result.delayDesc + "将为您" + JSON.stringify(targetArray);
+                                } else {
+                                    sentence = "已为您" + JSON.stringify(targetArray);
+                                }
+
+                                data.answer = sentence;
+                                data.devices = devices;
+                                data.type = "data";
+                                ret.data = data;
+                            } else {
+                                if (result.status == "turing") {
+                                    var msgObj = JSON.parse(result.msg);
+                                    ret.data = {result: msgObj.text, type: "data"};
+                                } else {
+                                    ret.data = {result: result.msg, type: "data"};
+                                }
+                            }
+
+                            data.answer = sentence;
+                            data.devices = devices;
+                            ret.data = data;
+                            console.log('遥控操作：' + JSON.stringify(ret));
+                            var endTime = new Date().getTime();
+                            console.log("返回时间:" + (endTime - answerTime));
+                            console.log("************************************遥控命令****************************************");
+                            next(null, ret);
+                        }
                     }
                 });
             } else {
@@ -1435,8 +1590,10 @@ Handler.prototype.getNoticeList = function (msg, session, next) {
  消息详情
  **/
 Handler.prototype.getNoticeDetail = function (msg, session, next) {
+    console.log(JSON.stringify(msg));
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     var id = msg.noticeId;
-    NoticeModel.findOne({_id: id}, function (err, notice) {
+    NoticeModel.findOne({_id: new Object(id)}, function (err, notice) {
         if (err) {
             console.log(err);
             next(null, Code.DATABASE);
@@ -1444,8 +1601,6 @@ Handler.prototype.getNoticeDetail = function (msg, session, next) {
             // 设置为已读
             NoticeModel.update({_id: id}, {$set: {hasRead: 1}}, function (err, docs) {
                 if (err) console.log(err);
-                else
-                    next(null, Code.OK);
             });
             var ret = Code.OK;
 
@@ -1473,6 +1628,7 @@ Handler.prototype.getNoticeDetail = function (msg, session, next) {
                 }
             }
             ret.data = n;
+            console.log("最终返回：：：：" + JSON.stringify(ret));
             next(null, ret);
         }
     });

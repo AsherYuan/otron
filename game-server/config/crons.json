@@ -8,7 +8,7 @@
       },
       {
         "id": 2,
-        "time": "10 0/10 * * * *",
+        "time": "3/10 * * * * *",
         "action": "terminalSensorDataCron.getSensorData"
       },
       {
@@ -42,7 +42,7 @@
       },
       {
         "id": 2,
-        "time": "10 0/10 * * * *",
+        "time": "3/10 * * * * *",
         "action": "terminalSensorDataCron.getSensorData"
       },
       {

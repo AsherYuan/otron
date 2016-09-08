@@ -2,6 +2,7 @@ var NoticeModel = require('../../../mongodb/models/NoticeModel');
 var UserModel = require('../../../mongodb/models/UserModel');
 var WarningModel = require('../../../mongodb/grabmodel/WarningModel');
 var http = require("http");
+var Moment = require('moment');
 
 module.exports = function (app) {
 	return new Cron(app);
@@ -79,16 +80,21 @@ Cron.prototype.currentData = function () {
 										});
 
 										var mobile = docs[i].mobile;
-										var param = {
-											command: '9001',
-											title: title,
-											content: txt,
-											addTime: new Date()
-										};
-										self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-											uid: mobile,
-											sid: 'user-server-1'
-										}]);
+
+										NoticeModel.count({hasRead: 0, userMobile: mobile}, function (err, count) {
+											var param = {
+												command: '9001',
+												title: title,
+												content: txt,
+												addTime: new Date(),
+												addTimeLabel: Moment(new Date()).format('HH:mm'),
+												notReadCount:count
+											};
+											self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+												uid: mobile,
+												sid: 'user-server-1'
+											}]);
+										});
 									}
 								}
 							});

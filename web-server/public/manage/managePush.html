@@ -51,11 +51,9 @@
 
         function pushMsg() {
             var targetMobile = $("#targetMobile").val();
-            var type = $("#type").val();
+            var title = $("#title").val();
             var content = $("#content").val();
-            var pic = $("#pic").val();
-            var link = $("#link").val();
-            pomelo.request("user.userHandler.pushMsg", {targetMobile:targetMobile, type:type, content:content, pic:pic, link:link}, function(data) {
+            pomelo.request("user.userHandler.managePush", {targetMobile:targetMobile, title:title, content:content}, function(data) {
                 layer.alert(JSON.stringify(data));
             });
         }
@@ -64,16 +62,10 @@
 <body>
 <div id="container">
     <input type="text" value="" id="targetMobile" placeholder="用户手机号">不填等于全部推送<br/>
-    <select id="type">
-        <option value="txt">文本</option>
-        <option value="pic">图片</option>
-        <option value="link">链接</option>
-    </select><br/>
+    <input type="text" value="" id="title" placeholder="标题">标题<br/>
     <textarea id="content">
 
     </textarea><br/>
-    <input type="text" value="" id="pic" placeholder="图片URL">图片URL<br/>
-    <input type="text" value="" id="link" placeholder="链接地址">链接地址<br/>
     <input type="button" value="推送" onclick="pushMsg();">
 </div>
 </body>

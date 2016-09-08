@@ -34,6 +34,7 @@
             pomelo.init({host:host, port:port, log:true}, function() {
                 var route = 'user.entryHandler.manageLogin';
                 pomelo.request(route, {username: username, password: password}, function (data) {
+                    layer.alert(JSON.stringify(data));
                     if (data.code == 200) {
                         layer.msg('验证成功');
                         layer.alert(JSON.stringify(data));

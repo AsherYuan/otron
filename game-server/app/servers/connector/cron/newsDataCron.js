@@ -4,6 +4,7 @@ var StringUtil = require('../../../util/StringUtil');
 var ZixunModel = require('../../../mongodb/grabmodel/ZixunModel');
 var cheerio = require('cheerio');
 var graber = require('../../../graber/graber');
+var Moment = require('moment');
 
 module.exports = function (app) {
 	return new Cron(app);
@@ -69,18 +70,22 @@ Cron.prototype.currentData = function () {
 										if (err) console.log(err);
 									});
 
-									// 保存成功，开始向用户发送消息
-									var param = {
-										command: '9002',
-										title: title,
-										content: text,
-										addTime: new Date(),
-										summary: summary
-									};
-									self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-										uid: userMobile,
-										sid: 'user-server-1'
-									}]);
+									NoticeModel.count({hasRead: 0, userMobile: userMobile}, function (err, count) {
+										// 保存成功，开始向用户发送消息
+										var param = {
+											command: '9002',
+											title: title,
+											content: text,
+											addTime: new Date(),
+											addTimeLabel: Moment(new Date()).format('HH:mm'),
+											summary: summary,
+											notReadCount: count
+										};
+										self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+											uid: userMobile,
+											sid: 'user-server-1'
+										}]);
+									});
 								}
 							}
 						});
