@@ -255,18 +255,24 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 										}]);
 
 										for(var i=0;i<users.length;i++) {
-											console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + users[i].mobile);
+											// TODO 临时，不给13600000002的用户推送,方便调试
+											if(users[i].mobile != '13600000002') {
+												console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + users[i].mobile);
+												self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+													uid: users[i].mobile,
+													sid: 'user-server-1'
+												}]);
+											}
+										}
+									} else {
+										// TODO 临时，不给13600000002的用户推送,方便调试
+										if(userMobile != '13600000002') {
+											console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
 											self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-												uid: users[i].mobile,
+												uid: userMobile,
 												sid: 'user-server-1'
 											}]);
 										}
-									} else {
-										console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
-										self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-											uid: userMobile,
-											sid: 'user-server-1'
-										}]);
 									}
 								}
 							});
@@ -345,25 +351,39 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 						console.log(err);
 					} else {
 						if(!!users && users.length > 0) {
-							console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
-							self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-								uid: userMobile,
-								sid: 'user-server-1'
-							}]);
+							if(userMobile == "13600000002") {
 
-							for(var i=0;i<users.length;i++) {
-								console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + users[i].mobile);
+							} else {
+								console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
 								self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-									uid: users[i].mobile,
+									uid: userMobile,
 									sid: 'user-server-1'
 								}]);
 							}
+
+
+							for(var i=0;i<users.length;i++) {
+								if(users[i].mobile == "13600000002") {
+
+								} else {
+									console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + users[i].mobile);
+									self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+										uid: users[i].mobile,
+										sid: 'user-server-1'
+									}]);
+								}
+
+							}
 						} else {
-							console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
-							self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-								uid: userMobile,
-								sid: 'user-server-1'
-							}]);
+							if(userMobile == "13600000002") {
+
+							} else {
+								console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
+								self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+									uid: userMobile,
+									sid: 'user-server-1'
+								}]);
+							}
 						}
 					}
 				});

@@ -505,12 +505,16 @@
         }
 
         function testOn() {
-            pomelo.request('user.userHandler.testOn', function(data) {
+            var ipAddressX = $("#ipAddressX").val();
+            var portX = $("#portX").val();
+            pomelo.request('user.userHandler.testOn', {ipAddress:ipAddressX, port:portX}, function(data) {
                 layer.alert(JSON.stringify(data));
             });
         }
         function testOff() {
-            pomelo.request('user.userHandler.testOff', function(data) {
+            var ipAddressX = $("#ipAddressX").val();
+            var portX = $("#portX").val();
+            pomelo.request('user.userHandler.testOff', {ipAddress:ipAddressX, port:portX}, function(data) {
                 layer.alert(JSON.stringify(data));
             });
         }

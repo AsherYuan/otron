@@ -29,7 +29,8 @@ DeviceStatusUtil.getInitStatus = function(deviceType) {
     wind:0,
     mode:m,
     channel:0,
-    volume:0
+    volume:0,
+    tv_ismute:'0'
   }
 
 

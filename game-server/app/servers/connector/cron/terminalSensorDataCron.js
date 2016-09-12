@@ -13,7 +13,11 @@ var Cron = function (app) {
 
 var sendQuery = function(curIpAddress, curPort, centerBoxSerialno, channelService) {
     if((!! curIpAddress) && (!! curPort)) {
+        console.log('curIpAddress:' + curIpAddress);
+        console.log('curPort:' + curPort);
+        console.log('centerBoxSerialno:' + centerBoxSerialno);
         TerminalModel.find({centerBoxSerialno:centerBoxSerialno, isOnline:true}, function(error, terminals) {
+            console.log(JSON.stringify(terminals));
             if(error) {
                 console.log(error);
             } else {
