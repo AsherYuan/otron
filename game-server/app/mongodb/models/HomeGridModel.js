@@ -12,10 +12,9 @@ var HomeGridScheme = new mongoose.Schema({
   homeId : String,
   gridType : String,
   layerName : String,
-  terminalId:String,
+  terminal:{type:String, ref:"terminal"},
   dorder : Number,
-  name : String,
-  terminal: [TerminalSchema]
+  name : String
 });
 var HomeGridModel = mongoose.model("homeGrid", HomeGridScheme);
 module.exports = HomeGridModel;

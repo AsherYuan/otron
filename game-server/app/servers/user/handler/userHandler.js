@@ -22,6 +22,7 @@ var SayingUtil = require('../../../domain/SayingUtil');
 var NoticeModel = require('../../../mongodb/models/NoticeModel');
 var Moment = require('moment');
 var WeatherModel = require('../../../mongodb/grabmodel/WeatherModel');
+var TSensorDataModel = require('../../../mongodb/models/TSensorDataModel');
 
 module.exports = function (app) {
 	return new Handler(app);
@@ -212,7 +213,11 @@ var renderLayersTitle = function (title, layer) {
 Handler.prototype.queryTerminal = function (msg, session, next) {
 	var centerBoxSerialno = msg.centerBoxSerialno;
 	var params = {centerBoxSerialno: centerBoxSerialno};
+	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>params:" + JSON.stringify(params));
+	console.log(centerBoxSerialno);
 	var code = msg.code;
+	console.log("code>>>" + code);
+	console.log(!!code);
 	if (!!code) {
 		params = {
 			centerBoxSerialno: centerBoxSerialno,
@@ -224,6 +229,7 @@ Handler.prototype.queryTerminal = function (msg, session, next) {
 			next(null, ret);
 		});
 	} else {
+		console.log("---------------------------------xxxxxxx-------------------" + JSON.stringify(params));
 		TerminalModel.find(params, function (err, docs) {
 			var ret = Code.OK;
 			ret.data = docs;
@@ -383,7 +389,7 @@ Handler.prototype.bindTerminalToHomeGrid = function (msg, session, next) {
 	var homeGridId = msg.homeGridId;
 	var terminalId = msg.terminalId;
 
-	HomeGridModel.update({_id: homeGridId}, {$set: {"terminalId": terminalId}}, function (err, docs) {
+	HomeGridModel.update({_id: homeGridId}, {$set: {"terminalId": terminalId, "terminal":terminalId}}, function (err, docs) {
 		if (err) {
 			console.log(err);
 			next(null, Code.DATABASE);
@@ -431,15 +437,14 @@ Handler.prototype.simulateConnTerminal = function (msg, session, next) {
 	var uid = session.uid;
 	var ssid = msg.ssid;
 	var passwd = msg.passwd;
-	var serialno = msg.serialno;
 	var centerBoxSerialno = msg.centerBoxSerialno;
-	// var entity = new TerminalModel({userMobile:uid, ssid:ssid, passwd:passwd, serialno:serialno, centerBoxSerialno:centerBoxSerialno});
-	// entity.save(function(err) {
-	//   if(err) console.log(err);
-	//   else {
-	//     next(null);
-	//   }
-	// })
+	var entity = new TerminalModel({userMobile:uid, ssid:ssid, passwd:passwd, centerBoxSerialno:centerBoxSerialno});
+	entity.save(function(err) {
+	  if(err) console.log(err);
+	  else {
+	    next(null);
+	  }
+	})
 }
 
 /**
@@ -482,13 +487,16 @@ Handler.prototype.getHomeGridList = function (msg, session, next) {
 	var homeId = msg.homeId;
 	var layerName = msg.layerName;
 	var centerBoxSerialno = msg.centerBoxSerialno;
-	HomeGridModel.find({homeId: homeId, layerName: layerName}, function (err, grids) {
+	HomeGridModel.find({homeId: homeId, layerName: layerName}).populate('terminal').exec(function (err, grids) {
 		if (err) {
 			console.log(err);
 			next(null, Code.DATABASE);
 		} else {
+			console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+			console.log(JSON.stringify(grids));
 			var ret = Code.OK;
 			ret.data = grids;
+			ret.centerBoxSerialno = centerBoxSerialno;
 			next(null, ret);
 			// TODO 错误代码如下，时序有问题
 			// if (!!grids && grids.length > 0) {
@@ -1908,6 +1916,13 @@ Handler.prototype.getLastTerminalStatus = function (msg, session, next) {
 //         }
 //     });
 };
+
+/******************************  在线统计  开始  ************************************/
+Handler.prototype.getOnlineInfo = function (msg, session, next) {
+
+};
+
+/******************************  在线统计  结束  ************************************/
 
 
 /******************************  物业方法  开始  ************************************/

@@ -35,7 +35,7 @@ Cron.prototype.currentData = function () {
 
 
 var sendNotice = function(userMobile, ids, self) {
-	CenterBoxModel.find({userMobile:{$in:ids}}, function(err, centerBoxs) {
+	CenterBoxModel.find({userMobile:{$in:ids}, isOnline:true}, function(err, centerBoxs) {
 		if(err) {
 			console.log(err);
 		} else {
@@ -44,7 +44,7 @@ var sendNotice = function(userMobile, ids, self) {
 				ids.push(centerBoxs[i].serialno);
 			}
 
-			TerminalModel.find({centerBoxSerialno:{$in:ids}}, function(err, terminals) {
+			TerminalModel.find({centerBoxSerialno:{$in:ids}, isOnline:true}, function(err, terminals) {
 				if(err) {
 					console.log(err);
 				} else {

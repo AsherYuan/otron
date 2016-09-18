@@ -191,7 +191,6 @@
                                             }
                                         }
                                     });
-
                                     pomelo.request('user.userHandler.queryTerminal', {centerBoxSerialno:centerBoxSerialno}, function(terminalList) {
                                         for(var l=0;l<terminalList.data.length;l++) {
                                             if($("#homeGrid" + terminalList.data[l]._id).length > 0) {
