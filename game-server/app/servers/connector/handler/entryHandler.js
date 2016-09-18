@@ -290,11 +290,16 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 				};
 			} else if(command == '3007') {
 				param = {
-					command:'3007',
+					command: '3007',
 					ipAddress: msg.ipAddress,
-					port : msg.port,
-					data:msg.data
+					port: msg.port,
+					data: msg.data
 				};
+			} else if(command == '8001') {
+				param = {
+					command:'8001',
+					data: msg.data
+				}
 			} else if(command == '4000') {
 				var sensorData = msg.data;
 				var temp = sensorData.substring(2, 4) + sensorData.substring(0, 2);
