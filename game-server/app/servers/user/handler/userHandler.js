@@ -242,7 +242,6 @@ Handler.prototype.queryDevices = function (msg, session, next) {
 	var homeId = msg.homeId;
 	var layerName = msg.layerName;
 	var userMobile = session.uid;
-
 	if (!!homeId && !!layerName) {
 		UserEquipmentModel.find({
 			home_id: homeId,
@@ -268,7 +267,6 @@ Handler.prototype.queryDevices = function (msg, session, next) {
 				if (!!user.parentUser) {
 					ids.push(user.parentUser);
 				}
-
 				HomeModel.find({userMobile: {$in: ids}}, function (err, homes) {
 					if (!!homes) {
 						var homeIds = [];
@@ -492,35 +490,12 @@ Handler.prototype.getHomeGridList = function (msg, session, next) {
 			console.log(err);
 			next(null, Code.DATABASE);
 		} else {
-			console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-			console.log(JSON.stringify(grids));
 			var ret = Code.OK;
 			ret.data = grids;
 			ret.centerBoxSerialno = centerBoxSerialno;
+			ret.homeId = homeId;
+			ret.layerName = layerName;
 			next(null, ret);
-			// TODO 错误代码如下，时序有问题
-			// if (!!grids && grids.length > 0) {
-			//     var gridCount = (!!grids) ? grids.length : 0;
-			//     var gridIndex = 0;
-			//     for (var i = 0; i < grids.length; i++) {
-			//         TerminalModel.findOne({homeGridId: grids[i]._id}, function (err, terminal) {
-			//             grids[gridIndex].terminal = terminal;
-			//             gridIndex++;
-			//             if (gridIndex === gridCount) {
-			//                 var ret = Code.OK;
-			//                 ret.data = {
-			//                     docs: grids,
-			//                     centerBoxSerialno: centerBoxSerialno,
-			//                     layerName: layerName,
-			//                     homeId: homeId
-			//                 };
-			//                 next(null, ret);
-			//             }
-			//         });
-			//     }
-			// } else {
-			//     next(null, Code.NODATA);
-			// }
 		}
 	});
 };
@@ -626,7 +601,6 @@ Handler.prototype.confirmModel = function (msg, session, next) {
 	var floorId = msg.floorId;
 	var floorName = msg.floorName;
 	var userMobile = session.uid;
-
 	HomeModel.find({userMobile: userMobile}, function (err, docs) {
 		if (err) {
 			console.log(err);
@@ -655,6 +629,7 @@ Handler.prototype.confirmModel = function (msg, session, next) {
 				});
 				// 增加家庭信息
 			} else {
+				var floorExist = false;
 				for (var i = 0; i < docs.length; i++) {
 					var home = docs[i];
 					if (home.floorId == floorId) {
@@ -665,10 +640,34 @@ Handler.prototype.confirmModel = function (msg, session, next) {
 							toilet: toilet,
 							kitchen: kitchen
 						};
+						floorExist = true;
 						HomeModel.update({_id: home._id}, {'$push': {layers: newLayer}}, function (error, docs) {
+							resolveHomeGrids(docs._id, name, room, hall, toilet, kitchen);
 							next(null, Code.OK);
 						});
 					}
+				}
+
+				if(floorExist == false) {
+					var homeEntity = new HomeModel({
+						floorId: floorId,
+						floorName: floorName,
+						userMobile: userMobile,
+						layers: [{
+							name: name,
+							room: room,
+							hall: hall,
+							toilet: toilet,
+							kitchen: kitchen
+						}]
+					});
+					homeEntity.save(function (err, data) {
+						if (err) console.log(err);
+						else {
+							resolveHomeGrids(data._id, name, room, hall, toilet, kitchen);
+							next(null, Code.OK);
+						}
+					});
 				}
 			}
 			var ret = Code.OK;
@@ -828,41 +827,61 @@ Handler.prototype.bindUserHomeWifi = function (msg, session, next) {
 
 var resolveHomeGrids = function (homeId, layerName, room, hall, toilet, kitchen) {
 	for (var i = 1; i <= room; i++) {
+		var name = "房间";
+		if(room > 1) {
+			name += i;
+		}
 		new HomeGridModel({
 			homeId: homeId,
 			layerName: layerName,
 			gridType: 'room',
-			dorder: i
+			dorder: i,
+			name:name
 		}).save(function (err, doc) {
 		});
 	}
 
 	for (var j = 1; j <= hall; j++) {
+		var name = "客厅";
+		if(hall > 1) {
+			name += j;
+		}
 		new HomeGridModel({
 			homeId: homeId,
 			layerName: layerName,
 			gridType: 'hall',
-			dorder: j
+			dorder: j,
+			name: name
 		}).save(function (err, doc) {
 		});
 	}
 
 	for (var k = 1; k <= toilet; k++) {
+		var name = "卫生间";
+		if(toilet > 1) {
+			name += k;
+		}
 		new HomeGridModel({
 			homeId: homeId,
 			layerName: layerName,
 			gridType: 'toilet',
-			dorder: k
+			dorder: k,
+			name: name
 		}).save(function (err, doc) {
 		});
 	}
 
 	for (var l = 1; l <= kitchen; l++) {
+		var name = "厨房";
+		if(kitchen > 1) {
+			name += l;
+		}
 		new HomeGridModel({
 			homeId: homeId,
 			layerName: layerName,
 			gridType: 'kitchen',
-			dorder: l
+			dorder: l,
+			name: name
 		}).save(function (err, doc) {
 		});
 	}
@@ -1250,9 +1269,6 @@ Handler.prototype.remoteControll = function (msg, session, next) {
 	var user_id = session.uid;
 	var deviceId = msg.deviceId;
 	var terminalId = msg.terminalId;
-	console.log('user_id:' + user_id);
-	console.log("deviceId:" + deviceId);
-	console.log("terminalId:" + terminalId);
 	UserEquipmentModel.find({_id: deviceId}, function (err, docs) {
 		console.log("得到结果:" + JSON.stringify(docs));
 		if (err) {
@@ -1290,8 +1306,11 @@ Handler.prototype.remoteControll = function (msg, session, next) {
 
 				data = require('querystring').stringify(data);
 				console.log("参数：" + data);
+				var begin = new Date().getTime();
 				var host = "http://122.225.88.66:8180/SpringMongod/main/getorder?" + data;
 				request(host, function (error, response, body) {
+					var time = new Date().getTime() - begin;
+					console.log(":::::::::::::::::::::::::::::::延迟::::::::::::::::::::::::::::::::::" + time);
 					console.log("java：" + body);
 					if (!error && response.statusCode == 200) {
 						var javaResult = JSON.parse(body);
@@ -1351,6 +1370,9 @@ Handler.prototype.remoteControll = function (msg, session, next) {
 														});
 													});
 												});
+
+												// TODO 在这里是否合适
+												deviceStatusPush(self);
 											}
 										});
 									} else {
@@ -1388,6 +1410,74 @@ Handler.prototype.remoteControll = function (msg, session, next) {
 			} else {
 				next(null, Code.REMOTECONTROLL.USEREQUIPMENT_NOT_EXIST);
 			}
+		}
+	});
+};
+
+var deviceStatusPush = function(self) {
+	UserModel.find({}, function(err, users) {
+		if(err) {
+			console.log(err);
+		} else {
+			for(var i=0;i<users.length;i++) {
+				var ids = new Array();
+				ids.push(users[i].mobile);
+				ids.push(users[i].parentUser);
+
+				sendNotice(users[i].mobile, ids, self);
+			}
+		}
+	});
+};
+
+var sendNotice = function(userMobile, ids, self) {
+	console.log("强制推送..............." + userMobile);
+	CenterBoxModel.find({userMobile:{$in:ids}}, function(err, centerBoxs) {
+		if(err) {
+			console.log(err);
+		} else {
+			var ids = new Array();
+			for(var i=0;i<centerBoxs.length;i++) {
+				ids.push(centerBoxs[i].serialno);
+			}
+
+			TerminalModel.find({centerBoxSerialno:{$in:ids}}, function(err, terminals) {
+				if(err) {
+					console.log(err);
+				} else {
+					var tIds = new Array();
+					for(var j=0;j<terminals.length; j++) {
+						tIds.push(terminals[j]._id);
+					}
+
+					UserEquipmentModel.find({terminalId:{$in:tIds}}).populate({
+						path: 'homeGridId',
+						model: 'homeGrid',
+						populate: {
+							path: 'terminal',
+							model: 'terminal'
+						}
+					}).exec(function(err, devices) {
+						if(err) {
+							console.log(err);
+						} else {
+							var ds = new Array();
+							for(var k=0;k<devices.length;k++) {
+								ds.push(devices[k]);
+							}
+
+							var param = {
+								command: '6000',
+								devices:ds
+							};
+							self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+								uid: userMobile,
+								sid: 'user-server-1'
+							}]);
+						}
+					});
+				}
+			});
 		}
 	});
 };
@@ -1752,26 +1842,46 @@ Handler.prototype.deleteNotice = function (msg, session, next) {
  **/
 Handler.prototype.setNoticeRead = function (msg, session, next) {
 	var userMobile = session.uid;
-	if (!!msg.noticeId) {
-		var idArray = msg.noticeId.split(',');
-		var ids = new Array();
-		for (var i = 0; i < idArray.length; i++) {
-			ids.push(idArray[i]);
-		}
-
-		NoticeModel.update({_id: {$in: ids}}, {$set: {hasRead: 1}}, function (err, docs) {
-			if (err) console.log(err);
-			else {
-				NoticeModel.count({hasRead: 0, userMobile: userMobile}, function (err, count) {
-					if (err) console.log(err);
-					else {
-						var ret = Code.OK;
-						ret.count = count;
-						next(null, ret);
-					}
-				});
+	var all = msg.all;
+	console.log("allallallalalalalalal::" + all)
+	if(!!all && (all == "1" || all == "all")) {
+		console.log(userMobile + "___________________________________________");
+		NoticeModel.update({userMobile:userMobile}, {$set: {hasRead:1}},  { multi: true }, function(err) {
+			if(err) {
+				console.log(err);
+				next(null, Code.DATABASE);
+			} else {
+				var ret = Code.OK;
+				ret.all = 1;
+				next(null, ret);
 			}
 		});
+	} else {
+		if (!!msg.noticeId) {
+			var idArray = msg.noticeId.split(',');
+			var ids = new Array();
+			for (var i = 0; i < idArray.length; i++) {
+				ids.push(idArray[i]);
+			}
+
+			NoticeModel.update({_id: {$in: ids}}, {$set: {hasRead: 1}}, function (err, docs) {
+				if (err) console.log(err);
+				else {
+					NoticeModel.count({hasRead: 0, userMobile: userMobile}, function (err, count) {
+						if (err) console.log(err);
+						else {
+							var ret = Code.OK;
+							ret.count = count;
+							next(null, ret);
+						}
+					});
+				}
+			});
+		} else {
+			var ret = Code.OK;
+			ret.msg = "没有ID，没有操作";
+			next(null, ret);
+		}
 	}
 };
 
@@ -1780,30 +1890,37 @@ Handler.prototype.getNoticeNotReadCount = function (msg, session, next) {
 	NoticeModel.count({hasRead: 0, userMobile: userMobile}, function (err, count) {
 		if (err) console.log(err);
 		else {
-			console.log("userMobile:" + userMobile);
-			NoticeModel.findOne({userMobile: userMobile}).sort({addTime: -1}).exec(function (err, lastNotice) {
-				var n = new Object();
-				var today = new Date();
-				var yesterday = new Date();
-				yesterday.setDate(today.getDate() - 1);
-				var addTime = lastNotice.addTime;
-				if (addTime.getFullYear() == today.getFullYear() && addTime.getMonth() == today.getMonth() && addTime.getDate() == today.getDate()) {
-					n.addTime = Moment(addTime).format('HH:mm');
+			NoticeModel.findOne({userMobile: userMobile, hasRead:0}).sort({addTime: -1}).exec(function (err, lastNotice) {
+				if(err) {
+					console.log(err);
 				} else {
-					if (addTime.getFullYear() == yesterday.getFullYear() && addTime.getMonth() == yesterday.getMonth() && addTime.getDate() == yesterday.getDate()) {
-						n.addTime = "昨天";
+					if(!!lastNotice) {
+						var n = new Object();
+						var today = new Date();
+						var yesterday = new Date();
+						yesterday.setDate(today.getDate() - 1);
+						var addTime = lastNotice.addTime;
+						if (addTime.getFullYear() == today.getFullYear() && addTime.getMonth() == today.getMonth() && addTime.getDate() == today.getDate()) {
+							n.addTime = Moment(addTime).format('HH:mm');
+						} else {
+							if (addTime.getFullYear() == yesterday.getFullYear() && addTime.getMonth() == yesterday.getMonth() && addTime.getDate() == yesterday.getDate()) {
+								n.addTime = "昨天";
+							} else {
+								n.addTime = Moment(addTime).format('MM-DD HH:mm');
+							}
+						}
+						n.title = lastNotice.title;
+
+						var d = new Object();
+						d.notice = n;
+						d.count = count;
+						var ret = Code.OK;
+						ret.data = d;
+						next(null, ret);
 					} else {
-						n.addTime = Moment(addTime).format('MM-DD HH:mm');
+						next(null, Code.OK);
 					}
 				}
-				n.title = lastNotice.title;
-
-				var d = new Object();
-				d.notice = n;
-				d.count = count;
-				var ret = Code.OK;
-				ret.data = d;
-				next(null, ret);
 			});
 		}
 	});
@@ -1915,6 +2032,34 @@ Handler.prototype.getLastTerminalStatus = function (msg, session, next) {
 //             });
 //         }
 //     });
+};
+
+/**
+ * 电视机状态反转
+ * */
+Handler.prototype.reverseTvStatus = function(msg, session, next) {
+	var deviceId = msg.deviceId;
+	UserEquipmentModel.findOne({_id:new Object(deviceId)}, function(err, tv) {
+		if(err) {
+			console.log(err);
+			next(null, Code.DATABASE);
+		} else {
+			var s = tv.status;
+			if(s == "开") {
+				s = "关";
+			} else {
+				s = "开";
+			}
+			UserEquipmentModel.update({_id:new Object(deviceId)}, {$set:{status:s}}, function(updateErr, tv) {
+				if(updateErr) {
+					console.log(updateErr);
+					next(null, Code.DATABASE);
+				} else {
+					next(null, Code.OK);
+				}
+			});
+		}
+	});
 };
 
 /******************************  在线统计  开始  ************************************/

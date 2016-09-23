@@ -35,7 +35,7 @@ Cron.prototype.currentData = function () {
 
 
 var sendNotice = function(userMobile, ids, self) {
-	CenterBoxModel.find({userMobile:{$in:ids}, isOnline:true}, function(err, centerBoxs) {
+	CenterBoxModel.find({userMobile:{$in:ids}}, function(err, centerBoxs) {
 		if(err) {
 			console.log(err);
 		} else {
@@ -44,7 +44,7 @@ var sendNotice = function(userMobile, ids, self) {
 				ids.push(centerBoxs[i].serialno);
 			}
 
-			TerminalModel.find({centerBoxSerialno:{$in:ids}, isOnline:true}, function(err, terminals) {
+			TerminalModel.find({centerBoxSerialno:{$in:ids}}, function(err, terminals) {
 				if(err) {
 					console.log(err);
 				} else {
@@ -53,7 +53,14 @@ var sendNotice = function(userMobile, ids, self) {
 						tIds.push(terminals[j]._id);
 					}
 
-					UserEquipmentModel.find({terminalId:{$in:tIds}}).populate('homeGridId').exec(function(err, devices) {
+					UserEquipmentModel.find({terminalId:{$in:tIds}}).populate({
+						path: 'homeGridId',
+						model: 'homeGrid',
+						populate: {
+							path: 'terminal',
+							model: 'terminal'
+						}
+					}).exec(function(err, devices) {
 						if(err) {
 							console.log(err);
 						} else {
@@ -66,7 +73,6 @@ var sendNotice = function(userMobile, ids, self) {
 								command: '6000',
 								devices:ds
 							};
-
 							self.app.get('channelService').pushMessageByUids('onMsg', param, [{
 								uid: userMobile,
 								sid: 'user-server-1'

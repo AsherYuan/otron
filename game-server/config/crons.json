@@ -30,11 +30,6 @@
         "id": 6,
         "time": "0/20 * * * * *",
         "action": "DeviceStatusDataCron.currentData"
-      },
-      {
-        "id": 7,
-        "time": "* 0/1 * * * *",
-        "action": "HomeEventDataCron.currentData"
       }
     ]
   },
@@ -69,11 +64,6 @@
         "id": 6,
         "time": "0/20 * * * * *",
         "action": "DeviceStatusDataCron.currentData"
-      },
-      {
-        "id": 7,
-        "time": "* 0/1 * * * *",
-        "action": "HomeEventDataCron.currentData"
       }
     ]
   }

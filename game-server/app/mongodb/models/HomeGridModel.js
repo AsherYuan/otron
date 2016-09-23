@@ -13,6 +13,7 @@ var HomeGridScheme = new mongoose.Schema({
   gridType : String,
   layerName : String,
   terminal:{type:String, ref:"terminal"},
+  terminalId:String,
   dorder : Number,
   name : String
 });

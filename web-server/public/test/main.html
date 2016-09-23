@@ -135,12 +135,12 @@
         function initUserInfo() {
             var route = 'user.userHandler.getUserInfo';
             pomelo.request(route, function(data) {
-                layer.alert(JSON.stringify(data));
+//                layer.alert(JSON.stringify(data));
                 if(data.data.mobile !== undefined) {
                     if( !! data.data.homeInfo) {
                         for(var i=0;i<data.data.homeInfo.length;i++) {
                             var hi = data.data.homeInfo[i];
-                            var layerHtml = "您的家庭信息:[" + hi.floorName + "]<hr/>";
+                            var layerHtml = "<div style='clear:both'></div>您的家庭信息:[" + hi.floorName + "]" + hi._id + "<hr/>";
                             for(var j=0;j<hi.layers.length;j++) {
                                 layerHtml += '<div class="layerDiv">' + hi.layers[j].name + ':' + hi.layers[j].room + '室';
                                 layerHtml += hi.layers[j].hall + '厅' + hi.layers[j].toilet + '卫' + hi.layers[j].kitchen;
@@ -156,13 +156,15 @@
 
                                 layerHtml += "</div><div id='gridListDiv'></div></div>";
                                 $("#homeInfoDiv").append(layerHtml);
-                                pomelo.request('user.userHandler.getHomeGridList', {homeId:'57b1333cc99b4cfe3a0a5868', layerName:'一楼', centerBoxSerialno:hi.layers[j].centerBoxSerialno}, function(gridListData) {
-                                    var gridList = gridListData.data.docs;
-                                    var centerBoxSerialno = gridListData.data.centerBoxSerialno;
+                                pomelo.request('user.userHandler.getHomeGridList', {homeId:'57e49f3d0eab8805520bd888', layerName:'一楼', centerBoxSerialno:hi.layers[j].centerBoxSerialno}, function(gridListData) {
+                                    var gridList = gridListData.data;
+                                    var centerBoxSerialno = gridListData.centerBoxSerialno;
+                                    var homeId = gridListData.homeId;
+                                    var layerName = gridListData.layerName;
                                     for(var l=0;l<gridList.length;l++) {
                                         var gridHtml = "<div class='homeGridDiv'";
                                         if(!! gridList[l].terminalId) {
-                                            gridHtml += " id='homeGrid" + gridList[l].terminalId + "' homeId='" + gridListData.data.homeId + "' gridId='" + gridList[l]._id + "' layerName='" + gridListData.data.layerName + "'>";
+                                            gridHtml += " id='homeGrid" + gridList[l].terminalId + "' homeId='" + homeId + "' gridId='" + gridList[l]._id + "' layerName='" + layerName + "'>";
                                         } else {
                                             gridHtml += ">";
                                         }
@@ -171,7 +173,8 @@
                                         gridHtml += "</div>";
                                         $("#gridListDiv").append(gridHtml);
                                     }
-                                    pomelo.request("user.userHandler.queryDevices", {centerBoxSerialno:centerBoxSerialno}, function(deviceList) {
+
+                                    pomelo.request("user.userHandler.queryDevices", {centerBoxSerialno:centerBoxSerialno, homeId:homeId, layerName:layerName}, function(deviceList) {
                                         if( !! deviceList) {
                                             for(var de=0;de<deviceList.data.length;de++) {
                                                 var deHomeId = deviceList.data[de].home_id;

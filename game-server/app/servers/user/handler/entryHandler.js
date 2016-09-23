@@ -116,8 +116,8 @@ Handler.prototype.auth = function (msg, session, next) {
 };
 
 Handler.prototype.login = function (msg, session, next) {
-    console.log("----------------login--------------------" + JSON.stringify(msg));
-    console.log("----------------login--------------------" + session);
+    console.log("----------------login--------------------" + msg.mobile);
+    console.log("----------------login--------------------" + msg.password);
     var self = this;
     var mobile = msg.mobile;
     var password = msg.password;
@@ -134,13 +134,18 @@ Handler.prototype.login = function (msg, session, next) {
     } else {
         async.waterfall([
             function (cb) {
+                console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" + mobile);
                 UserModel.find({'mobile': mobile}, function (err, userDoc) {
                     if (err) {
                         console.log(err);
+                        console.log("Code::Code.ENTRY.FA_USER_NOT_EXIST");
                         next(null, Code.ENTRY.FA_USER_NOT_EXIST);
                         return;
                     } else {
+                        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                        console.log(JSON.stringify(userDoc));
                         if (userDoc.length === 0) {
+                            console.log("Code::Code.ACCOUNT.USER_NOT_EXIST");
                             next(null, Code.ACCOUNT.USER_NOT_EXIST);
                             return;
                         } else {
@@ -188,6 +193,7 @@ Handler.prototype.login = function (msg, session, next) {
                                         ret.data = userGlobal;
                                         var token = tokenManager.create(uid, authConfig.authSecret);
                                         ret.token = token;
+                                        console.log("json:" + JSON.stringify(ret));
                                         next(null, ret);
                                     }
                                 });

@@ -181,20 +181,20 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					centerBoxSerialno:msg.serialno,
 					msg: '终端上线, 终端编码:' + msg.terminalCode
 				};
-				TerminalModel.find({centerBoxSerialno:msg.serialno, code:msg.terminalCode, type:msg.terminalType}, function(err,docs) {
-					if(err) console.log(err);
-					else {
-						if(docs.length === 0) {
-							// 新增终端数据
-							var entity = new TerminalModel({code:msg.terminalCode, type:msg.terminalType, centerBoxSerialno:msg.serialno});
-							entity.save(function(err, docs) {
-								if (err) {
-									console.log(err);
-								}
-							});
-						}
-					}
-				});
+				// TerminalModel.find({centerBoxSerialno:msg.serialno, code:msg.terminalCode, type:msg.terminalType}, function(err,docs) {
+				// 	if(err) console.log(err);
+				// 	else {
+				// 		if(docs.length === 0) {
+				// 			// 新增终端数据
+				// 			var entity = new TerminalModel({code:msg.terminalCode, type:msg.terminalType, centerBoxSerialno:msg.serialno});
+				// 			entity.save(function(err, docs) {
+				// 				if (err) {
+				// 					console.log(err);
+				// 				}
+				// 			});
+				// 		}
+				// 	}
+				// });
 			} else if(command == '2000') {
 				param = {
 					command:'2000',
@@ -356,39 +356,25 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 						console.log(err);
 					} else {
 						if(!!users && users.length > 0) {
-							if(userMobile == "13600000002") {
-
-							} else {
-								console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
-								self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-									uid: userMobile,
-									sid: 'user-server-1'
-								}]);
-							}
+							self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+								uid: userMobile,
+								sid: 'user-server-1'
+							}]);
 
 
 							for(var i=0;i<users.length;i++) {
-								if(users[i].mobile == "13600000002") {
-
-								} else {
-									console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + users[i].mobile);
-									self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-										uid: users[i].mobile,
-										sid: 'user-server-1'
-									}]);
-								}
-
-							}
-						} else {
-							if(userMobile == "13600000002") {
-
-							} else {
-								console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
+								console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + users[i].mobile);
 								self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-									uid: userMobile,
+									uid: users[i].mobile,
 									sid: 'user-server-1'
 								}]);
 							}
+						} else {
+							console.log("发送给session端：：" + JSON.stringify(param) + "_______________" + userMobile);
+							self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+								uid: userMobile,
+								sid: 'user-server-1'
+							}]);
 						}
 					}
 				});
