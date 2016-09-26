@@ -24,6 +24,14 @@ var Moment = require('moment');
 var WeatherModel = require('../../../mongodb/grabmodel/WeatherModel');
 var TSensorDataModel = require('../../../mongodb/models/TSensorDataModel');
 
+var AccountModel = require('../../../mongodb/estateModels/accountModel');
+var ComplaintModel = require('../../../mongodb/estateModels/complaintModel');
+var CourierModel = require('../../../mongodb/estateModels/courierModel');
+var HouseKeepingModel = require('../../../mongodb/estateModels/housekeepingModel');
+var PayModel = require('../../../mongodb/estateModels/payModel');
+var RepairModel = require('../../../mongodb/estateModels/repairModel');
+
+
 module.exports = function (app) {
 	return new Handler(app);
 };
@@ -2077,7 +2085,187 @@ Handler.prototype.getOnlineInfo = function (msg, session, next) {
  * @param session
  * @param next
  */
-Handler.prototype.getExpressList = function (msg, session, next) {
-
+Handler.prototype.getCourierList = function (msg, session, next) {
+	var userMobile = session.uid;
+	CourierModel.find({userMobile:userMobile}).sort({time:-1}).exec(function(err, docs) {
+		if(err) {
+			console.log(err);
+			next(null, Code.DATABASE);
+		} else {
+			var ret = Code.OK;
+			ret.data = docs;
+			next(null, ret);
+		}
+	});
 };
+
+Handler.prototype.addNewCourier = function (msg, session, next) {
+	var self = this;
+	var userMobile = msg.userMobile;
+	var type = msg.type;
+	var data = msg.data;
+
+	/**
+	 * 新的快递收发
+	 * @type {{command: string, data: *}}
+	 */
+	var param = {
+		command:'8002',
+		data:data
+	};
+	self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+		uid: userMobile,
+		sid: 'user-server-1'
+	}]);
+};
+
+/**
+ * 获取物业缴费记录列表
+ */
+Handler.prototype.getPayList = function(msg, session, next) {
+	var userMobile = session.uid;
+	PayModel.find({userMobile:userMobile}).sort({time:-1}).exec(function(err, docs) {
+		if(err) {
+			console.log(err);
+			next(null, Code.DATABASE);
+		} else {
+			var ret = Code.OK;
+			ret.data = docs;
+			next(null, ret);
+		}
+	});
+};
+
+/**
+ * 增加新的家政服务请求
+ * @param msg
+ * @param session
+ * @param next
+ */
+Handler.prototype.addNewHouseKeeping = function(msg, session, next) {
+	var self = this;
+	var userMobile = session.uid;
+	var note = msg.note;
+	var age = msg.age;
+	var sex = msg.sex;
+	var type = msg.type;
+	var address = msg.address;
+	var name = msg.name;
+	// var HouseKeepingEntity = new HouseKeepingModel({
+	// 	note:note,
+	// 	age:age,
+	// 	type:type,
+	// 	sex:sex,
+	// 	address:address,
+	// 	userMobile:userMobile,
+	// 	name:name
+	// });
+	// HouseKeepingEntity.save(function(err) {
+	// 	if(err) {
+	// 		console.log(err);
+	// 		next(null, Code.DATABASE);
+	// 	} else {
+	// 		next(null, Code.OK);
+	// 	}
+	// });
+
+	var param = {
+		type:"houseKeeping",
+		note:note,
+		age:age,
+		type:type,
+		sex:sex,
+		address:address,
+		userMobile:userMobile,
+		name:name
+	};
+	self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+		uid: 'estate',
+		sid: 'user-server-1'
+	}]);
+
+	next(null, Code.OK);
+};
+
+/**
+ * 增加新的保修信息
+ * @param msg
+ * @param session
+ * @param next
+ */
+Handler.prototype.addNewRepair = function(msg, session, next) {
+	var self = this;
+	var userMobile = session.uid;
+	var address = msg.address;
+	var name = msg.name;
+	var describ = msg.describ;
+	// var RepairEntity = new RepairModel({
+	// 	isSolve:0,
+	// 	describ:describ,
+	// 	address:address,
+	// 	userMobile:userMobile,
+	// 	name:name
+	// });
+	// RepairEntity.save(function(err) {
+	// 	if(err) {
+	// 		console.log(err);
+	// 		next(null, Code.DATABASE);
+	// 	} else {
+	// 		next(null, Code.OK);
+	// 	}
+	// });
+
+	var param = {
+		type:"repair",
+		isSolve:0,
+		describ:describ,
+		address:address,
+		userMobile:userMobile,
+		name:name
+	};
+	self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+		uid: 'estate',
+		sid: 'user-server-1'
+	}]);
+
+	next(null, Code.OK);
+};
+
+Handler.prototype.addNewComplaint = function(msg, session, next) {
+	var self = this;
+	var userMobile = session.uid;
+	var address = msg.address;
+	var name = msg.name;
+	var describ = msg.describ;
+	// var ComplaintEntity = new ComplaintModel({
+	// 	isSolve:0,
+	// 	describ:describ,
+	// 	address:address,
+	// 	userMobile:userMobile,
+	// 	name:name
+	// });
+	// ComplaintEntity.save(function(err) {
+	// 	if(err) {
+	// 		console.log(err);
+	// 		next(null, Code.DATABASE);
+	// 	} else {
+	// 		next(null, Code.OK);
+	// 	}
+	// });
+	var param = {
+		type:"complaint",
+		isSolve:0,
+		describ:describ,
+		address:address,
+		userMobile:userMobile,
+		name:name
+	};
+	self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+		uid: 'estate',
+		sid: 'user-server-1'
+	}]);
+
+	next(null, Code.OK);
+};
+
 /******************************  物业方法  结束  ************************************/

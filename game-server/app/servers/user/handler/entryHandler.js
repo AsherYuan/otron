@@ -213,6 +213,34 @@ Handler.prototype.login = function (msg, session, next) {
 };
 
 
+Handler.prototype.estateLogin = function (msg, session, next) {
+    var self = this;
+    var sessionService = self.app.get('sessionService');
+    var channelService = self.app.get('channelService');
+    // TODO 后续分小区，现在是统一一个账号
+    var uid = 'estate';
+    async.waterfall([
+        function (cb) {
+            self.app.get('sessionService').kick(uid, cb);
+        }, function (cb) {
+            session.bind(uid, cb);
+        }, function (cb) {
+            session.set('serverId', 'user-server-1');
+            session.on('closed', onUserLeave.bind(null, self.app));
+            cb();
+        }, function () {
+            next(null, Code.OK);
+        }
+    ], function (err) {
+        if (err) {
+            console.log("auth错误::");
+            next(null, Code.FAIL);
+            return null;
+        }
+    });
+};
+
+
 Handler.prototype.manageLogin = function (msg, session, next) {
     var self = this;
     var username = msg.username;
