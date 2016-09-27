@@ -1294,7 +1294,7 @@ Handler.prototype.remoteControll = function (msg, session, next) {
 				var chg_voice = msg.chg_voice == undefined ? '' : msg.chg_voice;
 				var chg_chn = msg.chg_chn == undefined ? '' : msg.chg_chn;
 				var inst = msg.inst == undefined ? '' : msg.inst;
-
+console.log("参数devictType: " + deviceType);
 				model = escape(escape(model));
 				deviceType = escape(escape(deviceType));
 				status = escape(escape(status));
@@ -1710,6 +1710,7 @@ Handler.prototype.monitorhooker = function (msg, session, next) {
  消息列表
  **/
 Handler.prototype.getNoticeList = function (msg, session, next) {
+	console.log("进入消息列表::::::::" + JSON.stringify(msg));
 	var page = msg.page;
 	if (page == undefined || page < 1) {
 		page = 1;
@@ -1755,6 +1756,7 @@ Handler.prototype.getNoticeList = function (msg, session, next) {
 			}
 			var ret = Code.OK;
 			ret.data = news;
+			console.log("消息列表请求完成::::::::")
 			next(null, ret);
 		}
 	});
@@ -1972,21 +1974,32 @@ Handler.prototype.setSubUser = function (msg, session, next) {
 
 Handler.prototype.getLastTerminalStatus = function (msg, session, next) {
 	var terminalId = msg.terminalId;
+	console.log("terminalIdd:::" + terminalId);
 	TSensorDataModel.findOne({terminalId: {$in: terminalId}}).sort({addTime: -1}).exec(function (err, sensorDatas) {
 		if (err) {
 			console.log(err);
 			next(null, Code.DATABASE);
 		} else {
-			UserEquipmentModel.count({terminalId: terminalId}, function (err, count) {
-				if (err) {
+			TerminalModel.findOne({_id:new Object(terminalId)}, function(err, terminal) {
+				if(err) {
 					console.log(err);
+					next(null, Code.DATABASE);
 				} else {
-					var ret = Code.OK;
-					ret.data = sensorDatas;
-					ret.count = count;
-					next(null, ret);
+					var homeGridId = terminal.homeGridId;
+					UserEquipmentModel.count({terminalId: terminalId, status:'开', e_type:{$ne:'窗帘'}}, function (err, count) {
+						if (err) {
+							console.log(err);
+						} else {
+							var ret = Code.OK;
+							ret.data = sensorDatas;
+							ret.count = count;
+							ret.homeGridId = homeGridId;
+							next(null, ret);
+						}
+					});
 				}
 			});
+
 		}
 	});
 //     var homeId = msg.homeId;

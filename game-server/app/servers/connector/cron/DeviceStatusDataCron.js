@@ -44,6 +44,8 @@ var sendNotice = function(userMobile, ids, self) {
 				ids.push(centerBoxs[i].serialno);
 			}
 
+			console.log("centerBoxIds::::" + JSON.stringify(ids));
+
 			TerminalModel.find({centerBoxSerialno:{$in:ids}}, function(err, terminals) {
 				if(err) {
 					console.log(err);
@@ -53,6 +55,7 @@ var sendNotice = function(userMobile, ids, self) {
 						tIds.push(terminals[j]._id);
 					}
 
+					console.log("terminaIds::::" + JSON.stringify(tIds));
 					UserEquipmentModel.find({terminalId:{$in:tIds}}).populate({
 						path: 'homeGridId',
 						model: 'homeGrid',

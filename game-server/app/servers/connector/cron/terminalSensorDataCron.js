@@ -14,17 +14,16 @@ var Cron = function (app) {
 var sendQuery = function(curIpAddress, curPort, centerBoxSerialno, channelService) {
     if((!! curIpAddress) && (!! curPort)) {
         TerminalModel.find({centerBoxSerialno:centerBoxSerialno, isOnline:true}, function(error, terminals) {
-            console.log(JSON.stringify(terminals));
             if(error) {
                 console.log(error);
             } else {
                 if(!!terminals) {
                     for (var i = 0; i < terminals.length; i++) {
-                        var code = terminals[i].code;
+                        var homeGridId = terminals[i].homeGridId;
                         var param = {
                             command: '2005',
                             ipAddress: curIpAddress,
-                            data: code,
+                            data: homeGridId,
                             port: curPort
                         };
                         channelService.pushMessageByUids('onMsg', param, [{
