@@ -41,7 +41,7 @@
 
         $(document).ready(function() {
             pomelo.on('onMsg', function (data) {
-                layer.alert(JSON.stringify(data));
+//                layer.alert(JSON.stringify(data));
                 // 中控上线
                 if(data.command === '1000') {
                     $("#isOnlineSpan" + data.serialno).attr('style', 'color:green;');
@@ -423,6 +423,7 @@
             var ipAddressX = $("#ipAddressX").val();
             var portX = $("#portX").val();
             pomelo.request('user.userHandler.userSaySomething', {words:words, ipAddress:ipAddressX, port:portX}, function(data) {
+                alert(JSON.stringify(data));
                 $("#lastVoiceId").val(data.data.voiceId);
                 var deviceIds = "";
                 for(var i=0;i<data.data.devices.length;i++) {
@@ -438,12 +439,38 @@
         }
 
         function study() {
-//            var lastVoiceId = $("#lastVoiceId").val();
-            var lastVoiceId = "57b42435fa5204ddf2a46713";
+            var target = [
+                {
+                    "ac_model": "制冷",
+                    "ac_temperature": 26,
+                    "ac_windspeed": 0,
+                    "e_name": "美的空调",
+                    "e_type": "空调",
+                    "home_id": "57b1333cc99b4cfe3a0a5868",
+                    "id": "57a974f8a7155aca2fa7f083",
+                    "pingpai": "美的",
+                    "status": "开",
+                    "typeName": "美的(RN02MBG)"
+                },
+                {
+                    "ac_model": "制冷",
+                    "ac_temperature": 28,
+                    "ac_windspeed": 0,
+                    "e_name": "美的测试",
+                    "e_type": "空调",
+                    "home_id": "57b1333cc99b4cfe3a0a5868",
+                    "id": "57bd86117d003638759121bc",
+                    "pingpai": "美的",
+                    "status": "开",
+                    "typeName": "美的(RN02MBG)"
+                }
+            ];
+            var param = {
+                "lastVoiceId": "57eb7dc8fa524e6252413f15",
+                "devices":JSON.stringify(target)
+            }
 
-            var devices = '[{"ac_temperature":16, "ac_windspeed":2, "deviceId":"57a974f8a7155aca2fa7f083", "deviceType":"空调", "model":"制冷", "status":"开"},';
-            devices += '{"ac_temperature":16, "ac_windspeed":2, "deviceId":"57a974f8a7155aca2fa7f083", "deviceType":"空调", "model":"制冷", "status":"开"}]';
-            pomelo.request('user.userHandler.study', {devices:devices, lastVoiceId:lastVoiceId}, function(data) {
+            pomelo.request('user.userHandler.study', param, function(data) {
                 layer.alert(JSON.stringify(data));
             });
         }
@@ -457,16 +484,17 @@
 
         function sendNoticeWin() {
 
-            pomelo.request('user.userHandler.getUserList', function(users) {
+            pomelo.request('user.userHandler.getUserList', function(data) {
                 var html = '';
+                var users = data.data;
                 for(var i=0;i<users.length;i++) {
                     if(users[i].online == true) {
                         html += "<div style='border:solid 1px green; cursor:pointer;margin:5px;' onclick='sendNotice(\"" + users[i].user.mobile + "\");'>";
-                        html += users[i].user.name + ":";
+                        html += users[i].user.mobile + ":";
                         html += "在线</div>";
                     } else {
                         html += "<div style='border:solid 1px red; cursor:pointer;margin:5px;' onclick='sendNotice(\"" + users[i].user.mobile + "\");'>";
-                        html += users[i].user.name + ":";
+                        html += users[i].user.mobile + ":";
                         html += "离线</div>";
                     }
                 }

@@ -240,7 +240,8 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 								temperature:temperature,
 								centerBoxSerialno:msg.serialno,
 								addTime:new Date(),
-								terminalId:terminal._id
+								terminalId:terminal._id,
+								homeGridId:terminal.homeGridId
 							};
 
 							UserModel.find({parentUser:userMobile}, function(err, users) {
@@ -295,9 +296,9 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 					port: msg.port,
 					data: msg.data
 				};
-			} else if(command == '8001') {
+			} else if(command == '7001') {
 				param = {
-					command:'8001',
+					command:'7001',
 					data: msg.data
 				}
 			} else if(command == '4000') {
@@ -350,7 +351,6 @@ Handler.prototype.socketMsg = function(msg, session, next) {
 			if(param.command == '2005') {
 
 			} else {
-				console.log("------------------------------------" + userMobile);
 				UserModel.find({parentUser:userMobile}, function(err, users) {
 					if(err) {
 						console.log(err);

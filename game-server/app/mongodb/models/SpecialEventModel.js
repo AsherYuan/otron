@@ -18,7 +18,7 @@ var SpecialEventSchema = new mongoose.Schema({
 	type:Number, /*1 交互操作推送 2 确认动作推送 3 文本描述推送 （等级3以下的推送根据用户使用习惯来判断类型设置，等级3以上的强制推送) */
 	hasConfirm:Number, /* 用户是否已确认，type==1 || type == 2 情况下有效 其他类型忽略, 0,未确认，1 已确认 2 点击确认 3 点击取消 */
 	action:[ActionSchema], /* type==1 || type==2 时有效，代表将要执行的操作 */
-	result:String,
+	result:String
 });
 var SpecialEventModel = mongoose.model("SpecialEvent", SpecialEventSchema);
 module.exports = SpecialEventModel;

@@ -2,29 +2,9 @@
   "development": {
     "connector": [
       {
-        "id": 1,
-        "time": "0 0/10 * * * *",
-        "action": "outdoorDataCron.currentData"
-      },
-      {
         "id": 2,
         "time": "3/10 * * * * *",
         "action": "terminalSensorDataCron.getSensorData"
-      },
-      {
-        "id": 3,
-        "time": "0 0 0/2 * * *",
-        "action": "newsDataCron.currentData"
-      },
-      {
-        "id": 4,
-        "time": "0 10 0/1 * * *",
-        "action": "weatherAlarmDataCron.currentData"
-      },
-      {
-        "id": 5,
-        "time": "0 20 0/3 * * *",
-        "action": "weatherSuggestDataCron.currentData"
       },
       {
         "id": 6,
@@ -36,29 +16,9 @@
   "production": {
     "connector": [
       {
-        "id": 1,
-        "time": "0 0/10 * * * *",
-        "action": "outdoorDataCron.currentData"
-      },
-      {
         "id": 2,
         "time": "3/10 * * * * *",
         "action": "terminalSensorDataCron.getSensorData"
-      },
-      {
-        "id": 3,
-        "time": "0 0 0/2 * * *",
-        "action": "newsDataCron.currentData"
-      },
-      {
-        "id": 4,
-        "time": "0 10 0/1 * * *",
-        "action": "weatherAlarmDataCron.currentData"
-      },
-      {
-        "id": 5,
-        "time": "0 20 0/3 * * *",
-        "action": "weatherSuggestDataCron.currentData"
       },
       {
         "id": 6,

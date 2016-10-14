@@ -37,25 +37,22 @@ Cron.prototype.currentData = function () {
 var sendNotice = function(userMobile, ids, self) {
 	CenterBoxModel.find({userMobile:{$in:ids}}, function(err, centerBoxs) {
 		if(err) {
-			console.log(err);
+			console.log("aaa" + err);
 		} else {
 			var ids = new Array();
 			for(var i=0;i<centerBoxs.length;i++) {
 				ids.push(centerBoxs[i].serialno);
 			}
 
-			console.log("centerBoxIds::::" + JSON.stringify(ids));
-
 			TerminalModel.find({centerBoxSerialno:{$in:ids}}, function(err, terminals) {
 				if(err) {
-					console.log(err);
+					console.log("bbb" + err);
 				} else {
 					var tIds = new Array();
 					for(var j=0;j<terminals.length; j++) {
 						tIds.push(terminals[j]._id);
 					}
 
-					console.log("terminaIds::::" + JSON.stringify(tIds));
 					UserEquipmentModel.find({terminalId:{$in:tIds}}).populate({
 						path: 'homeGridId',
 						model: 'homeGrid',
@@ -65,7 +62,7 @@ var sendNotice = function(userMobile, ids, self) {
 						}
 					}).exec(function(err, devices) {
 						if(err) {
-							console.log(err);
+							console.log("ccc" + err);
 						} else {
 							var ds = new Array();
 							for(var k=0;k<devices.length;k++) {

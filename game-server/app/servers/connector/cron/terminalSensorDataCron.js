@@ -13,17 +13,19 @@ var Cron = function (app) {
 
 var sendQuery = function(curIpAddress, curPort, centerBoxSerialno, channelService) {
     if((!! curIpAddress) && (!! curPort)) {
-        TerminalModel.find({centerBoxSerialno:centerBoxSerialno, isOnline:true}, function(error, terminals) {
+        // TerminalModel.find({centerBoxSerialno:centerBoxSerialno, isOnline:true}, function(error, terminals) {
+        TerminalModel.find({centerBoxSerialno:centerBoxSerialno}, function(error, terminals) {
             if(error) {
                 console.log(error);
             } else {
                 if(!!terminals) {
                     for (var i = 0; i < terminals.length; i++) {
-                        var homeGridId = terminals[i].homeGridId;
+                        // var homeGridId = terminals[i].homeGridId;
+                        var code = terminals[i].code;
                         var param = {
                             command: '2005',
                             ipAddress: curIpAddress,
-                            data: homeGridId,
+                            data: code,
                             port: curPort
                         };
                         channelService.pushMessageByUids('onMsg', param, [{

@@ -34,12 +34,9 @@ Cron.prototype.currentData = function () {
 				text = news.find('p').text().trim();
 			}
 		});
-		console.log(title);
-		console.log(href);
-		console.log(text);
 
 		ZixunModel.find({title: title}, function (err, doc) {
-			if (doc.length == 0) {
+			if (doc.length >= 0) {
 				var ZixunEntity = new ZixunModel({
 					title: title,
 					text: text,
@@ -70,22 +67,7 @@ Cron.prototype.currentData = function () {
 										if (err) console.log(err);
 									});
 
-									NoticeModel.count({hasRead: 0, userMobile: userMobile}, function (err, count) {
-										// 保存成功，开始向用户发送消息
-										var param = {
-											command: '9002',
-											title: title,
-											content: text,
-											addTime: new Date(),
-											addTimeLabel: Moment(new Date()).format('HH:mm'),
-											summary: summary,
-											notReadCount: count
-										};
-										self.app.get('channelService').pushMessageByUids('onMsg', param, [{
-											uid: userMobile,
-											sid: 'user-server-1'
-										}]);
-									});
+									sendNoticeMsg(userMobile, title, text, summary, self);
 								}
 							}
 						});
@@ -94,5 +76,24 @@ Cron.prototype.currentData = function () {
 			}
 		});
 
+	});
+};
+
+var sendNoticeMsg = function(userMobile, title, text, summary, self) {
+	NoticeModel.count({hasRead: 0, userMobile: userMobile}, function (err, count) {
+		// 保存成功，开始向用户发送消息
+		var param = {
+			command: '9002',
+			title: title,
+			content: text,
+			addTime: new Date(),
+			addTimeLabel: Moment(new Date()).format('HH:mm'),
+			summary: summary,
+			notReadCount: count
+		};
+		self.app.get('channelService').pushMessageByUids('onMsg', param, [{
+			uid: userMobile,
+			sid: 'user-server-1'
+		}]);
 	});
 };
